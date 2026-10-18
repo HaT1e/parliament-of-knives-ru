@@ -1,0 +1,1674 @@
+
+
+*label add_hunger
+*comment *gosub_scene functions add_hunger
+*set hunger +1
+*if (hunger > 5)
+	*set hunger 5
+*return
+
+
+*label normal_feeding
+*comment *gosub_scene functions normal_feeding
+*set hunger -2
+*if (hunger < 1)
+	*set hunger 1
+*return
+
+*label small_feeding
+*comment *gosub_scene functions small_feeding
+*set hunger -1
+*if (hunger < 1)
+	*set hunger 1
+*return
+
+*label subtract_humanity
+*comment *gosub_scene functions subtract_humanity
+*set humanity -1
+*if (humanity < 2)
+	*set bestial true
+*if (humanity < 1)
+	*set humanity 1
+*return
+
+*label add_humanity
+*comment *gosub_scene functions add_humanity
+*set humanity +1
+*if (humanity > 9)
+	*set humanity 9
+*return
+
+
+*label subtract_will
+*comment *gosub_scene functions subtract_will
+*set will -1
+*if (will < 0)
+	*set will 0
+*return
+
+
+*label subtract_corliss_loyalty
+*comment *gosub_scene functions subtract_corliss_loyalty
+*set loyalty_to_corliss -1
+*if (loyalty_to_corliss < 0)
+	*set loyalty_to_corliss 0
+*return	
+	
+
+*label subtract_corliss_influence
+*comment *gosub_scene functions subtract_corliss_influence
+*set corliss_influence -1
+*if (corliss_influence < 0)
+	*set corliss_influence 0
+*return	
+	
+*label subtract_ward_loyalty
+*comment *gosub_scene functions subtract_ward_loyalty
+*set loyalty_to_ward -1
+*if (loyalty_to_ward < 0)
+	*set loyalty_to_ward 0
+*return	
+
+
+*label add_aggravated_damage
+*comment *gosub_scene functions add_aggravated_damage
+*set aggravated_damage +2
+*set aggravated +1
+*if (aggravated = 3)
+	*achieve aggravation
+*return	
+
+
+*label major_level_up_stat
+*comment *gosub_scene functions major_level_up_stat
+
+
+*label to_next_dot
+*comment *gosub_scene functions to_next_dot
+
+*if (strength < 25)
+	*set to_next_strength_dot (25 - strength)
+	*goto strength_finished
+*elseif (strength < 35)
+	*set to_next_strength_dot (35 - strength)
+	*goto strength_finished
+*elseif (strength < 45)
+	*set to_next_strength_dot (45 - strength)
+	*goto strength_finished
+*elseif (strength < 55)
+	*set to_next_strength_dot (55 - strength)
+	*goto strength_finished
+*else 
+	*comment (strength < 65)
+	*set to_next_strength_dot (65 - strength)
+	*goto strength_finished
+*label strength_finished
+
+*if (dexterity < 25)
+	*set to_next_dexterity_dot (25 - dexterity)
+	*goto dexterity_finished
+*elseif (dexterity < 35)
+	*set to_next_dexterity_dot (35 - dexterity)
+	*goto dexterity_finished
+*elseif (dexterity < 45)
+	*set to_next_dexterity_dot (45 - dexterity)
+	*goto dexterity_finished
+*elseif (dexterity < 55)
+	*set to_next_dexterity_dot (55 - dexterity)
+	*goto dexterity_finished
+*else 
+	*comment (dexterity < 65)
+	*set to_next_dexterity_dot (65 - dexterity)
+	*goto dexterity_finished
+*label dexterity_finished
+
+*if (stamina < 25)
+	*set to_next_stamina_dot (25 - stamina)
+	*goto stamina_finished
+*elseif (stamina < 35)
+	*set to_next_stamina_dot (35 - stamina)
+	*goto stamina_finished
+*elseif (stamina < 45)
+	*set to_next_stamina_dot (45 - stamina)
+	*goto stamina_finished
+*elseif (stamina < 55)
+	*set to_next_stamina_dot (55 - stamina)
+	*goto stamina_finished
+*else 
+	*comment (stamina < 65)
+	*set to_next_stamina_dot (65 - stamina)
+	*goto stamina_finished
+*label stamina_finished
+
+*if (charisma < 25)
+	*set to_next_charisma_dot (25 - charisma)
+	*goto charisma_finished
+*elseif (charisma < 35)
+	*set to_next_charisma_dot (35 - charisma)
+	*goto charisma_finished
+*elseif (charisma < 45)
+	*set to_next_charisma_dot (45 - charisma)
+	*goto charisma_finished
+*elseif (charisma < 55)
+	*set to_next_charisma_dot (55 - charisma)
+	*goto charisma_finished
+*else 
+	*comment (charisma < 65)
+	*set to_next_charisma_dot (65 - charisma)
+	*goto charisma_finished
+*label charisma_finished
+
+*if (manipulation < 25)
+	*set to_next_manipulation_dot (25 - manipulation)
+	*goto manipulation_finished
+*elseif (manipulation < 35)
+	*set to_next_manipulation_dot (35 - manipulation)
+	*goto manipulation_finished
+*elseif (manipulation < 45)
+	*set to_next_manipulation_dot (45 - manipulation)
+	*goto manipulation_finished
+*elseif (manipulation < 55)
+	*set to_next_manipulation_dot (55 - manipulation)
+	*goto manipulation_finished
+*else 
+	*comment (manipulation < 65)
+	*set to_next_manipulation_dot (65 - manipulation)
+	*goto manipulation_finished
+*label manipulation_finished	
+	
+*if (composure < 25)
+	*set to_next_composure_dot (25 - composure)
+	*goto composure_finished
+*elseif (composure < 35)
+	*set to_next_composure_dot (35 - composure)
+	*goto composure_finished
+*elseif (composure < 45)
+	*set to_next_composure_dot (45 - composure)
+	*goto composure_finished
+*elseif (composure < 55)
+	*set to_next_composure_dot (55 - composure)
+	*goto composure_finished
+*else 
+	*comment (composure < 65)
+	*set to_next_composure_dot (65 - composure)
+	*goto composure_finished
+*label composure_finished	
+
+*if (intelligence < 25)
+	*set to_next_intelligence_dot (25 - intelligence)
+	*goto intelligence_finished
+*elseif (intelligence < 35)
+	*set to_next_intelligence_dot (35 - intelligence)
+	*goto intelligence_finished
+*elseif (intelligence < 45)
+	*set to_next_intelligence_dot (45 - intelligence)
+	*goto intelligence_finished
+*elseif (intelligence < 55)
+	*set to_next_intelligence_dot (55 - intelligence)
+	*goto intelligence_finished
+*else 
+	*comment (intelligence < 65)
+	*set to_next_intelligence_dot (65 - intelligence)
+	*goto intelligence_finished
+*label intelligence_finished	
+
+*if (wits < 25)
+	*set to_next_wits_dot (25 - wits)
+	*goto wits_finished
+*elseif (wits < 35)
+	*set to_next_wits_dot (35 - wits)
+	*goto wits_finished
+*elseif (wits < 45)
+	*set to_next_wits_dot (45 - wits)
+	*goto wits_finished
+*elseif (wits < 55)
+	*set to_next_wits_dot (55 - wits)
+	*goto wits_finished
+*else 
+	*comment (wits < 65)
+	*set to_next_wits_dot (65 - wits)
+	*goto wits_finished
+*label wits_finished
+	
+*if (resolve < 25)
+	*set to_next_resolve_dot (25 - resolve)
+	*goto resolve_finished
+*elseif (resolve < 35)
+	*set to_next_resolve_dot (35 - resolve)
+	*goto resolve_finished
+*elseif (resolve < 45)
+	*set to_next_resolve_dot (45 - resolve)
+	*goto resolve_finished
+*elseif (resolve < 55)
+	*set to_next_resolve_dot (55 - resolve)
+	*goto resolve_finished
+*else 
+	*comment (resolve < 65)
+	*set to_next_resolve_dot (65 - resolve)
+	*goto resolve_finished
+*label resolve_finished	
+	
+	
+*return
+	
+	
+*label add_archons_pet
+*comment Counts for Archon's Pet achievement.
+*set ch8_tattle	+1
+*if (ch8_tattle = 3)
+	*achieve archons_pet
+*return	
+	
+*label first_oblivion_use
+*comment *gosub_scene functions first_oblivion_use
+*set used_taught_oblivion true
+For the first time since your lesson with Father Moretti, you access the powers of the Abyss. 
+*if (clan = "Lasombra")
+	It comes easier to you somehow, as if your natural talents have been honed and focused to a razor's edge. Oblivion is under your control to shape as you see fit. At least that's what you hope.
+	
+	*return
+*else
+	It feels strange to do so without guidance, almost like learning to swim—surrendering yourself to an alien buoyancy as your feet leave the ground. No. Concentrate. You're right here, not floating in the void. That's right…Oblivion is under your control to shape as you see fit. At least that's what you hope.
+	
+	*return
+	
+	
+	
+
+	
+
+*label BACK_UP_VARIABLES
+*comment *gosub_scene functions BACK_UP_VARIABLES
+*comment Backs up all variables for save game restore at the beginning/end of chapters
+
+*set BACKUP_primer_obtained primer_obtained
+*set BACKUP_chapter chapter
+	
+*comment -----------------------------------------------------------------------------------------	
+*comment PLAYER DEFINITIONS
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_name_and_clan_chosen name_and_clan_chosen
+*set BACKUP_name name
+*set BACKUP_last_name last_name
+*set BACKUP_gender gender
+*set BACKUP_age age
+*set BACKUP_clan clan
+*set BACKUP_heshe heshe
+*set BACKUP_himher himher
+*set BACKUP_hisher hisher
+*set BACKUP_boygirl boygirl
+*set BACKUP_sirmaam sirmaam
+*set BACKUP_mrms mrms
+*set BACKUP_manwoman manwoman
+*set BACKUP_guygirl guygirl
+*set BACKUP_master_mistress master_mistress
+*set BACKUP_biker_name biker_name
+*set BACKUP_occupation occupation
+*set BACKUP_bed bed
+*set BACKUP_status status
+*set BACKUP_hair_color hair_color
+*set BACKUP_sexuality sexuality
+*set BACKUP_current_relationship1 current_relationship1
+*set BACKUP_how_i_feed how_i_feed
+*set BACKUP_deformity deformity
+*set BACKUP_rat_name rat_name
+*set BACKUP_rat_gender rat_gender
+*set BACKUP_rat_heshe rat_heshe
+*set BACKUP_rat_hisher rat_hisher
+*set BACKUP_rat_himher rat_himher
+*set BACKUP_rat_fur_color rat_fur_color
+*set BACKUP_gerard_skill gerard_skill
+
+*set BACKUP_met_adeline met_adeline
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment STATS
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_hunger hunger
+*set BACKUP_will will
+*set BACKUP_aggravated_damage aggravated_damage
+*comment The below counts how many times you've been hit with agg during the game.
+*set BACKUP_aggravated aggravated
+*set BACKUP_humanity humanity
+*set BACKUP_masquerade_breaches masquerade_breaches
+*set BACKUP_bestial bestial
+*set BACKUP_strength strength
+*set BACKUP_dexterity dexterity
+*set BACKUP_stamina stamina
+*set BACKUP_charisma charisma
+*set BACKUP_manipulation manipulation
+*set BACKUP_composure composure
+*set BACKUP_intelligence intelligence
+*set BACKUP_wits wits
+*set BACKUP_resolve resolve
+
+*set BACKUP_ruthless ruthless
+*set BACKUP_subversive subversive
+
+*set BACKUP_animalism animalism
+*set BACKUP_auspex auspex
+*set BACKUP_celerity celerity
+*set BACKUP_dominate dominate
+*set BACKUP_fortitude fortitude
+*set BACKUP_obfuscate obfuscate
+*set BACKUP_potence potence
+*set BACKUP_presence presence
+*set BACKUP_sorcery sorcery
+*set BACKUP_oblivion oblivion
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment RELATIONSHIPS AND CHARACTER VARIABLES
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_corliss corliss
+*set BACKUP_lucca lucca
+*set BACKUP_jordan jordan
+*set BACKUP_jordan_rel jordan_rel
+*set BACKUP_gerard gerard
+*set BACKUP_trevor trevor
+*set BACKUP_alisha alisha
+*set BACKUP_bouchard bouchard
+*set BACKUP_ophelia ophelia
+*set BACKUP_vivian vivian
+*set BACKUP_kashif kashif
+*set BACKUP_qui qui
+*set BACKUP_qui_rel qui_rel
+*set BACKUP_ward ward
+*set BACKUP_adeline adeline
+*set BACKUP_lang lang
+*set BACKUP_sevinc sevinc
+*set BACKUP_arundel arundel
+
+*set BACKUP_tremere tremere
+
+*set BACKUP_jordan_heshe jordan_heshe
+*set BACKUP_jordan_hisher jordan_hisher
+*set BACKUP_jordan_himher jordan_himher
+*set BACKUP_jordan_hishers jordan_hishers
+*set BACKUP_jordan_gender jordan_gender
+*set BACKUP_jordan_favorite_movies jordan_favorite_movies
+
+*set BACKUP_ch5_jordan_second_chance ch5_jordan_second_chance
+
+*set BACKUP_ch5_asked_qui_out ch5_asked_qui_out
+*set BACKUP_ch6_went_on_qui_date ch6_went_on_qui_date
+*set BACKUP_qui_broke_up qui_broke_up
+
+
+*set BACKUP_anarch_strength anarch_strength
+*set BACKUP_corliss_influence corliss_influence
+*set BACKUP_players_influence players_influence
+*set BACKUP_loyalty_to_corliss loyalty_to_corliss
+*set BACKUP_loyalty_to_ward loyalty_to_ward
+*set BACKUP_lucca_alive lucca_alive
+*set BACKUP_kashif_alive kashif_alive
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment Research Variables / Multi-Chapter
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_gerard_uncovered_explosives_origin gerard_uncovered_explosives_origin
+*set BACKUP_gerard_found_kindred_ties_to_warehouse gerard_found_kindred_ties_to_warehouse
+*set BACKUP_gerard_found_police_cover_up gerard_found_police_cover_up
+*set BACKUP_gerard_uncovered_ward_history gerard_uncovered_ward_history
+*set BACKUP_gerard_sets_up_home_security gerard_sets_up_home_security
+*set BACKUP_gerard_gets_incendiaries gerard_gets_incendiaries
+*set BACKUP_gerard_manages_finances gerard_manages_finances
+
+*comment -----------------------------------------------------------------------------------------
+*comment Malkavian Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_malk_name malk_name
+*set BACKUP_malk_gender malk_gender
+*set BACKUP_malk_heshe malk_heshe
+*set BACKUP_malk_himher malk_himher
+*set BACKUP_malk_hisher malk_hisher
+*set BACKUP_malk_manwoman malk_manwoman
+*set BACKUP_malk_guygirl malk_guygirl
+*set BACKUP_malk_hair_color malk_hair_color
+*set BACKUP_malk_clothing malk_clothing
+*set BACKUP_malk_demeanor malk_demeanor
+
+*set BACKUP_ch4_malk_destination ch4_malk_destination
+*set BACKUP_ch5_ophelias_seed ch5_ophelias_seed
+*set BACKUP_malk_shall_not_pass malk_shall_not_pass
+*set BACKUP_ch6_malk_will_travel ch6_malk_will_travel
+*set BACKUP_ch8_working_with_ophelia ch8_working_with_ophelia
+*set BACKUP_ch10_learned_origin_late ch10_learned_origin_late
+*set BACKUP_ch10_denied_malk ch10_denied_malk
+*set BACKUP_ch10_defeated_ophelia ch10_defeated_ophelia
+*set BACKUP_ch10_allied_with_ophelia_in_memories ch10_allied_with_ophelia_in_memories
+*set BACKUP_malk_memory_embrace malk_memory_embrace
+*set BACKUP_malk_memory_service malk_memory_service
+*set BACKUP_malk_memory_other_childer malk_memory_other_childer
+
+*set BACKUP_seen_the_light seen_the_light
+
+*comment -----------------------------------------------------------------------------------------
+*comment Lucca Relationship Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_ch4_lucca_likes_you ch4_lucca_likes_you
+*set BACKUP_ch5_faced_moretti ch5_faced_moretti
+*set BACKUP_ch5_moretti_destroyed ch5_moretti_destroyed
+*set BACKUP_ch5_moretti_staked ch5_moretti_staked
+*set BACKUP_ch5_i_finished_moretti ch5_i_finished_moretti
+*set BACKUP_ch6_snooped_on_basaras_with_lucca ch6_snooped_on_basaras_with_lucca
+*set BACKUP_ch6_lucca_track_shaw_centre ch6_lucca_track_shaw_centre
+*set BACKUP_ch8_rejected_lucca ch8_rejected_lucca
+*set BACKUP_ch8_stole_journal_from_basaras ch8_stole_journal_from_basaras
+*set BACKUP_ch8_lucca_kept_info_from_corliss ch8_lucca_kept_info_from_corliss
+*set BACKUP_ch9_lucca_relationship_no_villa_mission ch9_lucca_relationship_no_villa_mission
+*set BACKUP_ch9_lucca_path_basaras_followed ch9_lucca_path_basaras_followed
+
+
+*set BACKUP_ch5_became_morettis_student ch5_became_morettis_student
+*set BACKUP_ch6_moretti_taught_oblivion ch6_moretti_taught_oblivion
+*set BACKUP_used_taught_oblivion used_taught_oblivion
+
+*set BACKUP_after_moretti_told_lucca_to_tell_corliss after_moretti_told_lucca_to_tell_corliss
+
+*comment -----------------------------------------------------------------------------------------
+*comment DLC Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_storyteller storyteller
+*set BACKUP_stat_dots_option stat_dots_option
+*set BACKUP_first_time_stats first_time_stats
+*set BACKUP_to_next_strength_dot to_next_strength_dot
+*set BACKUP_to_next_dexterity_dot to_next_dexterity_dot
+*set BACKUP_to_next_stamina_dot to_next_stamina_dot
+*set BACKUP_to_next_charisma_dot to_next_charisma_dot
+*set BACKUP_to_next_manipulation_dot to_next_manipulation_dot
+*set BACKUP_to_next_composure_dot to_next_composure_dot
+*set BACKUP_to_next_intelligence_dot to_next_intelligence_dot
+*set BACKUP_to_next_wits_dot to_next_wits_dot
+*set BACKUP_to_next_resolve_dot to_next_resolve_dot
+
+*set BACKUP_sevinc_interested sevinc_interested
+*set BACKUP_sevinc_opposed sevinc_opposed
+*set BACKUP_ch7b_sevinc_hate_fuck ch7b_sevinc_hate_fuck
+*set BACKUP_ch10_sevinc_fun_time ch10_sevinc_fun_time
+
+*comment Lasombra 
+*set BACKUP_ch4_told_lucca_shes_lasombra ch4_told_lucca_shes_lasombra
+*set BACKUP_ch4_suggested_lucca_is_lasombra ch4_suggested_lucca_is_lasombra
+*set BACKUP_ch5_used_oblivion_on_moretti ch5_used_oblivion_on_moretti
+*set BACKUP_ch5_used_oblivion_in_front_of_anarchs ch5_used_oblivion_in_front_of_anarchs
+*set BACKUP_ch5_basaras_ally ch5_basaras_ally
+*set BACKUP_ch5_completed_basaras_quest ch5_completed_basaras_quest
+*set BACKUP_ch5_failed_basaras_quest ch5_failed_basaras_quest
+*set BACKUP_ch6_told_lucca_shes_lasombra ch6_told_lucca_shes_lasombra
+*set BACKUP_ch6_suggested_lucca_shes_lasombra ch6_suggested_lucca_shes_lasombra
+*set BACKUP_ch8_qui_relationship_lied_about_being_lasombra ch8_qui_relationship_lied_about_being_lasombra
+*set BACKUP_ch8_told_qui_youre_lasombra ch8_told_qui_youre_lasombra
+*set BACKUP_ch10_lucca_asked_arundel_about_being_lasombra ch10_lucca_asked_arundel_about_being_lasombra
+
+
+*comment Other misc variables added at time of DLC
+*set BACKUP_ch5_talked_to_trevor ch5_talked_to_trevor
+*set BACKUP_ch5_side_room_with_trevor ch5_side_room_with_trevor
+*set BACKUP_ch5_agreed_to_work_with_trevor ch5_agreed_to_work_with_trevor
+*set BACKUP_ch5_tattled_on_trevor ch5_tattled_on_trevor
+*set BACKUP_ch7A_trevor_warned_about_blood_hunt ch7A_trevor_warned_about_blood_hunt
+*set BACKUP_ch10_trevor_revealed_as_sabbat ch10_trevor_revealed_as_sabbat
+*set BACKUP_ch10_told_companion_trevor_is_sabbat ch10_told_companion_trevor_is_sabbat
+*set BACKUP_ch10_joined_the_sabbat ch10_joined_the_sabbat
+*set BACKUP_destroyed_trevor_new destroyed_trevor_new
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 1 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_ward_hates_you ward_hates_you
+*set BACKUP_ch1_person_rescued ch1_person_rescued
+*set BACKUP_opened_up_to_gerard opened_up_to_gerard
+*set BACKUP_ch1_gerards_research ch1_gerards_research
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 2 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_kindred_primer kindred_primer
+*set BACKUP_ch2_who_i_investigated ch2_who_i_investigated
+*set BACKUP_ch2_hauberk_freed ch2_hauberk_freed
+*set BACKUP_ch2_rescued_hauberk_yourself ch2_rescued_hauberk_yourself
+*set BACKUP_ch2_helped_kashif ch2_helped_kashif
+*set BACKUP_ch2_accused_shawn_theft ch2_accused_shawn_theft
+*set BACKUP_told_on_shawn told_on_shawn
+*set BACKUP_ch2_asked_bouchard_about_maps ch2_asked_bouchard_about_maps
+*set BACKUP_ch2_told_bouchard_arundel_missing ch2_told_bouchard_arundel_missing
+*set BACKUP_ch2_bouchard_told_you_corliss_was_with_tremere ch2_bouchard_told_you_corliss_was_with_tremere
+*set BACKUP_ch2_bouchard_missing_paper ch2_bouchard_missing_paper
+*set BACKUP_ch2_allied_with_bouchard ch2_allied_with_bouchard
+*set BACKUP_ch2_saw_toreador_at_vivians ch2_saw_toreador_at_vivians
+*set BACKUP_overheard_plot overheard_plot
+*set BACKUP_ch2_allied_with_vivian ch2_allied_with_vivian
+*set BACKUP_ch2_ward_shot_me ch2_ward_shot_me
+*set BACKUP_ch2_let_gangrel_go ch2_let_gangrel_go
+*set BACKUP_ch2_saw_tremere_at_corliss_office ch2_saw_tremere_at_corliss_office
+*set BACKUP_ch2_ward_proposed_prison_break ch2_ward_proposed_prison_break
+*set BACKUP_ch2_jailbreak_method ch2_jailbreak_method
+*set BACKUP_ch2_declined_wards_offer ch2_declined_wards_offer
+*set BACKUP_met_trevor met_trevor
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 3 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_ch3_gerard_overheard_qui ch3_gerard_overheard_qui
+*set BACKUP_ch3_told_qui_how_i_feel_about_tremere ch3_told_qui_how_i_feel_about_tremere
+*set BACKUP_ch3_told_qui_lang_visited_corliss ch3_told_qui_lang_visited_corliss
+*set BACKUP_ch3_told_qui_front_desk_pass ch3_told_qui_front_desk_pass
+*set BACKUP_ch3_told_qui_you_didnt_stop_hauberk ch3_told_qui_you_didnt_stop_hauberk
+*set BACKUP_ch3_qui_opened_up ch3_qui_opened_up
+*set BACKUP_ch3_told_qui_support ch3_told_qui_support
+*set BACKUP_ch3_talked_with_corliss ch3_talked_with_corliss
+*set BACKUP_ch3_went_to_vivians ch3_went_to_vivians
+*set BACKUP_ch3_told_corliss_about ch3_told_corliss_about
+*set BACKUP_ch3_caught_ophelia ch3_caught_ophelia
+*set BACKUP_ch3_dominated_by_ophelia ch3_dominated_by_ophelia
+*set BACKUP_ch3_resisted_ophelias_domination ch3_resisted_ophelias_domination
+*set BACKUP_ch3_lied_to_corliss ch3_lied_to_corliss
+*set BACKUP_ch3_told_corliss_about_toreador_with_vivian ch3_told_corliss_about_toreador_with_vivian
+*set BACKUP_ch3_told_corliss_she_was_seen_with_tremere ch3_told_corliss_she_was_seen_with_tremere
+*set BACKUP_ch3_caught_reporter ch3_caught_reporter
+*set BACKUP_ch3_who_has_camera ch3_who_has_camera
+*set BACKUP_ch3_talked_to_vivians_servant ch3_talked_to_vivians_servant
+*set BACKUP_ch3_vivians_servant_mentions_ventrue ch3_vivians_servant_mentions_ventrue
+*set BACKUP_officer_killed officer_killed
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 4 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_talk_counter talk_counter
+*set BACKUP_ch4_jordan_mentioned_vivians_amnesia ch4_jordan_mentioned_vivians_amnesia
+*set BACKUP_ch4_auspex_vivian ch4_auspex_vivian
+*set BACKUP_ch4_talked_with_bouchard ch4_talked_with_bouchard
+*set BACKUP_ch4_talked_with_corliss ch4_talked_with_corliss
+*set BACKUP_ch4_talked_with_jordan ch4_talked_with_jordan
+*set BACKUP_ch4_talked_with_lang ch4_talked_with_lang
+*set BACKUP_ch4_talked_with_lucca ch4_talked_with_lucca
+*set BACKUP_ch4_talked_with_kashif_and_ophelia ch4_talked_with_kashif_and_ophelia
+*set BACKUP_ch4_ask_kashif_about_london ch4_ask_kashif_about_london
+*set BACKUP_ch4_finished_asking_kashif_about_london ch4_finished_asking_kashif_about_london
+*set BACKUP_ch4_pass_kashifs_message_to_corliss ch4_pass_kashifs_message_to_corliss
+*set BACKUP_ch4_kashif_wants_you_to_spy_on_corliss ch4_kashif_wants_you_to_spy_on_corliss
+*set BACKUP_lucca_confirms_she_has_access_to_corliss_servers lucca_confirms_she_has_access_to_corliss_servers
+*set BACKUP_ch4_refused_your_meal ch4_refused_your_meal
+*set BACKUP_ch4_visiting_jordan ch4_visiting_jordan
+*set BACKUP_ch4_accused_corliss_to_jordan ch4_accused_corliss_to_jordan
+*set BACKUP_ch4_trevor_interested_in_history ch4_trevor_interested_in_history
+*set BACKUP_ch4_told_vivian_about_camera ch4_told_vivian_about_camera
+*set BACKUP_ch4_gave_camera_vivian ch4_gave_camera_vivian
+*set BACKUP_ch4_lucca_is_armed ch4_lucca_is_armed
+*set BACKUP_ch4_thought_about_lucca_explosives ch4_thought_about_lucca_explosives
+*set BACKUP_ch4_skipped_jordan_date_for_alliance ch4_skipped_jordan_date_for_alliance
+*set BACKUP_ch4_im_catholic ch4_im_catholic
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 5 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_ch5_rejected_vivians_alliance ch5_rejected_vivians_alliance
+*set BACKUP_ch5_talked_to_gerard ch5_talked_to_gerard
+*set BACKUP_ch5_gerard_calls_in_defenses ch5_gerard_calls_in_defenses
+
+*set BACKUP_ch5_broke_into_alishas ch5_broke_into_alishas
+*set BACKUP_ch5_qui_captured_ichiro ch5_qui_captured_ichiro
+*set BACKUP_ch5_killed_networked_humans ch5_killed_networked_humans
+
+*set BACKUP_ch5_have_hauberks_gun ch5_have_hauberks_gun
+*set BACKUP_ch5_fired_hauberks_gun ch5_fired_hauberks_gun
+*set BACKUP_ch5_have_wards_card ch5_have_wards_card
+*set BACKUP_ch5_didnt_meet_ward ch5_didnt_meet_ward
+*set BACKUP_ch5_ambush_ward ch5_ambush_ward
+*set BACKUP_ch5_successfully_spied_on_ward ch5_successfully_spied_on_ward
+*set BACKUP_ch5_shot_ward ch5_shot_ward
+*set BACKUP_ch5_shot_sevinc ch5_shot_sevinc
+*set BACKUP_ch5_spied_and_left_without_talking ch5_spied_and_left_without_talking
+*set BACKUP_ch5_ward_told_you_your_mind_is_tampered_with ch5_ward_told_you_your_mind_is_tampered_with
+*set BACKUP_ch5_heard_wards_whole_truth ch5_heard_wards_whole_truth
+*set BACKUP_ch5_auspex_ward ch5_auspex_ward
+*set BACKUP_ch5_ward_warned_about_tremere_bombing ch5_ward_warned_about_tremere_bombing
+*set BACKUP_ch5_worked_with_sevincs_dogs ch5_worked_with_sevincs_dogs
+*set BACKUP_ch5_used_sevincs_glock ch5_used_sevincs_glock
+*set BACKUP_ch5_used_sevincs_sword ch5_used_sevincs_sword
+*set BACKUP_ch5_fought_alongside_ward_and_sevinc ch5_fought_alongside_ward_and_sevinc
+*set BACKUP_ch5_found_merc_badge ch5_found_merc_badge
+
+*set BACKUP_ch5_fed_early ch5_fed_early
+
+*set BACKUP_ch5_attended_exhibition ch5_attended_exhibition
+*set BACKUP_ch5_told_alisha_you_heard ch5_told_alisha_you_heard
+*set BACKUP_ch5_spoke_with ch5_spoke_with
+*set BACKUP_told_qui_about_bomb_threat told_qui_about_bomb_threat
+*set BACKUP_told_jordan_about_bomb_threat told_jordan_about_bomb_threat
+*set BACKUP_told_lucca_about_bomb_threat told_lucca_about_bomb_threat
+
+*set BACKUP_told_lucca_about_explosives_from_kurzawa told_lucca_about_explosives_from_kurzawa
+*set BACKUP_ch5_accused_lucca_explosives ch5_accused_lucca_explosives
+*set BACKUP_ch5_lucca_looking_into_explosives ch5_lucca_looking_into_explosives
+*set BACKUP_lucca_asked_about_running lucca_asked_about_running
+
+*set BACKUP_ch5_left_early ch5_left_early
+*set BACKUP_ch5_left_early_with_jordan ch5_left_early_with_jordan
+*set BACKUP_ch5_left_early_with_lucca ch5_left_early_with_lucca
+*set BACKUP_ch5_left_early_with_qui ch5_left_early_with_qui
+*set BACKUP_ch5_left_early_alone ch5_left_early_alone
+
+*set BACKUP_ch5_killed_ichiro ch5_killed_ichiro
+*set BACKUP_ch5_killed_ichiro_how ch5_killed_ichiro_how
+*set BACKUP_ch5_completed_vivians_quest ch5_completed_vivians_quest
+*set BACKUP_ch5_drained_ichiros_blood ch5_drained_ichiros_blood
+*set BACKUP_ch5_copied_files_for_vivian ch5_copied_files_for_vivian
+*set BACKUP_ch5_left_fingerprints_on_vivians_quest ch5_left_fingerprints_on_vivians_quest
+*set BACKUP_ch5_took_ichiros_sword ch5_took_ichiros_sword
+*set BACKUP_ch5_saw_ophelia_dominate_ichiro ch5_saw_ophelia_dominate_ichiro
+*set BACKUP_ch5_saved_jasmine ch5_saved_jasmine
+*set BACKUP_ch5_went_after_bombers ch5_went_after_bombers
+*set BACKUP_ch5_ran_away ch5_ran_away
+*set BACKUP_ch5_zapped_by_magic_ward ch5_zapped_by_magic_ward
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 6 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_ch6_gave_wards_card_to_archon ch6_gave_wards_card_to_archon
+*set BACKUP_ch6_lied_to_archon ch6_lied_to_archon
+*set BACKUP_ch6_betray_ward_to_adeline ch6_betray_ward_to_adeline
+*set BACKUP_ch6_told_archon_about_tremere_bombing ch6_told_archon_about_tremere_bombing
+*set BACKUP_ch6_failed_vivian ch6_failed_vivian
+*set BACKUP_ch6_failed_bouchard ch6_failed_bouchard
+*set BACKUP_ch6_carrying_gun ch6_carrying_gun
+
+*set BACKUP_ch6_met_extortionist ch6_met_extortionist
+*set BACKUP_ch6_called_qui_about_extortion ch6_called_qui_about_extortion
+*set BACKUP_ch6_used_auspex_on_extortionist ch6_used_auspex_on_extortionist
+*set BACKUP_ch6_wounded_lasombra_assassin ch6_wounded_lasombra_assassin
+*set BACKUP_ch6_ahriman_tentacle_damage ch6_ahriman_tentacle_damage
+
+*set BACKUP_ch6_visited_bouchard ch6_visited_bouchard
+*set BACKUP_ch6_brought_bouchard_ichiros_sword ch6_brought_bouchard_ichiros_sword
+*set BACKUP_ch6_bouchard_executed_shawn ch6_bouchard_executed_shawn
+*set BACKUP_ch6_told_corliss_bouchards_info ch6_told_corliss_bouchards_info
+
+*set BACKUP_ch6_visited_vivian ch6_visited_vivian
+*set BACKUP_ch6_vivian_said_corliss_had_arundel_captured ch6_vivian_said_corliss_had_arundel_captured
+*set BACKUP_ch6_told_vivian_about_meeting_ward ch6_told_vivian_about_meeting_ward
+*set BACKUP_ch6_told_corliss_vivians_info ch6_told_corliss_vivians_info
+
+*set BACKUP_ch6_saw_lucca_at_jordans ch6_saw_lucca_at_jordans
+*set BACKUP_ch6_luccas_car_damaged ch6_luccas_car_damaged
+*set BACKUP_ch6_upset_jordan ch6_upset_jordan
+*set BACKUP_ch6_qui_ate_javier ch6_qui_ate_javier
+*set BACKUP_ch6_javier_not_killed ch6_javier_not_killed
+
+*set BACKUP_ch6_adeline_grilled_you ch6_adeline_grilled_you
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 7A Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_ch7A_talked_to_wards_driver ch7A_talked_to_wards_driver
+*set BACKUP_ch7A_saw_sevinc_in_alley ch7A_saw_sevinc_in_alley
+*set BACKUP_ch7A_attack_plan ch7A_attack_plan
+*set BACKUP_ch7A_sneak_peek ch7A_sneak_peek
+*set BACKUP_ch7A_ward_disabled ch7A_ward_disabled
+*set BACKUP_ch7A_took_tremere_prisoner ch7A_took_tremere_prisoner
+*set BACKUP_ch7A_captured_daphne_yourself ch7A_captured_daphne_yourself
+*set BACKUP_ch7A_bouchards_scouts ch7A_bouchards_scouts
+*set BACKUP_ch7A_know_laflamme ch7A_know_laflamme
+*set BACKUP_ch7A_faced_lillian ch7A_faced_lillian
+*set BACKUP_ch7A_destroyed_lillian ch7A_destroyed_lillian
+*set BACKUP_ch7A_wounded_lillian ch7A_wounded_lillian
+*set BACKUP_ch7A_lillian_captured ch7A_lillian_captured
+*set BACKUP_ch7A_wounded_by_aggravated_damage ch7A_wounded_by_aggravated_damage
+*set BACKUP_ch7A_snapped_mercs_out_of_it ch7A_snapped_mercs_out_of_it
+*set BACKUP_ch7A_helped_save_lucca ch7A_helped_save_lucca
+*set BACKUP_ch7A_saved_kashif ch7A_saved_kashif
+*set BACKUP_ch7A_qui_kept_prisoners ch7A_qui_kept_prisoners
+*set BACKUP_ch7A_found_lang_bound ch7A_found_lang_bound
+*set BACKUP_ch7A_told_heather_her_father_died ch7A_told_heather_her_father_died
+*set BACKUP_ch7A_gave_qui_heathers_photo ch7A_gave_qui_heathers_photo
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 7B Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_ch7B_went_to_see_ward ch7B_went_to_see_ward
+*set BACKUP_ch7B_jordan_scanned_me ch7B_jordan_scanned_me
+*set BACKUP_what_i_saw what_i_saw
+*set BACKUP_ch7B_attacked_elysium ch7B_attacked_elysium
+*set BACKUP_ch7B_fought_arnold ch7B_fought_arnold
+*set BACKUP_ch7B_escaped_elysium_with_alisha ch7B_escaped_elysium_with_alisha
+*set BACKUP_ch7B_saw_jonathan_alive ch7B_saw_jonathan_alive
+*set BACKUP_ch7B_convinced_anarchs_to_leave ch7B_convinced_anarchs_to_leave
+*set BACKUP_ch7B_hid_in_garage ch7B_hid_in_garage
+*set BACKUP_ch7_ghoul ch7_ghoul
+*set BACKUP_ch7B_refused_to_attack_elysium ch7B_refused_to_attack_elysium
+*set BACKUP_ch7B_left_anarchs_before_hearing_plan ch7B_left_anarchs_before_hearing_plan
+
+*comment *set lilly_here
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 8 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_ch8_visited_vivian ch8_visited_vivian
+*set BACKUP_ch8_vivian_gave_you_letter ch8_vivian_gave_you_letter
+*set BACKUP_ch8_investigated ch8_investigated
+*set BACKUP_ch8_security_backup ch8_security_backup
+*set BACKUP_ch8_mary ch8_mary
+*set BACKUP_ch8_witness ch8_witness
+*set BACKUP_ch8_told_archon1 ch8_told_archon1
+*set BACKUP_ch8_told_archon_corliss_meets_with_tremere ch8_told_archon_corliss_meets_with_tremere
+
+*set BACKUP_ch8_spoke_with_archon ch8_spoke_with_archon
+
+*set BACKUP_ch8_tattle ch8_tattle
+*set BACKUP_ch8_told_adeline_qui_stopped_investigation ch8_told_adeline_qui_stopped_investigation
+*set BACKUP_ch8_told_adeline_alisha_owned_warehouse ch8_told_adeline_alisha_owned_warehouse
+*set BACKUP_ch8_lucca_bought_explosives ch8_lucca_bought_explosives
+*set BACKUP_ch8_ward_arundel_history ch8_ward_arundel_history
+*set BACKUP_ch8_blamed_the_tremere ch8_blamed_the_tremere
+*set BACKUP_ch8_betrayed_vivian ch8_betrayed_vivian
+*set BACKUP_ch8_told_vivian_is_suspicious ch8_told_vivian_is_suspicious
+*set BACKUP_ch8_told_adeline_vivian_hunters ch8_told_adeline_vivian_hunters
+*set BACKUP_ch8_told_archon_bouchard_shawn ch8_told_archon_bouchard_shawn
+*set BACKUP_ch8_told_bouchard_says_kashif_defected ch8_told_bouchard_says_kashif_defected
+*set BACKUP_ch8_told_archon_saw_alishas_basement ch8_told_archon_saw_alishas_basement
+*set BACKUP_ch8_out_qui_for_alishas_basement ch8_out_qui_for_alishas_basement
+*set BACKUP_ch8_told_archon_bouchards_scouts ch8_told_archon_bouchards_scouts
+*set BACKUP_ch8_told_archon_qui_lasombra_ambush ch8_told_archon_qui_lasombra_ambush
+*set BACKUP_ch8_told_archon_refused_ward ch8_told_archon_refused_ward
+*set BACKUP_ch8_told_archon_escaped_ward_with_alisha ch8_told_archon_escaped_ward_with_alisha
+*set BACKUP_ch8_told_archon_spied_on_ward ch8_told_archon_spied_on_ward
+*set BACKUP_ch8_told_archon_annabelles_plan ch8_told_archon_annabelles_plan
+*set BACKUP_ch8_told_archon_corliss_diablerized ch8_told_archon_corliss_diablerized
+*set BACKUP_ch8_told_archon_qui_killed_javier ch8_told_archon_qui_killed_javier
+*set BACKUP_ch8_told_archon_about_basaras_quest ch8_told_archon_about_basaras_quest
+*set BACKUP_ch8_archon_sets_trap_for_ward ch8_archon_sets_trap_for_ward
+*set BACKUP_ch8_adeline_bonded_you ch8_adeline_bonded_you
+*set BACKUP_ch8_archons_pet ch8_archons_pet
+
+*set BACKUP_lilly_here lilly_here
+
+*set BACKUP_ch8_left_bouchard_alliance ch8_left_bouchard_alliance
+*set BACKUP_ch8_abandoned_bouchard ch8_abandoned_bouchard
+*set BACKUP_ch8_killed_lillian ch8_killed_lillian
+*set BACKUP_ch8_killed_bouchard ch8_killed_bouchard
+*set BACKUP_bouchard_dead bouchard_dead
+*set BACKUP_ch8_tremere_owe_you_a_favor ch8_tremere_owe_you_a_favor
+*set BACKUP_ch8_have_bouchards_dagger ch8_have_bouchards_dagger
+*set BACKUP_ch8_checked_bouchards_desk ch8_checked_bouchards_desk
+*set BACKUP_ch8_caught_with_bouchards_corpse ch8_caught_with_bouchards_corpse
+
+*set BACKUP_ch8_warned_ward ch8_warned_ward
+
+
+*set BACKUP_ch8_on_went_date_with_qui ch8_on_went_date_with_qui
+*set BACKUP_ch8_spent_night_with_qui ch8_spent_night_with_qui
+
+*set BACKUP_ch8_date_with_jordan_at_cult ch8_date_with_jordan_at_cult
+*set BACKUP_ch8_told_jordan_about_corliss_diablerie ch8_told_jordan_about_corliss_diablerie
+*set BACKUP_ch8_rejected_jordans_cult ch8_rejected_jordans_cult
+*set BACKUP_ch8_stayed_over_with_jordan ch8_stayed_over_with_jordan
+
+
+*set BACKUP_ch8_read_vivians_letter ch8_read_vivians_letter
+*set BACKUP_ch8_gave_vivians_letter_to_qui ch8_gave_vivians_letter_to_qui
+*set BACKUP_ch8_gave_only_vivians_memory_card_to_qui ch8_gave_only_vivians_memory_card_to_qui
+*set BACKUP_ch8_told_jordan_about_corliss_diablorie ch8_told_jordan_about_corliss_diablorie
+*set BACKUP_ch8_gave_vivians_memory_card_to_lucca ch8_gave_vivians_memory_card_to_lucca
+*set BACKUP_ch8_gave_vivians_letter_to_corliss ch8_gave_vivians_letter_to_corliss
+
+*set BACKUP_ch8_spoke_to_kashif ch8_spoke_to_kashif
+*set BACKUP_ch8_kashif_told_you_his_plot ch8_kashif_told_you_his_plot
+*set BACKUP_ch8_you_have_kashifs_gps ch8_you_have_kashifs_gps
+*set BACKUP_ch8_told_archon_kashifs_assassination_plan ch8_told_archon_kashifs_assassination_plan
+
+
+*set BACKUP_ch8_ending ch8_ending
+*set BACKUP_ch8_get_henrik_scene_in_chapter_9 ch8_get_henrik_scene_in_chapter_9
+*set BACKUP_ch8_manipulated ch8_manipulated
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 9 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_ch9_loyalty_track ch9_loyalty_track
+*set BACKUP_ch9_woke_up_staked ch9_woke_up_staked
+*set BACKUP_ch9_came_from_cult ch9_came_from_cult
+*set BACKUP_ch9_left_lang_to_die ch9_left_lang_to_die
+*set BACKUP_ch9_betrayed_lang ch9_betrayed_lang
+*set BACKUP_ch9_lang_killed_lillian ch9_lang_killed_lillian
+*set BACKUP_ch9_protected_lang ch9_protected_lang
+
+*set BACKUP_ch9_have_arundels_notebook ch9_have_arundels_notebook
+*set BACKUP_ch9_read_arundels_journal_1 ch9_read_arundels_journal_1
+*set BACKUP_ch9_read_arundels_journal_2 ch9_read_arundels_journal_2
+
+*set BACKUP_ch9_betrayed_kashif_to_corliss ch9_betrayed_kashif_to_corliss
+*set BACKUP_ch9_captured_kashif_in_corliss_office ch9_captured_kashif_in_corliss_office
+*set BACKUP_ch9_executed_kashif_in_corliss_office ch9_executed_kashif_in_corliss_office
+
+*set BACKUP_ch9_failed_to_help_kashif_assassinate_corliss ch9_failed_to_help_kashif_assassinate_corliss
+*set BACKUP_ch9_destroyed_corliss_and_lucca_in_office ch9_destroyed_corliss_and_lucca_in_office
+*set BACKUP_ch9_gave_arundels_journal_to_corliss ch9_gave_arundels_journal_to_corliss
+*set BACKUP_ch9_blackmailed_corliss_with_arundels_journal ch9_blackmailed_corliss_with_arundels_journal
+*set BACKUP_ch9_talked_about_memories_to_corliss ch9_talked_about_memories_to_corliss
+*set BACKUP_blackmail_corliss_with_memories blackmail_corliss_with_memories
+
+*set BACKUP_ch9_kashif_died_room_1C ch9_kashif_died_room_1C
+*set BACKUP_ch9_corliss_died_in_room_1C ch9_corliss_died_in_room_1C
+*set BACKUP_ch9_shot_corliss_in_room_1C ch9_shot_corliss_in_room_1C
+*set BACKUP_ch9_corliss_eaten_by_kashif_1C ch9_corliss_eaten_by_kashif_1C
+*set BACKUP_ch9_joined_anarchs_with_kashif ch9_joined_anarchs_with_kashif
+
+*set BACKUP_ch9_told_lucca_you_attacked_elysium ch9_told_lucca_you_attacked_elysium
+
+*set BACKUP_ch9_escaped_lucca_joined_anarchs ch9_escaped_lucca_joined_anarchs
+*set BACKUP_ch9_lucca_showed_you_arundels_journal ch9_lucca_showed_you_arundels_journal
+*set BACKUP_ch9_told_lucca_about_grace ch9_told_lucca_about_grace
+*set BACKUP_ch9_saving_arundel_with_jordan_and_lucca ch9_saving_arundel_with_jordan_and_lucca
+*set BACKUP_ch9_said_no_to_kashif_from_jail ch9_said_no_to_kashif_from_jail
+*set BACKUP_ch9_from_jail_to_1C ch9_from_jail_to_1C
+*set BACKUP_ch9_rejected_ward_returned_to_lucca ch9_rejected_ward_returned_to_lucca
+*set BACKUP_ch9_ended_ch9_with_qui_in_corliss_office ch9_ended_ch9_with_qui_in_corliss_office
+
+*set BACKUP_ch9_condemned_by_qui ch9_condemned_by_qui
+*set BACKUP_ch9_destroyed_corliss_returned_to_luccas_cell ch9_destroyed_corliss_returned_to_luccas_cell
+*set BACKUP_ch9_condemned_but_working_with_qui ch9_condemned_but_working_with_qui
+*set BACKUP_ch9_qui_knows_about_graces_death ch9_qui_knows_about_graces_death
+
+
+*set BACKUP_ch9_ended_on_corliss_side ch9_ended_on_corliss_side
+*set BACKUP_joined_anarch_final_assault joined_anarch_final_assault
+
+
+*comment Chapter 10 not here because you can't rewind from chapter 11 since chapter 11 doesn't exist.
+
+*comment -----------------------------------------------------------------------------------------
+*comment Feeding Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set BACKUP_never_hunted never_hunted
+*set BACKUP_have_a_second_ghoul have_a_second_ghoul
+*set BACKUP_second_ghoul second_ghoul
+*set BACKUP_second_ghoul_himher second_ghoul_himher
+*set BACKUP_second_ghoul_heshe second_ghoul_heshe
+*set BACKUP_second_ghoul_hisher second_ghoul_hisher
+
+*set BACKUP_club27 club27
+*set BACKUP_paul_27 paul_27
+*set BACKUP_washroom_27 washroom_27
+*set BACKUP_john_27 john_27
+*set BACKUP_jenny_27 jenny_27
+
+*set BACKUP_paul_dead paul_dead
+*set BACKUP_paul_body_discovered paul_body_discovered
+
+*set BACKUP_homeless homeless
+*set BACKUP_homeless_blood_doll homeless_blood_doll
+*set BACKUP_killed_sam killed_sam
+*set BACKUP_left_sams_body left_sams_body
+
+*set BACKUP_sam_drove_you_first_time sam_drove_you_first_time
+
+*set BACKUP_sappers sappers
+*set BACKUP_vsappers_cop sappers_cop
+*set BACKUP_sappers_spider sappers_spider
+*set BACKUP_sappers_canal sappers_canal
+
+*set BACKUP_blood_dolls blood_dolls
+*set BACKUP_alex_wont_feed alex_wont_feed
+*set BACKUP_no_more_dolls no_more_dolls
+*set BACKUP_blood_dolls_closed blood_dolls_closed
+*set BACKUP_alex_saved alex_saved
+*set BACKUP_abagail_likes_you abagail_likes_you
+*set BACKUP_alisha_keeps_abagail alisha_keeps_abagail
+*set BACKUP_no_more_abagail_scenes no_more_abagail_scenes
+
+*set BACKUP_confederation confederation
+*set BACKUP_confederation_old_man confederation_old_man
+*set BACKUP_confederation_park_bench confederation_park_bench
+*set BACKUP_confederation_drug_sales confederation_drug_sales
+*set BACKUP_confederation_construction confederation_construction
+
+*set BACKUP_greyhound greyhound
+
+*set BACKUP_visited_arundels_villa visited_arundels_villa 
+
+	
+*return	
+	
+	
+	
+	
+	
+	
+	
+*label restore_game
+*comment *gosub_scene functions restore_game
+You've reached the end of Chapter ${chapter}!
+
+*choice
+	#Continue to the next chapter.
+		*return
+	#I would like to restore my game to the beginning of the previous chapter. 
+		Are you sure you would like to return to the beginning of the previous chapter? All progress over the last chapter of content will be lost.
+		*choice
+			#Yes. I would like to restore my save at the begining of the [b]previous[/b] chapter.
+				*goto begin_restoration_process
+			#No. On second thought, I'd like to continue to the [b]next[/b] chapter.
+				*return
+	
+*label begin_restoration_process
+*set return_to_previous_chapter true
+
+*set primer_obtained BACKUP_primer_obtained
+*set chapter BACKUP_chapter
+	
+*comment -----------------------------------------------------------------------------------------	
+*comment PLAYER DEFINITIONS
+*comment -----------------------------------------------------------------------------------------
+
+*set name_and_clan_chosen BACKUP_name_and_clan_chosen
+*set name BACKUP_name
+*set last_name BACKUP_last_name
+*set gender BACKUP_gender
+*set age BACKUP_age
+*set clan BACKUP_clan
+*set heshe BACKUP_heshe
+*set himher BACKUP_himher
+*set hisher BACKUP_hisher
+*set boygirl BACKUP_boygirl
+*set sirmaam BACKUP_sirmaam
+*set mrms BACKUP_mrms
+*set manwoman BACKUP_manwoman
+*set guygirl BACKUP_guygirl
+*set master_mistress BACKUP_master_mistress
+*set biker_name BACKUP_biker_name
+*set occupation BACKUP_occupation
+*set bed BACKUP_bed
+*set status BACKUP_status
+*set hair_color BACKUP_hair_color
+*set sexuality BACKUP_sexuality
+*set current_relationship1 BACKUP_current_relationship1
+*set how_i_feed BACKUP_how_i_feed
+*set deformity BACKUP_deformity
+*set rat_name BACKUP_rat_name
+*set rat_gender BACKUP_rat_gender
+*set rat_heshe BACKUP_rat_heshe
+*set rat_hisher BACKUP_rat_hisher
+*set rat_himher BACKUP_rat_himher
+*set rat_fur_color BACKUP_rat_fur_color
+*set gerard_skill BACKUP_gerard_skill
+
+*set met_adeline BACKUP_met_adeline
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment STATS
+*comment -----------------------------------------------------------------------------------------
+
+*set hunger BACKUP_hunger
+*set will BACKUP_will
+*set aggravated_damage BACKUP_aggravated_damage
+*comment The below counts how many times you've been hit with agg during the game.
+*set aggravated BACKUP_aggravated
+*set humanity BACKUP_humanity
+*set masquerade_breaches BACKUP_masquerade_breaches
+*set bestial BACKUP_bestial
+*set strength BACKUP_strength
+*set dexterity BACKUP_dexterity
+*set stamina BACKUP_stamina
+*set charisma BACKUP_charisma
+*set manipulation BACKUP_manipulation
+*set composure BACKUP_composure
+*set intelligence BACKUP_intelligence
+*set wits BACKUP_wits
+*set resolve BACKUP_resolve
+
+*set ruthless BACKUP_ruthless
+*set subversive BACKUP_subversive
+
+*set animalism BACKUP_animalism
+*set auspex BACKUP_auspex
+*set celerity BACKUP_celerity
+*set dominate BACKUP_dominate
+*set fortitude BACKUP_fortitude
+*set obfuscate BACKUP_obfuscate
+*set potence BACKUP_potence
+*set presence BACKUP_presence
+*set sorcery BACKUP_sorcery
+*set oblivion BACKUP_oblivion
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment RELATIONSHIPS AND CHARACTER VARIABLES
+*comment -----------------------------------------------------------------------------------------
+
+*set corliss BACKUP_corliss
+*set lucca BACKUP_lucca
+*set jordan BACKUP_jordan
+*set jordan_rel BACKUP_jordan_rel
+*set gerard BACKUP_gerard
+*set trevor BACKUP_trevor
+*set alisha BACKUP_alisha
+*set bouchard BACKUP_bouchard
+*set ophelia BACKUP_ophelia
+*set vivian BACKUP_vivian
+*set kashif BACKUP_kashif
+*set qui BACKUP_qui
+*set qui_rel BACKUP_qui_rel
+*set ward BACKUP_ward
+*set adeline BACKUP_adeline
+*set lang BACKUP_lang
+*set sevinc BACKUP_sevinc
+*set arundel BACKUP_arundel
+
+*set tremere BACKUP_tremere
+
+*set jordan_heshe BACKUP_jordan_heshe
+*set jordan_hisher BACKUP_jordan_hisher
+*set jordan_himher BACKUP_jordan_himher
+*set jordan_hishers BACKUP_jordan_hishers
+*set jordan_gender BACKUP_jordan_gender
+*set jordan_favorite_movies BACKUP_jordan_favorite_movies
+
+*set ch5_jordan_second_chance BACKUP_ch5_jordan_second_chance
+
+*set ch5_asked_qui_out BACKUP_ch5_asked_qui_out
+*set ch6_went_on_qui_date BACKUP_ch6_went_on_qui_date
+*set qui_broke_up BACKUP_qui_broke_up
+
+
+*set anarch_strength BACKUP_anarch_strength
+*set corliss_influence BACKUP_corliss_influence
+*set players_influence BACKUP_players_influence
+*set loyalty_to_corliss BACKUP_loyalty_to_corliss
+*set loyalty_to_ward BACKUP_loyalty_to_ward
+*set lucca_alive BACKUP_lucca_alive
+*set kashif_alive BACKUP_kashif_alive
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment Research Variables / Multi-Chapter
+*comment -----------------------------------------------------------------------------------------
+
+*set gerard_uncovered_explosives_origin BACKUP_gerard_uncovered_explosives_origin
+*set gerard_found_kindred_ties_to_warehouse BACKUP_gerard_found_kindred_ties_to_warehouse
+*set gerard_found_police_cover_up BACKUP_gerard_found_police_cover_up
+*set gerard_uncovered_ward_history BACKUP_gerard_uncovered_ward_history
+*set gerard_sets_up_home_security BACKUP_gerard_sets_up_home_security
+*set gerard_gets_incendiaries BACKUP_gerard_gets_incendiaries
+*set gerard_manages_finances BACKUP_gerard_manages_finances
+
+*comment -----------------------------------------------------------------------------------------
+*comment Malkavian Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set malk_name BACKUP_malk_name
+*set malk_gender BACKUP_malk_gender
+*set malk_heshe BACKUP_malk_heshe
+*set malk_himher BACKUP_malk_himher
+*set malk_hisher BACKUP_malk_hisher
+*set malk_manwoman BACKUP_malk_manwoman
+*set malk_guygirl BACKUP_malk_guygirl
+*set malk_hair_color BACKUP_malk_hair_color
+*set malk_clothing BACKUP_malk_clothing
+*set malk_demeanor BACKUP_malk_demeanor
+
+*set ch4_malk_destination BACKUP_ch4_malk_destination
+*set ch5_ophelias_seed BACKUP_ch5_ophelias_seed
+*set malk_shall_not_pass BACKUP_malk_shall_not_pass
+*set ch6_malk_will_travel BACKUP_ch6_malk_will_travel
+*set ch8_working_with_ophelia BACKUP_ch8_working_with_ophelia
+*set ch10_learned_origin_late BACKUP_ch10_learned_origin_late
+*set ch10_denied_malk BACKUP_ch10_denied_malk
+*set ch10_defeated_ophelia BACKUP_ch10_defeated_ophelia
+*set ch10_allied_with_ophelia_in_memories BACKUP_ch10_allied_with_ophelia_in_memories
+*set malk_memory_embrace BACKUP_malk_memory_embrace
+*set malk_memory_service BACKUP_malk_memory_service
+*set malk_memory_other_childer BACKUP_malk_memory_other_childer
+
+*set seen_the_light BACKUP_seen_the_light
+
+*comment -----------------------------------------------------------------------------------------
+*comment Lucca Relationship Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set ch4_lucca_likes_you BACKUP_ch4_lucca_likes_you
+*set ch5_faced_moretti BACKUP_ch5_faced_moretti
+*set ch5_moretti_destroyed BACKUP_ch5_moretti_destroyed
+*set ch5_moretti_staked BACKUP_ch5_moretti_staked
+*set ch5_i_finished_moretti BACKUP_ch5_i_finished_moretti
+*set ch6_snooped_on_basaras_with_lucca BACKUP_ch6_snooped_on_basaras_with_lucca
+*set ch6_lucca_track_shaw_centre BACKUP_ch6_lucca_track_shaw_centre
+*set ch8_rejected_lucca BACKUP_ch8_rejected_lucca
+*set ch8_stole_journal_from_basaras BACKUP_ch8_stole_journal_from_basaras
+*set ch8_lucca_kept_info_from_corliss BACKUP_ch8_lucca_kept_info_from_corliss
+*set ch9_lucca_relationship_no_villa_mission BACKUP_ch9_lucca_relationship_no_villa_mission
+*set ch9_lucca_path_basaras_followed BACKUP_ch9_lucca_path_basaras_followed
+
+
+*set ch5_became_morettis_student BACKUP_ch5_became_morettis_student
+*set ch6_moretti_taught_oblivion BACKUP_ch6_moretti_taught_oblivion
+*set used_taught_oblivion BACKUP_used_taught_oblivion
+
+*set after_moretti_told_lucca_to_tell_corliss BACKUP_after_moretti_told_lucca_to_tell_corliss
+
+*comment -----------------------------------------------------------------------------------------
+*comment DLC Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set storyteller BACKUP_storyteller
+*set stat_dots_option BACKUP_stat_dots_option
+*set first_time_stats BACKUP_first_time_stats
+*set to_next_strength_dot BACKUP_to_next_strength_dot
+*set to_next_dexterity_dot BACKUP_to_next_dexterity_dot
+*set to_next_stamina_dot BACKUP_to_next_stamina_dot
+*set to_next_charisma_dot BACKUP_to_next_charisma_dot
+*set to_next_manipulation_dot BACKUP_to_next_manipulation_dot
+*set to_next_composure_dot BACKUP_to_next_composure_dot
+*set to_next_intelligence_dot BACKUP_to_next_intelligence_dot
+*set to_next_wits_dot BACKUP_to_next_wits_dot
+*set to_next_resolve_dot BACKUP_to_next_resolve_dot
+
+*set sevinc_interested BACKUP_sevinc_interested
+*set sevinc_opposed BACKUP_sevinc_opposed
+*set ch7b_sevinc_hate_fuck BACKUP_ch7b_sevinc_hate_fuck
+*set ch10_sevinc_fun_time BACKUP_ch10_sevinc_fun_time
+
+*comment Lasombra 
+*set ch4_told_lucca_shes_lasombra BACKUP_ch4_told_lucca_shes_lasombra
+*set ch4_suggested_lucca_is_lasombra BACKUP_ch4_suggested_lucca_is_lasombra
+*set ch5_used_oblivion_on_moretti BACKUP_ch5_used_oblivion_on_moretti
+*set ch5_used_oblivion_in_front_of_anarchs BACKUP_ch5_used_oblivion_in_front_of_anarchs
+*set ch5_basaras_ally BACKUP_ch5_basaras_ally
+*set ch5_completed_basaras_quest BACKUP_ch5_completed_basaras_quest
+*set ch5_failed_basaras_quest BACKUP_ch5_failed_basaras_quest
+*set ch6_told_lucca_shes_lasombra BACKUP_ch6_told_lucca_shes_lasombra
+*set ch6_suggested_lucca_shes_lasombra BACKUP_ch6_suggested_lucca_shes_lasombra
+*set ch8_qui_relationship_lied_about_being_lasombra BACKUP_ch8_qui_relationship_lied_about_being_lasombra
+*set ch8_told_qui_youre_lasombra BACKUP_ch8_told_qui_youre_lasombra
+*set ch10_lucca_asked_arundel_about_being_lasombra BACKUP_ch10_lucca_asked_arundel_about_being_lasombra
+
+
+*comment Other misc variables added at time of DLC
+*set ch5_talked_to_trevor BACKUP_ch5_talked_to_trevor
+*set ch5_side_room_with_trevor BACKUP_ch5_side_room_with_trevor
+*set ch5_agreed_to_work_with_trevor BACKUP_ch5_agreed_to_work_with_trevor
+*set ch5_tattled_on_trevor BACKUP_ch5_tattled_on_trevor
+*set ch7A_trevor_warned_about_blood_hunt BACKUP_ch7A_trevor_warned_about_blood_hunt
+*set ch10_trevor_revealed_as_sabbat BACKUP_ch10_trevor_revealed_as_sabbat
+*set ch10_told_companion_trevor_is_sabbat BACKUP_ch10_told_companion_trevor_is_sabbat
+*set ch10_joined_the_sabbat BACKUP_ch10_joined_the_sabbat
+*set destroyed_trevor_new BACKUP_destroyed_trevor_new
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 1 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set ward_hates_you BACKUP_ward_hates_you
+*set ch1_person_rescued BACKUP_ch1_person_rescued
+*set opened_up_to_gerard BACKUP_opened_up_to_gerard
+*set ch1_gerards_research BACKUP_ch1_gerards_research
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 2 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set kindred_primer BACKUP_kindred_primer
+*set ch2_who_i_investigated BACKUP_ch2_who_i_investigated
+*set ch2_hauberk_freed BACKUP_ch2_hauberk_freed
+*set ch2_rescued_hauberk_yourself BACKUP_ch2_rescued_hauberk_yourself
+*set ch2_helped_kashif BACKUP_ch2_helped_kashif
+*set ch2_accused_shawn_theft BACKUP_ch2_accused_shawn_theft
+*set told_on_shawn BACKUP_told_on_shawn
+*set ch2_asked_bouchard_about_maps BACKUP_ch2_asked_bouchard_about_maps
+*set ch2_told_bouchard_arundel_missing BACKUP_ch2_told_bouchard_arundel_missing
+*set ch2_bouchard_told_you_corliss_was_with_tremere BACKUP_ch2_bouchard_told_you_corliss_was_with_tremere
+*set ch2_bouchard_missing_paper BACKUP_ch2_bouchard_missing_paper
+*set ch2_allied_with_bouchard BACKUP_ch2_allied_with_bouchard
+*set ch2_saw_toreador_at_vivians BACKUP_ch2_saw_toreador_at_vivians
+*set overheard_plot BACKUP_overheard_plot
+*set ch2_allied_with_vivian BACKUP_ch2_allied_with_vivian
+*set ch2_ward_shot_me BACKUP_ch2_ward_shot_me
+*set ch2_let_gangrel_go BACKUP_ch2_let_gangrel_go
+*set ch2_saw_tremere_at_corliss_office BACKUP_ch2_saw_tremere_at_corliss_office
+*set ch2_ward_proposed_prison_break BACKUP_ch2_ward_proposed_prison_break
+*set ch2_jailbreak_method BACKUP_ch2_jailbreak_method
+*set ch2_declined_wards_offer BACKUP_ch2_declined_wards_offer
+*set met_trevor BACKUP_met_trevor
+	
+	
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 3 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set ch3_gerard_overheard_qui BACKUP_ch3_gerard_overheard_qui
+*set ch3_told_qui_how_i_feel_about_tremere BACKUP_ch3_told_qui_how_i_feel_about_tremere
+*set ch3_told_qui_lang_visited_corliss BACKUP_ch3_told_qui_lang_visited_corliss
+*set ch3_told_qui_front_desk_pass BACKUP_ch3_told_qui_front_desk_pass
+*set ch3_told_qui_you_didnt_stop_hauberk BACKUP_ch3_told_qui_you_didnt_stop_hauberk
+*set ch3_qui_opened_up BACKUP_ch3_qui_opened_up
+*set ch3_told_qui_support BACKUP_ch3_told_qui_support
+*set ch3_talked_with_corliss BACKUP_ch3_talked_with_corliss
+*set ch3_went_to_vivians BACKUP_ch3_went_to_vivians
+*set ch3_told_corliss_about BACKUP_ch3_told_corliss_about
+*set ch3_caught_ophelia BACKUP_ch3_caught_ophelia
+*set ch3_dominated_by_ophelia BACKUP_ch3_dominated_by_ophelia
+*set ch3_resisted_ophelias_domination BACKUP_ch3_resisted_ophelias_domination
+*set ch3_lied_to_corliss BACKUP_ch3_lied_to_corliss
+*set ch3_told_corliss_about_toreador_with_vivian BACKUP_ch3_told_corliss_about_toreador_with_vivian
+*set ch3_told_corliss_she_was_seen_with_tremere BACKUP_ch3_told_corliss_she_was_seen_with_tremere
+*set ch3_caught_reporter BACKUP_ch3_caught_reporter
+*set ch3_who_has_camera BACKUP_ch3_who_has_camera
+*set ch3_talked_to_vivians_servant BACKUP_ch3_talked_to_vivians_servant
+*set ch3_vivians_servant_mentions_ventrue BACKUP_ch3_vivians_servant_mentions_ventrue
+*set officer_killed BACKUP_officer_killed
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 4 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set talk_counter BACKUP_talk_counter
+*set ch4_jordan_mentioned_vivians_amnesia BACKUP_ch4_jordan_mentioned_vivians_amnesia
+*set ch4_auspex_vivian BACKUP_ch4_auspex_vivian
+*set ch4_talked_with_bouchard BACKUP_ch4_talked_with_bouchard
+*set ch4_talked_with_corliss BACKUP_ch4_talked_with_corliss
+*set ch4_talked_with_jordan BACKUP_ch4_talked_with_jordan
+*set ch4_talked_with_lang BACKUP_ch4_talked_with_lang
+*set ch4_talked_with_lucca BACKUP_ch4_talked_with_lucca
+*set ch4_talked_with_kashif_and_ophelia BACKUP_ch4_talked_with_kashif_and_ophelia
+*set ch4_ask_kashif_about_london BACKUP_ch4_ask_kashif_about_london
+*set ch4_finished_asking_kashif_about_london BACKUP_ch4_finished_asking_kashif_about_london
+*set ch4_pass_kashifs_message_to_corliss BACKUP_ch4_pass_kashifs_message_to_corliss
+*set ch4_kashif_wants_you_to_spy_on_corliss BACKUP_ch4_kashif_wants_you_to_spy_on_corliss
+*set lucca_confirms_she_has_access_to_corliss_servers BACKUP_lucca_confirms_she_has_access_to_corliss_servers
+*set ch4_refused_your_meal BACKUP_ch4_refused_your_meal
+*set ch4_visiting_jordan BACKUP_ch4_visiting_jordan
+*set ch4_accused_corliss_to_jordan BACKUP_ch4_accused_corliss_to_jordan
+*set ch4_trevor_interested_in_history BACKUP_ch4_trevor_interested_in_history
+*set ch4_told_vivian_about_camera BACKUP_ch4_told_vivian_about_camera
+*set ch4_gave_camera_vivian BACKUP_ch4_gave_camera_vivian
+*set ch4_lucca_is_armed BACKUP_ch4_lucca_is_armed
+*set ch4_thought_about_lucca_explosives BACKUP_ch4_thought_about_lucca_explosives
+*set ch4_skipped_jordan_date_for_alliance BACKUP_ch4_skipped_jordan_date_for_alliance
+*set ch4_im_catholic BACKUP_ch4_im_catholic
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 5 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set ch5_rejected_vivians_alliance BACKUP_ch5_rejected_vivians_alliance
+*set ch5_talked_to_gerard BACKUP_ch5_talked_to_gerard
+*set ch5_gerard_calls_in_defenses BACKUP_ch5_gerard_calls_in_defenses
+
+*set ch5_broke_into_alishas BACKUP_ch5_broke_into_alishas
+*set ch5_qui_captured_ichiro BACKUP_ch5_qui_captured_ichiro
+*set ch5_killed_networked_humans BACKUP_ch5_killed_networked_humans
+
+*set ch5_have_hauberks_gun BACKUP_ch5_have_hauberks_gun
+*set ch5_fired_hauberks_gun BACKUP_ch5_fired_hauberks_gun
+*set ch5_have_wards_card BACKUP_ch5_have_wards_card
+*set ch5_didnt_meet_ward BACKUP_ch5_didnt_meet_ward
+*set ch5_ambush_ward BACKUP_ch5_ambush_ward
+*set ch5_successfully_spied_on_ward BACKUP_ch5_successfully_spied_on_ward
+*set ch5_shot_ward BACKUP_ch5_shot_ward
+*set ch5_shot_sevinc BACKUP_ch5_shot_sevinc
+*set ch5_spied_and_left_without_talking BACKUP_ch5_spied_and_left_without_talking
+*set ch5_ward_told_you_your_mind_is_tampered_with BACKUP_ch5_ward_told_you_your_mind_is_tampered_with
+*set ch5_heard_wards_whole_truth BACKUP_ch5_heard_wards_whole_truth
+*set ch5_auspex_ward BACKUP_ch5_auspex_ward
+*set ch5_ward_warned_about_tremere_bombing BACKUP_ch5_ward_warned_about_tremere_bombing
+*set ch5_worked_with_sevincs_dogs BACKUP_ch5_worked_with_sevincs_dogs
+*set ch5_used_sevincs_glock BACKUP_ch5_used_sevincs_glock
+*set ch5_used_sevincs_sword BACKUP_ch5_used_sevincs_sword
+*set ch5_fought_alongside_ward_and_sevinc BACKUP_ch5_fought_alongside_ward_and_sevinc
+*set ch5_found_merc_badge BACKUP_ch5_found_merc_badge
+
+*set ch5_fed_early BACKUP_ch5_fed_early
+
+*set ch5_attended_exhibition BACKUP_ch5_attended_exhibition
+*set ch5_told_alisha_you_heard BACKUP_ch5_told_alisha_you_heard
+*set ch5_spoke_with BACKUP_ch5_spoke_with
+*set told_qui_about_bomb_threat BACKUP_told_qui_about_bomb_threat
+*set told_jordan_about_bomb_threat BACKUP_told_jordan_about_bomb_threat
+*set told_lucca_about_bomb_threat BACKUP_told_lucca_about_bomb_threat
+
+*set told_lucca_about_explosives_from_kurzawa BACKUP_told_lucca_about_explosives_from_kurzawa
+*set ch5_accused_lucca_explosives BACKUP_ch5_accused_lucca_explosives
+*set ch5_lucca_looking_into_explosives BACKUP_ch5_lucca_looking_into_explosives
+*set lucca_asked_about_running BACKUP_lucca_asked_about_running
+
+*set ch5_left_early BACKUP_ch5_left_early
+*set ch5_left_early_with_jordan BACKUP_ch5_left_early_with_jordan
+*set ch5_left_early_with_lucca BACKUP_ch5_left_early_with_lucca
+*set ch5_left_early_with_qui BACKUP_ch5_left_early_with_qui
+*set ch5_left_early_alone BACKUP_ch5_left_early_alone
+
+*set ch5_killed_ichiro BACKUP_ch5_killed_ichiro
+*set ch5_killed_ichiro_how BACKUP_ch5_killed_ichiro_how
+*set ch5_completed_vivians_quest BACKUP_ch5_completed_vivians_quest
+*set ch5_drained_ichiros_blood BACKUP_ch5_drained_ichiros_blood
+*set ch5_copied_files_for_vivian BACKUP_ch5_copied_files_for_vivian
+*set ch5_left_fingerprints_on_vivians_quest BACKUP_ch5_left_fingerprints_on_vivians_quest
+*set ch5_took_ichiros_sword BACKUP_ch5_took_ichiros_sword
+*set ch5_saw_ophelia_dominate_ichiro BACKUP_ch5_saw_ophelia_dominate_ichiro
+*set ch5_saved_jasmine BACKUP_ch5_saved_jasmine
+*set ch5_went_after_bombers BACKUP_ch5_went_after_bombers
+*set ch5_ran_away BACKUP_ch5_ran_away
+*set ch5_zapped_by_magic_ward BACKUP_ch5_zapped_by_magic_ward
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 6 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set ch6_gave_wards_card_to_archon BACKUP_ch6_gave_wards_card_to_archon
+*set ch6_lied_to_archon BACKUP_ch6_lied_to_archon
+*set ch6_betray_ward_to_adeline BACKUP_ch6_betray_ward_to_adeline
+*set ch6_told_archon_about_tremere_bombing BACKUP_ch6_told_archon_about_tremere_bombing
+*set ch6_failed_vivian BACKUP_ch6_failed_vivian
+*set ch6_failed_bouchard BACKUP_ch6_failed_bouchard
+*set ch6_carrying_gun BACKUP_ch6_carrying_gun
+
+*set ch6_met_extortionist BACKUP_ch6_met_extortionist
+*set ch6_called_qui_about_extortion BACKUP_ch6_called_qui_about_extortion
+*set ch6_used_auspex_on_extortionist BACKUP_ch6_used_auspex_on_extortionist
+*set ch6_wounded_lasombra_assassin BACKUP_ch6_wounded_lasombra_assassin
+*set ch6_ahriman_tentacle_damage BACKUP_ch6_ahriman_tentacle_damage
+
+*set ch6_visited_bouchard BACKUP_ch6_visited_bouchard
+*set ch6_brought_bouchard_ichiros_sword BACKUP_ch6_brought_bouchard_ichiros_sword
+*set ch6_bouchard_executed_shawn BACKUP_ch6_bouchard_executed_shawn
+*set ch6_told_corliss_bouchards_info BACKUP_ch6_told_corliss_bouchards_info
+
+*set ch6_visited_vivian BACKUP_ch6_visited_vivian
+*set ch6_vivian_said_corliss_had_arundel_captured BACKUP_ch6_vivian_said_corliss_had_arundel_captured
+*set ch6_told_vivian_about_meeting_ward BACKUP_ch6_told_vivian_about_meeting_ward
+*set ch6_told_corliss_vivians_info BACKUP_ch6_told_corliss_vivians_info
+
+*set ch6_saw_lucca_at_jordans BACKUP_ch6_saw_lucca_at_jordans
+*set ch6_luccas_car_damaged BACKUP_ch6_luccas_car_damaged
+*set ch6_upset_jordan BACKUP_ch6_upset_jordan
+*set ch6_qui_ate_javier BACKUP_ch6_qui_ate_javier
+*set ch6_javier_not_killed BACKUP_ch6_javier_not_killed
+
+*set ch6_adeline_grilled_you BACKUP_ch6_adeline_grilled_you
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 7A Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set ch7A_talked_to_wards_driver BACKUP_ch7A_talked_to_wards_driver
+*set ch7A_saw_sevinc_in_alley BACKUP_ch7A_saw_sevinc_in_alley
+*set ch7A_attack_plan BACKUP_ch7A_attack_plan
+*set ch7A_sneak_peek BACKUP_ch7A_sneak_peek
+*set ch7A_ward_disabled BACKUP_ch7A_ward_disabled
+*set ch7A_took_tremere_prisoner BACKUP_ch7A_took_tremere_prisoner
+*set ch7A_captured_daphne_yourself BACKUP_ch7A_captured_daphne_yourself
+*set ch7A_bouchards_scouts BACKUP_ch7A_bouchards_scouts
+*set ch7A_know_laflamme BACKUP_ch7A_know_laflamme
+*set ch7A_faced_lillian BACKUP_ch7A_faced_lillian
+*set ch7A_destroyed_lillian BACKUP_ch7A_destroyed_lillian
+*set ch7A_wounded_lillian BACKUP_ch7A_wounded_lillian
+*set ch7A_lillian_captured BACKUP_ch7A_lillian_captured
+*set ch7A_wounded_by_aggravated_damage BACKUP_ch7A_wounded_by_aggravated_damage
+*set ch7A_snapped_mercs_out_of_it BACKUP_ch7A_snapped_mercs_out_of_it
+*set ch7A_helped_save_lucca BACKUP_ch7A_helped_save_lucca
+*set ch7A_saved_kashif BACKUP_ch7A_saved_kashif
+*set ch7A_qui_kept_prisoners BACKUP_ch7A_qui_kept_prisoners
+*set ch7A_found_lang_bound BACKUP_ch7A_found_lang_bound
+*set ch7A_told_heather_her_father_died BACKUP_ch7A_told_heather_her_father_died
+*set ch7A_gave_qui_heathers_photo BACKUP_ch7A_gave_qui_heathers_photo
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 7B Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set ch7B_went_to_see_ward BACKUP_ch7B_went_to_see_ward
+*set ch7B_jordan_scanned_me BACKUP_ch7B_jordan_scanned_me
+*set what_i_saw BACKUP_what_i_saw
+*set ch7B_attacked_elysium BACKUP_ch7B_attacked_elysium
+*set ch7B_fought_arnold BACKUP_ch7B_fought_arnold
+*set ch7B_escaped_elysium_with_alisha BACKUP_ch7B_escaped_elysium_with_alisha
+*set ch7B_saw_jonathan_alive BACKUP_ch7B_saw_jonathan_alive
+*set ch7B_convinced_anarchs_to_leave BACKUP_ch7B_convinced_anarchs_to_leave
+*set ch7B_hid_in_garage BACKUP_ch7B_hid_in_garage
+*set ch7_ghoul BACKUP_ch7_ghoul
+*set ch7B_refused_to_attack_elysium BACKUP_ch7B_refused_to_attack_elysium
+*set ch7B_left_anarchs_before_hearing_plan BACKUP_ch7B_left_anarchs_before_hearing_plan
+
+*comment *set lilly_here
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 8 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set ch8_visited_vivian BACKUP_ch8_visited_vivian
+*set ch8_vivian_gave_you_letter BACKUP_ch8_vivian_gave_you_letter
+*set ch8_investigated BACKUP_ch8_investigated
+*set ch8_security_backup BACKUP_ch8_security_backup
+*set ch8_mary BACKUP_ch8_mary
+*set ch8_witness BACKUP_ch8_witness
+*set ch8_told_archon1 BACKUP_ch8_told_archon1
+*set ch8_told_archon_corliss_meets_with_tremere BACKUP_ch8_told_archon_corliss_meets_with_tremere
+
+*set ch8_spoke_with_archon BACKUP_ch8_spoke_with_archon
+
+*set ch8_tattle BACKUP_ch8_tattle
+*set ch8_told_adeline_qui_stopped_investigation BACKUP_ch8_told_adeline_qui_stopped_investigation
+*set ch8_told_adeline_alisha_owned_warehouse BACKUP_ch8_told_adeline_alisha_owned_warehouse
+*set ch8_lucca_bought_explosives BACKUP_ch8_lucca_bought_explosives
+*set ch8_ward_arundel_history BACKUP_ch8_ward_arundel_history
+*set ch8_blamed_the_tremere BACKUP_ch8_blamed_the_tremere
+*set ch8_betrayed_vivian BACKUP_ch8_betrayed_vivian
+*set ch8_told_vivian_is_suspicious BACKUP_ch8_told_vivian_is_suspicious
+*set ch8_told_adeline_vivian_hunters BACKUP_ch8_told_adeline_vivian_hunters
+*set ch8_told_archon_bouchard_shawn BACKUP_ch8_told_archon_bouchard_shawn
+*set ch8_told_bouchard_says_kashif_defected BACKUP_ch8_told_bouchard_says_kashif_defected
+*set ch8_told_archon_saw_alishas_basement BACKUP_ch8_told_archon_saw_alishas_basement
+*set ch8_out_qui_for_alishas_basement BACKUP_ch8_out_qui_for_alishas_basement
+*set ch8_told_archon_bouchards_scouts BACKUP_ch8_told_archon_bouchards_scouts
+*set ch8_told_archon_qui_lasombra_ambush BACKUP_ch8_told_archon_qui_lasombra_ambush
+*set ch8_told_archon_refused_ward BACKUP_ch8_told_archon_refused_ward
+*set ch8_told_archon_escaped_ward_with_alisha BACKUP_ch8_told_archon_escaped_ward_with_alisha
+*set ch8_told_archon_spied_on_ward BACKUP_ch8_told_archon_spied_on_ward
+*set ch8_told_archon_annabelles_plan BACKUP_ch8_told_archon_annabelles_plan
+*set ch8_told_archon_corliss_diablerized BACKUP_ch8_told_archon_corliss_diablerized
+*set ch8_told_archon_qui_killed_javier BACKUP_ch8_told_archon_qui_killed_javier
+*set ch8_told_archon_about_basaras_quest BACKUP_ch8_told_archon_about_basaras_quest
+*set ch8_archon_sets_trap_for_ward BACKUP_ch8_archon_sets_trap_for_ward
+*set ch8_adeline_bonded_you BACKUP_ch8_adeline_bonded_you
+*set ch8_archons_pet BACKUP_ch8_archons_pet
+
+*set lilly_here BACKUP_lilly_here
+
+*set ch8_left_bouchard_alliance BACKUP_ch8_left_bouchard_alliance
+*set ch8_abandoned_bouchard BACKUP_ch8_abandoned_bouchard
+*set ch8_killed_lillian BACKUP_ch8_killed_lillian
+*set ch8_killed_bouchard BACKUP_ch8_killed_bouchard
+*set bouchard_dead BACKUP_bouchard_dead
+*set ch8_tremere_owe_you_a_favor BACKUP_ch8_tremere_owe_you_a_favor
+*set ch8_have_bouchards_dagger BACKUP_ch8_have_bouchards_dagger
+*set ch8_checked_bouchards_desk BACKUP_ch8_checked_bouchards_desk
+*set ch8_caught_with_bouchards_corpse BACKUP_ch8_caught_with_bouchards_corpse
+
+*set ch8_warned_ward BACKUP_ch8_warned_ward
+
+
+*set ch8_on_went_date_with_qui BACKUP_ch8_on_went_date_with_qui
+*set ch8_spent_night_with_qui BACKUP_ch8_spent_night_with_qui
+
+*set ch8_date_with_jordan_at_cult BACKUP_ch8_date_with_jordan_at_cult
+*set ch8_told_jordan_about_corliss_diablerie BACKUP_ch8_told_jordan_about_corliss_diablerie
+*set ch8_rejected_jordans_cult BACKUP_ch8_rejected_jordans_cult
+*set ch8_stayed_over_with_jordan BACKUP_ch8_stayed_over_with_jordan
+
+
+*set ch8_read_vivians_letter BACKUP_ch8_read_vivians_letter
+*set ch8_gave_vivians_letter_to_qui BACKUP_ch8_gave_vivians_letter_to_qui
+*set ch8_gave_only_vivians_memory_card_to_qui BACKUP_ch8_gave_only_vivians_memory_card_to_qui
+*set ch8_told_jordan_about_corliss_diablorie BACKUP_ch8_told_jordan_about_corliss_diablorie
+*set ch8_gave_vivians_memory_card_to_lucca BACKUP_ch8_gave_vivians_memory_card_to_lucca
+*set ch8_gave_vivians_letter_to_corliss BACKUP_ch8_gave_vivians_letter_to_corliss
+
+*set ch8_spoke_to_kashif BACKUP_ch8_spoke_to_kashif
+*set ch8_kashif_told_you_his_plot BACKUP_ch8_kashif_told_you_his_plot
+*set ch8_you_have_kashifs_gps BACKUP_ch8_you_have_kashifs_gps
+*set ch8_told_archon_kashifs_assassination_plan BACKUP_ch8_told_archon_kashifs_assassination_plan
+
+
+*set ch8_ending BACKUP_ch8_ending
+*set ch8_get_henrik_scene_in_chapter_9 BACKUP_ch8_get_henrik_scene_in_chapter_9
+*set ch8_manipulated BACKUP_ch8_manipulated
+
+
+*comment -----------------------------------------------------------------------------------------
+*comment Chapter 9 Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set ch9_loyalty_track BACKUP_ch9_loyalty_track
+*set ch9_woke_up_staked BACKUP_ch9_woke_up_staked
+*set ch9_came_from_cult BACKUP_ch9_came_from_cult
+*set ch9_left_lang_to_die BACKUP_ch9_left_lang_to_die
+*set ch9_betrayed_lang BACKUP_ch9_betrayed_lang
+*set ch9_lang_killed_lillian BACKUP_ch9_lang_killed_lillian
+*set ch9_protected_lang BACKUP_ch9_protected_lang
+
+*set ch9_have_arundels_notebook BACKUP_ch9_have_arundels_notebook
+*set ch9_read_arundels_journal_1 BACKUP_ch9_read_arundels_journal_1
+*set ch9_read_arundels_journal_2 BACKUP_ch9_read_arundels_journal_2
+
+*set ch9_betrayed_kashif_to_corliss BACKUP_ch9_betrayed_kashif_to_corliss
+*set ch9_captured_kashif_in_corliss_office BACKUP_ch9_captured_kashif_in_corliss_office
+*set ch9_executed_kashif_in_corliss_office BACKUP_ch9_executed_kashif_in_corliss_office
+
+*set ch9_failed_to_help_kashif_assassinate_corliss BACKUP_ch9_failed_to_help_kashif_assassinate_corliss
+*set ch9_destroyed_corliss_and_lucca_in_office BACKUP_ch9_destroyed_corliss_and_lucca_in_office
+*set ch9_gave_arundels_journal_to_corliss BACKUP_ch9_gave_arundels_journal_to_corliss
+*set ch9_blackmailed_corliss_with_arundels_journal BACKUP_ch9_blackmailed_corliss_with_arundels_journal
+*set ch9_talked_about_memories_to_corliss BACKUP_ch9_talked_about_memories_to_corliss
+*set blackmail_corliss_with_memories BACKUP_blackmail_corliss_with_memories
+
+*set ch9_kashif_died_room_1C BACKUP_ch9_kashif_died_room_1C
+*set ch9_corliss_died_in_room_1C BACKUP_ch9_corliss_died_in_room_1C
+*set ch9_shot_corliss_in_room_1C BACKUP_ch9_shot_corliss_in_room_1C
+*set ch9_corliss_eaten_by_kashif_1C BACKUP_ch9_corliss_eaten_by_kashif_1C
+*set ch9_joined_anarchs_with_kashif BACKUP_ch9_joined_anarchs_with_kashif
+
+*set ch9_told_lucca_you_attacked_elysium BACKUP_ch9_told_lucca_you_attacked_elysium
+
+*set ch9_escaped_lucca_joined_anarchs BACKUP_ch9_escaped_lucca_joined_anarchs
+*set ch9_lucca_showed_you_arundels_journal BACKUP_ch9_lucca_showed_you_arundels_journal
+*set ch9_told_lucca_about_grace BACKUP_ch9_told_lucca_about_grace
+*set ch9_saving_arundel_with_jordan_and_lucca BACKUP_ch9_saving_arundel_with_jordan_and_lucca
+*set ch9_said_no_to_kashif_from_jail BACKUP_ch9_said_no_to_kashif_from_jail
+*set ch9_from_jail_to_1C BACKUP_ch9_from_jail_to_1C
+*set ch9_rejected_ward_returned_to_lucca BACKUP_ch9_rejected_ward_returned_to_lucca
+*set ch9_ended_ch9_with_qui_in_corliss_office BACKUP_ch9_ended_ch9_with_qui_in_corliss_office
+
+*set ch9_condemned_by_qui BACKUP_ch9_condemned_by_qui
+*set ch9_destroyed_corliss_returned_to_luccas_cell BACKUP_ch9_destroyed_corliss_returned_to_luccas_cell
+*set ch9_condemned_but_working_with_qui BACKUP_ch9_condemned_but_working_with_qui
+*set ch9_qui_knows_about_graces_death BACKUP_ch9_qui_knows_about_graces_death
+
+
+*set ch9_ended_on_corliss_side BACKUP_ch9_ended_on_corliss_side
+*set joined_anarch_final_assault BACKUP_joined_anarch_final_assault
+
+
+*comment Chapter 10 not here because you can't rewind from chapter 11 since chapter 11 doesn't exist.
+
+*comment -----------------------------------------------------------------------------------------
+*comment Feeding Variables
+*comment -----------------------------------------------------------------------------------------
+
+*set never_hunted BACKUP_never_hunted
+*set have_a_second_ghoul BACKUP_have_a_second_ghoul
+*set second_ghoul BACKUP_second_ghoul
+*set second_ghoul_himher BACKUP_second_ghoul_himher
+*set second_ghoul_heshe BACKUP_second_ghoul_heshe
+*set second_ghoul_hisher BACKUP_second_ghoul_hisher
+
+*set club27 BACKUP_club27
+*set paul_27 BACKUP_paul_27
+*set washroom_27 BACKUP_washroom_27
+*set john_27 BACKUP_john_27
+*set jenny_27 BACKUP_jenny_27
+
+*set paul_dead BACKUP_paul_dead
+*set paul_body_discovered BACKUP_paul_body_discovered
+
+*set homeless BACKUP_homeless
+*set homeless_blood_doll BACKUP_homeless_blood_doll
+*set killed_sam BACKUP_killed_sam
+*set left_sams_body BACKUP_left_sams_body
+
+*set sam_drove_you_first_time BACKUP_sam_drove_you_first_time
+
+*set sappers BACKUP_sappers
+*set sappers_cop BACKUP_vsappers_cop
+*set sappers_spider BACKUP_sappers_spider
+*set sappers_canal BACKUP_sappers_canal
+
+*set blood_dolls BACKUP_blood_dolls
+*set alex_wont_feed BACKUP_alex_wont_feed
+*set no_more_dolls BACKUP_no_more_dolls
+*set blood_dolls_closed BACKUP_blood_dolls_closed
+*set alex_saved BACKUP_alex_saved
+*set abagail_likes_you BACKUP_abagail_likes_you
+*set alisha_keeps_abagail BACKUP_alisha_keeps_abagail
+*set no_more_abagail_scenes BACKUP_no_more_abagail_scenes
+
+*set confederation BACKUP_confederation
+*set confederation_old_man BACKUP_confederation_old_man
+*set confederation_park_bench BACKUP_confederation_park_bench
+*set confederation_drug_sales BACKUP_confederation_drug_sales
+*set confederation_construction BACKUP_confederation_construction
+
+*set greyhound BACKUP_greyhound
+
+*set visited_arundels_villa BACKUP_visited_arundels_villa
+	
+	
+	
+	
+
+	
+*return
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

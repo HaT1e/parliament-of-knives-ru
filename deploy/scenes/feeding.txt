@@ -1,0 +1,1993 @@
+
+*comment *gosub_scene feeding
+
+*if (never_hunted)
+	*set never_hunted false
+	It's been a long time since you last found yourself in a situation requiring an unscheduled meal—other than that young couple outside the burning warehouse, that is. But you had no choice, then. Right? This feels different. You're going out on the prowl again.
+	
+	The challenges and uncertainties of recent nights have revitalized the predator inside you. Tonight, your prey won't simply be handed to you on a platter, and the choice of where to hunt is your own. @{(clan = "Nosferatu") Unfortunately, your Nosferatu disfigurements limit you to less-public places. Parks and alleys are fair game, but you wouldn't be able to hide what you are in close quarters like a nightclub. | }
+	
+	*if (clan = "Ventrue")
+		Your palette is significantly less fussy than many other Ventrue, but you do enjoy a higher class of mortal in order to feed. You've never been able to figure out what it is about higher social standing that makes the blood so much sweeter—in truth it defies all logic—but you've developed an eye for those who sate your particular requirements.
+	
+	There are a number of hotspots for feeding in Ottawa, and while you haven't been to each of them personally, you've been briefed on acceptable locations, areas forbidden by the Prince due to concerns of Masquerade breaches, and personal hunting grounds of the city's Primogen and notable coteries. Given reasonable travel constraints, you've determined a few optimal victim locations.
+	
+Where do you plan to sate your cravings?
+*comment There are currently not many 'losing control and killing a victim due to high hunger' scenes yet. They may be added at a later date depending on balancing the hunger variable. Many of these decisions are for roleplay and immersion purposes. The player won't necessarily be impressing anyone or raising rep/stats, but they should have fun role playing how they want to go about feeding.
+*choice
+	*if ((clan != "Nosferatu") and (club27 < 5)) #The live music scene has always been good hunting grounds. I visit The 27 Club.
+		*label start_27_club
+		*set club27 +1
+		*if (club27 = 1)
+			Rising from the ashes of the legendary live music venue, Zaphod Beeblebrox, The 27 Club has become a prime hunting ground for Kindred of all stripes for the last few years. Before the business changed hands, it had been exclusive to an elder Toreador known to the court only as Vanya. No last name. (She considered that detail important for some reason.) Vanya had guarded her feeding rights ruthlessly—at least three neonates were brutally destroyed after feeding there—although somehow she had never been officially implicated or punished, neither by Prince Arundel nor the erstwhile Prince Cranston. Not long after the original owners left, Vanya herself disappeared, only to reappear from time to time at other venues throughout Ontario and Quebec. She never returned to Ottawa.
+			
+			You've only been to The 27 Club once since it reopened, a brief visit that Jordan practically begged you to take with ${jordan_himher}, but the stigma of the place was still fresh, and you didn't dare linger for long. Since then, it's gained an excellent reputation among younger Kindred, and Arundel officially declared it a free feeding ground for the time being.
+			
+			A well-built man in a checked shirt looks you over @{(age = "elder") and for a second you wonder if he's going to ask why someone your age would want to go clubbing, but eventually he shrugs and lets you in anyway. | and nods before admitting you through the door. } 
+			
+			Instantly, your senses are awash with the pounding of punk rock music and flashing lights. The evening is already in full swing and the floor is alive with the undulating masses, wrapped up in the euphoria of pounding drums and anti-authoritarian lyrics whipping them into a frenzy of motion. Toward the front, a small group of metalheads periodically break out into a mosh, throwing devil horns and chugging beers while the younger punks look on, bemused by their antics and occasionally joining in. "Ironically," of course. 
+			
+			You chuckle to yourself. Mortals drawn together in group solidarity, all in the name of individualism. The more things change, the more they stay the same.
+			
+			@{((clan = "Malkavian") and (chapter != 9)) "They think they're so special," $!{malk_name} says. "But none of them realize that humanity is caught in an endless loop. What's old is new again. Out with the skinny jeans and in with '90s JNCO tent-pants and wallet chains. I'm calling it." |}
+			*goto 27_club_feeding_options
+			
+		*elseif (club27 = 2)	
+			When you arrive at the club, it's late enough that there's no line, for which you're grateful. The bouncer looks largely the same as he did the last time you encountered him, although he's exchanged his checked shirt for another—slightly more colorful—checked shirt. A poster up front proudly proclaims that tonight is "Emo Night." Has it been so long since the 90s that emo is considered retro? Or are the mortal youth retreading history some would consider best left in the ground? You shake your head. They'd say that agelessness has left you with a terminal case of old-${manwoman} sensibilities, but you'd rather think of yourself as refined. As Jordan once joked: "Am I out of touch? No, it's the children who are wrong!"
+			
+			@{((clan = "Malkavian") and (chapter != 9)) $!{malk_name} chuckles. "As usual, [i]The Simpsons[/i] was a few decades ahead of the curve. Jordan watches good TV." |}
+			*goto 27_club_feeding_options
+			
+		*elseif (club27 = 86)
+			*comment Previously kicked out of the club.
+			When you arrive at the club it's late enough that there's no line, for which you're grateful. The bouncer looks at you and shakes his head. "You're on the ban list. Don't go thinking we're going to forget what you did here any time soon. Get lost."
+			*goto banned_for_un-life
+		*else
+			You arrive at the club and the now-familiar bouncer waves you in almost immediately. It seems like he's gotten a good idea of who you are by this point. Bass-heavy electronic music pounds out of the speakers tonight, a far cry from the guitar-driven live music of earlier visits, but just as good to hunt to. 
+			
+			You can't help noticing an alarming increase in security guards once you're inside. Have you been feeding here too frequently? You'll have to be more careful with where you choose to stalk your meals.
+			*goto 27_club_feeding_options
+			
+		*label 27_club_feeding_options
+		*choice
+			*if (jenny_27) #I single out a young woman dancing self-consciously by herself along the wall. She's a fish out of water—easy prey.
+				*set jenny_27 false
+				You mingle with the other patrons, slowly working your way over toward the young woman you've targeted. She hasn't moved from her spot since you arrived—a wallflower if you've ever seen one. You briefly make eye contact and she looks away shyly as you approach. She's not exactly receptive, but she's not turning you away either.
+				*choice
+					#I comment on the music, hoping to ease her anxiety.
+						*set ruthless %-5
+						*label jenny_music
+						"This is actually the first time I've come here," she says, straining to be heard over the music. "I'm not really used to big crowds. Do you, um," She laughs at the absurdity of what she was about to say and then decides to say it anyway. "Do you come here often?"
+						*fake_choice
+							#"This is my first time. I've always wanted to check the place out."
+								"Me too!" she says, brightening up immediately. "My parents really don't let me out that much, and definitely not clubbing. You'd think that once I started University they'd lighten up, but nope!
+							#"A couple times a week! This place is the best!"
+								"Wow," she says. You can't tell if she's actually impressed or not. "You must not get much sleep if you're here that often."
+							
+								"Oh, I sleep during the day," you say. Well, it's not exactly a lie…
+							
+								"Wish my parents would let me sleep in like that. You'd think that once I started University they'd lighten up, but nope! 
+							#"It's a bit out of my comfort zone. I guess I just wanted to meet new people for once."
+								She brightens up. "That's totally it! That's why I'm here too! I don't really get out much and my friends all went to different colleges leaving me to die here. Lame AF.
+						My name's Jenny. What's yours?" 
+					
+						Not wanting to give your real name, you trot out a pseudonym you used to use. "Taylor," you say with a smile. 
+						*label jenny_get_drink
+						"Can I get you a drink?"
+					
+						She shakes her head. "I don't drink, but thanks for the offer. @{(age = "elder") I don't think I've been hit on by someone so much older than me. Um, no offense. I mean," she pauses awkwardly, "it's weirdly hot. The confidence. I like that. | } Wanna get out of here?"
+					
+						She's surprisingly receptive. Is it your natural charm or is she so out of her element that she's latching onto the first person who shows interest? Either way, it doesn't matter. You're here to feed, not make friends.
+						*goto jenny_feed2
+					#I turn on the charm and try to get her to follow me into a quiet corner as quickly as possible.
+						*set ruthless %-5
+						*if ((charisma > 49) or (manipulation > 49))
+							*set ruthless %-5
+							You turn on the charm and approach the young woman with confidence, quickly winning her over with a discussion of the music and listening attentively to her complain about her overbearing parents. Once you've got her smiling, you move in.
+					
+							*goto jenny_get_drink
+						*else
+							"Yeah, I don't know." she says skeptically. Maybe you're not charming enough for her. "You seem nice and all, but I don't know you. Thanks for the offer though." She turns away from you to watch the band.
+							*choice
+								#I comment on the music, hoping to ease her anxiety.
+									*goto jenny_music
+								#Her back is turned. Once my fangs are in her neck, any objections will turn to ecstasy.
+									*goto jenny_feed
+								#I look for a different victim.
+									*goto 27_club_feeding_options
+					#Why bother with pretense? I wait for a distraction and then move in. Once my fangs are in her neck, any objections will turn to ecstasy.
+						*set ruthless %+5
+						*label jenny_feed
+						You slowly edge closer to the young woman as she watches the stage, completely oblivious. The music masks your steps, and by the time she feels you brushing up against her it's too late for her to object. 
+						*label jenny_feed2
+						*gosub set_feeding
+						You grin, drawing her closer as you sink your fangs into her supple neck and drink deeply, mimicking the motions of a passionate make-out session for any who may be watching. 
+						@{((clan = "Malkavian") and (chapter != 9)) Out of the corner of your eye, you notice $!{malk_name} trying, and failing, to bust a move on the dance floor. |}
+					
+						"I've never felt like this before," she moans gently as you sate your hunger. "What are you—" a shiver runs through her whole body and goosebumps form in ripples down her arms. "I—" her eyes roll back and her words turn to groans of pleasure. When you've drunk your fill and licked the wounds away, she staggers and almost falls. Not wanting to cause a scene, you help her off the main dance floor so she can recover. 
+						*goto finished_feeding
+			
+			*if (paul_27) #An older man is slumped over along the bar. He's disheveled and doesn't look like he belongs. Surely no one will notice him going missing for a while.
+				*set paul_27 false
+				You walk up to the bar, weaving your way through throngs of mortals lost in the rhythm of the music, and order two drinks, one for you and another for your intended victim. The man grunts and looks over at you; his eyes are tired and red-rimmed, his greying hair looks like it hasn't seen a comb for days. He starts in on his new drink while yours stays at your side, untouched aside from the occasional mock sip. Only one thing can truly satisfy your thirst.
+			
+				"Thanks for the drink," he says. "I know you?"
+				
+				@{((clan = "Malkavian") and (chapter != 9)) "This guy?" $!{malk_name} asks, shaking ${malk_hisher} head. "All the prime meat in here and you go for this guy? No accounting for taste." |}
+				*fake_choice
+					#"I think so," I say, bluffing. "We met at the shop the other day."
+						The man squints and looks at your face. He's not drunk, but he's probably far enough along that he's susceptible to suggestion. "Yeah," he says. "At the Home Depot?"
+					
+						You nod. "Good to see someone in here who knows how to work hard rather than sleep all day."
+					
+						*label paul_knows_it
+						"Don't you know it!" the man says. "I don't know why I even came here. Guess I thought a change of scenery would, ya know…" he trails off.
+					#"Maybe in passing. No idea, really. You just looked like you needed a drink."
+						*goto paul_knows_it		
+					#"No, but we could get better acquainted," I flirt.
+						@{(gender = "man") The man puts his hands up and laughs nervously. "Ain't got a problem with it, mind you, but I'm just not into guys. I'll take it as a compliment, though." He chuckles. | The man looks you over a bit more blatantly than he thinks he is. He's not drunk, but he's probably far enough along that he's lost some judgment. "Don't think I'd mind that much," he says.} 			
+				"Name's Paul." He offers his hand and you shake it warmly. "What's yours?"
+			
+				"Taylor," you say. No reason to use your real name; you can never be too careful.
+			
+				"Wanna get some air, Taylor? @{(age = "young") This place is sucking the life out of me." | This place is too young for both of us. What were we thinking, right? Let's get outta here." }
+			
+				You nod. This may be easier than you thought. "Sure, why not. It's not really my crowd."
+			
+				"This is what I get for listening to a coworker. Said I needed to get out and meet new people—I don't know if he was making fun of me or what. Gonna finish your beer?"
+				
+				*if ((clan = "Malkavian") and (chapter != 9)) 
+					@{((malk_demeanor = 2) or (malk_demeanor = 4)) "Yeah, Taylor," $!{malk_name} says with a mocking grin. "Gonna finish your beer, [i]Taylor?[/i]" | "Careful there, Taylor," $!{malk_name} says. "You know as well as I do that if you drink that beer you're going to be throwing it up seconds later. Beer before Blood, never sicker." $!{malk_heshe} frowns. "That sounded better in my head." }  
+			
+				You look down at the tall, frothy glass of amber fluid. Consuming food or alcohol as a vampire will usually make you sick almost immediately unless you're extremely well disciplined.
+				*fake_choice
+					#"Nah," I say, pushing the glass back across the bar. "I need to drive soon, anyway."
+						"You sure?" Paul says. "Kinda weird to order it and not drink it. They aren't exactly cheap here. Whatever, let's get some air."
+					#"It's kinda shit beer anyway. I don't know why I ordered it."
+						"Good enough for me," Paul says. "But I guess I'm not as picky as some people. Whatever, let's get some air."
+					#I need to blend in, even if there's a risk. I reluctantly drink the beer. @{(storyteller) (stamina or composure) |}
+						*if ((stamina > 49) or (composure > 49))
+							You're not sure how you're able to manage it, but you're able to hold down the alcohol even though you feel a sickness rising in your guts mere seconds later. 
+							*label paul_notices
+							*achieve never_sicker
+							Paul must have noticed you grimacing because he asks you what's wrong.
+						
+							"Just didn't agree with me," you say, trying to brush it off. Eventually that beer will have to come out the way it went in—vampires and mortal food simply don't mix—but for now you've got yourself together.
+						
+							@{((clan = "Malkavian") and (chapter != 9)) "Damn," $!{malk_name} says. "We've got an impressive constitution! Let's make this a party trick at Elysium!" |}
+						
+							"Even more reason to get some air, then."
+							*goto paul_outside
+						*else
+							*set masquerade_breaches +1
+							That was a mistake. Within a matter of seconds, you feel the sickness rising in your guts. The beer is coming back up and that leaves you with very few choices.
+							
+							@{((clan = "Malkavian") and (chapter != 9)) "Tried to warn ya," $!{malk_name} says. "Time to worship at the porcelain throne!" |}
+							*choice
+								#I rush to the washroom and vomit in relative peace.
+									Bile spilling over from between your lips, you push someone aside as you force your way into the nearest stall and violently disgorge the amber fluid into the toilet bowl. Other patrons shift away in disgust as you wipe your mouth and leave in search of your prey. Unfortunately it seems like he's long-gone and no one else in the club will come near you. You guess you have little choice but to leave hungry.
+									*return
+								#I run outside and heave up the beer on the sidewalk.
+									Hoping to avoid making a scene, you tear away from the bar and bash your way out the front door, bile on your lips. You push someone away from the outer brick wall and violently disgorge the amber fluid all over the sidewalk. When you're finally done retching, you wipe your mouth and look for your prey. Unfortunately it seems like he's long-gone and no one else in the club will come near you. You guess you have little choice but to leave hungry. 
+									*return
+								*selectable_if (hunger < 5) #I can keep the beer down at the expense of increasing my Hunger. I'd rather do that than lose my prey.
+									*gosub_scene functions add_hunger
+									You manipulate your Blood to mimic the blush of life, and immediately your stomach calms, accepting the beer almost as normally as a mortal. At least for the moment. But it should be long enough.
+									*goto paul_notices
+			
+				*label paul_outside
+				*gosub set_feeding
+				You follow Paul out the front door and the blast of cold air from the street smacks you across the face after the oppressive heat of the club.
+
+				"Cold night," he says. "Surprised it's not snowing." He starts to ramble about his lonely life, and once he gets going, he can't seem to stop. You have the feeling that you're the first sympathetic ear he's had in months. You look at your watch. Unless you want this to go on all night, you'd better feed and be done with it.
+			
+				You direct Paul over to a less populated building where it's significantly darker thanks to a broken street light. He doesn't stop rambling until at least five full seconds after you sink your fangs into his neck.
+			
+				"…so my ex-wife says…wait…what…what you doing to me?" he slurs as you drink deeply. He shivers, and it's not due to the cold. Hot breath wafts up from his lips, visible in the dim moonlight as you finish your meal. When you're done, Paul's eyes have gone glassy and dazed. You sit him down and prop him up against the wall. He'll be fine in a few minutes, and all he'll remember is a vague recollection of a friendly talk. Any other patron will think he just drank too much and passed out. 
+				*goto finished_feeding
+
+			*if (washroom_27) #It may not be glamorous, but people coming and going from the washroom are easy prey.
+				*set washroom_27 false
+				You spend just enough time wandering the club that it wouldn't be entirely conspicuous if you made a beeline for the washroom. When you finally make your way over, you're relieved to find that there's no line. A quick glance shows a single male occupant, staring into the mirror while washing his hands. He's got a slight build, not too much muscle. So far so good. What's next?
+				
+				*if ((clan = "Malkavian") and (chapter != 9))
+					@{((malk_demeanor = 1) or (malk_demeanor = 3)) "Careful how you do this," $!{malk_name} says. "Someone could come through that door any second." | "This is a good look on us," $!{malk_name} says. "Stalking unsuspecting guys in bathrooms. What could possibly go wrong?" }				
+				*fake_choice
+					#I walk in and close the door behind me, locking it. It may be more conspicuous, but it more or less guarantees privacy.
+						The guy looks over from the mirror when you come in. "You mind?" When you close and lock the door he starts to freak out. @{(gender = "man") "Hey, look man, you can have my wallet, okay? I don't want any trouble." | "Look, I mean, I never thought I'd complain about getting locked in a room with someone like you, but I'm just not up for that kind of fun right now, okay?" }
+						*fake_choice
+							#I rush in like a viper, sinking my fangs into his neck before he can say another word or cry out.
+								*set ruthless %+5
+								You don't give your victim even a second to scream out for help. In less than a second you're on him, fangs deep in his neck as you slurp his lifeblood noisily. 
+							#I take a slow approach, calming him down before I attack.
+								*set ruthless %-5
+								You don't need him to believe you, you just need to confuse him long enough for you to get closer. "It's okay," you say, hoping to calm him. "I just needed to tell you something and I didn't want anyone to overhear." 
+							
+								"Wait, what? What you lookin' at me like that for?" he asks. "You're not, like, one of those doomsday cultists, are you?"
+							
+								"Not quite," you say.
+							
+								"Then what—"
+							
+								You're close enough now. You lunge and in less than a second you're on him, fangs deep in his neck as you slurp his lifeblood noisily. 
+							#I stalk him slowly, savoring his building fear before I strike. The loud music outside will drown out any calls for help.
+								*set ruthless %+5
+								You stalk forward, practically drooling as you think about your victim's hot, rich blood. He can see the Beast in your eyes and he falls back against the far wall, shrinking down, trying to reduce his profile like a prey animal. You grab him by his shirt collar and haul him up against the wall before sinking your fangs into his neck.
+						He quickly goes limp, lost in the euphoria of the Kiss. When you're finished with him, you lick the wounds closed and prop him up in the stall where he sits with a dazed look on his face. He won't remember much of anything other than foggy recollections of a weird person met in the washroom.
+					
+						"Hey!" someone knocks heavily on the door. You think you recognize the voice of the guy who was manning the entrance on your way in. "What's going on in there?" A sharp kick sends the door slamming up against the wall. So much for that cheap lock. "I said what's going on in here!" the furious bouncer asks.
+						*gosub set_feeding
+						*label 27_answer_bouncer_questions
+						*fake_choice
+							#"Um, nothing! It's all good in here!"
+								@{((clan = "Malkavian") and (chapter != 9)) "Smooth," $!{malk_name} says. |}
+							
+								"Bullshit," the bouncer says, pointing a finger at your victim. "What's wrong with him? 						
+							#"He was, uh, using drugs!"
+								"Are you fucking kidding me?" the bouncer says. "Who the fuck would just admit that? And he looks drunk, not high.						
+							#"I'm just taking care of a sick friend!"
+								@{((clan = "Malkavian") and (chapter != 9)) "Is that what the kids are calling it these days?" $!{malk_name} asks. |}
+							
+								"Sick from drinking too damn much," the bouncer says, glowering at you. "Can't have you locking the door to the washroom.
+						We don't let drunks stay in here. He needs to go walk it off outside."
+					
+						You try to get your victim on his feet, but he's still blissed-out and drained from the Kiss. "Look," you say, increasingly uncomfortable with the visibility of the situation. "Can you help?"
+						*if ((presence) or (dominate))
+							*choice
+								*if (presence) 
+									*selectable_if (hunger < 5) #[b]Presence (+ Hunger):[/b] I entrance the bouncer to make him more understanding of the situation by using my mental powers. He'll be putty in my hands.
+										*goto entrance_bouncer				
+								*if (dominate) 
+									*selectable_if (hunger < 5) #[b]Dominate (+ Hunger):[/b] I mesmerize the bouncer into letting me go without a fuss.
+										*label entrance_bouncer
+										You look the bouncer in the eyes. "There was no problem here. Just a misunderstanding. You're going to let us go and I'll take my friend outside. I think that would make all of us happy, right?"
+										
+										"Yeah," the bouncer says. "Of course." He's suddenly extremely cooperative. Funny how that works. "Go on, then. Head out. We'll see you next time!" He waves you back through the bar and out to the front door.
+										
+										Once the door is closed behind you, you prop up the body of your victim against the wall. That could have gone better, but at least you got out of there without making more of a scene. You'd better be careful the next time you show up here, though.
+										*goto finished_feeding									
+								#I'm not interested in wasting fresh Blood in smoothing things over with a bouncer.
+									*goto the_hell_out
+									
+						*label the_hell_out
+						"I can help both of you the hell out!" the bouncer yells. "Enough is enough! Out! And I don't want to see you back here again, understand? Either of you!"
+						*set club27 86
+						*set masquerade_breaches +1
+						*comment Bans you from the 27 club. Might get commented on negatively in Camarilla encounters later. Not quite a Masquerade breach, but bad form.
+						*achieve ban_27
+					
+						Both you and your victim are unceremoniously dragged and shuffled to the front door and left in the cold. Gritting your teeth, you leave the man slumped on the side of the road. Well…at least you got what you needed. You'd better be careful the next time you show up here, though.
+						*goto finished_feeding
+					#While no one is looking, I walk in and violently pull him into the stall to feed.
+						*set ruthless %+5
+						*gosub set_feeding
+						The guy looks over from the mirror when you come in. "You mind?"
+					
+						You don't give him time to say anything else. In less than a second, you're on him, fangs deep in his neck as you slurp his lifeblood noisily. He quickly goes limp, lost in the euphoria of the Kiss. When you're finished with him, you lick the wounds closed and prop him up in the stall where he sits with a dazed look on his face. He won't remember much of anything other than foggy recollections of a weird person met in the washroom.
+						
+						@{((clan = "Malkavian") and (chapter != 9)) "We've got company, $!{name}," $!{malk_name} says. "Better think fast!" |}
+					
+						"Ew, what the fuck?" a young woman says from behind you. "Why are you in the stall with that guy? Is he drunk?"
+						*fake_choice
+							#"Yeah," I say. "I'm just trying to make sure he doesn't swallow his vomit and die. Gotta be safe, right?"
+								"Um, yeah," she says. "Gotta be safe."
+							
+								"You want to help?" 
+							
+								"Gross. No," she says before leaving in search of another place to relieve herself.
+							#"Oh, hey, are you Jen? He said he needed you to give him a ride home." That's probably not her name, but she might go looking for someone by that name.
+								"Nooo…" she says. "I don't even know anyone named Jen. You want me to, like, go find her or something?"
+							
+								"That would be great," you say. "He's in rough shape."
+							
+								"Um, okay, whatever." 
+							#"Do you mind? We're trying to get a private moment here!"
+								"So gross!" she says. "Are you even serious right now? Like, I can't even…" She sputters for a moment before yelling for someone to get security.
+								
+								@{((clan = "Malkavian") and (chapter != 9)) "Not our finest moment ever," $!{malk_name} says. "If I'm being honest. As private moments go, I'd give this one a solid 2 out of 10." |}
+								*goto 27club_security_called
+						She leaves you alone, which is all you really care about. Your victim will be fine, and for now it's time for you to get out of the club without making a scene.	
+						*goto finished_feeding	
+					#I make small talk in order to get close to him, and then start to feed in the corner. To an onlooker it will look like we're just making out in an inappropriate place.
+						*gosub set_feeding
+						You don't need him to believe you, you just need to confuse him long enough for you to get closer. "It's okay," you say, hoping to calm him. "I just needed to tell you something and I didn't want anyone to overhear." 
+						
+						@{((clan = "Malkavian") and (chapter != 9)) "Yeah," $!{malk_name} says. "That's what every person alone in a washroom wants to hear from some creepy, dead-eyed bloodsucker." |}
+							
+						"Wait, what? What you lookin' at me like that for?" he asks. "You're not, like, one of those doomsday cultists, are you?"
+							
+						"Not quite," you say.
+							
+						"Then what—"
+					
+						You're close enough now. You lunge, and in less than a second you're on him, fangs deep in his neck as you slurp his lifeblood noisily. You have just enough time to finish and lick the wound closed when you're interrupted.
+					
+						"What the hell?" a young woman cries out from behind you. "Fucking gross! Get a damn room, sickos! I'm calling security if you don't get the fuck out of here right now!"
+						*set masquerade_breaches +1
+						*fake_choice
+							#I hold my victim on my shoulder like he's had one drink too many and push our way back out of the washroom.
+								*goto washroom_back_out
+							#"What?" I say to her mockingly. "You jealous?"
+								"So gross!" she says. "Are you even serious right now? Like, I can't even…" She sputters for a moment before yelling for someone to get security.				
+								*label 27club_security_called
+							
+								"Hey!" someone yells from outside the washroom. You think you recognize the voice of the guy who was manning the entrance on your way in. "What's going on in there?"
+								*goto 27_answer_bouncer_questions
+							#"Okay, okay, we're getting out of here. Sorry about that."
+								*label washroom_back_out
+								Fortunately, the girl doesn't seem to actually care all that much once you get out of her way. Once you're out on the dance floor, you prop your victim up against a table. He'll be fine, and for now it's time for you to get out of the club without making a scene.	
+								*goto finished_feeding	
+									
+			*if (john_27) #A crestfallen young man has just been very publicly dumped by his girlfriend. Lending a sympathetic ear should get me close enough to feed.
+				*set john_27 false
+				You approach the young man with a sympathetic smile and lead him over to the bar. Thankfully he's so distraught that he doesn't even bother to question your motivations. You buy him a beer and pretend to listen while he pours his heart and soul out to you in an endless babble of word soup that almost puts you off your appetite. Eventually you tune out and just nod at the appropriate intervals until he finally stops talking and swipes sweaty fingers through his long emo-bang. Wait. Did he end with a question?
+				
+				@{((clan = "Malkavian") and (chapter != 9)) "Don't look at me," $!{malk_name} says with a shrug. "I haven't been listening since the second time the kid said the word 'soulmate.' If we drink from him, do you think we'll start writing shitty poetry and three-chord love songs? I'm down if you are." |}
+			
+				"I'm sorry, what did you ask?" you say, pointing at the stage. "It's a bit loud in here."
+			
+				"I asked if you've ever lost a soulmate?" he says. "The person you know you were meant to be with."
+				
+				@{((clan = "Malkavian") and (chapter != 9)) "This really needs to be a drinking game," $!{malk_name} says. "We'd die a second time, but from alcohol poisoning." |}
+			
+				An unexpected flashback hits you, a cracking synapse in a long-dormant part of your mind. A ${jordan_gender}'s face flickers into being, wispy and ethereal like a ghost image trapped somewhere behind your eyes. You've seen that face, lost in a rage after Ward knocked you away from the warehouse before it was lost in the explosion. Someone you betrayed before you became undead. A lover? Somehow you can't quite remember. 
+			
+				And then it's gone. As if it never existed.
+				*fake_choice
+					#"It's funny," I laugh. "I can't quite remember, but I think I was in that situation once too."
+						The young man nods and takes a long swig of his beer. "Yeah, I'm working on forgetting too. Maybe that's the best way to handle things you can't change."
+					
+					#"There's no such thing as a soulmate. Trust me, you're better off without her."
+						The young man blinks. "You think? I mean, we were together for, like, almost two months now. That's the longest relationship I've ever had!"
+					
+						You steady your nerves and remind yourself this will all be worth it. 
+					#"Yeah, I lost my soulmate years ago. Life doesn't get better. It's just a downward spiral. Blacker than the blackest black. Times infinity."
+						The young man swipes back his emo-bang. "That's really deep. Isn't that a lyric from something?" He shakes his head. "Never mind. I can't give up; I need to win her back!"
+					
+					#"Maybe you should focus on getting her back? I can help you workshop some ideas."
+						The young man looks up at you hopefully, swiping back his emo-bang. "Yeah? You'd do that for me?"
+					
+						"Sure, why not?"					
+				You pay the kid's tab and put your hand on his shoulder. "Hey, let's go talk over there," you gesture at the far corner of the club, further away from the music and dancing. "I can barely hear myself think."
+			
+				"Um, yeah, sure," he says, sitting up and following you like a dutiful puppy. Now that no one's watching, he's all yours.
+				*fake_choice
+					#I don't give him a moment to reconsider or get away. He's mine now, and I'll take him here, in the dark corner.
+						*set ruthless %+5
+						"Wait," he says, startled as you hold him back against the wall. "What are you—"
+
+					#I flirt with him a bit. If I can go for his neck naturally he'll put up less of a fuss.
+						*set ruthless %-5
+						The young man seems taken aback at first, but slowly warms to your idea. @{(gender = "man") "You know, I've always thought about it. Being with another guy. Maybe it wasn't a phase after all!" | "I, um, like…I just broke up…" he quiets as you kiss him, but then spoils it by talking more. "Is it really okay to move on this quickly? I guess, I mean…fuck it!" } He kisses you back with reckless abandon.
+				
+					#I give him some harsh advice. "You know," I say. "You're young and there's no such thing as a soulmate. You'll find someone better and you're better off without her."
+						"That's not really the kind of advice I was hoping for," he says, biting his lip hard enough to draw blood. You can smell it on his breath. "I think maybe I should go find her—"
+				
+				And then your fangs pierce his neck. He tenses up then relaxes all at once and you have to prop him up just to keep your grip on him without bending down. You swear you can taste his fear and regret, but it's all bundled up in the freshness of youth. Somehow that always makes it sweeter.
+			
+				"There you are," you whisper in his ear as you pull back and lick the wounds clean. "Feeling better? No more worry? Just ride out the good feelings while you can."
+			
+				"Yeah," he mutters. His eyes are crossed. "Feels so good…"
+				
+				*if ((clan = "Malkavian") and (chapter != 9))
+					$!{malk_name} clears ${malk_hisher} throat and looks up from a small notepad ${malk_heshe}'s been furiously scribbling on. "My heart is bruised, like a freshly picked piece of fruit dropped on the floor before it could be properly tasted, wasted and bound for the trash bin of heartbreak," ${malk_heshe} recites. "Hey! I think I'm getting the hang of this poetry thing already!"
+					
+					You roll your eyes. "Don't ruin this for me."
+					
+					"I don't have to listen to you," $!{malk_name} says, arms crossed. "You're not my real @{(gender = "man") dad!" | mom!" }
+			
+					Damn, did the kid's blood really affect you that quickly? Must be all the alcohol in his system.
+				You leave your victim there, all alone in his personal world of bliss. You can't help but notice that no one's come looking for him. He'll be better off without her. 
+				*gosub set_feeding
+				*goto finished_feeding	
+			
+			#On second thought, I'd like to look for prey somewhere else.
+				*label banned_for_un-life
+				Where would you like to go?
+				*choice
+					*if (blood_dolls_closed = false) #I could see if any of Alisha's blood dolls will let me feed from them.
+						*goto blood_dolls_feeding_section
+					#I'll check out Confederation Park.  
+						*goto confederation_park
+					*if (sappers < 3) #The Sappers Staircase leads to a wide tunnel beneath Plaza Bridge. There are plenty of nooks and crannies to hide in after grabbing a victim.
+						*goto sappers_staircase
+					*if (greyhound < 2) #The Greyhound station usually has a few people waiting for hours overnight for their next transfer.
+						*goto greyhound_station
+
+
+	*if (confederation > 0) #I return to Confederation Park in search of my next meal. 
+		*comment replace the selectable_if above with the below when resuming work.
+		 
+		*goto confederation_park
+	*if (confederation = 0) #I'll head to Confederation Park. I used to feed there in the early days after my Embrace and the pickings are always easy. 
+		
+		*label confederation_park
+		*set confederation +1
+		*if (confederation = 1)
+			You stroll up Elgin Street, passing beside benches and well-tended trees as you take in the sights and sounds of the park. It's been years since you've spent time hunting here and it feels good to be back. Comforting somehow. One of the few memories of your first month as a vampire not shrouded by fog is of Corliss taking you here for your first hunt. To say it was exhilarating would be an understatement, and it left an imprint on your undead psyche that bursts up like a weed as you soak in your surroundings. 
+			
+			You walk through the main entrance and pass by the central fountain. It's quiet during these chill winter months, but when you stalked your first mortal, it had been bubbling and splashing away just loud enough to muffle the struggle as you dragged the unwilling man into the northwest corner of the park and fed ravenously behind a row of empty benches. If Corliss hadn't been present to stop you from draining him dry, the night might have ended with a very different exercise, but fortunately—both for you and your victim—body disposal was a lesson to be learned at a later date.
+			
+			@{((clan = "Malkavian") and (chapter != 9)) "Those were the nights," $!{malk_name} says. $!{malk_heshe} dips a toe in the empty fountain. "We were both so much more innocent back then. Well, as innocent as a bloodsucker can be while stalking prey in a public park. Still, though—this will always be a prime hunting ground." |}
+			
+			One of the most attractive things about Confederation Park as a feeding ground is its location central to the most notable Kindred locations in Ottawa—an easy walk from Parliament Hill and the luxurious offices and living spaces enjoyed by the native vampiric population. Feeding here is limited to the upper classes—Primogen and their immediate childer, friends of the Prince and Seneschal, and so forth. As most of these Kindred are typically interested in stalking a finer breed of meat, the park goes largely unharvested—a boon to you, as the local population has no reason to raise their guard. A field of unconcerned sheep leaves the wolf with easy pickings, after all.
+			*label confederation_menu_items
+			*choice
+				*if (confederation_old_man) #There's an older gentleman sitting to the northwest in the same corner of the park where I stalked my first meal all those years ago. I indulge in a little nostalgia.
+					*set confederation_old_man false
+					You can almost hear the gurgling fountain from all those years ago, but this time you stalk through a silent gloom, gliding toward the elderly gentleman like an angel of death. He doesn't raise his head as you approach, but a twitching in his gnarled right hand betrays him. He knows you're here.
+					
+					"Have you come to take me, then?" the old man asks suddenly. His ragged voice sounds tired and world-weary, like he's seen one too many winters. "I've been coming here for almost a year since you took Samantha, waiting for you to come back and take me too." He tilts his head back and pulls a cloth cap from his balding head, clutching it to his chest. "Have mercy on me, specter. Take me to my wife."
+					
+					*if ((clan = "Malkavian") and (chapter != 9))
+						@{((clan = "Malkavian") and (malk_demeanor = 4)) "Meat that knows when it's ready to be cooked," $!{malk_name} says. "Hard to argue with." |}
+						@{((clan = "Malkavian") and (malk_demeanor = 2)) "Is his wife in Oshawa?" $!{malk_name} asks. "Cause I'll go anywhere but there." |}
+					
+					You're caught off-guard. Far from giving you the nostalgic hunt you craved, this mortal is greeting you as though he knows your business quite well. You once heard it said that those with one foot in the grave could sometimes sense un-death, your lack of a beating heart and the reek of your damnation. But such tales are often impossible to verify. In theory, anyway.
+
+					"Will you say nothing?" the old man says, peering up at you. "I'm ready—I've made my peace. Just make it quick."  
+					*fake_choice
+						#I don't bother with words. This man is my prey and his worldly concerns do not interest me in the slightest.
+							*gosub_scene functions normal_feeding
+							*set masquerade_breaches +1
+							If this mortal truly recognizes you for the supernatural creature that you are, why would he think you'd care in the slightest about his desires? You move to take him, digging your teeth into his neck and stifling his whimpering cry. He goes limp in your arms as you feed, but his heart keeps beating strongly—there's much life left in him yet. You wonder how many more years it will be until he's reunited with his wife.
+						#I speak up. "Why do you want to die? Did your wife pass here?"
+							The old man seems confused. "Are you not the same angel of death? How could you forget Samantha? Her soul would have lit you like a beacon as you ascended to the heavens."
+							
+							"There are many of us," you say cautiously. It's better that he doesn't understand your true nature. No one will believe an old man ranting about a close call with the grim reaper, but if he started ranting about vampires…. "But I'm sure you'll meet your wife soon enough."
+							
+							"It's not that I want to die," he says. "Truly I don't. But if it's the only way to ease the loneliness, then I'm willing to accept it."
+							*choice
+								#I waste no time. If this old man is ready to die, then I'll grant his wish and usher him off this mortal coil by draining him dry. It's what any good Samaritan would do.
+									*goto drain_old_man_dry
+								#"I'm not an angel of death, but I can offer you a temporary release from your pain."
+									*goto i_cannot_grant_you
+						#I waste no time. If this old man is ready to die, then I'll grant his wish and usher him off this mortal coil by draining him dry. It's what any good Samaritan would do.
+							*label drain_old_man_dry
+							*set hunger 0
+							Why turn your nose up at a willing victim? If the old man wants so desperately to die, then who are you to argue against his wishes? It feels like it's been so long since you've been fully sated. 
+							
+							"Go ahead, then," he says. "I'm waiting for you."
+							
+							You pull his head slightly to the side, exposing his neck. He lets out a weak cry when your fangs pierce his flesh, but in the moments after, you feel his muscles relax as he falls into the trance of the Kiss. You suck every last drop down greedily, pushing past the limits you've ingrained into your reflexes and draining him completely. When you finally pull away, his heart and lungs have stopped and he stares at you with the glassy eyes of death.
+							
+							You'll have to make a call to get the body removed, but for now you're able to hide him a bit unceremoniously in the bushes. His blood feels warm as it circulates through your cold, dead veins. You feel ready for just about anything!				
+						#I speak. "I'm not an angel of death, but I can offer you a temporary release from your pain."
+							*label i_cannot_grant_you
+							*set masquerade_breaches +1
+							*gosub_scene functions normal_feeding
+							"I cannot grant you the release of death just yet," you say carefully. "But I can offer you a temporary release from your pain."
+							
+							A single fat tear drips from the old man's right eye. "Go ahead, then. Whatever malady you wish to afflict upon me will only bring me one step closer to her. I accept your judgment." He leans his head down, staring at the ground as you approach. 
+							
+							You pull his head slightly to the side, exposing his neck. He lets out a weak cry when your fangs slip in gently, but in the moments after you feel his muscles relax as he falls into the trance of the Kiss. When you're finished, his heart is still beating strongly—there's much life left in him yet. You wonder how many more years it will be until he's reunited with his wife.
+	
+					*goto finished_feeding				
+				*if (confederation_park_bench) #I sit down on one of the park benches just off the main hub from the fountain and wait for an ideal meal to walk past.
+					*set confederation_park_bench false
+					*gosub_scene functions normal_feeding
+					You take a moment to relax on one of the park benches on a path leading off from the main hub, feigning an interest in the night sky. It doesn't take long before you hear the sound of a jogger making their way closer past the fountain. 
+					
+					Closer. Even closer. 
+					
+					You can see him now—a young man in a white tank top, sweaty from his late-night exercise. He doesn't even seem to notice you as he approaches, his eyes fixed on the path, ear buds blasting enough loud music to keep him oblivious. You've heard mortals say that food delivery is all the rage these days, well now it's time to enjoy a little of that convenience yourself.
+					
+					@{((clan = "Malkavian") and (chapter != 9)) "It's almost too easy," $!{malk_name} says. "Dinner for two?" |}
+			
+					You dart out like a snake, wrapping an arm around the jogger's neck and pulling him into the bushes. In seconds, your fangs have pierced his skin and you're supping on his sweet blood, drinking your fill as he goes limp in your arms. It may not be door to door delivery, but it's the next best thing when your prey comes to you.
+			
+					*goto finished_feeding			
+				*if ((confederation_drug_sales) and (clan != "Ventrue")) #I loiter in the light of one of the lamps, hoping to attract someone interested in purchasing an illicit substance, or, failing that, attracting someone who's upset that I'd be selling them here.
+					*set confederation_drug_sales false
+					You stand under one of the park lamps idly, making a show of fumbling with your pockets and scratching phantom itches. That's the way a drug dealer would act, right? Or at least a parody of one. Regardless of the quality of your performance, it eventually attracts an audience of one, which is just the right number as far as you're concerned.
+					
+					"Hey," a sickly woman says, trying to attract your attention. "You holding?" You nod and she exhales with relief. "Come over here, out of the light," she says. "I'm on parole, can't let nobody see me."
+					
+					That works for you. It's not like you want to put on a show for the next jogger who happens to come by at the least opportune moment. You step out and follow her down a side path, surprised when she whips around and grabs your shirt, jabbing a small knife into your ribs. 
+					
+					@{((clan = "Malkavian") and (chapter != 9)) "Woah, woah, woah," $!{malk_name} shouts. $!{malk_heshe} jumps back and bares ${malk_hisher} teeth. "So the mouse can bite, eh?" |}
+					
+					"Gimme all of it," the woman grunts. "Everything you're holding! Less you want me to gut you?"
+					
+					This just got interesting.
+					*fake_choice
+						#I laugh and tell her to take her best shot. She can make the first move.
+							*set masquerade_breaches +1
+							You laugh right in the sickly woman's face. "Go on, then," you say, stepping forward, grinding the tip of the pathetically tiny knife against your chest. "Do it."
+							
+							"I'm not fuckin' kidding around, yo!" she says. "I'm not buying your bullshit! Gimme the stuff!"
+							
+							"No."
+							
+							The woman growls with anger and shoves the knife into your chest. "Still think this is a joke now, you fuckin' weirdo?"
+							
+							You just can't help yourself. You laugh. "I barely felt that." @{((clan = "Malkavian") and (chapter != 9)) $!{malk_name} chuckles and gives you a nod of approval. |}
+							
+							She blanches, suddenly overcome with fear. "What the fuck is wrong with you?"
+							
+							*label knock_the_knife
+							*gosub_scene functions normal_feeding
+							You knock the knife aside and grab her by the throat, pulling her into the nearby bushes as she struggles against your grip. A quick look back through the park doesn't reveal any witnesses, so you go about your business, sinking your fangs into her neck. 
+							
+							Uggh. Her blood tastes just about as bad as you expected, but it revitalizes you all the same. 
+							
+							When you're finished with her, you take another look for bystanders before propping her body up on a nearby park bench. She'll eventually recover, but fortunately for you, nobody will believe her if she decides to tell them anything about the nature of her attack. 
+						
+						#I don't have time for games. I knock the knife aside and drink my fill.
+							*set ruthless %+5
+							*goto knock_the_knife				
+						#I pretend to be afraid to get her to lower her guard before going for her throat. Just because she's of little threat doesn't mean I should be reckless.
+							*set ruthless %-5
+							You take a step back, feigning nervousness at the sight of the pathetic little knife. "I've got the goods right here," you say, a quiver in your voice.
+							
+							"Ha!" she grunts with pleasure. "I knew you were a fucking puss the moment I laid eyes on you!" There it is…the glint of over-confidence in her eyes.
+							
+							*goto knock_the_knife
+							
+					*goto finished_feeding					
+				*if (confederation_construction) #There's a skeleton crew working a construction site on the east end of the park—maybe five people total. It wouldn't be hard to separate one of them during their break and have a bite to eat, myself.
+					*set confederation_construction false
+					*gosub_scene functions normal_feeding
+					You wait around in the shadowy periphery of the construction site. If you've learned anything about Ottawa in the decades that you've stayed here, it's that you can always count on city construction crews to take more breaks than any reasonable mortal would find necessary. And just as if they were waiting for you, they split up into clusters, most opening sandwich bags or grabbing a smoke break. One of them is puffing on a particularly pungent cigar which seems to put off his fellow workers, so he stalks off into the park to enjoy it alone. You do so love it when your victims self-select.
+					
+					@{((clan = "Malkavian") and (chapter != 9)) "Smoked meat," $!{malk_name} says. "Not a bad catch, $!{name}." |}
+					
+					"What the hell?" he grunts as you grab him from behind and attempt to wrestle him into the bushes. It takes more effort than you expected to subdue the man. He may have the body of a laborer, but he's been up working all night. In the end, he's no match for your undead strength.
+					
+					You sink your fangs into his neck, being careful to only delicately puncture and not rip the skin as his struggles lessen and eventually he relaxes in your grip. He's certain to be found within the next fifteen minutes or so when the break ends, and you don't want stories coming out about mutilated construction workers on the morning newscasts. There…you finish up and lick the small puncture wounds clean and then prop him up on the nearest bench. If you're lucky, his buddies will just think that their coworker's pungent cigar packed more of a punch than he expected and made him feel ill. Delirious. Either way, you'll be long gone by the time they find him.
+		
+					*goto finished_feeding
+					
+		*if (confederation = 2)
+			You return to Confederation Park, strolling by a monument you've passed dozens of times but never truly looked at. You can't say for certain why it catches your eye tonight—maybe the light of the moon hitting the upturned wings of a majestic eagle crowning the memorial—but you stop on the sidewalk and take a moment to admire the work its artisans put into it. Four native soldiers are flanked on both sides by a ferocious bear and a wolf, maws open, teeth displayed. A plaque below dedicates it to the Aboriginal War Veterans of Canada. 
+			
+			Something shifts behind the stone base, flickering just out the corner of your eye. Maybe it wasn't the statue itself that drew your attention after all. Someone is watching you, and they're doing a very poor job of trying to be sneaky about it.
+			
+			*if ((clan = "Malkavian") and (chapter != 9))
+				"You see anything, $!{malk_name}?" you whisper.
+				
+				$!{malk_name} shakes ${malk_hisher} head. "Nothing more than what you saw, but there's definitely someone else here. Weird place for a mugger—too close to the street. We should grab 'em and find out why they're watching us."
+			*fake_choice
+				#I rush around the monument and catch the spy in the act!
+					You race toward the monument, circling around fast enough to easily catch the would-be spy.
+				#I call out: "I see you there! Show yourself!"
+					"I see you there!" you call out. "Show yourself!" 
+					
+					You're surprised when the lurker actually answers. "I didn't do anything! This is public property and I can be here if I want to!"
+					
+				#I slowly stroll past the statue with my back turned, and then catch the spy in the act if they come after me.
+					You walk past the monument, trying to act casual while watching for any movement in your peripheral vision. Your low-effort stalker pops out to follow just as you expected, and when you whirl around, he stops in place, stock-still as if he thinks you can't see him when he's no longer moving.
+			
+			"Why are you watching me?" you ask, trying to walk the fine tightrope between threatening and approachable. The man reeks of booze and from the look of him, he's been without a change of clothes for awhile.
+			
+			*if (paul_27 = false)
+				"I thought that was you," the man says. "I met you in the bar! Taylor, right?"
+				
+				Now that he mentions it, the man does look familiar. A victim of yours from not too long ago at The 27 Club. "Paul?" you ask, finally remembering his name. "Why are you following me, Paul?"
+				
+				"I saw you the other night in here, lurking around being all creepy-like. Normally I wouldn't even notice, but when I saw that you were the same person I met that night in the club, I kept an eye on you."
+				
+				@{((clan = "Malkavian") and (chapter != 9)) "Great," $!{malk_name} says. "Just what we need—a drunk ex-victim keeping tabs on us. That won't piss the Council off at all! I don't think we can let this go." |}
+				
+				This is starting to feel dangerous. Not to your personal well-being, but to the Masquerade. "And what did you see, Paul?"
+				
+				"Nothing, really," he says, his eyes flicking this way and that. "Look, I've got to go. Gotta pick up my kids at the ex's place."
+				
+				"It's the middle of the night, Paul," you say, taking a step closer. "Why are you lying to me?"
+				
+				"Look, I won't tell anyone, all right? I should have stayed away!"
+				
+				"Tell them what?"
+				
+				"Nothin'! I didn't see anything, okay!"
+				
+				Except he did see something—and now it's on you to figure out what to do with him. No matter how you tackle this, it could be a potential risk to the Masquerade. Killing or assaulting a man out in the open comes with its own dangers, and stashing a body would require a call for assistance, but if he starts blabbing about vampires, you could be in serious trouble.
+				*fake_choice
+					#The man's a drunk coming out of a bad relationship if you remember your earlier conversation correctly. Nobody will believe him if he talks, and he won't talk if I threaten him.
+						*set ruthless %-5
+						*set masquerade_breaches +1
+						"Look, Paul," you say. "You've seen what I can do. You've been there, firsthand."
+						
+						"I have no idea," he says. "I didn't see anything!"
+						
+						"You did, Paul. And that's a very bad thing for you. Hand me your wallet." He pulls a beaten-up leather wallet from his pocket and hands it to you, pulling his fingers back when you touch them as if you were a serpent about to strike. You browse through it and take out his driver's license. "Paul D'Amico. I have your full name and address. If I find out that you've said a word about these things that you know, I'll pay you a visit the very next night. Do you understand?"
+						
+						"I understand," he stammers. "You're not gonna kill me?"
+						
+						"Not if you're good and keep your mouth shut, no. But life is a very fragile thing, Paul. It would be a shame to risk it all for a story that would just get you laughed out of the bar. Now get out of here."
+						
+						He hesitates. "Are you, um, gonna give me back my license?"
+						
+						@{((clan = "Malkavian") and (chapter != 9)) "Guy's out of his damn mind!" $!{malk_name} exclaims. $!{malk_heshe} tries to slap Paul in the face, but ${malk_hisher} hand passes through harmlessly. |}
+						
+						You can barely believe this idiot. You've put yourself out on a limb for him and he's making requests? "No," you growl. "Now get moving before I change my mind!"
+
+						Luckily for him, he doesn't say another word, he simply turns and shuffles away. He's still drunk—with luck he'll think the entire encounter was little more than a fever dream.
+
+					#I can't take any risks to the Masquerade. I make sure nobody's watching and take Paul into the bushes to drain his blood and kill him.
+						*gosub_scene functions subtract_humanity
+						*set hunger 0
+						*set paul_dead true
+						*set paul_body_discovered true
+						*gosub pull_paul_off_street
+						you bare your fangs and clamp them down on his neck, drinking deep of his intoxicated blood. A minute into draining him dry, you start to feel a little giddy, but fortunately you don't feel the full effects of the alcohol as you slowly finish the deed, leaving nothing behind but a bloodless corpse. You feel absolutely magnificent—stronger than you've felt in weeks. Then you remember that you'll have to deal with the body.
+
+						@{((clan = "Malkavian") and (chapter != 9)) "I don't wanna be a kill-joy," $!{malk_name} says, gesturing at something behind you. "But we'd better split, and quick." |}
+						
+						"Hey!" a voice calls from the street as a bright flashlight cuts through the darkness. "Hey you!"
+						
+						Shit. Your mind races, desperately trying to figure a way out of this. But there's no time for finesse. Your first thought is to kill the witness, but then a second voice calls out and you have no choice but to flee and leave the body behind. Damn. You're able to speed away fairly easily, but leaving a bloodless corpse behind is going to cause serious issues. Hopefully no one in the court is able to tie it to you. For now, it's time to return to more important business before your absence is noted.
+						*return
+						
+						*label pull_paul_off_street
+						A quick look up and down the street shows no movement—it's now or never. You grab Paul by the arm and drag him into the nearby foliage, clamping a hand down over his mouth when he tries to scream. Luckily for you, he's fairly drunk and easy to manhandle out of sight. Now that the two of you have a little privacy,
+						*return
+						
+					*if (dominate) # [b]Dominate:[/b] I rewrite his mind, making him forget seeing me in the park.
+						*gosub_scene functions add_hunger
+						There are only two ways to be sure that this man won't talk about what he saw, and you'd rather keep things clean and tidy than smash his brains out and leave him dead in the bushes. This is the proper way to go about things.
+						
+						@{((clan = "Malkavian") and (chapter != 9)) "You sure this is a good idea?" $!{malk_name} asks. "We came here to feed, not to waste our energy." You shake your head. You're only doing what must be done. |}
+						
+						"Look at me, Paul," you say. He reluctantly meets your eyes. You reach deep into his mind, aiming to overwrite his experiences of the last few nights. "You've been on a bender for days now, drinking until you blacked out again and again. You woke up hungover in the park and a kindly stranger you've never met before helped you stand and sent you home. You were grateful."
+						
+						When you stop speaking, Paul blinks several times before looking at you in a brand new light. "Thank you so much!" he says with genuine gratitude. "I might have been robbed!"
+						
+						"Just head on home," you say with a smile. "Be safe."
+						
+						"Will do!" He slowly makes his way away from the park, presumably toward home. That went surprisingly well, all things considered. You're glad you kept your head and didn't do anything you'd regret. Now, back to the task at hand.										
+					
+					#I can't risk letting him live, but I also don't want to leave a bloodless corpse, defeating the purpose of avoiding a Masquerade violation. The simplest answer is to simply beat him to death.
+						*gosub_scene functions subtract_humanity
+						*set ruthless %+10
+						*set paul_dead true
+						*gosub pull_paul_off_street
+						you bring your fist down on his face, shattering his jaw with the strength of your blow. He struggles against your superior might, but between his human frailty and inebriation, he doesn't come close to being a match for you. By the time you're done with him, he's barely recognizable—a bloody, bruised corpse. No breath, no heartbeat. Dead silence. 
+						
+						That's one way to silence a man.
+						
+						*if ((clan = "Malkavian") and (chapter != 9))
+							@{((malk_demeanor = 1) or (malk_demeanor = 3)) "Damn," $!{malk_name} says. "You sure that wasn't overkill, boss? Cause that looks like overkill." |}
+							@{((malk_demeanor = 2) or (malk_demeanor = 4)) "That's a fine lookin' corpse we've got here," $!{malk_name} says. "Shame we have to leave it behind." |}
+						
+						You'll need to get out of here. There's no way you can risk hunting in the same park as a dead man—you've already taken one risk too many. It's time to return to the task at hand, safe but still hungry.
+						*return
+				
+				*goto confederation_menu_items
+			*else
+				"I saw you the other night in here, lurking around being all creepy-like. Now you're back here again."
+				*fake_choice
+					#"You realize that you're the one who's creeping around right now, right?"
+						"Well, I mean, um…I guess you have a point," the man says.  
+					#"What of it? This is a public park and we're both allowed to be here."
+						"That's true—totally fair," the man says, holding his hands up.
+					#"I think you should back the hell off before you bite off more than you can chew, little man."
+						*set ruthless %+5
+						"Woah, woah, woah. I think we've got off on the wrong foot," the man says.
+				"I've just had a run of tough luck lately is all and I was wondering—"
+				
+				@{((clan = "Malkavian") and (chapter != 9)) $!{malk_name} rolls ${malk_hisher} eyes. "Worst. Stalker. Ever." |}
+				
+				"Is it money you want?" you ask, rolling your eyes. You can't take him for a meal here on the main street, but if a few coins can make him go away…You fish through your pocket and come up with a few toonies. The two-dollar coins glitter in the streetlight as you gently toss them in his direction. The man snaps them up with surprising ease and pockets them. "Go get yourself some food and clean up," you say.
+				
+				"Right, right," the man says, eyeing you as he turns around and heads down the street in the other direction. Once you're sure he's gone, you bring your attention back to the park.
+				*goto confederation_menu_items
+			
+		*if (confederation = 3)
+			You return to Confederation Park, surprised to see a warning sign stapled to many of the benches lining the paths leading onto the green. You kneel down to get a  closer look at one of them. It reads: "WARNING! Confederation Park has seen a sharp rise in nighttime assaults. Be aware of your surroundings and stay on the paths at all times!"
+			
+			A sharp rise in nighttime assaults? Could they be referring to you? It could be a coincidence, but you doubt it.
+			@{(paul_dead) Surely someone found the corpse of your stalker in the bushes by now. Was it really the best idea for you to return to the scene of the crime? |}
+			@{(paul_body_discovered) Especially after you were caught red-handed by a witness. Not your finest hour. |}
+			*goto confederation_menu_items
+			
+		*if (confederation > 3)
+			You return to Confederation Park, eager for another easy meal. Unfortunately, the advisory posters you noticed the last time have been replaced by barriers and ropes cordoning off the main entrances. Signs now read: "Confederation Park is closed after 8PM until further notice." 
+			
+			Damn. You wonder if you should have spaced out your visits a little more. Now you'll have to look elsewhere if you want to feed.
+			*choice
+				*if ((clan != "Nosferatu") and (club27 < 5)) #The live music scene has always been good hunting grounds. I visit The 27 Club.
+					*goto start_27_club
+				*if (clan = "Nosferatu") #It looks like this park's a bust. I'll hunt in Gil-O-Julien Park instead.
+					*goto homeless_feeding_begins
+				*if (blood_dolls_closed = false) #I could see if any of Alisha's blood dolls will let me feed from them.
+					*goto blood_dolls_feeding_section
+				*if (sappers < 3)  #The Sappers Staircase leads to a wide tunnel beneath Plaza Bridge. There are plenty of nooks and crannies to hide in after grabbing a victim.
+					*goto sappers_staircase
+				*if (greyhound < 2) #The Greyhound station usually has a few people waiting for hours overnight for their next transfer.
+					*goto greyhound_station	
+
+
+						
+	*if ((clan = "Nosferatu") and (homeless > 0)) #I should return to the homeless camp at Gil-O-Julien Park.
+		*goto homeless_feeding_begins
+	*if ((clan = "Nosferatu") and (homeless = 0)) #I've recently become aware of a small community of homeless people. They should make easy prey for a Nosferatu.
+		*label homeless_feeding_begins
+		*set homeless +1
+		*if (homeless = 1)
+			The cloistered world of the Camarilla's Ivory Tower has little place or tolerance for the downtrodden—those left behind by society. To the likes of the Blue Bloods and the Divas, Ottawa's homeless might as well not exist. This is not so for the Clan of the Hidden. Despite their allegiance to the tenets of the Masquerade, the Nosferatu have a unique understanding with the underbelly of Kindred-controlled cities. Perhaps it's something to do with staying underground, not daring to show your face to the mortals living above you. Or maybe there's a more innate connection, an understanding on a spiritual level with the outcasts and downtrodden that society would just as soon pretend don't exist. Either way, from city to city, the link between the homeless and Nosferatu communities is a regular phenomenon even if it's one you haven't exploited for a good long time.
+			
+			Bright lights flood the greenery of Gil-O-Julien Park as you approach what locals have begun to call a "tent city" of Ottawa's forgotten citizens. Tensions have been high between local homeowners and the park's newest residents for months now, and you're unsurprised to find the floodlights blazing throughout the night in an effort to make the neighborhood "safe" from  society's undesirables. You angle west into a cluster of trees and push your way through scrub bush until you can make out the dim light of a concealed fire, smoke tingling your nostrils. A sleeping bag is draped over a tree limb to form a wall against the wind, its side torn open, leaving a trail of grungy fluff blown about haphazardly. You push past it into the encampment.
+			*page_break
+			"Come up to the fire," a bearded man says softly, his voice drifting through the raised hood of a ragged parka that might have been blue when it was first purchased. His nose and chin are illuminated by the flickering fire, highlighting weeks of unshaved brown whiskers peppered with grey. He's roasting something over the flame. "Can't keep this going for too long," he says, gesturing at the fire. "Someone probably already called the bylaw folks. Enjoy it while you can. It has to go out before they get here or they'll evict us."
+			
+			"Us?" you ask, eyes scanning the brush for others. You don't plan on getting closer to the fire. You can already feel the Beast inside you scrambling away.
+			
+			"Yeah," the man says as he turns his stick over, roasting the other side of…whatever it is that he's cooking. "Me and Dani. This is our spot." He waves with his stick a bit further to the south. "Few more of us down there. Dani's out finding more food. She's got twice the energy of any of us." He offers his hand and you take it. You watch as he unsuccessfully tries to repress a shudder. Even well-hidden in your warm winter parka and scarf, your disfigurements and aura can shake mortals to their core. But this man knows an outsider when he sees one, and he's determined to be hospitable.
+
+			"I'm Sam," he says. "Don't think I've seen you around. Think I'd remember, no offense."
+			*fake_choice
+				#"You said you're all alone here for the moment?"
+					Sam shifts slightly away from you, even though that makes his job with the fire slightly more difficult. "Yeah, but there's others just down there. 
+				#"How did you end up here in the park?"
+					Sam shrugs. "They always move us from place to place. Once the folks here make enough of a fuss, the city'll have no choice but to get us out of here too.
+				#"Why aren't you and Dani down with the others?"
+					Sam sighs. "I don't like to say it 'cause it makes us look bad as a whole. But they've been using more needles down there than Dani and I are comfortable with. Folks like to say that we're all like that, as if they don't all know some rich snot with an addiction problem. We're not all the same any more than they are.
+			Why don't you sit? You're wearing me out just lookin' at you. If you're new, I can show you around to the kitchens when it's light out. Hot food's good when you can get your hands on it." He's gotten a better look at you now, but if your ${deformity} put him off, he doesn't show it. Many of Ottawa's homeless community have seen worse, you imagine. Or maybe not. Maybe he's just being polite.
+			*choice
+				#I sit down and join Sam. He'll feel more comfortable and be less likely to cry out when I feed on him.
+					You sit down close to Sam, cross-legged but away from the fire. You can tell that he's still tense—that's only natural for a prey animal in close proximity to a Nosferatu.
+					
+					"How long have you and Dani been together?" you ask, trying to keep him talking while you get closer.
+					
+					Sam strokes his whiskers and a crooked smile plays on his lips. "About two months now, I think. Hard to keep track of time these days, honestly. Days go by faster when she's around; before we met, it was all I could do to get through from one sleep to the next. Having nothing to live for can do that to a person."
+					
+					"You're together, then?" You inch closer. Sam doesn't notice.
+					
+					He laughs. "Sure are. Prettiest thing in this patch of hell by a long shot, too. Don't know how I got so lucky. Guess God finally decided to do me a solid."
+					
+					You're close enough now and you're pretty sure that God has nothing to do with what's about to happen. While he's distracted with pleasant thoughts of his partner, you lean in, 
+					*label sam_feeding1
+					pulling back his parka and slipping your fangs into his neck in one smooth motion.
+					
+					"What?" Sam manages to gurgle. "Why are—" and the tension goes out of him as you drink your fill. As expected, Sam doesn't put up much of a fight, and when you're finished with him, you lay him down on his ragged blankets. Just to be sure, you throw snow on the fire. Who knows what havoc open flame could wreak if left entirely unattended?
+					*gosub set_feeding
+					*goto finished_feeding
+				#I'm not here to listen to Sam talk. I rush him before his partner can get back—once he's felt the Kiss, he won't remember much of our meeting other than confusion and euphoria.
+					*set ruthless %+5
+					You don't have the time to sit around and listen to an old homeless man ramble about his poor choices in life. You rush forward and grab him,
+					*goto sam_feeding1
+				#I make Sam an offer. I'll tell him what I need from him, and in exchange I'll provide him and Dani with a weekly stipend from my accounts.
+					*set homeless_blood_doll true
+					*set masquerade_breaches +1
+					*comment Should be some blowback about this later on.
+					It makes a certain amount of sense, and you figure it's not all that different from Alisha's blood dolls. If anything, it's safer, right? Even if he betrays you and talks, no credible sources will believe a homeless man ranting about vampires.
+					
+					You lay out your proposition while Sam sits there and listens closely. You make sure to keep the details to an absolute minimum, even throwing in a few false bits of information that would discredit any leaks even if they were taken seriously.
+					
+					"You're shitting me," Sam says slowly when you've finished speaking. "I mean, if you were what I think you're saying, you'd have jumped me the moment you saw me. I think you need some serious help. And I don't say that very often."
+					
+					"But if what I'm saying is true?" you insist, watching his eyes. The fire has gone cold from inattention and the smell of smoke diminishes, much to your Beast's relief.
+					
+					Sam shrugs. "Well fuck it, then," he says. "You say you won't really hurt me, and if you meant to kill me you'd have done it already." He spreads his hands out. "What do I have to lose?"
+
+					You pull two fifty-dollar bills from your wallet and hand them to him. "That should get you started. Get some good food in you when the shops open tomorrow."
+					
+					"So, um. How do we do this?" he says, pulling his parka back from his neck. "Right here? Right now?"
+					
+					"Right now." You lean in. No more delays. No more rationalizations. You need this. When you sink your fangs into his neck and he goes limp with bliss, your Beast reminds you of the natural order of things. When it comes down to it, you are a predator and he is your prey. Dress it up any way you want—that is the fundamental truth. You are a monster sucking the life out of a helpless old man, and in that moment of euphoric symbiosis, you know that it is good.
+					*gosub set_feeding
+					*goto finished_feeding
+										
+		*if (homeless = 2)			
+			It's warmer tonight than the last time you visited Gil-O-Julien Park and the wind has died down. As you approach the hidden shelter in the trees beside the park, you're thankful not to see the tell-tale hints of a fire. When you push back the hanging sleeping bag, you're surprised to find not Sam, but a young woman seated on the ground digging into a can of black beans with a plastic spoon. She looks up at you with haunted eyes and puts the can down on the ground. "Who're you?" she asks, swiping a hand through her thickly matted hair, brushing out leaves and twigs self-consciously. "My friend's gonna be back any minute so you play nice now, eh?"
+			*fake_choice
+				*if (homeless_blood_doll = false) #"It's okay, Dani," I say calmly. "I'm friends with Sam. How long do you think he's going to be?"
+					*label looking_for_sam
+					*set ruthless %-5
+					"Um, I think…" Dani mumbles. "He'll be back any minute now. What do you want?"
+					
+					"I just need a few moments alone with him to talk."
+					
+					She tries to peer into the hood of your parka and whatever she sees makes her shudder with revulsion. "I—I don't think—"
+					
+					"What are you doing here?" Sam has returned. He's carrying a small bag of groceries. "I saw you the other night. Hard to forget my heart turning to ice like that."
+
+					Dani looks at Sam questioningly. "$!{heshe} said you knew ${himher}?"
+
+					"Sorta, I guess," he concedes. "Met ${himher} once before. Why don't you go tell Ralph I've got some of that tuna he likes so much? I'll come over in a minute and we can split it. Okay?"
+
+					"Um, sure," Dani says. "Sure you're all good?"
+					
+					"Yeah. Just gonna have a talk." He eyes you closely. The man knows a predator when he sees one.
+					*label sam_feeding2
+					*page_break
+					Sam quivers as you feed and you can feel his pulse pounding against your lips. You wonder what it feels like to be on the other end of the equation—the wriggling mortal impaled on a predator's fangs. You're sure you've had the experience at least once before your Embrace, but no matter how hard you try, you can't remember the particulars. You lick the wounds closed and suck the last drops of blood from your pale lips as Sam sits, shuddering on the ground, unable to vocalize the aftermath of the feelings washing over him. You decide to make yourself scarce before company arrives.
+					*gosub set_feeding
+					*goto finished_feeding
+				*if (homeless_blood_doll) #"Sam probably told you about me. We made an arrangement the other night."
+					*set masquerade_breaches +1
+					"Oh," Dani says, her voice quivering with tension. "I thought he'd started using again. I didn't think it was real. Or maybe he was just trying to cover for stealing that cash?"
+					
+					You hand over another fifty. "He didn't steal it. I gave it to him for services rendered."
+					
+					"Oh," she says simply, staring at the crisp, red bill. "I don't think I'm okay with this." She crumbles the fifty in her hands and shoves it into her pocket. "I'm not letting some weirdo suck my blood. I don't care how much money you have."
+					*choice
+						#"You don't have to. The arrangement I have is with Sam, not you."
+							"Well I'm not letting you use him like that either! 
+							*label dani_rich_folks
+							You're all the same, you rich folks. You think you can come down here and get your sick rocks off screwing around with people who can't fight back? Dangle a few dollars and watch us dance? Fuck you!"
+							
+							"I can't help noticing that you haven't given the money back."
+							
+							"I said fuck you!"
+							
+							"What the hell's going on here?" Sam has returned. He's carrying a small bag of groceries. His eyes darken when he realizes who you are. "Back so soon?"
+							
+							"We have an arrangement."
+							
+							Sam bites his lip. "I'm a man of my word. I took your money."
+							
+							"You don't owe ${himher} shit, hun," Dani says.
+							
+							"I really do," he replies. "Why don't you go tell Ralph I've got some of that tuna he likes so much? I'll come over in a minute and we can split it. Okay?"
+							
+							"Sam…"
+							
+							"It's okay. This is good for us, you'll see."
+							
+							Dani leaves angrily for the other encampment without another word.
+							
+							"Does it always feel that way?" Sam asks as you hand him his payment. "When you feed? I've never felt so good in my life."
+							
+							"It does."
+							
+							He pulls back his collar. "Then give me a hit. I've been waiting for this all day."
+							*goto sam_feeding2
+						#I don't have time to put up with this nonsense. I was promised blood, and I'm getting it. I feed on her now, before Sam returns.
+							*set homeless_blood_doll false
+							*goto force_feed_dani
+						#I offer her more money. It's a pittance for me, but could be life-changing for her.
+							*set ruthless %-5
+							You hand two more fifties to Dani. She reaches out and snatches them from your fingers before skittering away like a scared animal. 
+							
+							"I'm not doing this.
+							*goto dani_rich_folks
+				#She's alone and close enough that she won't be able to run. I'll feed on her now, before Sam returns.
+					*label force_feed_dani
+					*set ruthless %+5
+					*set masquerade_breaches +1
+					You lunge forward like a beast, grasping for the young woman and wrapping your hand over her mouth before she can scream to alert others in the area. She kicks and pulls away, trying everything she can to escape your clutches, but there's nothing she can do. You're too strong for her. An apex predator. As you lean in to feed, something strikes you from behind with enough force that it could have caved a mortal skull in. You whip around and see Sam, holding a shovel.
+					
+					"The hell you think you're doing?" he growls. "You do what you need to do but leave her out of it!"
+					
+					*if (hunger > 3)
+						*label killing_sam
+						*set killed_sam true
+						*set humanity -1
+						*set hunger 0
+						Your hunger is too great to ignore the attack. You lose control and launch yourself at Sam, pulling his head sideways with supernatural force as the Beast takes over and you drink your fill in long, noisy gulps. You hear Dani running away through the bush but you don't care. All that matters is sucking the last blood from Sam's corpse. And a corpse is what he has become, his breath stilled, the warmth fading from his body.
+						
+						You fall back, sweet blood flowing through your desiccated veins, and for the first time in ages you feel truly sated. Draining the life from this mortal has temporarily stilled your Hunger, but for how long? You know that inevitably it will come clawing back, but for now you revel. That is, until you realize you have to dispose of the body.
+						*choice
+							#I leave the body here. It won't be hard for the good citizens of Ottawa to believe that these transients are capable of murdering each other.
+								*set left_sams_body true
+								You feel like it should trouble you, leaving the body of a man you murdered out on the ground, dead eyes staring at the moon. But a part of what ties you to humanity died here tonight, consumed by the Beast within. And for now you simply don't care. You search for Dani, but she's fled the park and you can find no sign of her. Fortunately she doesn't know your name, and it's unlikely that any authority will take her story seriously. Just another drug-addled distortion, rationalizing a horrible crime. It's time to be away from here.
+								*page_break I Leave The Park
+								*return
+							#I make a detour and contact Qui's ghouls before I get back to business. They'll dispose of the body, but Qui probably won't be terribly happy with me.
+								*set qui %-5
+								It takes you out of your way, but better that than to risk violating the Masquerade. Mortal authorities might not hold sway over your fate, but the Primogen Council surely does, and there's nothing the Camarilla loathes more than a younger childe playing it fast and loose with the rules and risking everyone's safety within the shadows.
+								*page_break I Leave The Park
+								*return
+							#He left me a convenient shovel. I dig a grave and hide Sam's body in the earth.
+								You drag Sam north, away from his campsite before starting to dig through the icy earth, occasionally scanning the trees for signs of anyone watching you work. It takes you longer than you wanted to spend here, but burying the body is preferable to leaving him for the authorities to discover. When you're finally done, you scatter snow over the earth, hopefully obscuring the grave from prying eyes. It's time to be away from here.
+								*page_break I Leave The Park
+								*return
+					*else
+						*choice
+							#"I'll let you have that one, Sam. But if you hit me again, I'll kill you where you stand."
+								*label sam_wont_hurt
+								Sam hesitates for a moment before dropping the shovel. It falls to the earth with a dull thud as you release Dani from your clutches. She rushes to embrace her partner.
+								
+								"I need you to come with me, Sam," you say softly. "I won't come near her, but you need to come with me."
+								
+								He moves closer, hesitantly, but Dani grasps his arm. "Don't…" she says.
+								
+								"I'll be fine," he says. "Get out of here. I'll come find you when we're done here."
+								
+								"But what does ${heshe} want?"
+								
+								"Don't know. But I'll come back, I promise."
+								
+								Dani scampers away through the brush, leaving you alone with your victim.
+								
+								Sam closes his eyes. "I don't know if you're planning to kill me or what, but do it quick. Without her I've got nothing left to lose."
+								
+								You move closer and pull his neck to the side. As your fangs clamp down on his neck, Sam lets out a sharp gasp. He expected pain, but what he felt instead was ecstasy. When you're finished, you let him down slowly and eye the trees for signs of Dani. Fortunately, she seems to have followed her partner's instructions and fled. No witness to worry about tonight.
+								*gosub set_feeding
+								*goto finished_feeding
+							#"Put the shovel down and I won't hurt her."
+								*goto sam_wont_hurt		
+							#I'm furious! I won't let that kind of attack stand. He has to die and he might as well be my meal while I'm at it.
+								*goto killing_sam
+					
+				#"I'm Taylor," I say, offering up a pseudonym. "It's actually your friend that I'm looking for."
+					*goto looking_for_sam
+					
+		*if (homeless = 3)
+			You return to Gil-O-Julien Park, once again hoping for easy prey. It's a bit warmer tonight, and some local teens are drinking and necking on the north end of the park. Fortunately, they know to steer clear of the homeless encampments to the west. You push past the sleeping bag wall into the now-familiar encampment
+			*if (homeless_blood_doll)
+				to find Sam waiting for you, almost as if he knew you were coming. Dani is nowhere to be seen.
+				
+				"You're here," he says, scratching his neck with too-long fingernails. "Finally."
+				
+				"Where's your partner?" you ask, not eager for a repeat of the drama from last time. 
+				
+				"Gone. She wanted to leave the city. Said she was going to hook up with her family in Toronto."
+				*fake_choice
+					#"Why didn't you go with her?"
+					#"It's good that you stayed. You're useful to me here."
+					#"I thought she was your partner? Shouldn't you have stuck together?"
+					#"I'm pleased that you've learned your place." 
+				"I chose to stay here because of you," he says. "Something about what you do that even she couldn't compare to. I couldn't give up on that. I can be useful to you! I used to be a driver—trucks, limos, the works! I got fired during the recession and couldn't get back on my feet. But I was good at what I did!"
+			
+				Somehow you hadn't anticipated this. You're aware of how Alisha's blood dolls grow addicted to the Kiss, but you've never had one of your personal victims give up on their mortal life in favor of being a willing vessel. You could make use of his enthusiasm if you want to. Addiction has always been one of the Kindreds' most useful tools when manipulating kine to do their bidding.
+
+				@{(hunger > 4) Unfortunately, you're ravenous with Hunger and you simply can't feed Sam enough to turn him at the moment. | }
+				*choice
+					*selectable_if ((hunger < 5) and (have_a_second_ghoul = false)) #I offer to make him my ghoul. "What if I told you I could offer you something sweeter than the feeling you get when I feed as well as a chance to serve me? Immortality."
+						"I, um…" You seem to have caught him off guard. "Did you say immortality?"
+						
+						You nod. Sometimes the concept of existing forever seems so mundane to you that you're surprised when mortals find the concept difficult to contemplate. 
+						
+						Sam looks over his "home," and back to you. "I have nothing left here," he mutters despondently. "I've already sold my soul to you. What's another step at this point? What are the drawbacks?"
+						
+						"I feed you some of my Blood and you'll gain strength. You won't die of disease or old age. But you'll also serve me and you'll desire more."
+						
+						"I've bounced around from one addiction to another ever since I lost my job. I was finally clean, but then I met you." He stares at the ground for several seconds. "But if what you're saying is true, at least this would be an addiction that would make me stronger rather than fall apart. And there would be meaning to my life again." He looks you in the eyes and shivers. "I think I want it."
+						*choice
+							#"Good. This is the beginning of the rest of your new life."
+								*goto sam_becomes_a_ghoul
+							#"I know you do. I wouldn't have offered it otherwise."
+								*goto sam_becomes_a_ghoul
+							#"This isn't right; you can't give up on your life for the sake of an addiction. I won't feed from you anymore. Go find Dani."
+								*goto freeing_sam_for_good
+							#"You'll be a useful servant to me."
+								"A useful…" Sam blanches, but appears to strengthen his resolve. "So be it."
+								
+								*label sam_becomes_a_ghoul
+								*achieve ghoul_sam
+								*gosub_scene functions add_hunger
+								*set have_a_second_ghoul true
+								*set second_ghoul "sam"
+								*set second_ghoul_himher "him"
+								*set second_ghoul_heshe "he"
+								*set second_ghoul_hisher "his"
+								"Drink." You slit your wrist along the vein and bring it to Sam's mouth. He looks like he's going to be sick, but he does as you say, regardless. It's a truly odd sensation, being on this end of a feeding. You've experienced it before, of course, with Gerard, but it feels strangely intimate. Like choosing a new sex partner. The sensation is enjoyable, but for Sam it's a transcendent experience.
+								
+								"My God," your new servant says as you pull your wrist away from his greedy suckling. "I've never felt so alive."
+								
+								"Interesting choice of words," you say under your breath.
+								
+								"What?"
+								
+								"Nothing." You take a notebook out from your coat pocket and write out Gerard's phone number. "This is the number for my personal assistant. He's to be respected and obeyed at all times."
+								
+								"Of course," Sam says hastily.
+								
+								"Call him once I leave and tell him what happened. Tell him I want to set you up with a vehicle suitable for my needs. Tinted bullet-proof windows would be a good start. City driving, relatively low profile." You write out a long alphanumeric code on the paper underneath the phone number. "This is a one-use communication. Tell him the password and he'll know you're legitimate. He'll only accept it once. You understand?" You hand him the paper and a small wad of cash. "And pick up a burner phone. Something cheap, no smartphones. Then call."
+								
+								Sam nods.
+								
+								"Good. Now I have somewhere else to be. If you can follow these instructions exactly, you'll receive more Blood in good time. If you don't…let's just say your past mortal cravings will seem petty compared to this kind of withdrawal. Perform well, and we'll have a mutually beneficial relationship."
+								
+								"Consider it done…boss."
+								*page_break Time To Get Back To Business
+								*return
+								
+					#"I'm content with the way things are now. I'll visit you as I desire it."
+						*set ruthless %-5
+						"Of course," Sam says. "Any time you want." 
+						*label sam_i_am
+						*gosub set_feeding
+						
+						You take the usual payment from your wallet and he accepts it thankfully. "Come here," you say.
+						
+						He approaches obediently, unbuttoning the top three buttons of his shirt. "Take what you need."
+						
+						You do so, slaking your thirst in long, needy gulps. When you pull back, he's shivering. It seems he's learned to control the effects of the Kiss—there's no slipping to shaky knees this time.
+						
+						"When should I expect you again?" he asks.
+						
+						"When I need you," you reply simply. Honestly. "You'll be here?"
+						
+						He spreads his hands in submission. "Where else would I go?"
+						*goto finished_feeding
+					#"This isn't right; you can't give up on your life for the sake of an addiction. I won't feed from you anymore. Go find Dani."
+						*label freeing_sam_for_good
+						*set ruthless %-5
+						*if (humanity < 8)
+							*set humanity +1
+						Your eyes go wide with shock as Sam falls to his knees and crawls toward you, begging you to reconsider. "I can be useful, I swear!"
+						
+						You clear your throat; the entire situation is making you extremely uncomfortable. You get out your wallet and force Sam's hand open, placing several hundred dollars there. His fingers close reflexively and he looks at the money. "That's for you to get to Toronto and keep you going for a bit until you find Dani."
+						
+						"I…I can't. I went through all the steps. I was clean, but now…now all I can think of…."
+						
+						"You don't have a choice," you say. "You won't be seeing me again."
+						
+						"One last time?" He looks up at you, eyes brimming over with hope. 
+						
+						The Beast surges somewhere deep in your guts. You came here because you need this, and there's little point in denying the man's wishes if it will keep you fed. "One last time."
+						*page_break
+						*goto finished_feeding
+					#"Don't presume to make demands of me," I command. "You should be grateful for what I give you."
+						*set ruthless %+5
+						Sam recoils as though you slapped him in the face. "Grateful? I went through all the steps of the program! I was clean, but now…now all I can think of is your teeth on my neck! I need it, I'll fight for it, but grateful? No." 
+						*goto sam_i_am						
+			*else
+				only to find it empty. The odds and ends previously scattered on the ground have been meticulously picked up and transported elsewhere. 
+				@{(killed_sam = false) Sam and his partner have migrated, and as frustrated as you are, you have a hard time blaming them. |} 
+				*choice
+					#I'll approach the larger encampment, hoping to convince one of them to follow me into isolation so I can feed.
+						You leave the small camp behind and make your way through the brush to the south, eventually emerging into the larger encampment Sam told you about. At least seven men and women huddle together, most asleep aside from one man sitting cross-legged and watching the stars. You step out into the clearing and motion to him. He looks perfect—half-asleep, but not inebriated. 
+						
+						"Who's that?" the man asks, squinting until he can see you clearly. He's tired enough that he doesn't look you over too closely, but you can tell that a fringe of fear has gripped him in its icy claw at the sight of you.
+						
+						"I was looking for Sam," you whisper quietly. The last thing you want to do is wake the sleepers. "He's not in his camp."
+						
+						"What you want him for?" the man grumps. "Thinks he's better than us. Probably ditched us for good this time. Fuck 'im."
+						
+						"Huh," you muse. "He won't be needing his gear then."
+						
+						"Wait, he left his stuff?"
+						
+						You nod.
+						*if ((manipulation > 40) or (charisma > 40))
+							*gosub set_feeding
+							"I'll split it with you, but if you don't grab some soon, it's gonna be all gone."
+							
+							"Well shit, why didn't you say so?"
+							
+							You usher the man into the trees beside you, but you don't wait until you're back in Sam's small clearing to feed. You grip his shoulders with fingers tight like talons and pull him to you. He lets out a squeal when you 
+							*label sink_the_teeth
+							sink your teeth into his neck, but nobody back in the camp stirs. When you're finished, you lick the wounds closed and leave your victim writhing on the ground. If his companions find him this way, they'll no doubt think he's been using. It's the perfect cover.
+							*goto finished_feeding
+						*else
+							"You can have it if you want. I don't need it." You can tell immediately that you've misread the situation and said something wrong. 
+							
+							The man narrows his eyes. "What're you, some kinda creeper tryin' to get me alone out there? Just come here to give away everything Sam had to me? Why don't you want it yourself?"
+							
+							You start to answer, but he shushes you and shakes the two nearest sleepers awake. "Ya got rid of Sam and now you're trying to pick us off one-by-one is that it? You rich folks and your fancy homes. Don't like us bringing down your property values?" He spits as the others start to wake around him.
+							*page_break
+							*label got_us_a_creeper
+							*if (hunger > 3)
+								*set humanity -1
+								*gosub set_feeding
+								*set masquerade_breaches +1
+								You can feel the Beast within you asserting control and there's nothing you can do to stop it. You grab the man and pull him into the brush with superhuman strength as he screams. It's not your fault, you rationalize as the mortal beats at you feebly before finally giving in. This is the natural order of things. Predator and prey. 
+								
+								You're barely able to stop before draining the man, and you pull back with a jerk, leaving ragged holes in his neck. You lick them closed quickly, tossing the limp body on the ground as the Beast subsides. Cursing at your lack of control, you run back through the park, away from the angry voices of recently roused sleepers. They won't be able to find you, but you might want to consider finding another place to feed from now on.
+								*goto finished_feeding
+							*else
+								You step back as the others wake. This isn't going how you envisioned at all.
+								
+								"Get the hell out of our home, creep!" a middle-aged woman shouts as she throws a rock at you. She misses spectacularly, but the sentiment seems to be spreading until a small army of homeless mortals stands arrayed against you. Of course, you could slaughter them all without a second thought, but how would you explain the bodies? And even if you could explain it, such wanton destruction would serve no practical purpose other than setting the police to high alert. 
+								
+								You back off, holding your hands up in submission. "All right," you say. "I'm leaving."
+								
+								"Damn right, you are," the woman says. 
+								
+								The unruly mob follows you until you're clear of the park. When you're finally alone and out on the street, you grind your teeth in frustration. This was supposed to be simple, but now you're leaving without a meal. You sigh wistfully. Un-death was so much easier when your food came to you.
+								*page_break
+								*return
+		
+					#I watch the larger encampment, waiting for one of them to step away before striking quietly from the dark.
+						You leave the small camp behind and make your way through the brush to the south, eventually emerging into the larger encampment Sam told you about. At least seven men and women huddle together, most asleep, others conversing in hushed tones so as not to wake their companions. You crouch down in the bushes to the north of the camp, waiting with increasing impatience for one of them to step away from the group. 
+						
+						Finally one of them stands up, proclaiming for the world to hear that he's got to "take a leak." You position yourself to intercept him
+						*if ((dexterity > 40) or (wits > 40))
+							*gosub set_feeding
+							and grab his hand as he moves to unzip his pants, pulling him into the trees and brush with a hand clamped over his mouth before he can scream. You
+							*goto sink_the_teeth
+						*else
+							but you move too soon. Your prey is surprisingly agile for a sleep-deprived mortal, and he jumps back as you appear from the trees, arms outstretched to grapple him.
+							
+							"What the fuck is this?" he asks, backing away. "Hey guys," he calls back to the clearing. "We got us a creeper!"
+							
+							*goto got_us_a_creeper
+							
+					#It's too risky to target a larger, tightly knit group. I'll hunt in Confederation Park instead.
+						*goto confederation_park
+					*if (blood_dolls_closed = false) #I could see if any of Alisha's blood dolls will let me feed from them.
+						*goto blood_dolls_feeding_section
+					*if (sappers < 3) #The Sappers Staircase leads to a wide tunnel beneath Plaza Bridge. There are plenty of nooks and crannies to hide in after grabbing a victim.
+						*goto sappers_staircase
+					*if (greyhound < 2) #The Greyhound station usually has a few people waiting for hours overnight for their next transfer.
+						*goto greyhound_station		
+		
+		*if (homeless > 3)
+			You return to Gil-O-Julien Park, once again hoping for easy prey. The area is quiet tonight with no signs of movement. A single police car sits just north of the park grounds and you can just make out a bored-looking officer's face lit up by the light of his smartphone. God, you miss your phone.
+			
+			After making sure that you don't have any eyes on you, you're able to make it into the woods on the west end of the park. Both camps have been completely evacuated, the only signs of their previous inhabitants are some discarded water bottles and paper refuse.
+			
+			Damn. The locals must have finally put enough pressure on the cops to kick the homeless out of the park. It looks like you'll have to hunt elsewhere if you want a meal tonight.
+			*choice
+				#It looks like this park's a bust. I'll hunt in Confederation Park instead.
+					*goto confederation_park
+				*if (blood_dolls_closed = false) #I could see if any of Alisha's blood dolls will let me feed from them.
+					*goto blood_dolls_feeding_section
+				*if (sappers < 3) #The Sappers Staircase leads to a wide tunnel beneath Plaza Bridge. There are plenty of nooks and crannies to hide in after grabbing a victim.
+					*goto sappers_staircase
+				*if (greyhound < 2) #The Greyhound station usually has a few people waiting for hours overnight for their next transfer.
+					*goto greyhound_station	
+				#It looks like I won't be feeding tonight after all.
+					*return
+		
+	
+	
+	*if (((blood_dolls_closed = false) or (no_more_abagail_scenes = false)) and (chapter > 5)) #I should be able to find a willing victim among Alisha's collection of blood dolls.
+		*comment First feeding opportunity is in chapter 5. In this chapter, Alisha is preparing for the exhibition. Plus, we don't want her showing up and not being able to warn her about the bombs. That's immersion breaking in the extreme. So this is only available after chapter 5 by design.
+		*label blood_dolls_feeding_section
+		*if ((no_more_dolls) or (no_more_abagail_scenes))
+			*label ladies_is_closed
+			*set blood_dolls_closed true
+			*set no_more_abagail_scenes true
+			You arrive at Ladies of the Night, and a new face answers the door. She's older, more rough-cut. You'd guess she's seen her fair share of violence.
+			
+			"Can I help you?" she asks, only holding the door open a crack.
+			
+			"I'm here to see the dolls."
+			
+			"I'm afraid the establishment is closed for the next several evenings. Renovations, you see. Best look elsewhere."
+			*fake_choice
+				#"Renovations? Really?"
+					The woman raises an eyebrow. "Yes. Now please be on your way or I'm afraid I'll have to call the authorities. Ms. Grey will not be pleased and I have an excellent memory for faces."
+					
+				#"You're going to let me in. Now."
+					*set ruthless %+5
+					"I'd suggest against it, my friend." Someone taps the back of your shoulder. It's one of Alisha's ghouls. "Shiva here is another of the Mistress's retainers. Even if you managed to kill us, Ms. Grey's wrath would be swift. Is it worth it to you just to get a taste? Hunt elsewhere, friend."
+					
+				#"Oh. I see. I suppose I'll be on my way."
+					*set ruthless %-5
+					*set alisha %+5
+					"Thank you," the woman says. "Your professionalism has been noted. The Mistress will be pleased."
+			
+			You grumble to yourself. At least you didn't come too far out of your way to get here. If you still want to feed, you'll have to get to one of the other locations quickly.
+			*label other_locations_from_blood_dolls
+			*choice
+				*if (sappers < 3) #The Sappers Staircase leads to a wide tunnel beneath Plaza Bridge. There are plenty of nooks and crannies to hide in after grabbing a victim.
+					*goto sappers_staircase
+				*if (greyhound < 2) #The Greyhound station usually has a few people waiting for hours overnight for their next transfer.
+					*goto greyhound_station
+				*if ((clan != "Nosferatu") and (club27 < 5)) #The live music scene has always been good hunting grounds. I visit The 27 Club.
+					*goto start_27_club
+				*if (clan = "Nosferatu") #I'll hunt in Gil-O-Julien Park instead.
+					*goto homeless_feeding_begins
+				#I'll check out Confederation Park.  
+					*goto confederation_park
+		*if ((blood_dolls) and (clan = "Toreador"))
+			*comment Can only come in twice and get the ghoul if you're a Toreador.
+			*goto abagail_bits
+		*elseif (blood_dolls)
+			*goto ladies_is_closed
+		*else
+			*goto ladies_begins
+		*label ladies_begins
+		*set blood_dolls true
+		*comment Only once unless you're a Toreador. Alisha usually sends you meals, and you're not welcome to simply pick and choose at your leisure.
+		Alisha's herd of blood dolls spend most of their nights working for a high-end escort service unimaginatively branded "Ladies of the Night." Out-calls are the norm, but they do provide special in-house services for particularly wealthy or well-connected clientele—and Kindred. An immaculately dressed woman in an almost otherworldly form-fitting red dress answers the door a full second before you intend to knock.
+		
+		"$!{mrms} $!{last_name}, I presume?" she says in a sultry voice that probably goes over well with mortal clients.
+		
+		@{((clan = "Malkavian") and (chapter != 9)) "That's a neat trick," $!{malk_name} says. "Must be cameras everywhere around this place. Saw us coming a mile away." |}
+		
+		"Yes," you say, falteringly. You haven't been to the building in years, and you're quite certain that you've never met this woman in the long nights since your Embrace. "Do I know you?"
+		
+		"I don't believe we've had the pleasure." The woman extends her hand delicately. "Abagail. Pleased to meet you. The Mistress insists that her hostesses know to welcome her personal associates. Please come in out of the cold; you must be freezing." You're not sure the Prince would approve of Alisha giving her help the names of high profile Kindred, although you suppose she would need some way of identifying who is who to avoid a disastrous mix-up. The Masquerade can be surprisingly flexible depending on who's doing the flexing.
+		
+		You follow the woman inside and she closes the door behind you. The decor doesn't exactly suggest "escort service" more than it does a luxury hotel. A small fountain bubbles in the center of a wide lobby flanked by twin carved mahogany columns supporting the weight of a majestic interior balcony overlooking the room. Beautiful women and equally gorgeous men congregate with two well-dressed clients @{((clan = "Malkavian") and (chapter != 9)) above, while $!{malk_name} gawks from below. | above. }
+		
+		"So. How can we help you this evening?" Abagail asks.
+		*fake_choice
+			#"I'm looking for…special services."
+				Abagail laughs politely. "You'll have to be more particular than that, I'm afraid. We offer a wide variety of expertise, even for clients such as yourself."
+
+				"These services would be rather exclusive," you say, wishing you had acquired more information about how Alisha runs this place.
+				
+				"Of course," she says with a smile. "I'm familiar with your…appetites.
+			#"How long have you worked here? Are you familiar with all the services provided?"
+				Abagail laughs politely. "You mean to ask if I'm familiar with your particular appetites? 
+			#I have no interest in beating around the bush so I get right to the point. "I need to visit a blood doll."
+				*set alisha %-5
+				Abagail's smile falters before reasserting itself. "Of course. I'm familiar with your…appetites.
+		I've been aware for some time now. I was once on the shortlist to become one of the Mistress's special servants, but then…" she shakes her head. "Silly of me to even mention. Apologies. Regretfully, I've been instructed to inform you that such services are available primarily as out-calls. We do have one doll in-house at the moment, but feeding here should be minimized for the time being. The Mistress implied that this was a city-wide edict, though she would never mention by whom."
+		
+		"That's a recent change?" It has to be Arundel's edicts after the threats of the Second Inquisition. So much has changed in recent nights. No phones, physical couriers where you once had email, and now no proper blood doll services.
+		
+		She nods demurely. "Quite. It's been less than a month, and the dolls are still adjusting. Some of them find their clients' homes a bit less tastefully appointed than what they're accustomed to."
+		
+		@{((clan = "Malkavian") and (chapter != 9)) "I don't doubt that," $!{malk_name} says. "Must be quite a shock to the upscale dolls' systems to mingle among the everyday rabble in their natural habitat." |}
+
+		Images of sewer havens and back-alley hovels hidden from the sunlight spring to mind. Not all Kindred are as wealthy as your sire, and secure locations can be difficult to find. "So you have a doll here? Could I meet them?"
+		
+		"Of course," Abagail says, already mid-motion in anticipation of your desire. "This way."
+		*page_break
+		Abagail uses a keycard to open a door leading into a small hallway cut off from the rest of the escort service. Four elegant red doors branch off to the left and right, two on each side. "We used to run all the dolls through here," she says. "Convenient, easy access—all for a small fee of course. The Mistress needs to keep up appearances. Of course we'd change the locations up every so often. Can't get too predictable. I should warn you that this doll is rather…unorthodox." She approaches the furthest door on the right and opens it, revealing a lavishly appointed bedroom. A young mortal sits atop satin sheets reading a paperback. For a moment, you can't be sure of the doll's gender.
+		
+		You look closely as you approach. "This one is young," you say quietly to Abagail. "Uncomfortably young."
+		
+		@{((clan = "Malkavian") and (chapter != 9)) $!{malk_name} frowns. "Yeah, I don't like this one bit." |}
+		
+		"We hear that a lot about Drew," Abagail says with a soft sigh. "But we also have clients who prefer younger dolls. I know such things may not be of import to the Mistress's associates, but I'm told to assure you that he's above the age of majority despite his looks." @{(clan = "Ventrue") She bites her lip. It looks like she's trying to remember something. "Ah, yes. Drew was born into a wealthy family, which should fill your specialized palate's requirements. Tragically, his parents died when he was a baby and circumstances since then have not been kind to him." | }
+		
+		"I'm right here, you know. I can speak for myself," Drew says, putting his book down. "I'm not a kid. I can make my own decisions." He's definitely young for this line of work, maybe just a youthful face for his actual age?
+		
+		@{((clan = "Malkavian") and (chapter != 9)) $!{malk_name} steps behind the doll and sneaks a quick look at the paperback. "'Discourses on Livy.' Huh. I wouldn't have pegged the kid as the type to study Machiavelli. Maybe this bluster of his is just a front." |}
+		
+		Abagail laughs nervously. "We haven't had the time to work on refinements with him yet. You understand?"
+		*fake_choice
+			#"I'm a bit uncomfortable with this, but I need to feed. As long as he's willing."
+				*set ruthless %-5
+				"Of course I'm willing," Drew says.
+			#"He'll do. I don't mind if my food has an attitude."
+				*set ruthless %+5
+				"Thank God," Drew says. "I was worried you'd be one of those do-gooders who pretend to care about me before drinking my blood."
+				
+				"Drew," Abagail says. "We've talked about this."
+				
+				"Yeah, I know. I won't blow it," Drew says sullenly.
+			#"I'm not okay with this. I'll go find something else—I draw the line at kids. He shouldn't be working here."
+				*set alex_wont_feed true
+				"Too good for me, huh?" Drew says.
+		"Do you have any idea what I'd be doing right now if it wasn't for this? I've never lived better." He looks at you impatiently. "You gonna stick your teeth in me or what?"
+		
+		"You can see why we don't have him making out-calls yet," Abagail says.
+		
+		"It would be a disaster."		
+		*if (alex_wont_feed)
+			You shake your head. "I won't be a part of it."
+			
+			@{((clan = "Malkavian") and (chapter != 9)) "Good call," $!{malk_name} says with an appreciative nod. "It's funny where we draw the line, eh? Even monsters can't be monsters all the time." |}
+			
+			Abagail closes the door abruptly, leaving the young blood doll behind. She looks almost…confused. "I'm sorry if I displeased you. I shouldn't have presented a doll before they were ready. These are trying times, you understand? The Mistress is under a lot of pressure."
+			
+			"I don't think she'd appreciate you detailing her pressures to one of her associates." 
+			
+			Abagail goes white with fear. "Please don't tell her I said that!"
+			*fake_choice
+				#"You need to know your place. You're a servant. It's not your job to question the motives of your betters. I told you he shouldn't be working here."
+					Abagail shivers. "I'm sorry, I'm so sorry, you're right. I shouldn't have questioned you. What should I do with him?"
+					
+				#"Don't want me to say anything? Then find a way to get this kid out of here. Give him some money, find a place for him to stay." 
+					Abagail shivers. "How? How am I supposed to…"
+					
+				#"Look, it's okay. But I need you to see how wrong this is. Drew needs a real chance at life, not to be pimped out for blood."
+					Abagail shivers. "I…I agree with you, but what can be done about it? How am I supposed to…"
+					
+			"You said it already," you say. "Ms. Grey is under a lot of pressure. If a new doll who hasn't been broken in yet escapes during the day, she wouldn't have the time or the inclination to care. Drew isn't exactly the cream of her crop, and he can't even do out-calls. No big loss. Just…make him disappear."
+			
+			"That's easy for you to say. You're like her, but she could kill me without a second thought."
+			
+			@{((clan = "Malkavian") and (chapter != 9)) "So could we," $!{malk_name} says. $!{malk_heshe}'s growing increasingly agitated by Abagail's deflections. "Maybe she needs a reminder of that?" |}
+			*choice
+				#"Fine. He can stay here, but I won't be feeding from him. I'll show myself out."
+					*set abagail_likes_you true
+					"T—thank you," Abagail stutters. You can tell that this is not how she intended the evening to play out. "Apologies for everything."
+					
+					*if (hunger > 4)
+						*set humanity -1
+						*gosub set_feeding
+						*set no_more_dolls true
+						For some reason, the woman's words twist your guts with unspeakable anger. The Beast hungers deep within, and it won't be denied. You're starving. If not the child…
+						
+						"Why are you looking at me like that? Why—"
+						
+						You reach out, grabbing Abagail by the neck and shoving her up against the wall with a sharp thud. She whimpers, but all you can hear is the mewling of a prey animal as you clamp your fangs down on her neck and slake your thirst with her blood. You're barely able to restrain yourself before draining her completely. You drop her to the floor in a gasping, sobbing heap. Damaged forever, but still alive. As lucidity flows back into you, you quickly realize what you've done and back away slowly. Corliss has warned you since your very first night: "Never go too long without feeding, $!{name}. There is a Beast within us all, and without blood to feed it, even we Kindred are less than mortal." 
+						
+						At least you didn't kill her.
+						
+						Lost in anger and confusion, you growl and make for the exit. "Don't tell your mistress about this if you value your life." The Beast's words coming out of your mouth. And you used to be such a nice ${guygirl}.
+						*goto finished_feeding						
+					*else
+						You don't reply. You're frustrated at the lack of proper prey on demand, but it's not Abagail's fault. Perhaps you'll visit another day, but for tonight you have to look at other options.
+						*achieve secreted_away
+						*set alex_saved true
+						*goto other_locations_from_blood_dolls
+				#"She won't care that Drew is gone. But I'll care if he remains. Think carefully on that before you piss me off."
+					*set ruthless %+5
+					*set no_more_dolls true
+					"I, well, um…" Abagail stammers. 
+					*label alex_secreted_away
+					*achieve secreted_away
+					*set alex_saved true
+					"Of course. I'll hide him during the day. I have a friend down in Kingston who can pick him up and bring him west. That's a lot of open country to cover, and the Mistress told me her…kind…avoid places outside the cities."
+					
+					@{((clan = "Malkavian") and (chapter != 9)) $!{malk_name} nods. "Solid plan. That's more like it." |}
+					
+					"Good," you say. "Thank you Abagail."
+		
+					*goto other_locations_from_blood_dolls
+		
+				#"She's unlikely to find out, but if she does, I'll protect you."
+					*set ruthless %-5
+					*set abagail_likes_you true
+					You're pretty sure that if push comes to shove you won't be able to protect anyone from Alisha's wrath, but you're also quite certain that she won't care that a poorly trained doll she couldn't monetize ran away. In normal circumstances, maybe she'd notice. But now? She has bigger fish to fry.
+		
+					*goto alex_secreted_away
+		You shake your head. "But I can't afford to be too picky. Alisha must have chosen him for a reason."
+					
+		She nods. "I'll leave you to it. Just meet me back in the lobby when you're finished." She leaves you alone in the room with Drew and closes the door behind her. When you turn around, Drew is staring at you.
+
+		"How you want me?"
+		
+		@{((clan = "Malkavian") and (chapter != 9)) $!{malk_name} laughs. "So much for our young philosopher!" |}
+		
+		You blink. "What do you mean?"
+		
+		"Some of you like it when I pretend to be afraid. Some just come right in and do what they've got to do."
+		*fake_choice
+			#This is getting weird, but I'm damned anyway. I sink my teeth into his neck and drink my fill.
+				*label drink_from_alex
+				*gosub set_feeding
+				*set ruthless %+5
+				Your Hunger will wait no longer. You rush forward and grab the boy by the hair and pull his neck to the side, sinking your fangs into his tender flesh. He lets out a sigh of contentment as you drink your fill. When you're finished with him, you pull back, leaving him reclined on the bed, head back on the pillow as he breathes in deep pulls of air. At least he doesn't seem disturbed by what's happening to him. You're a predator; maybe it's best to leave the moralizing to mortals.
+				*goto leaving_dolls1
+			#I'll drink my fill, but I just have to ask: "They actually like it when you're afraid?"
+				*set ruthless %-5
+				"Yeah," Drew says. "They say it changes the taste. I don't know if it's bull or not, but I'm just doing what I'm paid to do."
+				
+				"Doesn't seem very convincing," you point out. "Especially when you're so blunt about it."
+				
+				He puts his hands to his face and falls back on the bed, scrambling away from you in mock fear. It's a decent, but not terribly impressive caricature of terror.
+				
+				@{((clan = "Malkavian") and (chapter != 9)) "Could use some acting lessons," $!{malk_name} says. "But he's got potential." |}
+
+				*goto drink_from_alex
+			#I let my Beast out for a moment. Maybe a good shock of fear will help the kid know his place in the food chain.
+				*set ruthless %+5
+				*set humanity -1
+				You let your conscious self sink into the background for a moment and let your animal instincts take control under tightly watched rein. You shoot forward and grab the boy by the neck, holding him up in the air as though he were weightless. 
+				
+				"You're…you're choking me," Drew gurgles as he struggles fruitlessly. "Gonna kill me you…asshole…"
+				
+				You let him down and he falls to the bed, hacking and gasping. "What the fuck was that?"
+				
+				"Just reminding you of your place on the food chain," you say darkly. This time, he has enough respect to show you proper fear.
+				
+				*if ((clan = "Malkavian") and (chapter != 9))
+					@{(malk_demeanor = 4) "That was a lovely display!" $!{malk_name} says with a sharp-toothed grin. "Let's do it again, eh?" | "Might have been a little much there, eh?" $!{malk_name} says. "We play too close to that Beast and it'll bite us, too. Get to the main event and let's bail." }
+			
+				*goto drink_from_alex
+			#"You know what? No. I'm not doing this."
+				*set ruthless %-5
+				"Where you going?" Drew asks as you push open the door and walk out into the hallway. "What did I do wrong?"
+				
+				*if (hunger > 4)
+					Something about the way he says it causes the Beast to stir deep within you. To your starving Hunger, the boy's question feels like a taunt, and where you would normally have been able to control yourself, your body is now commanded by baser instincts. 
+					
+					*goto drink_from_alex
+				"Nothing," you say. "I just need to hunt elsewhere."
+				
+				When you arrive back in the lobby, Abagail takes one look at your face and she knows you haven't fed. "I'm sorry. I should have referred you to an out-call. I should have known the boy wasn't to your tastes."
+				*fake_choice
+					#"It's not your fault, Abagail. Don't take it personally."
+						*label just_a_cog_abagail
+						*set abagail_likes_you true
+						"I'm just a cog in the machine," she says. "I wanted to be more, but the Mistress told me it wasn't in the cards. Come back some time and I may be able to arrange something better for you, okay?"
+						*goto no_alex_frustrations
+					#"That kid's too young. How can you sleep at night knowing what's happening to him?"
+						"Honey," Abagail says, adopting a tone that lets you know she's sick of your shit. "We all know what we're signing up for. And if you think you're any better just because you stalk alleys and take blood from people who don't see you coming? Well you're just a damn hypocrite. Now get out of here before I call the Mistress's retainers."
+						*label no_alex_frustrations
+						
+						You don't reply. You're frustrated at the lack of proper prey on demand, but it's not Abagail's fault. Perhaps you'll visit another day, but for tonight you're out of time and options.
+						*return
+					#"I just think Ms. Grey should be a bit more selective with who she offers up to her clients."
+						"I agree completely," Abagail says.
+						
+						"But you have no sway on who works here and who doesn't?"
+				
+						*goto just_a_cog_abagail
+		
+		*label leaving_dolls1
+		*page_break
+		You arrive back in the lobby, your appetite sated despite the nature of your meal. The more blood you consume, the more alive you feel, although you know it's a lie you tell yourself to hold on to your humanity. When it comes down to it, you're long-dead, and your Blood, like your time still walking this Earth, is stolen.
+		@{((clan = "Malkavian") and (chapter != 9)) $!{malk_name}'s thoughts largely mirror your own at the moment, and for once ${malk_heshe} has nothing witty or sarcastic to say. |}
+		
+		Abagail is waiting at attention beside the entryway, hands clasped together in a matronly fashion. "I trust everything was satisfactory?"
+		*fake_choice
+			#"It wasn't what I was hoping for, but it's hard to argue with the price."
+				Abagail titters in amusement. "You wouldn't want to know what we charge to clients not on the list.
+			#"Extremely. I'm quite satisfied, thank you."
+				*set ruthless %-5
+				Abagail smiles broadly. "Be sure to tell the Mistress when you see her. 		
+			#"I think I'd rather have hunted for myself."
+				Abagail frowns. "I apologize for the lack of choice. I assure you that we're doing everything in our power to work within the recent restrictions. The Mistress assures me it's for our own safety."
+				
+				"It's not your fault," you grumble. "Times are changing."
+				
+				"Of course," she says with a smile. "I just miss having more satisfied customers. I'm here to serve, after all.
+			#I brush past her without a second glance to let her know how poorly I think of this establishment.
+				*set ruthless %+5
+				*set no_more_dolls true
+				Abagail frowns, but she lets you go without comment. 
+				
+				Your appetite largely sated for the moment, you decide to move on, always aware that there's a Hunger for more that you can never fully extinguish.
+				*return
+		The next time you return, I may be able to arrange something more pleasant." She bats her eyes.
+		
+		Is it you or is she flirting with you? Maybe you'll have to come back soon and find out what she means. Or maybe you'll just avoid the whole thing all together. Mortal entanglements can be a liability.
+		*set abagail_likes_you true
+		*goto finished_feeding
+			
+
+		*label abagail_bits
+		*set no_more_abagail_scenes true
+		*comment Return to Alisha's blood doll business after meeting Abagail and Drew.
+		You arrive at Ladies of the Night, and Abagail answers the door. She's wearing a chic black dress that accentuates her curves and a sizable fascinator pinned in her dark hair that looks like a small flock of ravens taking flight. She breaks out in a smile when she sees you. "$!{mrms} $!{last_name}! I was hoping you'd be able to return." She waves you through the door. "Do come in!" @{(alex_saved) As you're passing her through the doorway, she whispers barely loud enough for you to hear. "I've sent Drew away. The Mistress knows, but doesn't care. You were right." | }
+		
+		The lobby is quieter than the last time you were here and the balcony is suspiciously empty. 
+		
+		"Where are all the clients and dolls?" you ask.
+		
+		"Business has been slow these last few nights, I'll admit," Abagail replies. "The dolls have moved more or less entirely to out-calls. Even the more traditional fare we offer for sexual relations have left. Word's been passed down that there's been some trouble with what we call 'upper management.' You're the first client on the preferred list I've seen tonight."
+		*fake_choice
+			#"Have you heard any more about these so-called troubles?"
+				"Not much that's reliable," Abagail says. "And certainly nothing that I've been sharing outside these walls, I assure you."
+			#"I assure you that things among us 'upper management' types are all going well."
+				*set subversive %-5
+				"Well that's a relief," Abagail says. You can't be sure, but the look in her eyes says she doesn't quite believe you.
+			#"It's been a little crazy," I admit. "A dangerous few nights."
+				*set subversive %+5
+				"I mean," Abagail stutters. "I didn't expect a confirmation. I'm honored that you'd confide in me."
+		She pours a small glass of something you presume to be alcoholic from a crystal decanter at the front desk. "I'd offer you some, but I don't believe it would be to your tastes. That said, I assume your tastes are what brought you here tonight?"
+		
+		You nod.
+		
+		"A ${manwoman} who knows what ${heshe} wants. That's something to be respected. Unfortunately, we have nothing to offer you this evening. The…aforementioned concerns have left us rudderless." She swirls the golden-brown liquid in her glass. "We may be shutting down permanently."
+		
+		You find yourself perplexed. "Then why let me in?"
+		
+		"The Mistress is letting me go. I've been loyal. A good servant. I never asked too many questions or ruffled the wrong feathers. But I'm afraid…" She gulps down her drink in a single mouthful. "Employees who displease the Mistress have gone missing. You treated me with respect the other night—almost none of you have done that—I thought that maybe…if I offer my services to you?"
+
+		"Abagail," you say warily. "I don't know if—"
+		
+		"I'm not just a pretty face," she says, increasingly desperate. "I have a Business Management degree. I know how to run complex operations—manage assets, mortal and fiscal. I could be of use to you. I know your kind has ways of bonding us mortals." 
+		
+		*fake_choice
+			#"I can't be poaching Ms. Grey's talent. If she came after me, there's not much I could do to stop her."
+				*set alisha %+5
+				"Of course there isn't, darling. It's good that you know your place."
+			#"You're only saying these things because you don't want to die. It doesn't inspire confidence in your loyalty."
+				"A sad and predictable trait in mortals."
+			#"Those sound like extremely useful traits. I'll take you on. If Alisha let you go I don't see why it would be a problem."
+				"Why [i]what[/i] would be a problem?" 
+		Alisha Grey storms into the room. Her face is pale with makeup, almost like a corpse, her thigh-high slit dress leaving little to the imagination. She fixes an icy stare on Abagail. "Why are you offering yourself to this ${manwoman} like a cheap whore?"
+		
+		"I'm sorry, Mistress," the terrified woman stares at the floor. "You told me my services were no longer required. I thought—"
+		
+		*comment In regards to the below: As per the design document, Alisha Grey has a long history with the feminist movement. In the years since her Embrace, however, her motives have become warped and twisted. While her new goal is toward a more matriarchal rule among Kindred, she's gone from raising mortal women up to now using them for her own ends. She's lost enough of her Humanity over the years that she no longer seems to see the difference.
+		
+		"You didn't think at all, child!" Alisha scolds, crossing her arms in a patronizing manner. She looks at you. "So quickly, they forget everything that you do for them. I lifted this one from obscurity, working for some fat, lazy excuse for a bureaucrat. The living embodiment of the patriarchy and she might as well have been sucking his cock." Abagail cringes as her mistress's gaze swings back to her. "I've been patient with you because you showed so much potential. I've done more for our empowerment than any icon of our age and the first excuse you get, you try to run off with @{(manwoman = "man") some…some man! | someone who's done nothing for the movement? } You should be ashamed, girl!"
+		*fake_choice
+			#"You shouldn't be so hard on her, Alisha. Mortals scare easily."
+				*set ruthless %-5
+				Alisha clicks her tongue. "Well then perhaps I should have lowered my expectations."
+			#"You're completely out of line talking to her that way. You can't claim to be lifting women up with one hand while you're holding them down with the other!"
+				*set alisha %-10
+				*set ruthless %+5
+				"How dare you!" Alisha snarls. She's on you in less than a second, faster than any mortal could move. Her long, pointed nails dig into your neck. "You have no comprehension of the sacrifices I've made!"
+				
+				You manage to choke out a response.
+				*fake_choice
+					#"Abagail's made sacrifices too. Your goals are the same."
+						"Piddling mortal sacrifices," Alisha says. "A drop of spit in an ocean of my accomplishment."
+					#"I didn't come here to start a fight!"
+						"Darling, you're not strong enough to start a fight, much less finish one."
+					#I apologize profusely. I'm no good to anyone if I'm destroyed here.
+						*set alisha %+5
+						"Now that's more like it," Alisha says. "A little humility goes a long way."		
+				She removes her fingers from your throat slowly. One by one. "Consider yourself lucky that you have ties to Eden. Take this as a warning: I will not tolerate such disrespect from a childe like you again."		
+			#"If you were letting her go, why not let her work for me? It's better than her going back to work for a mortal you despise."
+				Alisha clucks her tongue. "Abagail was told that her work was no longer required here. That statement does not preclude the possibility of continued employment elsewhere."
+		She pauses to examine her nails. "I have no interest in retaining a servant who announces her displeasure at the idea of remaining in my service to every lick walking into my place of business. @{(ch5_attended_exhibition) It's simply not proper." | I have an event to prepare for." } She narrows her eyes and pulls you aside, speaking in hushed tones. "Do with her as you will, but don't linger in the building overlong. We're closed for a reason. The Inquisition has been sniffing around. I won't have Ottawa burn if it can be avoided; I have too many pretty things here."
+		*choice
+			*if (have_a_second_ghoul = false) #"I'd like to take her as a new retainer. Her skills would be useful to me."
+				*set have_a_second_ghoul true
+				*set second_ghoul "abagail"
+				*achieve ghoul_bookkeeper
+				*set hunger +1
+				Alisha shrugs languidly. "Take her, then. But be aware that I may have avoided doing so myself for a reason."
+				
+				"What reason is that?" you ask.
+				
+				"Now where would the fun be in telling you?" She laughs as she makes for the front door. "Have fun, you two. Don't do anything I wouldn't do."
+				*page_break
+				"Oh my god," Abagail groans between distinctly un-ladylike gulps of the thick, red fluid. She's cradled your arm in her hands like a newborn as she tastes your vitae for the first time. You've experienced it before, of course, with Gerard, but it feels strangely intimate. Like choosing a new sex partner. The sensation is enjoyable, but for Abagail, it's a transcendent experience. She wipes her mouth daintily when you pull away from her.
+				
+				"I feel…stronger," she says nervously, stretching out her arms and flexing as newfound power runs through her veins. "Why don't you do this for all your servants?"
+				
+				"It's a bond," you say simply. "More significant than what you had before. You'll be more powerful, and you won't die of disease or old age, but you'll also require regular feedings. I'll supply you in exchange for loyal service." You take a notebook out from your coat pocket and write out Gerard's phone number. "This is the number for my personal retainer. He's to be respected and obeyed at all times."
+				
+				Abagail collects her purse from behind the reception desk. She takes out her phone and powers it on, about to program the number into her address book when you grab her hand and take the phone away.
+
+				"No more smartphones," you say. She looks at you like you've grown a second head. "We have enemies and they've gotten increasingly good at tracing online communications. No official communications with me over the Internet or email either."
+				
+				"You're serious?" she asks before thinking better of it.
+				*fake_choice
+					#"Deadly serious."
+					#"I'm afraid I am. All that power comes with a cost and responsibility."
+					#"You're not already having second thoughts, are you? It's a little late for that."
+					#"If you disobey me on this rule, you'll wish your Mistress had you killed. This isn't a game."
+						Abagail's face goes white and you can tell she understands.
+				"Don't worry," she says. "It was just a shock is all. I wasn't expecting it." She holds up the phone number you gave her. "What about this, then?"
+				
+				"Pick up a burner phone. Something cheap. Call Gerard once I leave and tell him what happened. Tell him I want you set up with an office and a secure Internet connection. He'll walk you through my accounts and monitor your online activity until he trusts you to be careful what you say and where you say it." You write out a long alphanumeric code on the paper underneath the phone number. "This is a one-use communication. Tell him the password and he'll know you're legitimate. He'll only accept it once. You understand?" You hand back the paper.
+				
+				Abagail nods.
+			
+				"Good. Now I have somewhere else to be. If you can follow these instructions exactly, you'll receive more vitae in good time. If you don't, there will be unpleasant side effects that aren't in my power to control. Perform well, and we'll have a mutually beneficial relationship."
+				*page_break Time To Get Back To Business
+				*return
+				
+			*if (have_a_second_ghoul) #"I'd like to take her, but I've already taken on a second retainer recently. I shouldn't recruit another so soon. Abagail will have to work things out on her own."
+				Alisha puts her hands on her hips. "Well look at you, coming up in the world. It's a shame you can't take her, though. It would have been amusing."
+				
+				"Amusing?" you ask. "Why?"
+				
+				"Oh, nothing," Alisha says. She's already sashaying out the door. "Just ask Eden. I'm a silly girl—always laughing at just the right time. Have fun you two. Don't do anything I wouldn't do." The door closes behind her, leaving you and the newly unemployed hostess alone in an awkward silence.
+			
+				"I'm sorry for presuming," Abagail says. "I didn't know you'd just found a new servant or I never would have asked. The Mistress told me that her retainers require some kind of…upkeep. If I can make it up to you?"
+				
+				"Hmm?" you reply, distracted by Alisha's parting words.
+				*label drink_from_abagail
+				*gosub set_feeding
+				
+				"You came here because you were hungry, right? Drink from me."
+				
+				The overt mention of feeding causes the innate desire to swell within you and within seconds you're upon her, fangs deep in her neck as you suck greedily. When at last you've had your fill, you lick the wounds closed and pull away as she staggers to a chair behind the reception desk.
+				
+				"I forgot…" she groans. "I forgot what a rush that is! It's been…months." She lays back in the chair, staring at the ceiling.
+				
+				Your need sated and your wits finally gathered, you remember that you have places to be. "You'll come down soon enough," you say. "It's been a pleasure." It's no half-statement. The feeling of her blood revitalizing your undead body is distinctively pleasurable.
+				*page_break It's Time To Move On
+				*return	
+				
+			*if (hunger > 4) #"I'd consider bringing her in, but I'm far too hungry to be feeding a mortal my Blood."
+				Alisha puts her hands on her hips. "Running around like a hungry puppy, $!{name}? @{(clan = "Toreador") In the Clan of the Rose, you're expected to know better. There's no beauty in starvation." | Most ${clan} have more common sense." } Be grateful there is a vessel here for you." She eyes Abagail and 
+				*label alisha_sweeps
+				sweeps gracefully for the front door. "Have fun, you two. Don't do anything I wouldn't do." The door closes behind her, leaving you and the newly unemployed hostess alone in an awkward silence.
+				
+				"I've made a mess of things," Abagail says gloomily. "The least I can do is offer myself to you."
+				
+				Your eyes fix on her, and you swear you can hear the blood rushing through her veins.
+				*goto drink_from_abagail
+				
+			#"I'll use her to feed, but I have no interest in what she has to offer. Having another mortal to take care of would be too much of a liability."
+				Alisha sniffs. "Abagail has her uses, though she'd make a poor retainer. Muscle is best when added to, well, more muscle. What use is an ageless hostess or book keeper, really? Their looks would go stale. Eternity is a bore—you need to change it up every so often and keep things interesting." She 
+				*goto alisha_sweeps
+
+			#"She was confused and afraid. I think she'd still be useful to you if you kept her. Maybe in a less public capacity."
+				*set ruthless %-5
+				*set alisha_keeps_abagail true
+				Alisha watches you thoughtfully. "You may just be right." She approaches the hostess slowly, like a predator sizing up its prey. Abagail gulps and busies her hands fussing with her ornate hairpiece. "You still wish to serve me?" Alisha asks. "Were you…confused?" 
+				
+				You stand back and let the event play out. You've been in the Ivory Tower long enough to know when a Diva is playing with her food. Alisha's already made up her mind.
+				
+				"When you didn't select me as one of your special servants, I felt like I let you down, Mistress," Abagail says. The words seem to rush out of her, like they'd been dammed up for weeks. "Then when you ordered the business shut down, I was afraid you had no more use for me."
+				
+				"Child," Alisha says soothingly. "Mortals always have worth. Use." She reaches out and pulls Abagail in your direction. "For example. $!{name} is the childe of a dear friend of mine, and ${heshe} came to you to satisfy ${hisher} Hunger. This desire is within your means to satisfy, is it not?"
+				
+				"It is, Mistress."
+				
+				The Toreador waves you forward impatiently. "You say the mortal still has worth. Show me."
+				*page_break
+				The overt mention of feeding causes the innate desire to swell within you and within seconds you're upon Abagail, fangs deep in her neck as you suck greedily. When at last you've had your fill, you lick the wounds closed and pull away as she staggers to a chair behind the reception desk.
+				
+				"I forgot…" she groans. "I forgot what a rush that is! It's been…months." She lies back in the chair, staring at the ceiling.
+				
+				"You see?" Alisha says as she glides over to the desk. "Every mortal has their worth." She offers her hand and Abagail takes it, getting back to her feet unsteadily. "You'll be safe with me, darling. You can thank $!{name} for that."
+				
+				You follow them out the door, and once you're on the street, you hear the clunk of an electronic lock snap shut behind you, securing the escort service until it's next needed.
+				
+				"I suspect I'll be seeing you shortly," Alisha says as she disappears into the back of a limousine with Abagail.
+				*goto finished_feeding
+
+
+	*if ((sappers > 0) and (sappers < 3)) #I return to the tunnel beneath The Sappers' Staircase. There are plenty of nooks and crannies to hide in after grabbing a victim.
+		*goto sappers_staircase	
+	*if (sappers = 0) #The Sappers' Staircase leads to a wide tunnel beneath Plaza Bridge. There are plenty of nooks and crannies to hide in after grabbing a victim.
+		*label sappers_staircase
+		*set sappers +1
+		*if (sappers > 2)
+			As soon as you approach the familiar hunting ground, you notice that three new lamp posts have been installed since the last time you were here. Several high tech security cameras that you're quite sure you've never seen have also been installed along the stairs and beside the canal. Perhaps you've fed here too often—taking a victim under such circumstances would be folly. You reverse course and try to decide on another location to hunt down a meal.
+			*choice
+				*if ((clan != "Nosferatu") and (club27 < 5)) #The live music scene has always been good hunting grounds. I visit The 27 Club.
+					*goto start_27_club
+				*if (clan = "Nosferatu") #It looks like this hunt's a bust. I'll look in Gil-O-Julien Park instead.
+					*goto homeless_feeding_begins
+				#I'll check out Confederation Park.  
+					*goto confederation_park
+				*if (blood_dolls_closed = false) #I could see if any of Alisha's blood dolls will let me feed from them.
+					*goto blood_dolls_feeding_section
+				*if (greyhound < 2) #The Greyhound station usually has a few people waiting for hours overnight for their next transfer.
+					*goto greyhound_station
+		
+		*elseif (sappers = 2)
+			*goto two_at_a_time
+		*else 
+			*comment (sappers = 1)
+			The bridge over the Rideau Canal splits in two, and where the halves diverge, a stairway leads you down into a tunnel running parallel with the canal. The Fairmont Château Laurier looms majestically above the water, a modern castle with over a hundred darkened windows watching over you like lidded eyes. Is anyone observing you from behind those panes of glass? Impossible to know, so you take your business below. 
+			
+			*label two_at_a_time
+			You take the steps down, two at a time, eager to begin the hunt. You haven't seen many pedestrians since you arrived, but as with any other hunting ground in Ottawa, it's just a matter of time before an opportunity presents itself.
+			*choice
+				*if (sappers_cop) #I hide in one of the small stone archways lining the tunnel, waiting for my prey to arrive before striking.
+					*set sappers_cop false
+					There are four archways along the side of the tunnel closest to the canal, each leading close to water down a small stairway. While most of the tunnel is well-lit by several wall-mounted lamps, these nooks are cast in shadow—the perfect place to lie in wait for your prey.
+					
+					You wait for several minutes, growing anxious the more time passes. Your Hunger claws at you in anticipation of being satiated and somehow it feels even stronger than it did before you came down here. You feel relieved when you finally hear the sound of a person walking slowly through the tunnel, footfalls echoing off the concrete walls. 
+					@{((clan = "Malkavian") and (chapter != 9)) You sense $!{malk_name} urging caution, but you've waited too long and you've grown impatient. |}
+					You reach out a curled arm, fingers spread like talons, and grab your victim by the arm, pulling them into the dark with you. You're surprised when the man twists in your grip and throws you back. You teeter on the brink, almost falling into the canal as you regain your balance. You've gotten sloppy—no mortal could have done that to you if you hadn't been distracted by the strength of your bloodlust.
+					
+					"Stay back!" a gruff masculine voice shouts as your intended victim steps back into the light, revealing the uniform of an active duty police officer. His hand is on his gun—still holstered, but no less a threat.
+					
+					"Show yourself, hands up!"
+					
+					@{((clan = "Malkavian") and (chapter != 9)) "I tried to warn you!" $!{malk_name} yells. |}
+					
+					Oh, hell.
+					*choice
+						#I step out, showing my hands. Once he thinks I'm no longer a threat, I'll jump him and do what I came here to do—drink his blood.
+							"Don't shoot," you say, lifting your hands as you slowly emerge from the darkened archway. "I didn't mean anything by it; I thought you were my buddy, guy." You can't think of a way to sound less threatening than a blunt Canadian stereotype. Slurring your words like a drunk probably helps too.
+							@{(clan = "Nosferatu") You keep your head down, hood up to disguise your Nosferatu features. Hopefully he doesn't notice until it's too late. |}
+							
+							@{((clan = "Malkavian") and (chapter != 9)) "Buddy, guy?" $!{malk_name} asks. "Really? That's the best you could come up with?" |}
+							
+							"Put your hands behind your back," the officer says. You can already tell that he's dismissed you through his tone. "You can't walk around in public, drunk, grabbing people. I'm taking you in—"
+							
+							You lash out and grab his gun, 
+							*label sappers_throw_gun
+							*set masquerade_breaches +1
+							*gosub_scene functions normal_feeding
+							throwing it into the water before he even knows what's happening. He fights back, and you take several punches to the gut before you manage to subdue him and drag him back into the shadows. Once your fangs prick through his skin, he finally relaxes and falls sedate into your arms.
+
+							You drink your fill, watching carefully for anyone who may have overheard the commotion. Thankfully, the tunnel is quiet, and you're able to finish your meal in peace. 
+							
+							You prop the officer up against the wall and scour the nearby trash cans for anything smelling of booze. You luck out and find a discarded beer bottle wrapped in a brown paper bag. When you return to your dazed victim, you slosh the remainder of the container onto his uniform and leave the bottle at his feet. It's not a perfect frame, but if you're lucky, he'll only remember the last few minutes through a haze.
+							
+							*if ((clan = "Malkavian") and (chapter != 9))
+								"Listen to me next time, okay?" $!{malk_name} says. "I saw the guy coming."
+								
+								You sigh. "I get it. What do you want me to say? I'm sorry?"
+								
+								"That would be a good start. It's what a proper Canadian would do."
+								
+								"Fine, then," you say. "I'm sorry."
+								
+								$!{malk_name} shrugs. "We're cool."
+								*page_break
+							*goto finished_feeding					
+						
+						#I don't have the time to mess around with this cop. I leap out of the darkness and smash him to the floor. Once he's disabled and I've removed his gun, I'll drag him back to feed on him.
+							*set ruthless %+5
+							There's no reason to overthink this. Your prey may be a cop, but he's still mortal, and as such his blood belongs to you. You leap out from the archway, landing atop the startled officer. Your weight smashes him against the cold stone of the walkway. You grab his gun,
+							*goto sappers_throw_gun
+						#The hunt is blown and I can't risk feeding on an armed cop. I jump over the railing into the canal. I don't have to breathe, so I can swim away underwater without needing to surface for air. He'll never find me.
+							*set ruthless %-5
+							You don't give the officer the chance to fire or even make another demand. The hunt is blown and it's time to flee the scene before something worse happens. You leap over the waist-high railing and splash into the water of the canal, sinking to the bottom and swimming southeast toward the Shaw Centre and Confederation Park. By the time you pull yourself out of the water, the cop is nowhere to be seen and you spend several minutes drip-drying in the grass, keeping your head down and listening for any sign of pursuit. It seems you're in the clear.
+
+							Fortunately you're not too far from your haven and a fresh change of clothes. You can't afford to go about your night sopping wet.
+							@{(chapter = 5) Unfortunately, your best clothes are at the cleaners. You'll have to make do with a substandard ensemble for now. |}
+							*return
+	
+				*if (sappers_canal) #I leave the confines of the tunnel and walk alongside the canal. I'll hide myself in the dark surrounding one of the larger shade trees and bushes separating the walkway from the water.
+					*set sappers_canal false
+					You skulk out from the tunnel into the small strip of walkway directly beside the canal. A barrier of snow-covered greenery separates this path from the larger one running parallel to it, and a few taller trees provide just enough cover for you to rest in the darkness, watching for a victim to come by. There aren't many joggers this late at night, but you've seen people come here to gaze out over the water and think. You settle in for a wait. Maybe you'll get lucky.
+					
+					@{((clan = "Malkavian") and (chapter != 9)) $!{malk_name} eventually gets bored. "Maybe this wasn't the best idea," ${malk_heshe} says. "Why don't we go back and hit up that club? Plenty of mortals there to choose from." When you don't respond, ${malk_heshe} throws up ${malk_hisher} hands in defeat. "Fine, let's waste our time waiting for organic free-roaming meat to stroll by. Not like we have anything better to do, right?" |}
+					*page_break Thirty Minutes Later
+					You're just about to give up and hunt somewhere else when you hear the sound of an animated conversation headed your way. There. You can see them now, a young couple deep in an argument. They're not close enough for you to be able to pick out individual words, but the gist is easy enough to understand when the woman pulls a ring off her finger and throws it into the water. The ensuing argument can probably be heard from the road and by the end of it, the young man stomps off the way he came, leaving his ex alone in the dark. She rests against the hand railing, weeping with the heavy sobs of someone who has no idea that they're being watched. 
+					
+					@{((clan = "Malkavian") and (chapter != 9)) "I can admit when I'm wrong," $!{malk_name} whispers. "It doesn't get much easier than this." |}
+					*choice
+						#There's no easier pickings than a mortal lost in the haze of grief. I come up from behind and take her right there. To any passersby on the road above, we'll just look like a couple necking.
+							*gosub see_opportunity
+							mimic the natural motions of mortal passion, wrapping your arms around her as you drink deeply of her blood.
+							
+							"Amélie?" a voice cries out from the direction the young man had disappeared. Damn. Not now…Suddenly you can feel his eyes on you, burning with hatred as he catches you with the woman who so recently scorned him. "Toi, mon tabarnak!" he yells. He's running for you, now. Fortunately, you've finished up with your meal, but you'll have to decide what to do with your witness.
+							
+							@{((clan = "Malkavian") and (chapter != 9)) "No fury quite like a scorned Québécois lover," $!{malk_name} cautions you. "Watch out—he might have a baguette!" |}
+							*choice
+								*if (dominate) #[b]Dominate:[/b] I use my mental abilities to cloud his memories of these events and leave before he has a chance to reorient himself.
+									*gosub_scene functions add_hunger
+									You don't have the time nor the inclination to settle this dispute with a physical altercation. You lock eyes with the young man and speak your word of power. "Forget." 
+									
+									He stops in his tracks, a web of confusion settling around his most recent memories. "I…Amélie?" He runs over to your victim. He should have forgotten everything he just saw. Maybe if he's lucky he'll also forget what his lover did to her ring. But you don't have the time to see how this plays out. For now, it's time for you to retreat. You've gotten what you came here for.
+									*goto finished_feeding	
+								#I shove my victim over the railing into the canal. Her lover will be forced to ignore me in favor of saving her from drowning.
+									*set masquerade_breaches +1
+									If he came back for her, there's no way that he'll bother chasing you down while his lover is drowning. You lift Amélie's body as if she weighs nothing at all and shove her over the railing. She tumbles down and lands with a splash, face-down in the water. She sputters for a moment, but her body still hasn't recovered from the sedative of the Kiss. She'll drown if she doesn't get any help, and the young man knows it. He stares balefully at you for a second before grabbing the railing and leaping over. 
+									
+									You don't wait to see what the outcome will be. You assume that your victim survived. Maybe her near-death experience will change her mind about her relationship. Maybe it won't. You'll never know.
+									*goto finished_feeding	
+								#I settle things the old fashioned way: I punch him in the face until he falls down.
+									You don't have the time nor the inclination to settle this dispute with any finesse. You leave the young woman draped on the railing and take a step closer to her beau. He reels back for a wild punch in your general direction and you respond with a quick jab to the face before he can even throw the punch. He reels back, blood spewing from his nose. The sight spikes another quick burst of Hunger, but you've recently fed, making the Beast easier to control. Besides, this has gotten messy enough as it is—there's no need to over-complicate things. Rival lovers getting into a fist fight may be rare these days, but it's easy for the mortal mind to parse. Easier than, say, a vampire cleaning up their loose ends.
+									
+									One final swing and the young man goes down hard, collapsing to the concrete with a gasp of pain. He's not unconscious, but he'll be feeling it in the morning. You take the opportunity to leave before anyone else comes along. You have no desire to repeat the act for a third time.
+									*goto finished_feeding	
+								#I apologize dramatically and make a hasty exit as she collapses into his arms.
+									*set masquerade_breaches +1
+									"I'm sorry!" you exclaim, taking a quick step away from the young woman with your hands held up in mock surrender. She slumps down lazily on the railing, still out of it from the intensity of the Kiss.
+									
+									"What did you do to her?" he asks in a thick French-Canadian accent. He turns back to the woman and tries to revive her as she hangs limply in his arms. By the time he turns back to confront you, you've already retreated into the bushes and back toward the road. You wonder what will happen between the two after their close call. You'll probably never know.
+									*goto finished_feeding
+						
+							*label see_opportunity
+							*gosub_scene functions normal_feeding
+							Where some see tragedy, others see opportunity—and you don't intend to let this one go to waste. You stalk toward the weeping girl, silencing your footfalls as they tread over the concrete path. By the time she notices you, it's already too late.
+							
+							"Hello?" she calls out, wiping her eyes on her shirt. "Who's—"
+							
+							You lunge and take her before she can turn around and see your face. She swoons in your arms as you sink your fangs into her neck and you 
+							*return						
+						#I grab her and drag her into the bushes to feed on her in secret. I'll just have to make sure she doesn't put up too much of a fight.
+							*gosub see_opportunity
+							pull her back into the shadows, hiding where the trees and bushes obscure the streetlights. The young woman writhes in your grip, her strength slowly fading as you nurse the blood from her neck. 
+						
+							"Amélie?" a voice cries out from the direction the young man had disappeared. Damn. Not now…"Amélie?" He comes into view, staring at the place where he left his lover standing not more than a minute ago. She shifts in your grasp and tries to say something, but you manage to wrap your hand over her lips, muffling any cry for help she might be inclined to offer. Eventually, her beau shakes his head and gives up the hunt, likely assuming that she's gone for good after tossing her ring into the water.
+
+							@{((clan = "Malkavian") and (chapter != 9)) "Ah," $!{malk_name} says. "Young love." |}
+						
+							When you're finished feeding, you lay the young woman on a nearby park bench, head down as if she's fallen asleep. It will take her some time to recover from the blood loss, but within a few days she'll be fine. For now, your purpose here is done, and you leave with haste.
+							*goto finished_feeding							
+						#As hungry as I am, I'm not sure if I want to heap any more misery upon this mortal. Maybe I should just conclude my hunt early and feed another night, no matter how badly the Hunger itches at my veins.
+							*set ruthless %-5
+							*gosub_scene functions add_humanity
+							You're a predator, but apparently not a heartless one. Then again, clinging to such mortal sentiments means your Hunger will only build within you, until there's little you can do other than dream of feeding off this young woman. Somewhere deep down, you know that there will be a time in your un-life when making a choice like this will no longer be possible. But tonight, you make an exception.
+				
+							Your veins itching with Hunger, you back off through the darkness, the hunt concluded for the moment.
+							*return
+				
+				*if (sappers_spider) #A set of locked double doors marked "restricted area" can be easily pried open with my strength. I hide inside until I hear the sound of a mortal passing by, emerging to snap them up and draw them into the dark room like a trapdoor spider.
+					*set sappers_spider false
+					*gosub_scene functions normal_feeding
+					It's a decent idea, provided you can get the doors open without making too much of a ruckus. You latch your fingers into the small crack between the doors—there's no handle here for you to wrench open—and pull, channeling your vampiric strength into the effort. Your fingers cramp and scream out for you to stop just before the door relents and pulls open in your desperate grip. There's very little of interest inside, but you weren't looking for a bounty of objects to steal, only a web to trap your victim in. You step inside and close the doors until only a slit of light shows through as you settle in to wait.
+
+					Eventually, you see a middle-aged man walking in your direction, wearing an oversized Leafs jersey. Looks like walking through the tunnel alone in the dark isn't the first mistake he's made tonight.
+					@{((clan = "Malkavian") and (chapter != 9)) Somewhere in the back of your mind you can hear $!{malk_name} laughing. |}
+					*comment Take THAT Leafs fans!
+					
+					You leap out and grab hold of the man, tearing him off the walkway as your hand wraps around his mouth before he can scream for help. Within seconds, he's safe with you inside your makeshift den. You're not sure if that could have gone any better!
+					
+					You sink your fangs into his neck and drink deep, savoring the rich flavor of his blood. It's not often that you get complete privacy to feed at your leisure these nights, and you intend to savor it. Once the commotion in the city has died down for good, you'll need to get Gerard to deliver a victim that you can enjoy just like this in the comfort of your own home.						
+					*goto finished_feeding
+
+	*if (greyhound = 1) #I think I'll return to the Greyhound station and see what travelers are on offer tonight.				
+		*goto greyhound_2
+	*if (greyhound = 0) #The Greyhound station usually has a few people standing around for hours overnight, waiting for their next transfer.
+		*label greyhound_station
+		*if (greyhound = 1)
+			*goto greyhound_2
+		*set greyhound +1
+		*if (greyhound = 1)
+			You approach the bus station cautiously, wary of the brighter streetlights and passersby. Not long ago, the station was voted one of the least attractive buildings in Ottawa, and it's easy to understand why. It looks like it was built in the early seventies and hasn't seen much in the way of sprucing up since. Rumor has it that the service will be shutting down soon, but even though volumes are low, it's still up and running. For now at least.
+			
+			@{((clan = "Malkavian") and (chapter != 9)) "Hell," $!{malk_name} says, hunching ${malk_hisher} back in an exaggerated parody of an elderly person. "I can't imagine why mortals aren't interested in cramped, stained seats and perpetually late buses in the age of instant gratification and Uber! Back in our day we took the bus and we liked it! We loved it!" |}
+
+			Three weary-looking midnight travelers loiter about outside the terminal, waiting for the next bus out of the city and on to Toronto or Montreal. Or maybe Oshawa if they're unlucky. You don't want to leave too many mortals able to identify you if something goes wrong, so the fewer who see you skulking around, the better. Deciding that three is an acceptable number, you slowly work your way closer, watching for opportunities.
+			
+			The two young women seem to be together, reading something on their phones as they huddle close to ward off the cold. The remaining man stands apart, hands thrust deep in the pockets of his heavy winter coat as he stares blankly into the distance. It's quiet out—you're not exactly in the city center, and long-distance travel by bus hasn't been the most popular mode of transportation lately.
+			
+			It's not the best pickings you've ever seen, but you think you can make it work.
+			*choice
+				#I walk up as if I'm planning on entering the terminal, but instead I grab one of the women's cell phones and take off with it. Whoever chases me becomes my prey.
+					You walk up casually, face cloaked in the hood of your coat.
+					*gosub approach_the_terminal
+					
+					You whip your hand out of your pocket and snatch the nearest phone, ripping it easily from the smaller woman's gloved hands. She squeaks, barely realizing what's happened until you're already halfway around the corner of the terminal. It's far darker back here—more than sufficient to make a victim disappear.
+					
+					"I've got this!" a husky female voice calls out, and you hear the sound of pursuit not far behind you. You expected the man to chase you, but either way you're quite satisfied with the results.
+					
+					@{((clan = "Malkavian") and (chapter != 9)) "How did you know that they wouldn't all chase you?" $!{malk_name} asks. "That was reckless." |}
+					@{((clan = "Malkavian") and (malk_demeanor = 4)) $!{malk_heshe} arches an eyebrow. "Could lead to a slaughter. Where are my knives?" |}
+					*choice
+						#I stop running and stand my ground, waiting for the woman to catch up. She's made this far too easy for me.
+							The young woman rounds the corner and comes to a stop when she sees you just standing there. She knows—she realizes that she's been duped—but it's too late to run back the way she came. You charge and bowl her over, knocking her to the pavement. She rolls, trying to regain her footing, but by then you've already got hold of her arm. 
+
+							*label yank_her_back
+							*gosub_scene functions normal_feeding
+							You yank her back into the shadows, fangs at her throat. It only takes a second before the Kiss starts to work its magic and she becomes putty in your hands. You've just managed to slip back behind the cover of a bulky dumpster when the man in the heavy coat appears, using his phone as a flashlight while he searches for you and the missing woman. 
+							
+							You clamp a hand over your victim's mouth, stifling a groan of what you imagine might be pleasure as her stolen blood warms your cold, dead veins. Yes, that's just what you need….
+							
+							Luckily, the man is timid and doesn't seem as keen on running into the dark as he was moments before. It's only a matter of time before he finds you, but his reticence allows you just long enough to sate your craving and leave the young woman propped up against the dumpster. You lick the puncture wounds closed—it's like they were never there. You even take pity on her and leave the phone. It's not like you have any need for it in the age of the Second Inquisition.
+							
+							By the time the man finds the trembling body of your victim, you're long gone into the night.
+							*goto finished_feeding
+							
+						#I lead her into the shadows, fleeing just slowly enough to make her believe that she can catch me.
+							The young woman rounds the corner, right on your heels as you disappear into the darkness beyond the terminal's street lamps.
+							*goto yank_her_back
+						#I purposefully trip and fall, gripping the stolen phone in my outstretched hand. When she comes to grab it back, I'll take her.
+							You fake a trip and fall to your knees as the young woman rounds the corner. You hear an exhalation of triumph as she closes in on you and reaches down to take the phone from your hand. Unfortunately for her, that's exactly what you were waiting for.
+			
+							*goto yank_her_back	
+
+					*label approach_the_terminal
+					The man watches you with idle interest, but he doesn't seem inclined to talk and that suits your purposes fine. The young women never even look up from the glowing screens of their phones as you pass by. Well, you know one way to snap them out of it and bring them back to the real world….
+					*return
+					
+				#I pretend to be a vagrant and shuffle uncomfortably close to the two women, asking to bum a smoke. If they grow uneasy enough to head inside, that will leave me alone with the man in the heavy winter coat.
+					You stumble toward the station, taking hesitant steps that you hope will be mistaken for a drunk or an addict in search of ${hisher} next fix. 
+					*gosub approach_the_terminal
+					
+					"Hey," you rasp. Your face is cloaked in the hood of your coat so the women can't quite make out your features. "Either of you lovely ladies got a smoke? Can I bum one off ya?" One of them looks up at you, disgust smeared over her face without any attempt at subtlety. The other woman stabs the screen of her phone with her index finger and then joins her friend. You take a step closer and they both take two steps back. Well, that's what you were going for, wasn't it?
+					
+					"We don't smoke," the disgusted-looking woman says.
+					
+					"Yeah," her friend adds. "We vape."
+					
+					@{((clan = "Malkavian") and (chapter != 9)) "I feel attacked," $!{malk_name} grunts as ${malk_heshe} hides a vape pen behind ${malk_hisher} back. |}
+					
+					"And nobody's said 'bum a smoke' for the last thirty years." You're somewhat surprised to hear that, actually. Then again, you were Embraced over half a century ago, and time does have a way of getting away from you….
+					*choice
+						#I need to amp up the creep factor if I want them to leave. I ask them if they're on a trip all alone or if they have company inside the station.
+							"So," you ask. "You girls on a trip all alone?"
+							*label stranger_danger
+							
+							A shot of alarm shows in their eyes. What was it that they used to call it when you were younger? Stranger danger? Now they're paying attention.
+							
+							"Ew," one of them says, immediately followed by the other saying, "Back the fuck off, creep."
+							
+							You don't move.
+						
+							"Uggh, fuck this. Gross old ${manwoman}. Why you gotta ruin everything?" They both slowly back up and head into the station while you stay put. Good. That's exactly what you needed them to do.
+							*goto incel_alert
+						#They seem repulsed by my presence, but not quite enough. It will take more than words—I cough loudly and wipe my nose with the back of my hand.
+							You lower your head and force a spasm through your body, mimicking several mortal-like coughs as best you can. When you're finished, you wipe your nose with the back of your hand. Fortunately, you're not leaking any actual fluids.
+							*goto stranger_danger
+						#I invade their personal space, slowly creeping closer and closer without saying a word. If that doesn't make them head inside, nothing will.
+							You shuffle closer, limping just a little for added effect. They step back again, but you remain insistent, closing the distance faster than they can retreat.
+							*goto stranger_danger
+					*label incel_alert
+					
+					"You really shouldn't be talking to them like that," the man says as the two young women head inside. "Calling 'em lovely, I mean."
+					
+					"Why's that?" you ask. How nice of him to invite you in for a conversation. It gives you an excuse to get close enough to strike.
+					
+					The man shakes his head. "You can't trust 'em anymore," he says. "Younger women, I mean. Tell 'em that they look pretty, and rather than take the compliment they'll go running for a cop or some white knight beta male. It's not worth it."
+					
+					Oh, you're going to enjoy this….
+					*page_break
+					*gosub_scene functions normal_feeding
+					You wipe your lips clean before climbing out of the dumpster. You'd been more aggressive than usual during this feeding, but your victim is still alive. It will take him several minutes to get his wits about him again, and several more before he's able to claw himself free of the mounds of food scraps and coffee grinds you left him lying in. He'll probably even miss his bus. Shame.
+					
+					@{((clan = "Malkavian") and (chapter != 9)) "I wonder if he's gonna make a video about this from the cab of his old pickup truck and post it online," $!{malk_name} says. "He'll find a way to blame it on the girls. The three guys up-voting it from their mothers' basements can be next on our list." |}
+					
+					As you leave, you notice that the two women have stepped back outside again on the other side of the building, no doubt hoping that this time they'll be left alone. You leave them be, though you wish you could be there to see their reactions when your victim walks past them, slathered head to toe in garbage.
+					*goto finished_feeding
+				
+				#I head inside, watching for any stray mortal that I might be able to peel off from the herd and feed in the cover of a washroom or nook.
+					You shrug into the hood of your winter coat and brush past the three mortals waiting for their bus. The doors into the terminal open easily, leading you into a wide-open room, the majority of which has been cordoned off by a line of red ribbon guiding you toward the ticket counter. A bored-looking man in his mid-twenties shifts from foot to foot behind the desk, eyeing you warily. He's the only one in the room—it's a quiet night, perfect for stalking.
+					@{(clan = "Nosferatu") You shrug deeper into the hood. He's uneasy enough simply being in your presence, but if he could properly see you there's no telling how he'd react. |}
+					
+					@{((clan = "Malkavian") and (chapter != 9)) "I always wonder about night security guards," $!{malk_name} says. "Like, they've got to be the most common victim for people like us, right? Night after night, all alone? You ever wonder how many other vamps' teeth have been on the same neck?" $!{malk_heshe} bites ${malk_hisher} lip. "Really makes ya think…" |}
+					
+					You're about to close in and pull the clerk under his desk when you notice the cameras perched above him, trained down on the surrounding area. Damn. The last thing you need right now is to get filmed in the act of feeding. With the Council in a state of disarray, it would be more difficult than usual to spin the story into something palatable for the masses that wouldn't draw Second Inquisition eyes like moths to flame. 
+					
+					"Um," the man mutters, scratching idly at a few days' worth of patchy stubble, "How can I help you?" A sudden string of expletives comes from down the hall in the washroom. "Don't worry about him," the clerk says. "He mostly keeps to himself, aside from the swearing. Homeless guy. He comes in here almost every night, lately, but I don't have the heart to kick him out, ya know?"
+					
+					@{(clan = "Ventrue") Your refined Ventrue tastes make you wince with disgust at the mere thought of feeding on the vagrant. He's just not going to be an option, unfortunately. It will have to be the clerk. |}
+					*choice
+						#"I think there might be something seriously wrong with him," I say as the swearing from the washroom turns to violent coughs. "You really should do something." I'll say anything to get the clerk out from the camera's view. 
+							"You may be right," the clerk says, looking toward the washroom nervously. He licks his lips and drums his fingers on the countertop. "You okay in there?" he calls out, voice raised. No response. "Sir, are you okay?"
+							
+							"You should probably check on him," you say. "It's gotten awfully quiet in there…"
+							
+							"Shit," the clerk mutters. "Damn it." He rounds the corner of the counter and steps past you, making his way toward the washroom. 
+							*label clerk_corner
+							*gosub_scene functions normal_feeding
+							As soon as he's down the hall away from the camera, you grab him and pull him into the janitor's closet. He tries to cry out as your fangs pierce his neck, but he's exhausted from the long night shift and isn't able to put up much of a fight. You draw blood from him in slow slurps, savoring it while you try to blot out the rantings of the homeless man in the washroom across the hall. You're happy with your choice—the clerk's blood surely tastes much sweeter than the alternative.
+							*goto finished_feeding					
+						*selectable_if (clan != "Ventrue") #I excuse myself and head to the washroom. It may seem cruel, but people rarely seem to care what happens to the homeless. If he's out of it and in a stupor after I feed, nobody will question it, not even the kindhearted clerk.
+							*set masquerade_breaches +1
+							"You sure you want to do that?" the clerk asks. He runs his fingers through his hair, absently. "I know I said that I let him stay here to be nice, but…honestly it's more because I'm afraid to mess with him. The women's room is out of order, too, so you don't have much of a choice of where to go even if you wanted to."
+
+							"So he's a tough guy?" you ask.
+							
+							The clerk shakes his head. "No, just creepy. Says he can talk to ghosts."
+							
+							"Haunted toilet stalls?"
+							
+							He nods. "Haunted toilet stalls."
+							
+							You shake your head. "Well, I've got to go, so the ghosts will have to make room."
+							
+							"Best of luck."
+							*page_break To The Washroom
+							"I knew it!" the vagrant says, the moment you walk into the washroom. He's staring at you with bloodshot eyes, a single finger pointed at you as micro-tremors run up and down his arm. His bushy grey beard reeks of alcohol. "The dead walk!" he yells. "The dead walk!"
+							
+							Well, he's not technically wrong. You take several steps closer but he doesn't back up. 
+							
+							"This is a safe place!" the man says. "You cannot take me here!"
+							
+							You step closer. You're almost on him, now.
+							*fake_choice
+								#"You're between a toilet stall and a urinal. Not the most safe space I could think of."									
+								#"You're just a sad old man, looking for ghosts in all the wrong places."									
+								#"You know that the clerk is afraid of you? He sent me in here to take care of you."								
+								#I bare my fangs and lick my lips. "Nothing can save you from me."
+							"The spirits are here!" he crows. "They are with me!"
+							
+							"I don't feel anything," you say. "There's nobody here but us."
+							
+							His face betrays a flicker of panic. "But, they told me…"
+							
+							You lash out and pull him to you, sinking your teeth into his neck. He struggles for a moment, but eventually he weakens and you drag him into one of the stalls to finish your business in privacy. His ghosts never show.
+							*gosub_scene functions normal_feeding
+							*goto finished_feeding
+						#I ask a question about a route map on the opposite wall to lure the clerk out of camera range before attacking.
+							"Huh?" the clerk replies. "Toronto? There's nothing until tomorrow, sorry." He's not moving.
+							
+							"What's the earliest I can head out?" you ask. "Can I borrow you for a minute? I need some help with the map, I'm not from the area."
+							
+							"I guess, sure," he says with a theatrical sigh. 
+							
+							Ah, that's it. He just didn't want to be bothered, but now that he thinks you're going to keep asking questions, he's willing to leave the safety of the counter to get you off his back. 
+							
+							*goto clerk_corner
+	
+		*label greyhound_2
+		*set greyhound +1
+		You return to the bus station, surprised by how quiet it is. You're frustrated to see that there's nobody waiting around outside, but you do see movement inside the terminal, backlit against the window. You peer in and watch as a middle-aged man sweeps the floor, a look of stupefying boredom on his face. Hmm. No sign of any of the people you saw the last time you fed here. Slim pickings, but it's better than nothing. You try the door. Locked. That's strange; it looks like there are no buses tonight. Not a single patron in sight. The business must be hurting more than you realized.
+		
+		*if ((clan = "Malkavian") and (chapter != 9))
+			"Kids, these days…" $!{malk_name} says. "When I was their age—"
+			
+			You interrupt ${malk_himher}. "You already did that bit."
+			
+			$!{malk_heshe} shrugs. "Doesn't make it any less true."
+		*choice
+			#A simple lock would barely keep the weakest of vampires at bay. I force the doors open. When the janitor approaches to see what the commotion is, I'll grab him and find a dark corner to feed.
+				*set ruthless %+5
+				You wrap both hands around the door handles and yank them as hard as you can. The flimsy deadbolt pulls free and the doors fly open.
+		
+				"What the hell is all that racket?" you hear the janitor exclaim from further into the bus terminal. "If you damn kids are pulling another fast one on me, I swear to god you'll regret it! I'll—" He stops short when he sees you in the doorway. "Put down that hood; you look like some kinda psycho."
+				*goto psycho_or_no
+			#It would be safer to lure the janitor outside into the dark. I knock one of the garbage cans on its side and then hide around the corner, hoping he'll take the bait. He's bored enough that he'll probably investigate.
+				You grab one of the reeking garbage cans lined up along the wall and unceremoniously toss it out into the parking lot. The clattering of metal and plastic on asphalt is definitely loud enough to be heard from inside. You step back into the shadows as you hear the man approach the doors and fumble the deadbolt open. He's mumbling something about raccoons when you attack from behind, 
+				*goto drag_the_janitor
+			#Why bother with subtlety when I can just knock on the door, pretending I need to ask a question about the buses? 
+				*set ruthless %-5
+				Why bother with theatrics when you can just walk up and take what you need? You shrug back into your winter hood and knock on the door. At first the janitor ignores you, but when you insist, he puts down his broom and walks over toward the glass doors slowly, taking his time in the hopes that you'll just give up and leave him alone. He'll have no such luck.
+				
+				"What do you want?" he yells through the doors.
+				
+				"What?" you yell back. "I can't hear you! I have a question about the buses!"
+				
+				"No buses tonight!"
+				
+				"What?" you yell back.
+				
+				"I said—goddamn it." He reaches down and turns the deadbolt, opening the doors and staring at you balefully. "I said there's no buses tonight. You're lucky I even chose to talk to you. Put down that hood; you look like some kinda psycho."
+				*label psycho_or_no
+				*set masquerade_breaches +1
+				
+				You take a quick look back at the parking lot. You're still alone. "Psycho?" you say. "I guess we'll see about that." You wrap your fingers around his throat and push your way inside, 
+				*label drag_the_janitor
+				dragging the frail old janitor into the dimly lit coat room. He succumbs easily and his blood flows sweet when your fangs pierce his neck. Luckily, no one else happens by while you're occupied, and you're able to take your time, savoring every drop of the man's blood as it revitalizes your senses and sharpens your alertness. 
+		
+				*gosub_scene functions normal_feeding
+				*goto finished_feeding
+
+		
+*label finished_feeding
+
+Your appetite largely sated for the moment, you decide to move on, always aware that there's a Hunger for more that you can never fully extinguish.
+
+*return
+
+
+*label set_feeding
+*set hunger -2
+*if (hunger < 1)
+	*set hunger 1
+*return
+
+
+
+
+
+

@@ -1,0 +1,1847 @@
+*temp whos_your_daddy false
+
+
+*if ((ch7B_went_to_see_ward = false) or (ch7B_left_anarchs_before_hearing_plan))
+	*goto_scene ch8_scrutiny ch8_beginning_link
+	
+You stare out the car window at a near-endless stream of shops closed for the evening as the driver—his name is Stan, as he makes sure to tell you at least six times—prattles on in an endless babble of mish-mashed topics that have nothing to do with where he's taking you. You try to steer the conversation to how he ended up working for Ward, but even that ends up sidetracked. The man has a prodigious gift for mindless chatter, and other than making a quick phone call after he picked you up, he has remained engaged more or less constantly. After several minutes, you give up hope of learning anything useful. 
+
+*if (clan = "Malkavian") 
+	"I'd think you'd be used to the chatter," $!{malk_name} says. "With all the ghosts running around in that head of yours? And me, of course. You've gotten used to tuning me out, but this clown? A little harder to ignore, isn't he?"
+
+	"You could say that," you mutter low enough that Stan won't hear over his own yammering.
+	
+	$!{malk_name} bites ${malk_hisher} lip. "Honestly, I'm starting to see how you feel, listening to me go on and on. But you've gotta understand, $!{name}…talking to you is all I've got in the whole world. I don't get a choice or somewhere else to go. For better or worse, you're it." $!{malk_heshe} shrugs apologetically.
+
+"—been about two months now," the driver says in his thick Brooklyn accent. "Bob brings me up to this frozen icebox, right? And we're lookin' for this chick he calls Sevinc."
+
+Sevinc? You perk up. Finally he's saying something interesting. "Where did you find her?"
+
+"That's the thing," Stan says. "Took us weeks of chasing our own tails from dead drop to dead drop—Ottawa, Hamilton, Kitchener, London, then all the way back again. Know where we found her?"
+
+You think you know where this is going, but you shake your head anyway.
+
+"Right back at the first dead drop we went to. Bob just about shit a brick, which would have been one hell of a trick what with him being dead. But yeah, there she was, just sitting on the park bench cool as a god-damned cucumber, feeding those dogs of hers like she didn't have a care in the world. The two of them hashed things out, but the dogs wouldn't let me anywhere near her. Figured they'd be able to tell I was with Bob, since I got his Blood in me, but I guess if you're not full-on vamp, they know it by smell. Reminds me of this pit bull my friend had back in Queens. Get this, the guy trained it to—"
+*fake_choice
+	#I press the topic of Sevinc. "Tell me more about the meeting with Sevinc. What did she and your boss talk about?"
+		"Started in with a lot of standard anarchy talk," Stan says. "Nothing fancy. I think they were just getting to know each other, make sure they were who they said they were. Something like that. She said one of her contacts claimed that the Prince wanted to talk to Bob, but it had to be all secret-like. More fucking dead-drops."
+	
+	#I want to know more about what Ward's been up to. If I know where he's been, maybe I can get a clue as to what he plans to do now that he's here.
+		"Lot of back and forth," Stan says. "We don't stay in any place for more than a night or two. Dug in near Chinatown for a bit until some assholes came after us with guns. Haven't been back since. Before you ask, no, I can't tell you where we're staying now. We're headed to a more…I think he called it a neutral ground."
+
+	#I ask about why Ward chose Stan to be his ghoul. Insight into this…unorthodox choice for a servant might help me understand the man better.
+		"No harm in tellin' you," Stan says. "Wasn't long after Bob left the Blue Bloods to rot in the snow up here, at least that's how he said it at the time. Our boy was pissed as hell. He must have had some contacts in the underground back in New York, cause he shot up the ladder quick, even considering his particular brand of crowd-control. He got caught up in a lot of anti-authoritarian action, and not all of it was peaceful if you get my drift. Blowin' off steam in what he'd consider a productive way. 'Cept it turned out that there were cops planted in the organization he was running with. When he found out, Bob went fuckin' mental and beat them so bad that he couldn't recognize the bodies. Know what happens next, though? He calls me up—I was a clean-up guy; I make messes go away—he calls me up and he's all fuckin' choked up about it. Says his 'Beast' got out of control. The cops have kids, he says, and he wants to make up for it. So I make the bodies disappear and pull a few strings to make sure kindly-mrs-so-and-so and her kids have a nice financial windfall. We worked pretty close for a year after that before I found out what Bob really is, and by that point I was too useful for him to kill." He shrugs as if it's the easiest thing in the world to say. "So here I am."
+
+He pulls to a gradual stop at an intersection and watches a pedestrian walk by. Snow drifts down slowly against a backdrop of nighttime light pollution. It's the only time since you got in the car that he's been quiet. He licks his lips. "I should probably keep some of that stuff to myself. Boss doesn't like me spreadin' specifics, and I only know what I'm told. I don't even know exactly why he wants to talk to you, but he must trust you enough to have me bring you to him. Yeah, he told me about your missing memories, but that wasn't so much to tell me as for me to tell you, get me?"
+
+You nod quietly, hoping for more interesting tidbits, but none are forthcoming. Eventually, he takes a sharp left into a parking lot off Queen Street and prompts you to get out of the car. A hulking man who could only be Ward is reclined against a brown-painted brick wall smoking a cigar, an orange glow lighting what little you can see of his face through the padded hood of his heavy winter coat. Beside him, Sevinc and three others you don't know have formed a circle around Hauberk—the Feral you're already all-too acquainted with. You're surprised not to see her two dogs as well, but you suppose they might have drawn too much attention to an already questionable late-night meeting.
+*comment Ward's smoking here for a few reasons. 1) It's a sign of strength to his followers who fear even the smallest of fires. 2) It helps him blend in as a mortal if the Camarilla are looking for him. 
+
+"$!{name}!" Ward says with a toothy grin. "You made it!" He crushes the cigar against the brick wall, snuffing it out. A part of you is impressed at the display—any mortal can smoke, but for a vampire to brave even the smallest of flames as casually as he just did requires a great deal of physical and mental control over one's inner Beast. "I should have sent Stan the first time I needed to get hold of you. He didn't talk your ear off, did he?"
+
+@{(clan = "Malkavian") "What?" $!{malk_name} asks, cupping the side of ${malk_hisher} ear. "I didn't quite get that." |}
+*fake_choice
+	#"Get to the point, Ward. I have places I need to be tonight and they don't involve me wasting my time with Anarchs."
+		*set sevinc_opposed +1
+		*set ruthless %+5
+		*set ward %-5
+		"The Blood Hunt," Ward says. "I'm aware. And it speaks to your character that you chose to come here rather than a murder spree declared by an elite in her Ivory Tower."
+		*fake_choice
+			#"I didn't say I wasn't still going. I just came here first to hear what you have to say."				
+			#"You're right. We should have more of a say in who's allowed to exist and who meets final death."
+				*set ward %+5
+				*set subversive %+5
+				He nods, seemingly relieved that you share his sentiment.
+			#"You're assuming an awful lot. Why don't you stop wasting my time and get to the point?"
+				*set ward %-5
+				*set ruthless %+5		
+	#"He was a bit chatty, but it was better than having your Feral grind a gun into my gut. Good choice."
+		*set ward %+5
+		"I couldn't be sure that you'd come the other night," Ward says. "Sevinc suggested the gun and I went with her recommendation—turns out I underestimated you."
+		
+		"Hopefully both of you know better now," you say. "I came here on my own to hear what you have to say."
+		
+	#I decide to stir the pot. "Yeah, he was pretty friendly. Told me a lot about you that I didn't know."
+		*set ruthless %+5
+		"Did he, now?" Ward turns to look at Stan. The ghoul has gone a shade whiter than he was a moment before. He looks terrified. 
+		
+		"Nothing critical, boss," Stan says. "How much do I even know?"
+		
+		"We'll talk about it later." Ward turns back to you. "He can be chatty, but he knows what's important and what isn't."
+		
+		"Of course," you say dryly.
+		
+	#"Who you send doesn't matter much to me. What matters is that you give me the information you claim to have. About my memories."
+		*set ward %+5
+		"Right to the point. I can appreciate that. We're low on time, anyway," Ward says.
+		*goto to_the_point
+	#"I appreciate it. Maybe we can work together after all."
+		*set ruthless %-5
+		*set ward %+5
+		Ward gives you an appreciative nod.
+		
+		"A partnership goes both ways, though."
+		
+"To the point, then," Ward says.
+*label to_the_point
+"You want to know about your missing memories?"
+
+You nod. "That's why you brought me here, isn't it?"
+
+"One of the reasons," Ward says. He gestures to you to come closer and you follow his instruction. You're not sure how many people you want to know about the secrets Ward is peddling. "It's going to be a tough pill to swallow, but the most important things take time to understand." 
+
+It takes all of your self control not to tell him to get on with it already.
+
+*if (clan = "Lasombra")
+	"First thing before anything else," Ward says. "We know you're Lasombra, and your secret is safe with us. I've known about Corliss for months now, and if I was gonna tell anybody, I'd have done it already."
+
+	@{(ch5_used_oblivion_in_front_of_anarchs) Sevinc flashes a thin-lipped smile. "You really should be a bit more circumspect about who you summon those shadow-tentacles around. It was a neat trick, but if you think I didn't notice then you're not giving me enough credit." |}
+	
+	It's strange—knowing that your secret is out in the open is somehow liberating. Your Blood calls out to be recognized and hide no longer. "If you know about Corliss, why haven't you leaked the info yet?" you ask. 
+	
+	"The situation is fragile," Ward says. He seems uncomfortable for some reason. "We can't risk—"
+	
+	"He doesn't want his precious Prince Arundel to be damned by association," Sevinc says, cutting Ward off. He gives her an angry look, but doesn't try to refute her. "Arundel kept Corliss's secret from the Court for decades, and if they find out about it, they'd depose him in a matter of nights. That's the problem with these Cammies. No ideology. No loyalty. They talk endlessly about their Traditions, but talk is cheap. Worthless." She spits with disgust. You have a sudden desire to ask her how she really feels, but wisely keep the comment to yourself. 
+
+	"Point is," Ward continues, "I don't care what Blood is in your veins. You aren't defined by who Embraces you, what matters is what you do with your unlife."
+	
+	Sevinc rolls her eyes. "Who Embraced ${himher} is the entire point here, Bobbi."
+	
+	Ward shifts uncomfortably. "Well, sorta. In this one case, yeah."
+
+	"Wait," you say, holding up a hand to stop him. "What are you trying to say?"
+
+"Corliss is not your sire."
+
+*if (clan = "Malkavian")
+	"No," $!{malk_name} says. $!{malk_heshe} shakes ${malk_hisher} head vigorously. "He's lying. He'd say anything to get us onto his side. To turn you into a weapon!" $!{malk_heshe} crosses ${malk_hisher} arms in a gesture of defiance.
+	@{(malk_demeanor = 1) "I've always been here for you, $!{name}, right? Have I ever done anything to hurt you? Have I ever steered us wrong? I mean aside from that one time I really wanted us to try that chili dog…but hey, we were still new to the whole undead thing at the time, right? Point is, I know when someone's bad news, and Ward isn't trying to help you. Let's just walk away. Pretend we never came here." |}
+	@{(malk_demeanor = 2) "After everything this guy's done to you, you can't just let him drop things on you like that. Sure he's charismatic and surprisingly good-looking, but he's a goddamned liar. Fuck 'im. Let's walk and get to the Hunt before we're missed." |}
+	@{(malk_demeanor = 3) "I understand you're looking for answers, but anything this man says is poison. After all the violence he's caused, do you really think he'd offer up pearls of wisdom out of the kindness of his heart? Think about it. What has he really done to earn our trust? Just examine the facts and you'll know the right move." |}
+	@{(malk_demeanor = 4) You can feel outrage and anger flooding through ${malk_himher} to the point of near-madness. "Some things are sacred, $!{name}! Some things should not be said! He's a liar and a brute—kill him for what he's done! Quick, quick, quick, before the assassin can stop us! Slit his fucking throat and drown his sycophants in his Blood!" You try to tune ${malk_himher} out as the ranting grows even worse. It's difficult, but you manage to regain your grip on reality. |}
+*fake_choice
+	#I can't believe what I'm hearing. "What? There's no way that's true!"
+		"You're going to have to take a leap of faith here, $!{name}," Ward says. "I didn't bring you here to waste your time.
+	#"That's almost too outlandish for you to make up. Let's say I believe you. Why would she lie about that?"
+		*set ward %+5
+		"It's not outlandish to understand that basic Kindred instinct is self-serving. Even our occasional altruism is committed with purpose. We're predators—it's what we do. She lied for a very simple reason—it benefited her.
+	#"You'd better have some serious proof to back up that claim. She's taught me almost everything I know about Kindred society."
+		"And that should make you think," Ward says. "She taught you almost everything you know. So it makes sense that this is difficult to believe.	
+	#"Somehow I always knew. I just don't know [i]how[/i] I knew."
+		*set ward %+5
+		"The memories might be closer to the surface than I thought," Ward says. "Assuming you're not just blowing smoke up my ass.
+Corliss isn't all there is to this, either. There's a lot more at play—your memories are more important than you know."
+*label im_important
+*fake_choice
+	*if (whos_your_daddy = false) #"Wait. One thing at a time, here. If Corliss isn't my sire, then who is?"
+		*set whos_your_daddy true
+		"There are only two Kindred who know that other than you," Ward says.
+		
+		"Corliss would," you say. "She'd have to. Who else?"
+		
+		"Arundel. That's why we have to find out what happened to him."
+		
+		@{(clan = "Malkavian") "There's the rub," $!{malk_name} says. "That's why he wants you. I told you it was a con!" |}
+		*goto im_important
+	#"Assuming this is true, how would you even know about it? You're not even Camarilla any more."
+		"I was," Ward says. "Even Corliss admits that. They all know me here, for better or worse. They also know that I was close with the Prince. Arundel and I didn't always see eye-to-eye, but there are things I know that those other licks would kill for. Have killed for."
+		
+		"You're right about one thing," you say. "There are a lot of people who want you out of the way."
+		
+	#"What do you mean that I'm important? It sounds like you're trying to talk me up."
+	#"I always knew I was different somehow. What do you mean that I'm important?"
+"Have you ever heard of a dead man's switch? The concept was originally designed to stop machinery if its operator was incapacitated, usually to keep them from getting hurt or killed. But it can also be used in an offensive way. Like a bomb that goes off if you die or disappear." He shifts away from the wall, growing restless from standing idle. You catch a glimpse of what you think could be a sawed-off shotgun carefully hidden on his back, strapped there beneath the bulky winter coat.
+
+"What does that have to do with me?" you ask, not sure you're going to like the answer.
+
+"You're Arundel's dead man's switch. He knew he couldn't trust Corliss, so when she asked him to help her repress your memories, he hid triggers in your subconscious that would make them return under certain conditions. Along with other planted knowledge that he thought would be beneficial for you to know."
+
+"Certain conditions? Like him disappearing?" You remember the dream you had two nights ago. The details have gone hazy—even Kindred dreams are forgotten not long after awakening—but you remember a meeting between Arundel and Ward, an event you couldn't possibly have been present for.
+
+*if (clan = "Malkavian")
+	"This isn't right!" $!{malk_name} snarls. "This isn't right at all! Even if he's telling the truth—and he's not—mental commands can fade over time. They can be resisted. Ward's talking like you have no choice. You're just a tool to him!"
+	*fake_choice
+		#"I know you care about me, $!{malk_name}, but I have to know the truth."
+			*label suffer_in_truth
+			"The truth…" $!{malk_name} says. "Always the truth, with you! A mortal can drown in truth, but with eternal life you can never really drown. You just get washed away and never come back. Lost forever."
+			
+			You shake your head. "I don't understand what you mean."
+			
+			"You will."
+			
+		#"You know I don't trust Ward as far as I could throw him, but it might be useful to hear what he has to say, if only so I can figure out his real angle."
+			*label poison_words
+			"What use do we have for words designed to poison?" $!{malk_name} asks. "We don't want to be his tool."
+			
+			"I just want to be able to figure him out. Find the truth of it before it's too late."
+			
+			*goto suffer_in_truth
+		#"Would you shut the hell up so I can hear what Ward has to say?"
+			$!{malk_name} recoils as though you've slapped ${malk_himher}.			
+			*goto poison_words
+		#"You're right. Everything coming out of this man's mouth is poison. There's no way I can trust him. I should have listened to you from the start."
+			You can feel $!{malk_name} relax, an easing of the psyche. "Thank you, $!{name}," ${malk_heshe} says. "I was worried that I'd lost you for a moment, there. Let's get out of here before it's too late."
+
+			"It's not going to be that easy," you think, willing yourself to communicate without being overheard. "Ward still wants to talk and I need to at least pretend to listen or we're as good as dust. Once he's done, we'll get back to the Hunt."
+
+			"I understand," $!{malk_name} says. "There's no reason to risk our survival on an early exit now that we've girded ourselves against the Anarch's poison."
+
+An old powder blue Ford pulls into the parking lot, its headlights cutting through the lazy snowfall until the engine cuts and the driver gets out along with a passenger. Ward visibly relaxes. "I don't expect you to take everything I have to say at face value," he says. "I can't unblock you—it's not really my wheelhouse—but you know someone who can at least verify that your memories have been altered."
+
+The car's passenger makes a beeline for you and Ward. "Hey, $!{name}. I knew I'd find you here!" It's Jordan!
+*fake_choice
+	#"Jordan? What are you doing here?"	
+	#I sigh with relief. I'm just happy to see a friendly face.
+	#I say nothing. I really don't want Jordan to be here for this, but there's not much I can do about it now.
+	#I look back at Ward. "This is how you want to prove it to me? With Jordan?"
+		"I didn't know who else you might trust with the ability to get into your memories. Like I said, it's not a gift I have, and you probably wouldn't want me running around in your thoughts, anyway."
+
+"I saw this in a dream last night," Jordan says. @{(current_relationship1 = "jordan") $!{jordan_heshe} hugs you close, eliciting a raised eyebrow from Ward. Apparently he didn't know the extent of your relationship with ${jordan_himher}. |} "So when Ward's servant came to my door, I knew it was the real deal." $!{jordan_heshe} looks at Ward questioningly. "I knew we'd be here, but I don't know [i]why[/i] we're here."
+
+You frown, nerves getting the better of you. "He wants you to verify his claim that my mind has been altered."
+*comment This is further explained in a comment below.
+
+@{(clan = "Malkavian") "Oh hell no," $!{malk_name} says, shaking ${malk_hisher} head. "Does Ward even hear himself? He claimed that Arundel conditioned your mind, but now he wants Jordan of all people to dig around in there? He can't really think we're that stupid. We're not that stupid, right? $!{name}?" |}
+
+Jordan frowns. "Are you sure that's something you really want to do? It's more than a little invasive. I wouldn't want to poke around in there unless you really know what you're asking for."
+*choice
+	#"It's okay with me and I trust you. It's important to know if Ward is telling the truth. And if he is, it's even more important to do what we can to uncover those memories."
+		*set jordan %+5
+		*set ch7B_jordan_scanned_me true
+		*goto jordan_scans_you
+	#"Do we really think it's necessary? If Ward is right and Arundel intended for my memories to be triggered naturally, isn't it possible that poking around could repress them further?"
+		"It's not necessary if you already believe Ward is telling the truth," Jordan says. "Though I doubt I could repress anything Arundel altered. I'd mostly be looking to see if there's an aura of change in your psyche."
+		*choice
+			#"Fine; let's do this. I need to know."
+				*goto permission_granted
+			#"I don't really want to do this, but I'm not sure what other options we have."
+				*goto permission_granted
+			#"If you won't be able to tell what the memories are, then I don't see the point. I'm not interested."
+				*goto no_way_jose
+	#"It's the only way to know for sure. You have my permission, Jordan."
+		*label permission_granted
+		*set jordan %+5
+		*set ch7B_jordan_scanned_me true
+		*goto jordan_scans_you
+	#"I really don't want anyone poking around in my brain. That's a hard no. If Ward is telling the truth, I'll know soon enough."
+		*label no_way_jose
+		@{(clan = "Malkavian") "Oh thank god," $!{malk_name} groans with relief. |}
+		
+		"You sure?" Jordan asks. "Otherwise, it's kinda a leap of faith."
+		
+		"I'm sure," you say. You've made up your mind—nobody's going diving through your memories tonight. Not even Jordan.
+
+		*goto after_jordans_scan
+*label jordan_scans_you
+@{(clan = "Malkavian") "This is a mistake," $!{malk_name} says with what almost feels like a whimper. "But I guess I couldn't keep you safe forever." And suddenly ${malk_heshe}'s gone—you can't feel ${malk_hisher} presence anywhere in your mind. This isn't the first time something like this has happened, and you know ${malk_heshe}'ll come back once ${malk_heshe}'s worked through whatever it is ${malk_heshe}'s working through, but the sudden emptiness makes you feel numb. What is ${malk_heshe} so worried about and why does ${malk_heshe} want to keep it from you so badly? |}
+
+"I'll give you two some space," Ward says. He's no longer flashing his customary grin. His face is cold-dead serious as he walks over to Sevinc and the others.
+
+"Okay," Jordan says, rubbing ${jordan_hisher} hands together. "Let's both sit down for this; it should be quick. I don't think Ward really understands what I can actually do; I can't exactly read your memories. I can scan you for influences, kinda probe and poke around your psyche. Ophelia calls it 'scrying,' but I think of it more as an x-ray, except instead of seeing your bones and organs I'm looking at your aura and soul."
+
+*comment Part of Jordan's character (and what I think makes them fun) is that their derangement is heavily tied into their Auspex. Misfiring visions, premonitions, etc... many of which are actually made up on a subconscious level and not part of their powers at all. I envisioned this as a combination of the scrying power of Auspex 3 and Telepathy. Jordan doesn't actually see your memory, they're mostly just fumbling around in the dark, watching your aura while skimming with Telepathy. Jordan believes that they are far more capable of such things than they actually are, sort of like a new age psychic.
+
+*comment All Jordan actually does is trigger Arundel's submerged directive (discussed at the beginning of Chapter 6), causing you to remember what the Prince wants you to. Ward (having worked closely with Arundel during the time the MC was Embraced and being trained) knew that the MC was mind-rigged as a failsafe against Corliss and he's trying to trigger you in the way Arundel told him to all those years ago. Of course he's not being up front about this because you're mainly just a pawn to him to find Arundel and defeat Corliss.
+
+You sit on the pavement, back against the cold brick wall. Jordan sits opposite you and pulls ${jordan_hisher} messy hair back into a topknot to keep it out of ${jordan_hisher} eyes. @{(auspex) You've used similar gifts in the days since your Embrace, so you know the basics of what Jordan is about to do, but you've never turned your abilities on yourself before. You're not even sure if that's possible. |} You catch Sevinc watching you closely out of the corner of her eye. Unlike Ward, it's clear that she's not quite sure whether you can be trusted. "Do I need to do anything?" you ask.
+@{(clan = "Malkavian") It's hard not to think about how vehement $!{malk_name} was in discouraging you. Are you making the right call? |}
+
+"Not really," Jordan says. "Maybe you'd be more comfortable if you closed your eyes?"
+
+"I'm not sure that's a good idea," you say. "We have no idea who most of these people are." 
+
+@{(clan = "Nosferatu") $!{rat_name} must sense your concern—${rat_heshe} pokes out of your pocket and perches defensively on your chest. "I protect you," ${rat_heshe} says, as though ${rat_heshe} truly believes that ${rat_heshe} can fend off a small army of Anarchs. |}
+*label close_eyes_for_jordan
+
+"It will only take a second," ${jordan_heshe} says. "Go on."
+*page_break Close Your Eyes
+When you open your eyes again, you're no longer @{(ch7B_went_to_see_ward = false) in bed. You're not even in the same room. | sitting against the brick wall. You're not even in a parking lot. } 
+*label inside_past_vision_from_ch10
+Magnificent floor-to-ceiling windows look out over a cityscape not immediately familiar to you, twinkling lights and high rises as far as the eye can see through the night-shrouded horizon. Across the room, two women are arguing dramatically, silhouetted against the city backdrop. You try to stand up and intervene, but find that you're rooted to the spot. Somewhere in your subconscious, you know that this is a memory—you won't be able to alter the course of events, but you can learn from them. The scent of blood pulls your attention to your right where you notice the body of a recently killed mortal @{(sexuality = "men") man. | woman. } It's hard to make out the face unless you focus in on that portion of the memory.
+*fake_choice
+	#I watch the two women arguing by the window. It seems easier than shifting my gaze elsewhere—as if they are what dominated my attention when the actual events took place.
+		*set what_i_saw "corliss"
+		Both women are dressed in what might have been considered quite fashionable somewhere between the 1960s and '70s—sheath dresses cinched at the waist, one midnight black, the other a muted red. The woman on the left is more relaxed and clearly in her element—blonde hair worn long and casual as she swirls a dark liquid held in a crystal tumbler. If you had to guess, you'd say that this suite is her home. Or her office. Her calm is slowly being whittled away by her guest in the red dress. 
+	
+	#I try to focus on the face of the mortal victim beside me.
+		*set what_i_saw "lover"
+		You focus your willpower and forcibly alter your perspective, examining what would likely have been in your periphery view during the memory. Your vision swims as a sharp agony overwhelms you. This isn't a random victim—some mortal on the wrong side of a feeding gone bad—you know @{(sexuality = "men") him. Had feelings for him. And you killed him | her. Had feelings for her. And you killed her } just moments ago.
+	
+	#I pay attention to my surroundings. Figuring out where I am might be an important clue.
+		*set what_i_saw "toronto"
+		You focus on the skyline, looking past the figures as they thrash back and forth in animated argument. Now that you're paying attention, it's almost blatantly obvious not only where you are, but when. The semicircular Toronto City Hall stands proud several kilometers away, newly opened after years of painstaking construction. It's a modern marvel, or at least it was in the mid-1960s.
+	
+@{(ch10_learned_origin_late = false) "$!{name}, are you there?" A voice intrudes on your memories. Your vision swims and then re-solidifies as the disagreement quickly descends into violence and the disembodied voice is forgotten. |}
+
+The woman on the right pulls a bulky handgun from her purse and fires twice. In the light of the muzzle flashes, you know the murderer for exactly who she is—your sire, Eden Corliss. Her victim falls back against the window, streaking it with Blood, two massive smoking holes burned through her chest. At first you're certain that she's dead, but when Corliss lets her guard down and kneels over the body, the victim lurches off the floor and shoves her against the glass, stabbing Corliss mercilessly with a hidden weapon as she sinks her teeth into her neck. You try to crawl away as they struggle, but there's nowhere to go—the doors are locked and you don't have the key.
+
+*if (clan = "Malkavian")
+	*page_break
+	"You'd take ${himher} away from me?" Corliss's victim asks when she comes up for a breath, her mouth stained with thick vitae. "You thought I'd just let that go? You wouldn't even know how to use ${himher}!" She stabs Corliss again and twists the knife, eliciting an agonized scream before your sire manages to disengage and recover her wits.
+	
+	"Everything you learned—we thought it was you doing the digging on your own!" Corliss gasps. "But it was just the childe! You're nothing, Grace! Less than nothing!"
+	
+	Grace closes the gap and kicks Corliss in the ribs, sending her smashing against the window, cracking it with the weight of the blow. "I was unstoppable before the shielding! I was always in control!" She kicks her again, bloody froth coming to her lips as she grinds her teeth with fury.
+	
+	You turn away from the fight, desperately seeking a way out, away from this madness. Still nothing.
+	
+By the time your memory's vision shifts back to the fight, Corliss has turned the tables again, and this time she's drinking deeply from her victim's neck. You try to call out, desperate to prevent a mortal sin that you instinctively know is wrong, but you're powerless as a babe. As a fledgling. For several minutes, all you can hear is the sound of a messy vampiric feeding, not the discreet sucking of blood you've since become accustomed to, but a more bestial ravaging—the draining of a life-force. And then the door behind you bursts open, flying off its hinges as another vampire rushes into the room and flings Corliss away from the already-decaying body.
+*page_break
+"Are you out of your mind?" Arundel bellows. "What have you done, Eden?"
+
+"I…" she responds shakily. "It happened so fast. I thought I had her, and then her hand…it was in my chest tearing my guts out…" She staggers back into the moonlight streaming in from the window. Her dress is in tatters, her chest an open, pulsating wound that's slowly mending before your eyes. She points at you. 
+*if (clan = "Malkavian")
+	"$!{heshe}'s the one! The childe we've been looking for. We can salvage this, Arundel. $!{heshe}'s ours, now!"
+	
+	Somewhere in the back of your mind you can hear $!{malk_name} urging you to run. But it's not $!{malk_name} as you know ${malk_himher} today. $!{malk_heshe}'s simpler when viewed through the memory. Less experienced. More of an instinct than any real personality. Oh, how ${malk_heshe}'s grown over the years.
+	
+	Arundel strokes his chin thoughtfully. "You may be right," he says after several seconds while he looks you over like a prime cut of meat. We'll need a cover story. The childe is useless to us if we can't keep ${himher} out in the open where ${heshe} can use ${hisher} gift."
+	
+	"I've been planning on taking another childe," Corliss says without hesitation. "The Council will believe it if we keep our story straight." $!{malk_name} babbles in a wordless fury as Corliss articulates her plan.
+	
+	"It will have to do." Arundel gets down on his hands and knees.
+	*goto calculating_eyes
+"$!{heshe} saw everything. We have to destroy ${himher}, too."
+
+Arundel snarls. "Enough damage has been done already! Grace had to be stopped, but if the court finds out about this, we'll both be staked out in the sun!"
+
+"They wouldn't dare!"
+
+"You know better than that." He stalks over to you, smoldering fury writ large on his snarling face. Arundel—always so calm and collected—he's barely recognizable like this. "Grace's childe could be useful to us," he says, looking you over like a prime cut of meat.
+
+"Now who's out of their mind?" Corliss grunts. She's almost fully mended as the powerful vitae does its work. "How could we possibly explain ${himher}?"
+
+"You've been planning on taking another childe," Arundel says. "Now you have one." 
+*label calculating_eyes
+He grabs your head and forces you to look into his calculating eyes. 
+
+He speaks in strange tongues and your world loses focus. All is darkness.
+*page_break
+*achieve the_truth
+*if ((ch7B_went_to_see_ward = false) or (ch10_learned_origin_late))
+	*comment You viewed the memory from one of the Chapter 8 locations.
+	*return
+You lurch forward, nearly colliding with Jordan as you gasp for air with a desperation you haven't felt since you were mortal. Ward and his crew are arrayed around you in a semicircle. 
+
+"Jesus, $!{name}," Jordan exclaims. "Are you okay?"
+
+Sevinc's arms are crossed and her eyes are boring into you. If you believed she could peer into your soul, you're sure that's how she'd look while she was doing it.
+
+@{(what_i_saw = "corliss") "There was an argument. Two women dressed like it was the '60s," |}
+@{(what_i_saw = "lover") "There was…a fight. And I think I saw the corpse of my victim," |}
+@{(what_i_saw = "toronto") "I was in Toronto. In some kind of high rise," |}
+you say before thinking better of it. You don't need every local Anarch to know what you just saw. If it's real…how could any of that be real? You feel like you're going to throw up—more mortal reflexes bubbling back to the surface as if you've forgotten your decades of undeath.
+@{(clan = "Malkavian") The one time you wish $!{malk_name} would speak up, ${malk_heshe}'s silent. You feel utterly alone for ${malk_hisher} loss. What have you done? |}
+
+"You see now that I was telling the truth?" Ward asks.
+
+"No question," Jordan preempts you. "Massive rewrites, but ${heshe} shouldn't be able to see through them. I don't have that kind of power."
+
+"Arundel wanted ${himher} to see," Ward mutters. "You hit a trigger."
+
+@{(clan = "Malkavian") Somehow, you doubt that he wanted you to see that much of your past. |}
+
+Jordan helps you to stand. You're feeling more like yourself every second, but it will take a while to digest what you saw.
+@{(clan = "Malkavian") As if the revelation about your supposed true sire wasn't enough, there are other things to consider, not the least of which is finding the answer to the most obvious question: why had Corliss and Arundel come for you? They suggested that Grace was using you for some sort of power, but you have no recollection of any unusual abilities. Aside from being able to talk to $!{malk_name}, that is, and you can't see any reason why Arundel would be interested enough in your 'imaginary friend' to risk his own survival, or even that of Corliss. |}
+
+@{(clan = "Lasombra") It's all starting to come together. All of it! You already know for a fact that Corliss altered Lucca's perception to the point where she can't even remember that she's Lasombra—even managed to cut her off from her own abilities for a time by her own admission. If she would do that to her own childe, what would she do to someone she was only taking in? Another vampire's spawn? |}
+*fake_choice
+	#It makes a disturbing amount of sense, and Jordan doesn't have the kind of power to force me into that kind of vision. Ward is right! I've been lied to for my entire un-life.
+		*gosub_scene functions subtract_corliss_loyalty
+		*gosub_scene functions subtract_corliss_influence
+		*set subversive %+5
+		Righteous fury burns in your chest as you think back on all the years you've lived with Arundel and Corliss's lie. How long have they been laughing behind your back, reaping the benefits of your labor while you move on from night to blissfully ignorant night? No more. You're your own ${manwoman} now.
+		
+		*if (clan = "Malkavian")
+			A rustling echoes in the back of your mind, like crisp, dead leaves blowing about on an autumn wind. "Our own ${manwoman}?" $!{malk_name} asks. "I can live with that."
+			*label rustling_leaves
+			
+			You excuse yourself from the Anarchs for a moment. They don't argue—Ward no doubt expects you to take a minute to let the revelation settle in. "Where did you go?" you ask, keeping your voice as low as possible. "Is this what you've been trying to keep hidden from me?"
+			
+			"I've been able to feel the memories trying to surface for some time now," $!{malk_name} says. "He implanted just enough to dance you around on a string. I don't know the details and I don't want to, but I knew what would happen if he took control. Something went wrong with his plan—maybe it was Jordan's meddling with the way Arundel set up the memory cascade or the conditioning broke down naturally, but the fact that you didn't immediately go running to him is a relief. I was scared I'd lost you."
+			
+			@{((malk_demeanor = 2) or (malk_demeanor = 4)) You're a bit surprised to hear $!{malk_name} speak so earnestly. You've gotten used to sarcasm and the occasional bout of irrational aggression, but this level of intimacy will take some getting used to. |}
+			*fake_choice
+				#"You're saying that Ward is right? That Arundel put triggers in my head to lead me to him if he went missing?"
+					"That's what it looks like, yes," $!{malk_name} says. 		
+				#"How can I possibly trust you after you kept this to yourself all this time?"
+					"I don't know," $!{malk_name} says. "I only ever did what I thought was best." $!{malk_heshe} sighs.		
+				#"I'm glad you're back, $!{malk_name}. I'd be lost without you. Don't scare me like that again, okay?"
+					"You have no idea how happy I am to hear that from you," $!{malk_name} says.
+			"I was so sure that you'd lose yourself when his instructions were revealed."
+			
+			"So you hid the memory from me," you say. "You're saying you did it to protect me?"
+			
+			"To protect us. And I can't outright hide memories, either—if you really wanted to know, then you'd know." $!{malk_name} glances over at Ward to make sure he's not eavesdropping. "I saw what you learned in that vision Jordan recovered. Whatever Arundel and Corliss wanted from you, I don't think we were ever able to give it to them. Not unless Arundel wiped a whole lot more memory than we already discovered. But I doubt that's the case. I live up in your grey matter—I can sense these things hidden beneath the surface even if I can't access them directly."
+			*fake_choice
+				#"So what should we do now? How do we move on from this?"
+					"I don't suppose we could just forget about it?" $!{malk_name} asks. You have a hard time not glaring at ${malk_himher}. "Kidding, just kidding. Seriously, though, there's only so much we can do. 
+				#"Don't ever hide anything from me again. Trust is earned, and I'm running low on trust right now."
+					$!{malk_name} has the grace to look sufficiently chastised. "Look, I know I played a little fast and loose with you on this, but you have to understand…I wasn't sure what I could say without breaking down the mental walls. But now you know, and hopefully we can move past it, because like it or not, we're stuck with each other. For what it's worth, my thoughts on the situation are pretty simple.
+				#"I understand why you did what you did. I'm not sure if I approve of your methods, but you meant well. I forgive you."
+					$!{malk_name} sighs with relief. "It's one of the hardest things I've ever had to do. From my perspective, it's a lot like when mortals try to repress a memory that could cause them harm. Sometimes it's a bad fix and it backfires, but other times it's the only way to get through the day. Life is messy like that. Doubly so for un-life. So let's just be careful from here on out.
+			Make sure you don't trigger more instructions and keep yourself from following the directions of an absentee Prince. I can't be the only one who wants you to keep up your independence, right?" 
+
+			You nod. "I think it's fair to say that I'd rather be in control of my own actions than have someone else controlling me. That should probably go without saying."
+			
+			"Okay," $!{malk_name} says. "We're on the same page, finally! That's a load off my mind. Recovered memories aside, there's still the matter of the Anarchs. Ward still wants something from you, and I doubt it's going to be simple."
+			
+			"Right," you mutter, as much to yourself as to $!{malk_name}. "All this talking to myself and I almost forgot where we were." You make your way back to Ward. The burly Anarch has been waiting patiently and chatting with Jordan, but Sevinc and Hauberk look like they're about to tear their hair out from the delay. "Sorry about that," you say to them as you return. "I just had to process some things."
+
+			"By all means, take all the time you need to wallow in self-pity," Sevinc snarks. "Let's just get on with it. We have a timetable, here."
+			
+			*goto after_jordans_scan
+		
+	#This has got to be some kind of elaborate trick to get me to turn on my sire when she's at her most vulnerable. I won't be fooled. I owe Corliss my true allegiance.
+		*set loyalty_to_corliss +1
+		*set corliss_influence +1
+		*set corliss %+5
+		*set subversive %-5
+		Anger burns in your heart, and it's focused on the Anarch standing across from you, observing your reaction the same way one might watch a kicked dog to see if it will lunge and bite you. But you have to play this smart. Keep cool. There are too many of them for you to fight on your own, and escape is exceedingly unlikely.
+		
+		*if (clan = "Malkavian")
+			A rustling echoes in the back of your mind, like crisp, dead leaves blowing about on an autumn wind. "You're thinking for yourself, and that's good," $!{malk_name} says. "I hate to say it, but even if you don't trust Ward, you need to think very carefully about what you've unlocked in your head. Stay loyal to Corliss if you want, but Arundel? You have to stay away."
+			*goto rustling_leaves
+	#I need time to process this new information. It's hard to tell what's true anymore.
+		It's all too much to take in at once. How can you possibly choose who to trust when you can't even rely on your own mind?
+		
+		*if (clan = "Malkavian")
+			A rustling echoes in the back of your mind, like crisp, dead leaves blowing about on an autumn wind. "That's good, $!{name}" $!{malk_name} says. "Critical thinking is the best thing you can do at a time like this."
+			*goto rustling_leaves
+
+*label after_jordans_scan
+Ward clears his throat. "There's a storm coming, $!{name}, and—"
+
+"Enough with the dramatics," Sevinc cuts him off. "You wouldn't be here unless you felt that something about the Camarilla is wrong. Your existence is built on a rotten foundation just like this city. And now it's all falling apart. So you can either join us or slink back to your masters. This is your last chance to turn back. Things are going to get bloody and you'll need to have the stomach for a revolution." She gives Ward a quick glance, but the Brujah has nothing to add.
+
+@{(clan = "Malkavian") "She's not wasting any time," $!{malk_name} says. "Think this over carefully, $!{name}. Tough to back out from something like this if you give her the nod." |}
+*choice
+	#I'm in this for good. I vow to join Ward's group of Anarchs and change Ottawa for the better.
+		*set anarch_strength +10
+		*set loyalty_to_ward +2
+		*set subversive %+10
+		*set sevinc %+5
+		*goto one_of_us		
+	#I can't just leave the stability of the Camarilla behind for a group of roaming street thugs. I hurry back to join the Blood Hunt before it's too late.
+		*set loyalty_to_corliss +1
+		*set corliss %+5
+		*set subversive %-10
+		*set ch7B_left_anarchs_before_hearing_plan true
+		You shake your head slowly. You'll have to be careful how you break the news. "We need to get back," you say. "If Jordan and I don't show up for the Hunt, Qui will know something's going on. He might even send people out to find us which could lead them to you."
+		
+		"That's accounted for," Ward says. "It's why I had Stan take such an indirect route when he drove you here; he's always been good at spotting tails. He's solid."
+		
+		"Open your eyes, Robert," Sevinc snaps. "$!{heshe} doesn't want to join us, and we have enough on our plate without dealing with Kindred we can't trust by our side. Let them go." @{(clan = "Malkavian") $!{malk_name} floods your mind with relief. |}
+		
+		
+		"I thought we had an understanding, $!{name}," Ward says. That look in his eyes—is it sadness or simply disappointment? "But sometimes I'm wrong. There's an entrance to the sewers two blocks west that will take you down to the main tunnels. From there, you can hook up with the hunting party. Now get out of here before I change my mind."
+		*page_break
+		"That was the right decision," Jordan says as you turn down the alley, searching for the nearest sewer access. "We can't afford to get caught up in whatever they're planning. And tonight of all nights when we need to account for our whereabouts!" $!{jordan_heshe} kneels down and throws aside a pile of collapsed cardboard boxes, revealing a manhole cover. "Shouldn't be more than a few blocks away from the meeting point if I have the sewers mapped out in my head as well as I hope I do."
+		
+		@{(clan = "Malkavian") "$!{jordan_heshe}'s right," $!{malk_name} says. "At least the Anarchs did us the courtesy of leaving us at a good location. Though it does beg the question of how they knew exactly where we needed to go…" |}
+		
+		$!{jordan_heshe} pries open the manhole and the two of you descend into the dark crawlspaces beneath the city, replacing the cover as you go. The rungs of the ladder have been worn clean by the hands of too many Kindred—a month or two from now, the Sewer Rats will have to replace it with something more appropriately dingy to cover their tracks. The last thing @{(clan = "Nosferatu") your clan needs | the Nosferatu need } is for these areas to give off the appearance of frequent travel. 
+		*goto_scene ch7A_hospitality back_from_ward_meeting
+	#I'll join Ward's crew for now, but if they cross the line, I'm out.
+		*set anarch_strength +5
+		*set loyalty_to_ward +1
+		*set subversive %+5
+		*set sevinc %+5
+		*goto one_of_us	
+	#I'll pretend to join the Anarchs and report everything they do to Corliss.
+		*set sevinc_opposed +1
+		*set loyalty_to_corliss +1
+		*set corliss %+5
+		*set subversive %-10
+		*goto one_of_us
+*label one_of_us
+Ward's face cracks open in an alarmingly wide smile that borders on unnerving. "About time we got some good news!" he crows, glancing over at Sevinc's disapproving face with an unspoken "I told you so."
+
+"And what about me?" Jordan asks. "I don't get a say in the matter?"
+
+@{(clan = "Malkavian") "I was just wondering about that," $!{malk_name} says. |}
+
+"I wasn't making a decision for you," you reply quickly. "I was just deciding for myself. You can probably join the Hunt in time if you leave now. That is, if you still want to."
+
+Jordan sighs. "After everything I've seen, I think I was leaning this way already. Kindred society is ugly, Camarilla and Anarch alike." $!{jordan_heshe} looks over at Ward and his cronies. "No offense. But ever since Arundel disappeared, it seems like everyone just cares about tearing each other down. We can't keep existing like this; something has to give. They're so focused on taking power from each other that they've forgotten the real enemy. At this rate, they'll eventually slip up and the mortals pushing their Second Inquisition will burn the city to the ground. Things need to change and I'm not seeing any other solutions."
+
+"So you're in or out?" Sevinc asks. "We don't have time for games or philosophical nonsense."
+
+"What the heck," Jordan says, giving you a quick look. "If ${heshe}'s in, I'm in." 
+*page_break
+"Aaaand, I'm out again. No way in hell," Jordan says, throwing up ${jordan_hisher} hands. "Have you lost your mind? You want to attack Elysium?"
+
+*if (clan = "Malkavian")
+	@{((malk_demeanor = 1) or (malk_demeanor = 3)) "I was all-in on joining the Anarchs, $!{name}," $!{malk_name} says. "But this seems foolish. Brash, even." |}
+	@{((malk_demeanor = 2) or (malk_demeanor = 4)) "Why the hell not?" $!{malk_name} asks. "In for a penny, in for a pound. Loyalty is for nerds." |}
+	@{(malk_demeanor = 4) $!{malk_heshe} flashes a toothy smile. "Just think about it. Fledglings to destroy? Dolls to drain? That's my kinda party! Yours too, if you're honest being with yourself." |}
+
+"There will never be a better time," Ward says. "All the heavy hitters are underground fighting with the Tremere. Qui's out of the way. Bouchard and Lucca too. Even that Assassin, Kashif, is getting his share of Warlock Blood."
+
+"Alisha will be there," you say. "And her flock of neonates and fledglings, too. You want to destroy the Keeper of Elysium? What if Corliss is there too?"
+
+"Corliss is…occupied," Ward says. "She won't be—"
+
+"Did you think that this was going to be a Bloodless revolution?" Sevinc cuts Ward off. "You expected we'd waltz into Elysium and the Camarilla would just step aside and hand us the run of the place? Change comes when the downtrodden climb up on a stack of their oppressors' corpses and take back what's theirs. There's no other way to reach it—the elite pull the ladder up after them when they hide in their Ivory Tower." She leans over the bed of her brown pickup truck and pulls a curved sword out from under a tarp. "Alisha Grey is a perfect example of the decay that's rotting the Camarilla from the core. She manufactured that story about the Tremere attacking her, you know. She found out that they returned to Ottawa and it was the perfect excuse to wipe out some competition. Pressure Corliss to call a Blood Hunt and every vampire destroyed puts her one step closer to the top of the heap. Why risk yourself in an attack on your enemies when you can get them to destroy each other?"
+
+@{((clan = "Malkavian") and (malk_demeanor = 4)) "Think I'm falling in love," $!{malk_name} says. "We've got to do this!"  |}
+*temp kill_each_other false
+*label elysium_attack_response
+*fake_choice
+	*if (kill_each_other = false) #"Why not just let them destroy each other, then? If it works for Alisha, couldn't the same tactic work for you?"
+		*set ruthless %+5
+		*set sevinc %+5
+		"It's working for me right now," Sevinc says. "The same as it's working for her. Alisha doesn't know yet that sending her rivals off to destroy each other left her wide open. And anyone taken out down in the sewers is one less Cammie for us to deal with on our own."
+		
+		"We've been waiting over a month for an opportunity like this," Ward says. "This is the best way. The safest way to regain control."
+		*set kill_each_other true
+		*goto elysium_attack_response
+	*if (ch5_broke_into_alishas) #"I've seen first-hand what Alisha is capable of. She's enslaved ghouls and mortals, tying them to machines with vitae drips to keep them alive just to help her get ahead on the digital front. If she looks at Kindred the same way, then we're all just tools to her."
+		"So that's what she's keeping in the basement of her exhibition hall," Ward muses. "Interesting. How did you find out?"
+		
+		"You're just going to have to trust me," you say. Instinct tells you that going in-depth about how closely you and Qui have worked together lately might be a bad idea.
+	
+	#"Sevinc's right, Jordan. There can't be a revolution without blood. If any of them found out what we're doing right now, do you think they'd think twice before chopping our heads off and leaving us to rot?"
+		*set subversive %+5
+		*set ruthless %+5
+		*set sevinc %+10
+		"I just thought we were supposed to be better than them," ${jordan_heshe} says miserably. "But maybe you're right. Sometimes you have to fight fire with fire."
+		
+		"We [i]are[/i] better than them," Ward says. "We're fighting for change and they're killing people just to maintain the status quo where everyone else is ground beneath their boot heels." 
+	
+	#"This is going too far. You never told me that we'd be doing something as reckless as attacking Elysium."
+		*set subversive %-5
+		*set ruthless %-5
+		*set sevinc_opposed +1
+		Sevinc draws her sword; the cold steel gleams in the moonlight. "I told you this was a bad idea, Robert," she says. "These two are liabilities." Hauberk and the other Ferals creep up behind her, eyeing you as they flex their arms, itching for a fight.
+
+		"I told you this would get bloody, $!{name}," Ward says. "There's no neutral ground on this." 
+
+"When did this turn into a full-on revolution, anyway?" Jordan asks. "I thought you and Arundel were close before you left. Don't you care where he went? If he can be helped?"
+
+Ward pauses for a moment and considers his answer as Sevinc grows increasingly impatient. "Arundel wanted this. I'm sure of it," he says. "Why else would he have tried to welcome the Brujah to Ottawa? He brought in the Banu Haqim, even welcomed the Gangrel. 
+@{(clan = "Lasombra") He bucked the trend and brought in a Lasombra Seneschal! I mean, I know she wasn't able to expose her clan to the Court, but still… | Last I heard, he was even thinking of taking in reformed Lasombra, though I'm not sure if that's a bridge too far. }
+Point is: The Camarilla has been sidelining all of our clans for centuries. Mine, Hauberk's, Sevinc's, and more. Arundel wanted a society where we could all exist together without fear or prejudice. Does that sound like a Camarilla attitude to you? The difference between him and me is that he tried to work within the system for change and I couldn't convince him that the system itself was the problem. We came at it from different ways, but the philosophy was the same."
+*fake_choice
+	#"And you think that philosophy would include destroying the Keeper of Elysium and anyone else unfortunate enough to be visiting neutral ground?"
+		"Arundel wasn't a pacifist," Ward says. "Almost no Kindred are. We've all already died once. We feed on mortal blood—we're predators—a show of strength is all the Camarilla understands. So, you're in?"
+		*choice
+			#"I'm in. Let's do this."
+				Ward grins. "Good stuff."
+				*goto ward_brick_phone
+			#"No, I can't do this. We're going back to the Hunt."
+				*goto refuse_join_anarch_attack
+	#"So what are we waiting for? Let's take back the city!"
+		*set ruthless %+5
+		"I knew I was right about you the moment I laid eyes on you," Ward says. "Arundel would be proud."
+	#"I hope you have a good plan for this." I indicate the small pack of vampires. "Is this all we have for the attack?"
+		Ward grins. "Not by a long shot."
+	#"No, I can't do this. We're going back to the Hunt."
+		*label refuse_join_anarch_attack
+		*set ruthless %-5
+		*set ward %-10
+		*set sevinc %-10
+		"I told you earlier that it was your last chance to back out," Sevinc snarls. "Do you really think we'd just tell you our plans and let you walk away?" Ward starts to say something but she shushes him. "You had your chance and you missed it."
+
+		@{(clan = "Malkavian") "Crap," $!{malk_name} says. "Back away slowly. Keep Jordan next to you. Don't wait for them to jump us!" |}
+		
+		You start backing away, hand hovering over your holster ready to draw @{(ch6_carrying_gun = "incendiary") the gun you stole from Hauberk. | your Desert Eagle. } Jordan nervously follows your lead. 		
+		*if ((resolve > 49) or (wits > 49))
+			*set sevinc %+5
+			You've nearly reached the street when you notice the shadows of two hulking brutes lurking where a streetlight has conveniently gone dark. You twist at the waist, drawing your gun and firing fractions of a second before two men leap from the darkness, brandishing knives as they reach out to stab you and Jordan in the back. Your attacker grunts from your unexpected counter-attack but he doesn't let up, stabbing into your guts as Sevinc chants in an unknown language, a thin line of Blood dripping down her arm from a self-inflicted wound. 
+			
+			"You're quicker than I expected," she says, clearly impressed that you saw through the ambush. "But not quick enough."			
+			*goto feral_twists
+		*else
+			You're so focused on the cluster of advancing Anarchs that you fail to notice two men approaching from behind you until agonizing pain shoots through your body as two long knives slam into your guts. Jordan screams as well, dropping to ${jordan_hisher} knees in agony. Sevinc slowly walks close to you, a thin line of Blood dripping down her arm from a self-inflicted wound.
+			
+			"Slow to act," she mutters. "Too late to regret your bad decisions."
+			*goto feral_twists
+		*label feral_twists
+		
+		As the claws twist in your gut, a strange sensation runs through your body, coursing through your veins like fire, burning away the sustenance from your vitae and stoking desperate Hunger. You try to fight back, to use your special gifts against the onslaught, but it's already too late, and all you can think about is starvation. @{(clan = "Malkavian") Somewhere behind the wall of pain, $!{malk_name} is screaming. |}
+		
+		"I'm sorry it had to be this way," you faintly hear Ward say as he stands above, watching the Ferals beat you. "But you'll help our cause either way." 
+		
+		One last boot to the face and everything goes dark.
+		*page_break
+		*gosub_scene functions add_hunger
+		*set ch7B_refused_to_attack_elysium true
+		*finish
+*label ward_brick_phone
+He pulls an old brick-phone from his pocket and auto-dials a number before bringing it to his lips. The thing looks like a child's toy in his oversized hands. "We're a-go. Start the countdown." He drops the phone and unceremoniously stomps it into the pavement with his steel-toe boots. "We're on a timeline now. If we get separated or you have to contact me another night, just come back here and wait. We have this parking lot under surveillance. Dead-drops have gotten too slow to be useful, so if shit hits the fan? Come see us." He waves you and Jordan back to Stan's car. "He'll get you where you need to be, but we're right behind you. Keep cool until we arrive."
+
+*if (clan = "Nosferatu") 
+	You set $!{rat_name} down on the pavement. "You should head home," you say. "This isn't going to be safe for you."
+	
+	"Protect!" $!{rat_name} chitters angrily. "You go away, who protects me from the old man at home? Who gives cheese?" $!{rat_hisher} eyes widen.
+	
+	"I'll be fine," you say. "Go home and relax. And stay away from Gerard; he's upset enough by all that's going on without you antagonizing him."
+	
+	$!{rat_name} stalks away indignantly, sending a flurry of feelings not easily put into spoken words, but amounting to a raised middle finger. You sigh as you open the car door.
+
+"Just a few blocks," Stan says as you sit anxiously in the passenger seat. Jordan gets in the back and buckles ${jordan_hisher} seatbelt as the small Anarch convoy pulls out from the parking lot one at a time.
+
+@{(clan = "Malkavian") "Off to war," $!{malk_name} says. "Should be interesting." |}
+
+"How are we supposed to do this?" you ask. "Elysium isn't on the ground floor; we have to take an elevator or the stairs. Either way, the cameras will tell Alisha's people that we're coming."
+
+"Boss didn't tell you?" Stan says. "Figures. He's got a team inside, loyal from the years he used to live here. In about five minutes they're gonna cut the live footage and replace it with loops from yesterday night." He takes a right turn on Bank Street. "They'll kill the motion detectors, too. It's a rough hack, easy to spot by a half-decent security team, but we don't need it to last forever, just long enough to get up there without setting off an alarm. If they escape before we're up there, it defeats the whole point." He cuts around with a hard left and parks at the side of the road ahead of an unused bus stop. Ward's other vehicles pile in behind you. 
+
+"Ready for a party?" Stan asks, cocking his gun and shoving it into his coat pocket. He flings the driver-side door open and steps out onto the pavement. Sevinc steps past him as her two Rottweilers pad out from the cab of her truck. They're wearing what looks like Kevlar body armor specifically tailored for their well-muscled canine frames.
+
+"What the hell have we gotten ourselves into?" Jordan asks. 
+*if (clan = "Malkavian")
+	"Is $!{malk_name} into this? Or are you dragging ${malk_himher} along, kicking and screaming?"
+	
+	"$!{malk_heshe} supports the decision," you say. 
+	@{((malk_demeanor = 1) or (malk_demeanor = 3)) "Tentatively, at least. It might take a little more convincing in the long run." |}
+	@{((malk_demeanor = 2) or (malk_demeanor = 4)) "Even seems excited for it. It's not much of a surprise, really." |}
+	
+	Jordan nods.
+"Hell with it. They're right, you know? All this time I've been hoping for change, but hope gets us nowhere." $!{jordan_heshe} pops the door open and joins you on the sidewalk. "Let's go before I lose my nerve."
+*page_break
+*temp intend_to_kill_alisha true
+*set ch7B_attacked_elysium true
+Elysium erupts into pandemonium as the elevator door opens and Ward steps into the plush lounge, shotgun barking a significantly less cordial greeting than the upper crust of Ottawa society are accustomed to. Feral Gangrel swarm out from behind him, more beast than man as they tear through the rooms, leaping between luxurious couches and chairs as they tear into the throats of Alisha Grey's servants before they can reach their stashes of firearms. 
+
+Beside you, Jordan offers a shrug and a nervous chuckle as ${jordan_heshe} falls back into a shadowy alcove. Within seconds, ${jordan_heshe} could be anywhere in the club, likely sniffing out Alisha's location. 
+
+Sevinc's Rottweilers leap over a nearby bar, chasing a fleeing man whom you recognize as one of Alisha's vampiric sycophants. Sevinc follows closely on the dogs' heels and seconds later the perfumed Elysium air is filled with the sounds of wet flesh-ripping and terrified screams. 
+
+"Ignore their herd!" Ward barks. "We're not here for the mortals! Find Alisha!"
+
+@{(clan = "Malkavian") $!{malk_name} gives you a salute and a ghostly shotgun appears in ${malk_hisher} hands as ${malk_heshe} tears off into battle. You don't have the heart to remind ${malk_himher} that ${malk_heshe} won't be able to do any actual damage. |}
+
+@{(storyteller) ([i]Finding Alisha quickly tests resolve/wits.[/i]) |}
+*choice
+	*if (clan = "Toreador") #I know where Alisha's secret lounge is hidden within Elysium—she always wanted her fellow Toreador to have a place of beauty to reflect and relax away from the unclean Rabble. I plan to take advantage of this knowledge.
+		Alisha had always taken special interest in her fellow Toreador, not so much out of any supposed "clan unity" but for what she considered aesthetic purposes. Who'd want to be trapped in a lounge with a reeking Nosferatu neonate rambling on about Rembrandt as if he knows the first thing about art, anyway? From past experience, you know exactly where Ms. Grey will go when the commotion starts.
+		*goto i_know_where_alisha_is
+	*if (auspex) #[b]Auspex:[/b] I focus on increasing my perception to watch for hidden threats and find Alisha.
+		You take a moment to pause before entering the fray, focusing your attention until you're able to spot hidden threats that you were unaware of only moments ago. A vampire crawls through the adjoining hallway silently, trying to get the drop on Ward, essentially invisible to those without your talents. Somehow, the hulking Anarch detects him anyway and grabs the creeping Nosferatu by the head, flinging him like a rag doll into the wall beside the elevator and smashing an expensive-looking mirror. Thousands of small Blood-spattered shards rain over the floor.
+		
+		You sniff the air. That scent—is that Alisha's perfume? You could follow it if you wanted. The longer you sniff, the more sure you are that the trail will lead you to the Primogen wherever she hides. 
+		*goto i_know_where_alisha_is
+	*if (presence) 
+		*selectable_if (hunger < 5) #[b]Presence:[/b] I pick out one of the newer fledglings and use my abilities to cow them into submission. If I'm lucky, they'll know where Alisha went.
+			*gosub_scene functions add_hunger
+			You almost immediately zero in on an older-looking gentleman doing his best to imitate a corner table between a comfortable-looking couch and the wall. The fledgling shivers as you approach, but he doesn't try to run away either. What was his name? Mark? You remember when he was first introduced to the court less than a year ago—he'd been as averse to conflict then as he seems to be now—and your gaze works its magic on him almost as easily as it would affect a mortal.
+	
+			"I'll tell you anything you want!" he whimpers as you get near enough that you could throttle him in your bare hands. To your left, a man's body flies backward through the air, smashing into an expensive-looking mirror and sending thousands of small blood-spattered shards raining over both of you.
+	
+			"Where's Ms. Grey," you ask, getting straight to the point. If he can't answer that question, he's useless to you. 
+		
+			"This…this is about her?" Mark asks with palpable relief.
+		
+			"I'm not going to ask the question again," you growl, focusing your powerful gaze as you stare directly into his eyes. 
+		
+			A shiver runs over the fledgling's body as he raises a jittery hand to point to the bar you saw Sevinc and her dogs jump over seconds ago. The whole area reeks of alcohol used to ply visiting mortals into submission. "Behind the bar," he stutters. "There's a hallway past the kitchen. Last door on the left is her office."
+		
+			The moment you begin to scrutinize the path behind the bar, Mark decides to make a run for it, leaping up from his hiding spot behind the couch and dashing for the nearest elevator. He doesn't make it more than a dozen steps before a bullet catches him in the neck and he stumbles into a decorative bust, smashing both himself and it to the floor. There's no time to worry about it; he made his choice. But what is yours?
+			*goto i_know_where_alisha_is
+	*if (oblivion)
+		*selectable_if (hunger < 5) #[b]Oblivion (+ Hunger):[/b] I smash the lamp closest to me and use the resulting shadow to form the Arms of Ahriman, ensnaring and crushing the Camarilla vampires with shadowy tentacles. 
+			*gosub_scene functions add_hunger
+			*set ruthless %+5
+			*set sevinc %+5
+			*set ward %+5
+			*if ((ch6_moretti_taught_oblivion) and (used_taught_oblivion = false))
+				*gosub_scene functions first_oblivion_use
+			You step over to the closest pole-lamp, ball your fist up, and smash it, sending shards of glass and brittle metal scattering over the polished tile floor. The resulting shadows invigorate and empower you, providing access to the darkness you need to perform your summoning. You circulate the Blood within your veins, bringing forth the power of Oblivion. Yes—there is more than enough darkness here to form a proper conduit to the Abyss with ease. A thick length of shadow answers your call, twisting and thrashing along the floor before you in absolute silence, waiting for your command.
+			
+			You almost immediately zero in on an older-looking fledgling doing his best to imitate a corner table between a comfortable-looking couch and the wall. A sharp flick of your wrist sends the shadowy tentacle shooting away from you. When the man feels the oppressive weight of its mystical grapple, he lets out a scream of fear, quickly stifled as it twists around his neck, shrouding it in blackness as it constricts violently, serving your will as it silences your prey. A sharp [i]crack[/i] echoes off the cold stone walls as something gives way within the fledgling's body and he slumps over like a broken doll.
+			
+			*goto lasombra_never_better
+	*if (oblivion)
+		*selectable_if (hunger < 5) #[b]Oblivion (+ Hunger):[/b] The Anarchs already know about my Lasombra heritage, so I'm finally free to lash out! I grab the nearest Camarilla fledgling by the throat and unleash the hell of Oblivion, withering their flesh away beneath my fingertips. 
+			*gosub_scene functions add_hunger
+			*gosub_scene functions subtract_humanity
+			*set ruthless %+10
+			*set sevinc %+5
+			*set ward %+5
+			*if ((ch6_moretti_taught_oblivion) and (used_taught_oblivion = false))
+				*gosub_scene functions first_oblivion_use
+			You almost immediately zero in on an older-looking gentleman doing his best to imitate a corner table between a comfortable-looking couch and the wall. The fledgling shivers as you approach, but he doesn't try to run away either. What was his name? Mark? You remember when he was first introduced to the court less than a year ago—he'd been as averse to conflict then as he seems to be now.
+			
+			"I'll tell you anything you want!" he whimpers as you get near enough to throttle him with your bare hands. To your left, a man's body flies backward through the air, smashing into an expensive-looking mirror and sending thousands of small blood-spattered shards raining over both of you. "Just don't hurt me!"
+			
+			"Oh, there's nothing you could say that I need to hear from you," you say as you reach out, wrapping your fingers around his neck with deliberate slowness. You channel the might of the Abyss through your vitae and at once the fledgling begins to scream. 
+			
+			"What are you doing to me?" he cries as the flesh of his neck withers beneath your touch, ageing decades in a matter of seconds. His pitiful cries choke off with a full-body tremor and moments later his eyes close forever. You discard the body with a casual indifference. 
+			*label lasombra_never_better
+			You've never felt better. A Lasombra's purpose in unlife is to win—to prove your dominance over those weaker than you. And what supernatural being is stronger than the Magisters?
+			*page_break
+			*goto fighting_arnold
+	#I'll let Ward and Sevinc take the biggest risks. I bring the fight to the less powerful—the neonates and the fledglings, destroying all in my way.
+		*set ruthless %+5
+		You pass the individual clashes, excited to prove your worth to the Anarchs by taking out another vampire. Finding wherever Alisha is hiding might be useful, but you have a feeling that Ward will be more impressed with you spilling Blood in the name of his cause, whether you're fully on-board with the Anarch philosophy or not.
+		
+		*goto fighting_arnold
+	#I try to avoid the majority of the fighting and look for Alisha. I want the first shot at taking her out!
+		*set ruthless %+5
+		*set subversive %+5
+		You pass the individual clashes, excited to prove your worth to the Anarchs by finding Ms. Grey and confronting her. 
+		*goto searching_by_yourself		
+	#Alisha must be warned so she can escape! Betraying Ward will be dangerous, so I avoid the fighting and try to find Alisha while the Anarchs are distracted by their mayhem.
+		*set subversive %-5
+		*set intend_to_kill_alisha false
+		This entire assault has gone way too far, and you simply cannot allow Ward to destroy a Primogen. Your reasoning for coming here alongside the Anarchs doesn't matter as much as how you deal with the situation, so you resolve to make things as right as you can by alerting Alisha of Ward's intentions so she can escape or prepare a proper defense. 
+		
+		*goto searching_by_yourself
+	#I don't stand a chance in a one-on-one fight with Alisha, but I think I can find her. If I can, I'll call in Ward and Sevinc to do the dirty work for me.
+		*set ruthless %-5
+		*set subversive %+5
+		*label searching_by_yourself
+		You keep to the edges of the opulent halls, avoiding entanglement as you search for the elusive Ms. Grey. Room after room, you come away empty-handed. At one point, you're sure you've been seen by a fledgling, but she stays hidden, preferring to let you pass without accosting you.
+		*if ((resolve > 59) or (wits > 59))
+		
+			*goto i_spy_with_my_third_eye
+		*else
+			
+			Your exploration takes you to the far corner of the club, framed at the edges by tall windows looking out over the quiet Ottawa streets while displaying ghostly images of gore-soaked combatants locked in desperate struggle.
+			
+			*goto fighting_arnold
+	*if (obfuscate)
+		*selectable_if (hunger < 5) #[b]Obfuscate (+ Hunger):[/b] I move back into a shadowed alcove to hide in the shadows' embrace. Once I'm hidden, I'll be able to skulk around Elysium and easily pick off a neonate or fledgling before they even know I'm there.
+			*label oblivion_pick_off_targets
+			*gosub_scene functions add_hunger
+			*set ruthless %+5
+			*set sevinc %+5
+			*set ward %+5
+			You follow Jordan's example and disappear into the alcove, brushing up against a small rack where the servants keep their uniforms. Seconds later, you emerge and keep to the edges of the opulent halls, invisible to all but the most discerning of eyes.
+			
+			Your exploration takes you to the far corner of the club, framed at the edges by tall windows looking out over the quiet Ottawa streets while displaying ghostly images of gore-soaked combatants locked in desperate struggles. A young man staggers out from the room to your right, kicking away the arm of a downed enemy as he retreats. You strike while he's vulnerable, tearing at his neck with a vicious bite. He pulls away, pushing you off with strength that belies his lack of musculature.
+			
+			"I saw you come in with them," he growls as his body mends the deep tears in his neck.
+			*goto fighting_arnold2
+	*if (oblivion)
+		*selectable_if (hunger < 5) #[b]Oblivion (+ Hunger):[/b] I pull the shadows overtop myself, making it harder for my enemies to see me. I use this advantage to avoid conflict and uncover where Alisha Grey may be hiding.	
+			*if ((ch6_moretti_taught_oblivion) and (used_taught_oblivion = false))
+				*gosub_scene functions first_oblivion_use
+			*goto oblivion_find_alisha
+	*if (oblivion)
+		*selectable_if (hunger < 5) #[b]Oblivion (+ Hunger):[/b] I pull the shadows overtop myself. Once I'm hidden, I'll be able to skulk around Elysium and easily pick off a neonate or fledgling before they even know I'm there.
+			*if ((ch6_moretti_taught_oblivion) and (used_taught_oblivion = false))
+				*gosub_scene functions first_oblivion_use
+			*goto oblivion_pick_off_targets
+	*if ((obfuscate) and (oblivion = false))
+		*selectable_if (hunger < 5) #[b]Obfuscate (+ Hunger):[/b] I hide in the shadows, but rather than use my advantage to attack easy prey, I use it to avoid conflict and uncover where Alisha Grey may be hiding.
+			*label oblivion_find_alisha
+			*gosub_scene functions add_hunger
+			*set sevinc %+5
+			You follow Jordan's example and disappear into the alcove, brushing up against a small rack where the servants keep their uniforms. Seconds later, you emerge, invisible to all but the most discerning of eyes.
+			
+			You drift past a half-dozen clashes, avoiding entanglement as you search for the elusive Ms. Grey. Room after room, you come away empty handed. At one point, you're sure you've been seen by a fledgling with the gift of second sight, but she stays hidden, preferring to let you pass without accosting you. 
+			*label i_spy_with_my_third_eye
+			Finally, just when you're about ready to give up and find a different pursuit, you catch movement from the corner of your eye. A nondescript door at the far end of the servants' hallway is open, and someone is peeking out of it. It closes just as suddenly as it opened, but you're sure that you know what you saw. Alisha's face was creased with concern as she looked past you at the raging violence in the lounge.
+			*goto i_know_where_alisha_is
+
+*label fighting_arnold
+"I saw you come in with them," a voice calls to you from behind as a young man stalks your way. 
+*label fighting_arnold2
+"Ms. Grey will finally have to see my worth when I bring her your head!" His Armani suit is in tatters, but you think you recognize him well enough—a recently embraced Ventrue, cocky and overly sure of himself. His sire had a tendency to drift from city to city, "talent scouting" at local financial institutions and embracing the best and the brightest. Why Arundel had allowed him to Embrace a childe in Ottawa you couldn't say, but you distinctly recall the distaste with which the Prince's permission was given. The young vampire draws a sword and waves it in a dramatic flourish. "Don't try to run!"
+			
+"You're carrying a sword in Elysium, Arnold?" you ask, amused. "And you wonder why Alisha wants nothing to do with you?" 
+
+His eyes narrow in anger as he charges, blade held high.
+*set ch7B_fought_arnold true
+*choice
+	*if (potence)
+		*selectable_if (hunger < 5) #[b]Potence (+ Hunger):[/b] I draw physical prowess from the strength in my Blood, thrashing Arnold until he's no longer a threat to any of my allies. @{(storyteller) (stamina/dexterity or strength) |}
+			*gosub_scene functions add_hunger
+			The sudden rush of power is almost overwhelming as you draw on the strength of your Blood to enhance your physical prowess. The vampire pauses for a moment, the tip of his sword wavering as if he can sense the change that's come over you. That hesitation is opening enough to give you a perfect avenue for attack. You charge in, batting the blade away as you shoulder-check Arnold into the wall, cracking at least two of his ribs like kindling in the process. 
+			
+			It takes several seconds to notice how deeply the sword cut into your flesh,
+			*if (((stamina + dexterity) > 99) or (strength > 54))
+				*label arnold_fight_win
+				*set ward %+5
+				*set sevinc %+5
+				but you manage to push aside the painful distraction and focus on finishing your assault as quickly and ruthlessly as possible. 
+				*label tiger_uppercut
+				
+				Your fist comes down on his head like a hammer and he staggers forward, arms limp at his side as you rise into a jaw-snapping uppercut. His body flies back, smashing through the wall's plaster and cracking the support beam before he falls forward and collapses on the floor in a heap.
+				*label whip_around_see_ward
+				
+				You whip around to make sure no other enemy is sneaking up on you, only to see Ward grinning from the other side of the room. "Come on!" he yells. "We have Alisha cornered!"
+				*goto smoking_alisha_out
+			*else
+				*label arnold_fight_loss
+				*set sevinc %-5
+				and when you bring up your left fist to finish the work you started, your arm is covered in Blood. Your blow is sluggish and ill-timed, colliding with the wall with a smash and puff of dry, white plaster. As your body works to mend itself, your opponent slips away from your grip, retrieving his sword and stabbing you just as you turn to face him.
+				*label arnold_just_stabbed_you
+				
+				"Thought you could take me, huh?" Arnold crows as he twists the blade in your gut. "Well what do you think now, hot-shot? Just wait 'till Ms. Grey sees!"
+				
+				You're unsure what's more nauseating, the sword in your guts or the fledgling's smug banter. You'll have to show him a thing or two. You shift to your back-left and then the right, trying to pull the sword free, but Arnold is tenacious and surprisingly nimble on his feet. You have to think quickly. The sword's already clear through your body, so you decide it's time for the nuclear option. You step forward, taking the sword through your body, gaining on your assailant inch-by-inch as you impale yourself.
+				*gosub_scene functions subtract_humanity
+				
+				"What the hell are you doing?" he gasps. "You've lost it! You—"
+				
+				He doesn't get to finish his thought. You grab hold of his sword arm and yank it back, freeing the steel from your guts as your other fist comes down on his skull with a satisfying crack. Arnold goes limp and flops to the floor in a boneless heap.
+				*goto whip_around_see_ward
+	*if (dominate)
+		*selectable_if (hunger < 5) #[b]Dominate (+ Hunger):[/b] I use my mental control to command him to drop his sword and leave. @{(storyteller) (intelligence/manipulation or charisma) |}
+			*gosub_scene functions add_hunger
+			You look the vampire directly in the eyes as he advances on you threateningly. "Drop the sword," you say, each syllable precisely spoken for maximum effect. 
+			
+			His hand shakes with a violent tremor. "I know what you're doing," he grunts. Suddenly, it looks as if the weapon weighs a hundred pounds. "I've had training…"
+			
+			*if (((manipulation + intelligence) > 99) or (charisma > 54))
+				*set ward %+5
+				*set sevinc %+5
+				For a moment, you think he may have the mental fortitude to push aside your command, but something eventually snaps inside him and the sword falls from his limp hand, landing with an unceremonious thump on the carpeted floor. You can't help but smile at his obedience. 
+				
+				"Good," you say. "Now take the elevator downstairs and wait outside. Speak to no one."
+				
+				He turns around without another word and jogs toward the elevator, ignoring the frenzied battles to either side. A part of you is amazed that he makes it that far without being attacked. Within seconds, his face disappears behind the closing elevator doors.
+				*goto whip_around_see_ward
+			*else
+				*label lose_contest_of_wills
+				Something deep within your psyche feels like it snaps out of place as you lose the contest of wills. Arnold's hands tighten on the hilt of his sword and he rushes you before you can recover, driving the weapon through your body with distressing ease.
+				*goto arnold_just_stabbed_you
+	*if (presence)
+		*selectable_if (hunger < 5) #[b]Presence (+ Hunger):[/b] I entrance the arrogant fledgling into not only giving up the fight, but revealing Alisha's location. @{(storyteller) (manipulation/composure or charisma) |}
+			*gosub_scene functions add_hunger
+			You reach out to the gifts in your Blood, weaving its unholy power into your aura. "You know you don't want to hurt me," you say, entrancing the vampire with your supernatural charm. "I know what would make us both happy. All you need to do is listen and everything will work out."
+			
+			He blinks, and his hand shakes. He looks at his blade as though he has no idea why it's in the air, aimed in your direction. You can see the struggle on his face as the free part of his psyche fights against your influence. His hand shakes with a violent tremor. "I know what you're doing," he grunts. "I've had training…"
+			
+			*if (((manipulation + composure) > 99) or (charisma > 54))
+				For a second, you think he'll see through your intentions, but the moment passes and his doubt fades away. You can see in his fawning smile that he'd do just about anything to please you. He lowers his sword without any further hesitation and looks around Elysium with dismay. "There's too much fighting going on around here. I can't let you get hurt! Let's get out of here while we still can!"
+				
+				"I have a better idea," you say with a disarming smile. "I know you think highly of Alisha, correct?"
+				
+				"Not like you," he replies quickly, as if he's worried you'll be jealous. "She's beautiful. And she's powerful. But I've never met anyone like you!"
+				
+				"Of course," you say. "I'm happy to hear that, Arnold. But this is Elysium, and she knows it even better than I do. If anyone knows how to keep the two of us safe, it's her. Do you know where I can find her?"
+				
+				The entranced vampire nods emphatically. "She has a room she goes to when she wants to get away from the riff-raff. I bet she's there, planning a counter-attack!"
+				
+				"Can you tell me where it is?" It would be best for him to simply tell rather than show you. Alisha is surely powerful enough to turn Arnold against you the second she sees him.
+				
+				"Behind the bar," he says. "There's a hallway past the kitchen. Last door on the left is her office. I'll take you there!"
+				
+				You shake your head. "Thank you so much, Arnold. I have another job for you and I'll be sure to make this all worth your while. I need you to take the elevator downstairs and wait for me in the cafe a few blocks east. You know the one?"
+				
+				His brow furls. "I think so. But why? I can help you!"
+				
+				"I just want you to be safe. Alisha and I will meet you there."
+		
+				He turns around without another word and jogs toward the elevator, ignoring the frenzied battles to either side. A part of you is amazed that he makes it that far without being attacked. Within seconds, his face disappears behind the closing elevator doors.
+				*goto i_know_where_alisha_is
+			*else				
+				*goto lose_contest_of_wills
+	*if (celerity)
+		*selectable_if (hunger < 5) #[b]Celerity (+ Hunger):[/b] I draw physical prowess from the strength in my Blood and enhance my speed, hoping to take Arnold down before he can so much as slice at me. @{(storyteller) (wits/strength or dexterity) |}
+			*gosub_scene functions add_hunger
+			The sudden rush of power is almost overwhelming as you draw on the strength of your Blood to enhance your speed to levels even a vampire would consider impressive. You're behind Arnold before he can so much as swing his sword at you, twisting his arm hard enough to make the blade fall to the floor. Once he's disarmed, you shoulder-check him into the wall, cracking at least two of his ribs in the process.
+			
+			*if (((strength + wits) > 99) or (dexterity > 54))
+				*goto tiger_uppercut
+			*else
+				He recovers quicker than you expected, catching you off-guard by ducking low as you rush him and arcing his foot into a powerful sweep. Your momentum works against you this time, sending you crashing to the floor, smashing your head against the luxurious hardwood.
+				
+				As your body works to mend itself, your opponent rolls away, retrieving his sword and stabbing you just as you turn to face him.
+				*goto arnold_just_stabbed_you	
+	#He can flourish that sword all night long, but he can't hurt me if he never gets to me. I draw my gun and shoot him in the head. @{(storyteller) (composure/resolve or dexterity) |}
+		Arnold's smug smile fades from his lips when you draw @{(ch6_carrying_gun = "incendiary") the gun you stole from Hauberk | your Desert Eagle } and fire in one fluid motion.	
+		*if (((composure + resolve) > 105) or (dexterity > 69))
+			*set ward %+5
+			*set sevinc %+5
+			The first shot hits him dead-center in his chest, narrowly missing his heart. The second takes him in the neck, vitae oozing as he collapses to the floor and lets go of his weapon, desperately holding his hands to the wound while his body mends the damage. He cringes away as you approach and bring a heavy fist down on his head, crunching bone and twisting his spine at an unnatural angle. He goes limp and collapses, defeated.
+			*goto whip_around_see_ward
+		*else
+			The first shot wings him in the shoulder but he keeps coming, gritting his teeth grimly as he bobs to the side, dodging your second shot with uncanny dexterity. You curse under your breath—how had you allowed so many years to go by without regular target practice? He's close to you now, close enough to run you through with his sword in a single, well-placed thrust.
+			*goto arnold_just_stabbed_you
+	#I've never met a fight that brute force couldn't fix in my favor. I meet his charge and beat the punk Blue Blood into submission! @{(storyteller) (stamina/dexterity or strength) |}
+		You charge in, batting the blade away as you shoulder-check Arnold into the wall, cracking at least two of his ribs like kindling in the process. It takes several seconds to notice how deeply the sword cut into your flesh,	 
+		*if (((stamina + dexterity) > 109) or (strength > 64))
+			*goto arnold_fight_win
+		*else
+			*goto arnold_fight_loss		
+	#For all his cock-sure attitude, I'm pretty sure that he's scared. And he barely knows how to handle that blade. I'll convince him that he'll be safe if he surrenders. @{(storyteller) (manipulation/intelligence or charisma) |}
+		"Put down that sword before you accidentally chop off your own head," you say, doing your best to appear un-intimidated by Arnold's charge. He pulls up short, wondering just what kind of trap you're about to spring, but when no vampiric magic is forthcoming, he brings the blade back up and starts to advance again, albeit slower this time.
+		
+		"Don't try those mental tricks on me," he says. "I'm trained to fight against them."
+		
+		"No tricks," you say sincerely. "Only reason. Ward isn't here for you; I'd bet he barely knows you exist. If you surrender, I'll make certain that you walk out of here with your head still attached."		
+		*if (((manipulation + intelligence) > 109) or (charisma > 64))
+			You can see it now, his desperation to believe that what you say is true. You were right about his show of bravado—he was bluffing after all!
+			
+			"How do I know you'll keep your word?"
+			
+			You spread your hands. "You don't. But it's a better alternative to starting a fight that you're sure to lose. I'm not the only one here looking to make an example of Camarilla vampires—if anything, I'm the only one who might give you this chance to walk away peacefully."
+			
+			Arnold looks over his shoulder at the slaughter in the adjoining rooms. He has no choice and he knows it. The sword's tip descends slowly until it's pointed at the floor. "Fine," he says, almost petulantly. "What are you going to do with me?"
+			
+			"I'm going to walk you out of here, and you're going to be quiet about what you saw, understand? The only thing worse for you than final death is what Corliss will do to you if she finds out that you didn't fight back." You walk him to the elevator before he changes his mind, earning your fair share of confused glances from Ward's Ferals. "We have an understanding?" He nods before the elevator door closes and he begins his descent. 
+		
+			"The hell was that, $!{name}?" Ward asks from behind the nearby bar. 
+			
+			"He was a nobody," you reply. "You wanted a show of power, right? Then someone needs to survive and spread the word that change is coming. I've scared him into keeping quiet for now, but once he has the time to think about it, he'll want to have bragging rights for surviving while telling everyone about the danger he faced. That's just the kind of idiot he is."
+			
+			"Huh," Ward grunts. "I like it. But come with me, we've found Alisha. She's cornered. Time to put an end to this."
+			*goto smoking_alisha_out
+		*else
+			You can see him struggling. He's desperate to believe you, but he's determined not to be made a fool of. You wish you were able to be more convincing.
+			
+			Arnold's face hardens as he lashes out at you with unexpected speed, catching you off-guard as he drives his sword right through you in one fluid motion.
+			*goto arnold_just_stabbed_you
+			
+*label i_know_where_alisha_is
+*choice
+	#I tell Ward where I think she's hiding and show him exactly how to find her.
+		*set ward %+5
+		*if (sevinc_opposed > 1)
+			You search through the halls of Elysium, hoping that the burly Anarch won't be difficult to find. Where could he possibly have gone?
+			
+			*goto sevinc_ambushes_you
+		"Excellent work, $!{name}," Ward says once you track him down and tell him what you've discovered. He's just finished putting down a particularly troublesome ghoul and his sleeves are streaked with blood up to the elbows.
+		
+		"He's still breathing," you say, surprised as Ward hefts the body and dumps it in the elevator.
+		
+		"Killing everyone would be counterproductive," Ward replies. "This is a 'shock and awe' operation, not the mindless murder spree we want it to look like from the outside. Our philosophy doesn't require the killing of those who don't accept our values, only those who actively work to oppose us and oppress the masses. That's why Alisha has to go. You said you think you know where she's hiding?"
+		
+		You nod.
+		
+		"Then lead the way."
+		*goto smoking_alisha_out	
+	#I tell Sevinc where to find Alisha.
+		*comment Sevinc does not share Ward's sentiment about only killing the worst of the bunch.
+		*set sevinc %+5
+		You find Sevinc leaning casually in the door to the men's bathroom, watching her armored dogs tear apart another of Alisha's ghouls. His name is Miller, or at least it was when he still had a face. "Not much more to be had here," the Assassin says as you approach. "Has Bobbi found Alisha yet?"
+		
+		You tell her what you discovered and her eyes light up with zealous fire. "I was starting to worry if all we had to kill were these boring foot-soldiers." 
+		
+		"I think he may already be dead."
+		
+		*if (sevinc_opposed > 0)
+			"So are you," she says. She lashes out faster than you can blink and pulls you into a small side-room behind a shimmering curtain of reflective metallic discs.
+			
+			"What are you doing?" you manage to choke out before she silences you.
+			*goto sevinc_ambushes_you2
+		"Come," she says, and you don't know if she's addressing you or her dogs. They trot up to you, muzzles wet with dark red blood.		
+		*if (ch5_worked_with_sevincs_dogs) 
+			*set sevinc %+5
+			
+			"You fight with the Mistress," Süphan says as you open yourself up to their voices.
+			
+			"You honor us," Ararat adds, not one to linger on conversation when there's killing to be done.
+			
+			"They like you," Sevinc says. "I would have thought it was impossible." She gestures you onward. "Lead us to her, $!{name}. I'd have this done."
+			*goto smoking_alisha_out
+		*else	
+			She gestures you onward. "Lead us to her, $!{name}. I'd have this done."
+			*goto smoking_alisha_out
+			
+		*label sevinc_ambushes_you
+		"Going somewhere in a hurry?" A strong hand grabs you around the collar and pulls you into a small side-room behind a shimmering curtain of reflective metallic discs. You struggle desperately, expecting to the see the face of one of Ottawa's Camarilla elite. You're surprised to see that it's only Sevinc.
+		*label sevinc_ambushes_you2
+			
+		"I think it's time the two of us had a proper private chat," she says. She's licking the tips of her fangs as you wriggle in her too-strong grip. If you employ sufficient violence you could probably get free, but you might want to hear what she has to say before starting something that will end with one or both of you destroyed. 
+		
+		"What do you want?" you ask. You notice that there's a young woman on the floor directly beside you, slowly bleeding out.
+		
+		Sevinc pushes you up against the wall, eyes traveling down toward your throat. "You're a riddle in search of an answer," she says. "You fight my methods at every turn, but you came here to Elysium with us anyway. Came to kill." Her nostrils flare and her eyes shoot downward. A knife is buried deep in her foot, gripped by the bleeding woman's trembling hand. Sevinc looks back up into your eyes, ignoring the mortal's pathetic attack the way one would neglect a pestering insect. "I'm…intrigued," she says. "Few Kindred would question me to my face. Question my decisions. 
+		@{(ch5_shot_sevinc) Or shoot me, for that matter. Don't think I've forgotten that. |} 
+		@{(ch5_shot_ward) Or shoot my partner, for that matter. No, I haven't forgotten you shooting Bobbi. Neither has he, if he were being honest with himself. |}
+		It riles the Blood, and my Blood is…intoxicated." She leans forward and stares into your eyes as she kicks the knife free and slams the heel of her boot into the mortal's face. Blood splatters the wall as her victim slowly shivers out her last. "I'm…Hungry."
+		*fake_choice
+			#I'm flustered and confused. I've questioned her and pissed her off on more than one occasion, but she's eyeing me hungrily. Almost like…a lover. I ask her what her intentions are while keeping an open mind.
+				"What do you want from me?" you ask. Sometimes a blunt question is the only natural response to a confusing situation, even if it only serves to make your position more awkward than it already is. "What is this? Why am I pinned here if you're not trying to kill me?" The last thing you want is to mis-read the Assassin's intentions.
+				
+				"Not kill you, no," she says. "But I'd have Blood." There's something in her eyes. An inebriation resulting from just the right alchemical reaction of bloodlust and…admiration? She grinds herself up against you, licking her lips and leaving little doubt as to her impassioned desire.
+				*choice
+					#I push her away. This isn't the time or the place for such games.
+						*goto push_sevinc_away
+					#I'm interested in seeing where this goes. I let Sevinc have her way with me.
+						*goto sevinc_has_her_way
+					#Sevinc should know better than to tease me. If she wants a taste of Blood, then I'll start with hers and see if she can take mine by force.
+						Sevinc barely has the time to recognize the twisted smile on your lips before you grab her around the waist and shove her up against the opposite wall of the nook, just as she did to you. She gasps as your teeth puncture the skin of her neck, shocked by the speed of your counterattack.
+						
+						"No," she groans. "Not yet." She pushes you back with monumental strength, smashing you an inch deep in the drywall. "You'll get your turn."						
+						*goto sevinc_has_her_way
+					#She's out of her mind and I'm not interested in her. I don't care how or why this is happening, I just want out.
+						*goto push_sevinc_away
+			#I push Sevinc away. I'm not interested in whatever twisted game it is that she's playing.
+				*label push_sevinc_away
+				You firmly push Sevinc away, making certain to use as little force as possible while still being firm. You don't want her to think you're attacking, but you also want no part of this twisted game she's playing.
+				
+				"But I was so sure…" she says, stifling a growl. "You'd defy me, even now?"
+				
+				You frown. Maybe another tactic will have more success. "Don't forget where we are, Sevinc," you say. "It's not only mortals opposing us here—there are Kindred in the Court and they'll destroy us if we let our guard down."
+				
+				"Yes," she mutters, visibly calming herself down. "You're right. I'll get my blood another way." She shoves past you without another word, back into Elysium's corridors. What a strange encounter—you'll need to make sure you don't get caught alone with her again. A choking gurgle pulls your attention by the floor as the mortal woman finally expires. You should feel a pang of guilt. Something. Anything. But you know what you came here to do and you were under no illusions that this was going to be a bloodless coup. You step back out into the hallway, ready to get back to the fight.		
+				*page_break
+				*goto fighting_arnold
+			#I'm interested in seeing where this goes. I let Sevinc have her way with me.
+				*label sevinc_has_her_way
+				*set ch7b_sevinc_hate_fuck true
+				Sevinc grips your shoulders hard enough that bone snaps out of place less than a second before she sinks her fangs into your neck. A deep-throated groan reverberates through your body as she grows warm to the touch, skin flush and alive with the joy of feeding on Kindred vitae. "Yes," she says, her words muffled. "Something different…something new…"
+				
+				The damaged drywall gives way and the two of you slam to the floor in a tangle of blood-soaked limbs. She's slick against you, grinding her body into yours as she takes what she wants. She never once stops feeding; not even the jolt from the impact jars her fangs loose. One of your hands is pinned behind your back, and you wrap the other around her shaggy hair—whether in an effort to pull her away or even closer is impossible to say. You're not so much thinking in [i]words[/i] anymore as you are in primeval [i]symbols,[/i] etchings on the empty cave walls of your mind, reeled back from modernity to the primitive days when there was only hunter and prey, man and beast. The eternal dichotomy that rules over both life and un-life. 
+			
+				Somewhere to your left you feel the dying mortal twitching through her last minutes on Earth as she slowly bleeds out. In other times you might have been able to bring yourself to care, but no sooner have you registered her distress than you're falling back into the depths of Blood-addled euphoria once again.
+				*fake_choice
+					#Turnabout is fair play. I pull Sevinc back by the hair and drink from her, stealing back what vitae is rightfully mine.
+						Your efforts are met with fierce resistance, but eventually she relents, fangs tearing loose from the ragged flesh of your neck and grazing upward until they rest on your lips. She presses against you with a forceful kiss, mingling the blood of your victims into a dark-red froth. She pulls back and licks the mixture from your cheek with sensual slowness, body warm with the blush of life.
+					
+						You pull her head aside, fingers entwined in her hair as she hesitantly allows you place your teeth on her neck. "There, that's it…" you say before puncturing her warm (why so warm?) skin. Deep red vitae flows, pulled reluctantly from her body to yours, revitalizing you. Some of this Blood was recently your own, now repatriated to your undead body in a frenzy of blood-soaked feeding. It would be impossible to describe this feeling to a mortal—the sensation of liberating Kindred vitae through the primal act of the Kiss. It may be as close to God as you'll ever get. That's why you're not surprised when Sevinc has had enough and pushes you back, a fanatical expression on her lips before she dives back toward your own neck for a second taste.
+						*page_break
+						*goto draining_the_will					
+					#I can't think past the bliss of the Kiss. I sprawl back and let Sevinc have her way with me.
+						*label draining_the_will
+						*gosub_scene functions add_hunger
+						A heavy sigh escapes your lips as Sevinc's increasingly manic feeding drains your will to fight back. You hadn't known it would feel this way. This perfect. This—
+						
+						"Sev?" That voice. You've heard that voice before. Is it? "Sevinc!" Ward shouts loud enough to pierce the muffling haze you're floating through. It's so peaceful here, so calm. And it all shatters when Ward wraps a meaty fist around Sevinc's neck and tears her from you the way a mortal would haul away a quarrelsome dog. "You out of your damn mind, Sevinc?" You blink lazily. Her teeth have left large flaps of ragged flesh dangling from your neck. You wonder if it's serious. You stop wondering when you notice the mortal woman wriggling like a worm on a hook. You didn't realize how Hungry you were until just now. 
+						
+						You crawl forward over the floor, streaking the hardwood with crimson gore as you pull yourself on top of the woman and begin to feed. There's not much left in her, and she's too weak to scream, but it's enough to help you get your head on straight. You can hear Ward berating his partner as the world comes into focus.
+						*page_break
+						"You out of your damn mind, Sev?" Ward thunders. "We worked so damn hard to get ${himher} over to our side and you try to drain ${himher}?"
+						
+						"You're the one who worked hard, Bobbi," she says. "$!{name} has passion, I'll give ${himher} that. We were just sharing a moment. I wasn't going to drain ${himher}."
+
+						The woman beneath you shivers. You're nearly done with your meal and your body is starting to realize that it aches. 
+						
+						"You might not have meant to drain ${himher}," Ward says. "But you know your clan's curse! You might not have been able to stop yourself!"
+						
+						"Bobbi, Bobbi, Bobbi," she slurs. "That's what I have you for!"
+						
+						Ward steps over and offers you a hand up, which you gratefully accept. "You gonna be okay, $!{name}?"
+						*fake_choice
+							#I groan. "Just great. Can we move on, please? And never speak of this again?"
+								Sevinc flashes you a smile. Her entire face is smeared with blood. "You mean you don't think you'll want to have a second go? Pity."
+								
+							#"You saw that, right? She nearly murdered me in the middle of the battle! She can't be trusted!"
+								Sevinc laughs. Her entire face is smeared with blood. "I can't tell if ${heshe}'s being serious, but it's funny either way. I was in complete control the entire time." 
+								
+							#"Never been better, Bobbi."
+								Sevinc laughs. Her entire face is smeared with blood. "I told you ${heshe} had passion," she says. "I think we'll have to revisit this again sometime, you and I. Under more controlled conditions without the chaperone."
+								
+							#"I'll be fine. But don't think I'm gonna forget this, Sevinc."
+								Sevinc flashes you a smile. Her entire face is smeared with blood. "I hope you won't. I'll be remembering it for a long time." She laughs. "Was it as good for you as it was for me?"
+								
+						"Enough!" Ward says. His tone is serious, brooking no disagreement. "We've found Alisha. Let's just go and get this done before we run out of time. I'll be having words with you about this once we're away, Sev. Don't think I'm gonna forget."
+						
+						"Of course, Bobbi, of course," Sevinc says. "Let's go kill the queen bitch and tear the whole thing down."
+						*goto smoking_alisha_out			
+					#This was an amusing distraction, but we can't waste any more time. I push her off and get back to finding Alisha.
+						The sharing of Blood has been a good distraction from the grim reality around you, but you're starting to grow concerned. Every second you waste mingling in bloodlust with a feverish Assassin is another moment your former Camarilla allies have to turn the tides and destroy you. You haven't come this far just to end up as a heap of ashes in Elysium's dust bin.
+						
+						You grip Sevinc's shoulders and try to push her off. "Sev," you say. It comes out as a dry groan. "Sevinc! We need to move!" She's not stopping—she's draining everything from you! You have to get her away! You have to—do what, exactly? A pleasurable emptiness envelops your cold, dead body. You could stay here forever in blissful eternity.
+						*goto draining_the_will
+			#She's out of her mind and I'm not interested in her. I don't care how or why this is happening, I just want out.
+				*goto push_sevinc_away
+	
+	#I go to Alisha myself, but rather than attack her, I plan to warn her and let her know exactly what she's dealing with. Maybe she knows an escape route?		
+		*set intend_to_kill_alisha false
+		*set subversive %-5
+		*set alisha %+20
+		*set ch7B_escaped_elysium_with_alisha true
+		This has gone entirely too far and you're not going to allow it to go any further. You watch for an opportunity to reach Alisha's hiding spot without being observed, and race there as quickly as possible. Unfortunately, the door is barred from the inside and nobody answers your calls.
+		
+		"Hey!" Hauberk calls down the corridor. "Did you find anything down there?"
+		
+		"No," you say simply, shaking your head. "I don't know where she is." 
+		
+		"We'll get her!" he grunts before moving on to another room adjacent to the kitchen.
+		
+		A whisper comes from behind the door. "You're alone, $!{name}?"
+		
+		@{(clan = "Malkavian") $!{malk_name} rounds the corner and walks over to you, ${malk_hisher} ${malk_clothing} torn and stained. "Never alone," ${malk_heshe} says. |}
+		
+		"Yes," you say. "We need a plan."
+		
+		"How many are there?"
+		
+		"Not counting me? At least ten plus some ghouls. I didn't see them all when Ward tried to recruit me—they took multiple vehicles to get here."
+		
+		A familiar voice calls down the hall. "$!{name}? What are you doing?" It's Jordan. You wave ${jordan_himher} your way, a finger to your lips. 
+		
+		"I'm here with Jordan," you say. "We want to help."
+		
+		"Oh crap," Jordan whispers. "Alisha's in there, isn't she?" You nod. "I'm glad you're not going through with this, $!{name}. It's gone too far."
+		
+		@{(clan = "Malkavian") "Bit late for a change of heart, isn't it?" $!{malk_name} asks. "I guess not. Was this the plan all along? Let me in on it next time, okay?" |}
+		
+		You hear something heavy being removed from the other side of the door and it creaks open, allowing you entry into a dimly lit room. Once you and Jordan are inside, it closes behind you. 
+		
+		"Jonathan?" you gasp in surprise as the old ghoul returns to his mistress's side. "I thought you were killed by the Tremere! Wasn't that the whole reason they called the Blood Hunt in the sewers?"
+		
+		"Don't be vulgar, darling," Alisha says. "The truth is as malleable and pliant as a mortal's flesh—you know that as well as anyone else if you're here. Considering you're betraying the Rabble you've been running with."
+
+		"Well, I don't mean to be 'vulgar,'" Jordan insists impatiently, emphasizing Alisha's usage of the word, "but we have maybe a few minutes at most before a horde of Anarchs bash down that door. What's the plan?"
+		
+		Alisha's lips twitch upward in dry amusement. "We're going to blow up Elysium."
+		*page_break
+		"You can't be serious," Jordan says. "You can't do that!" 
+		
+		Alisha directs Jonathan over to a biometric scanner on the wall. The ghoul leans down and holds his eye wide open between thumb and forefinger as the device takes a scan. A small panel with a numeric keypad pops open beside it.
+
+		"And why, exactly, can't I do that, @{(jordan_heshe = "he") Mr. | Ms. } Tremblay?" Alisha asks with a smirk. "I can't allow these creatures to survive after rampaging through my domain." She clicks her tongue and shakes her head theatrically. "No, no, no, that won't do at all."
+		*fake_choice
+			#"I assume there's more to the plan than that?"
+				"An astute observation, darling," Alisha says.
+				
+			#"What about your allies out there? The fledglings and blood dolls?"
+				"A minor setback," Alisha says. "But eminently replaceable. Besides, most of them are already dead."
+				
+			#"What? You can't do that, we're inside Elysium too!"
+				"Don't be flippant, darling," Alisha says. "I know what I'm doing."
+		
+		A sudden crash sends the doorway bending inward, straining against the wall as hinges groan a metallic whine, flexing from the outside pressure. A feral claw jams its way through the wood, tearing through it with alarming speed. 
+		
+		Alisha swears into her open palm. "Jonathan, you're going to have to hold them off."
+		
+		"Understood," the ghoul says calmly. "Get as far away as you can before I arm the charges." An aperture opens in the wall behind you, leading the way to a private elevator which Alisha subsequently ushers you into.
+		
+		"I'll come back for you, Jonathan," Alisha says softly. "You may survive."
+		
+		"I appreciate the sentiment, ma'am." He bows. "It's been an honor working with you."
+		
+		The Keeper of Elysium steps into the room beside you and presses a gilded button for the ground floor. The mechanisms rumble to life and the elevator begins its descent as you share an awkward look with Jordan. Alisha makes a motion very similar to wiping away a tear.
+
+		@{(clan = "Malkavian") "Is she actually crying?" $!{malk_name} asks. "Oh, god, we're so dead. She'll never let us tell anyone about that." |}
+		
+		"If you tell anyone about Jonathan," she says. "I'll have you gutted every night for a year. You'll beg me to end your miserable existences."
+		
+		You wisely decide to keep your mouth shut. At least for now.
+		
+		Far above, the building shudders and the lights flicker ominously. Then…nothing. Was that it? Almost a minute later, the elevator reaches the ground floor and its door opens into an abandoned-looking private room. The tables and chairs are all covered by white sheets turned grey by a fine layer of dust. Alisha steps out and you follow her, eyes cast to the ceiling questioningly. 
+		
+		"The Elysium floor is self-contained," she answers your unspoken question. "Thick, reinforced steel at every angle designed to contain any unfortunate outbursts and redirect damage inward as shrapnel. Pretty much everyone inside will be incinerated by now. It's really quite ingenious—a shame I had to have the architect killed to keep him quiet."
+		
+		The three of you step out onto the sidewalk and stare up the building's mirrored face. The windows on the Elysium floor are hidden behind dark metal shutters, but other than that you'd have no way of knowing everything inside had just been reduced to a pile of smoldering rubble.
+		
+		"Come," Alisha waves you into the back of a limo that mysteriously appeared while you were staring upward. "I'll take you home. I think I should keep your involvement with the Anarchs as our little secret for now, don't you?" She shrugs languidly. "Of course if you were to step out of line…" She leaves the rest unsaid, but it doesn't take an active imagination to gather her meaning. "Oh, come now," Alisha says with a smile. "We'll have so much fun working together."
+		*achieve going_down
+		*finish	
+	#I go to find Alisha, intending to take her down myself. I don't need any help to destroy that preening Degenerate.
+		*set ruthless %+5
+		You watch for an opportunity to reach Alisha's hiding spot without being observed, then race
+		*if (sevinc_opposed > 1)
+			in that direction as quickly as possible. Unfortunately, you don't quite make it.
+			
+			*goto sevinc_ambushes_you
+		there as quickly as possible. Unfortunately, the door is barred from the inside and nobody answers your calls. At first glance, it seems like the door is just like the others in Elysium, but looking closer, you can see that it's reinforced in subtle ways that may make gaining entry more difficult.
+		*choice
+			#I smash the door down, removing the barrier by brute force. @{(storyteller) (strength/stamina) |}
+				Why rely on tricks when you have the strength of the undead flowing through your Blood? Sometimes the best route is the most direct one. 
+				
+				You pull away from the door and run at it, ramming with your shoulder. The wood creaks and hinges whine, but the door itself doesn't budge. It might take a few tries, but if you don't get it soon, you'll attract the attention of the other Anarchs.
+				
+				You step back again and put everything you have into your second charge.
+				*if (((strength + stamina) > 100) or (strength > 60))
+					The door crashes open with a satisfying splintering of wood and you rush in, ready to take on Alisha. What you find instead is her ghoul, Jonathan, waiting for you with a disturbing vivacity for one who's supposed to be dead. 
+					*label thats_not_alisha
+					*set ward %+5
+					*set ch7B_saw_jonathan_alive true
+					
+					"I thought you were killed by the Tremere," you say, eyes scanning the rest of the room for the elusive Keeper. "Wasn't that the whole reason they called the Blood Hunt in the sewers?" There! Behind him! A quick flurry of motion as a door clicks shut on the opposite end of the room.
+					
+					"It's distressing to see how far you've fallen, $!{name}," the old ghoul says. An orange flash proceeds an explosion of pain in your ribs as Jonathan fires a sawed-off shotgun one-handed, almost point-blank into your chest. You jerk backward instinctively and the ghoul retreats to join Alisha in the hidden room and locks the door while you're stunned.
+					*goto crap_its_hauberk
+				*else
+					You collide with all your strength and a panel splinters by your elbow, but the frame itself remains firm. Through the hole you see a flurry of movement—she's still in there!
+					*label crap_its_hauberk
+					
+					"What're you doing down there?" a raspy voice calls down the hall to you. Crap, it's Hauberk. "You find something?"
+					
+					You try to turn the curious Feral away, but with his attention piqued, there's no dissuading him. Further down the hall, Sevinc rounds the corner into view, followed almost immediately by Ward. So much for taking Alisha on by yourself.
+					
+					"Did you find her?" Ward bellows. "The fighting's died down—it's a clean-sweep." He grins. "But we haven't found the Keeper yet."
+					
+					Now that you're found out, there's not much point in lying. "I think I saw her in here, but the door's jammed," you say, stepping back to allow the Anarchs access. @{(ch7B_saw_jonathan_alive) "Her ghoul, Jonathan, is with her. He has a shotgun." |}
+					*goto smoking_alisha_out
+			#I call for Alisha through the door, hoping to convince her that I'm on her side. @{(storyteller) (charisma/composure or manipulation) |}
+				You put your lips close to the door and call through the wood. "Alisha! It's $!{name}! We have a chance to get you out of here while they're still searching, but you have to act quickly. If they corner you in there it's all over; Ward brought too many vampires for us to fight off alone!"
+				
+				*if (((charisma + composure) > 100) or (manipulation > 60))
+					For a moment, you think no one's going to answer you, but then a whisper calls out from the other side. "There's no one else with you?"
+					
+					"Not yet," you say. "Come on, there's still time!"
+					
+					The door unlatches and you rush in, ready to take on Alisha. What you find instead is her ghoul, Jonathan, waiting for you with a disturbing vivacity for one who's supposed to be dead. 
+					*goto thats_not_alisha
+				*else
+					Nothing. No answer. Damn it—there has to be something you haven't thought of!
+					*goto crap_its_hauberk
+			#I take a moment to look over the door and analyze its weak spots. With a good enough eye, I may be able to get it open easier than I could with brute force. @{(storyteller) (wits/resolve or intelligence) |}
+				You take a moment to think, blotting out the chaos tearing through Elysium while you examine the door for weak points. The hinges are on the inside, so that's a nonstarter. Quality hardwood construction—it would be difficult to ram through without some serious effort. But wait a moment. The areas outside the frame—the drywall surrounding it—they don't look reinforced at all. If you can figure out just where to hit it, you could punch a hole in the wall and reach through to unlock the door! 
+				
+				*if (((wits + resolve) > 100) or (intelligence > 60))
+					You calculate just the right spot and slam your fist into the drywall to the right of the doorframe. The flimsy material crashes inward and you reach to the left, feeling for the deadbolt and sliding it free. 
+				
+					You kick the door open with your left foot as you quickly pull your arm out from the wall, ready to take on Alisha. What you find instead is her ghoul, Jonathan, waiting for you with a disturbing vivacity for one who's supposed to be dead.  
+					*goto thats_not_alisha
+				*else
+					You calculate what you think must be the right spot and slam your fist into the drywall to the right of the doorframe. Pain shoots through your fingers and knuckles as your fist collides with a metal support beam. Wincing, you pull your arm back, ready to try again in another spot.
+					*goto crap_its_hauberk
+	*if (ch7B_fought_arnold = false) #I'm not interested in Alisha, I want to fight the less powerful—the neonates and the fledglings, destroying all in my way.
+		You pass the individual clashes, excited to prove your worth to the Anarchs by taking out another vampire. You have a feeling that Ward will be impressed with you spilling Blood in the name of his cause, whether you're fully on-board with the Anarch philosophy or not.
+		
+		*if (sevinc_opposed > 1)
+			*goto sevinc_ambushes_you
+		*goto fighting_arnold
+		
+*label smoking_alisha_out
+*page_break
+"Knock, knock," Ward calls to Alisha mockingly through the door. "There's nowhere to run. Why not face the inevitable with that famous Toreador pride?"
+@{(clan = "Toreador") He turns to you with an half-apologetic grin. "No offence to present company. Sometimes Toreador pride can be helpful." |}
+
+"Enough of this cat and mouse game," Sevinc mutters as she retrieves two small packages strapped to her dogs' backs and hands them to Hauberk. The Feral kneels down beside the door and busies himself unwrapping them, revealing what looks like a half-dozen plastic explosives and a triggering mechanism.
+
+@{(clan = "Malkavian") $!{malk_name} rounds the corner and walks over to you, ${malk_hisher} ${malk_clothing} torn and stained. $!{malk_heshe} does a double-take when ${malk_heshe} sees the explosives. "I'd say this escalated quickly, but after what we just did, I think I should have expected a backpack full of bombs." |}
+
+Alisha's voice calls from the other side of the door. "This was a mistake, Robert." She somehow manages to sound haughty even while cornered like a rat in a trap. "You've over-extended yourself. There's an Archon scouring the city looking for you and you've just lit a beacon that could be seen from space." 
+
+"Archon?" Ward mumbles, glancing at Sevinc before raising his voice. "You didn't tell me there was a fucking Archon in Ottawa!"
+
+To her credit, the Assassin looks just as stunned as her co-conspirator. "I didn't know," she replies simply. "There's no time to draw this out." She lowers her voice and whispers to Hauberk. "Set the charges for a minute and a half. We'll be back on the ground by the time they blow."
+
+@{(clan = "Malkavian") "Huh," $!{malk_name} says. "Maybe we shoulda mentioned the whole Archon thing." |}
+
+Damn it. In the excitement and revelations leading up to the attack, you hadn't realized that your new allies didn't know about Adeline's presence. In your experience, if the servants know, everyone knows. But the Anarchs have been cut off from Kindred society.
+
+"You don't have much time," Alisha says. "You may be able to break into my safe-room, but my defenses will tear you to pieces. You've made your point—shown us how big your swinging prick is—now you should run before the cavalry arrives and shreds you into a fine, red mist."
+
+You take several steps away from the explosives—vampiric instincts rebelling at the thought of the fiery inferno contained within—and bump into Jordan.
+
+"She thinks Ward wants to gut her, himself," ${jordan_heshe} whispers. "I don't think she realizes that they brought explosives. It's not too late to back away from this. Destroying fledglings and neonates is bad enough, but if we actually destroy the Keeper of Elysium, the Camarilla will never stop hunting us. You've met that Archon; she means business!" @{(clan = "Malkavian") $!{malk_name} shrugs and looks from Jordan to you as if waiting for an answer. |}
+
+Beside the door, Ward hesitates—news of the Archon seems to have shaken him more than you expected it would have. How could they not have known? Then again, Archons like Adeline are feared for good reason; even Corliss hadn't known that she was in the city until she presented herself in person to make her demands.
+*choice
+	#We should continue with Sevinc's plan and blow Alisha's safe room to pieces and her along with it. We've come too far to back down now.
+		*set ruthless %+5
+		Jordan bites ${jordan_hisher} lip. "Usually I trust your judgment, $!{name}, but once this is over, I want off. I don't think I can keep doing this."		
+		*goto continue_as_planned	
+	#I try to convince Ward and Sevinc to back off. If he's that concerned about the Archon, then maybe we should get out of here before things start to explode.
+		*set ruthless %-5
+		*set ch7B_convinced_anarchs_to_leave true
+		You tap Ward on the back of his massive shoulders to grab his attention while Sevinc helps Hauberk set the explosives. "I think we should back off," you say quietly. "Alisha is right about one thing—that Archon will eat us alive."
+		
+		"What do you know about the Archon?" he asks, suddenly watching you very closely.
+		
+		"I met her briefly the other night. She's been in the city for a while, but only just announced herself to Corliss."
+		
+		"And you didn't tell me about it?" Ward's face flushes with a surprisingly mortal-level of emotion. "You didn't think that would be important to let me know?" @{(clan = "Malkavian") $!{malk_name} winces. |}
+		
+		"I'm telling you now," you say, taking an involuntary step back. "You didn't exactly give us much warning about this whole operation. One minute I'm picked up by a ghoul I've never met, then you're talking about repressed memories, and then minutes later we're attacking Elysium? At what point was I supposed to even have the time to think about briefing you on the events of the last few nights?"
+		
+		The Anarch visibly pulls himself together and calms down. "Do you know the Archon's name?"
+		
+		"Adeline."
+		
+		"Jesus fucking Christ," Ward groans and turns his back on you to speak with Sevinc. They argue in barely audible whispers before seeming to come to an understanding and Ward returns to you. "We're backing off for now," he says, worry showing on his face. "I know that woman, and she's not someone to be fucked with. But she has an entire continent to oversee and she's in demand. We keep quiet for a while, then when she's gone, we finish what we started. By the time she gets returns, we'll at least be in a defensible position rather than scurrying from hole to hole like rats. It's easier to fight something you know is coming."
+		
+		"This is a mistake, Robert," Sevinc hisses as she directs Hauberk to pack up the explosives. "I'm starting to question your devotion to the cause."
+		
+		"You've been questioning me since I first saw you on that park bench," Ward says. "This is my operation and I'm saying we pack it in."
+		
+		@{(clan = "Malkavian") $!{malk_name} looks back and forth between Sevinc and Ward. "I'm starting to think they might not like each other very much." |}
+		*fake_choice
+			#"Ward's right, Sevinc. You haven't met this woman, but from what I can tell she means serious business."
+				*set sevinc %-5
+				*set ward %+5
+				"You've met this Archon?" Sevinc growls. "When were you planning on informing us?"
+				
+				"We've already been over that," Ward says. "Now is not the time."
+				
+			#"We've already made our point here. If a show of strength is what you were going for, then we've accomplished that."
+				Sevinc flashes Ward a hard look before disengaging and stepping away entirely without saying anything else.
+				
+			#"Is there something about this mission that you're not telling me?"
+				"There's always more than what individual Kindred know, $!{name}," Sevinc says dismissively. "That's how the great game is played. My hope has always been to reduce that burden for a freer existence, but Robert seems to have forgotten that."
+				
+				"We don't have time for this argument again," Ward says. "We need to move. Now."
+				
+			#I stay quiet. Interjecting at this point would be counterproductive.
+				*set ruthless %-5
+				*set sevinc %+5
+				For a moment, it looks like Sevinc is about to attack Ward. She tenses like she's ready to spring, but then relaxes with a long-suffering sigh. "Have it your way, Robert. But don't think I'll be trusting your judgment in the future. You're not Baron material."
+				
+		Hauberk has barely removed the third explosive charge when the building groans and quakes beneath your feet. The Feral whines anxiously and looks to Ward for answers that none of you have to offer him. Even Sevinc looks disturbed.
+		
+		"What was that?" Jordan asks. $!{jordan_hisher} eyes are wide with alarm. "I didn't have visions about any of this—this can't be the end!" It doesn't look like ${jordan_heshe} believes what ${jordan_heshe}'s saying.
+
+		"She's here," Ward mutters. "Adeline. It's got to be her." He gestures to Hauberk to pack up the explosives he's already disarmed and leave the rest. "We're leaving. Now."
+		
+		The five of you take off down the hallway, leaving half of the bombs behind, armed and ready to blow. You burst into the main rooms as several of Ward's remaining followers shake off their panic and join you in the race to safety. Something in the walls is groaning and support beams creak under a phantom pressure you can't feel or see. 
+		
+		@{(clan = "Malkavian") $!{malk_name} falters mid-step and disappears, returning to speak in your mind. "It's too much. Felt like I was being crushed!" |}
+		
+		Ward's muscles bulge to obscene proportions as he pulls the metal doors open, revealing an empty shaft extending a dozen floors into the darkness below. Somewhere above, the elevator slowly creaks downward toward you. 
+		
+		"There's no time!" Ward grunts before leaping into the darkness without a second's hesitation. 
+		
+		"Strongest survive," Hauberk grunts as he and the other Gangrel leap after their leader. Sevinc gathers her Rottweilers, somehow managing to carry one on each shoulder before morphing into a blur and practically nose-diving downward, leaping between floors with inhuman grace, vaulting from side to side in an effort to survive the fall.
+		
+		"I think I can pick out a safe way down," Jordan says. "We have to be quick."
+		*choice
+			#I follow Jordan down the elevator shaft, trusting ${jordan_hisher} heightened senses to pick out the requisite handholds to keep us from tumbling down to our doom.
+				*set jordan %+5
+				"Come on, $!{name}," Jordan says as ${jordan_heshe} takes a single harrowing jump into the dark of the elevator shaft. You follow on ${jordan_hisher} heels, @{(auspex) counting yourself fortunate that you have similar enhanced senses running in your Bloodline. | wishing you were fortunate enough to possess ${jordan_hisher} extra-sensory gifts. } At each floor, the elevator landing sticks out into the shaft by little more than an inch, and you jump down from one to the other, narrowly avoiding a trip that could send you dropping several floors onto an unforgiving bed of cold steel. 
+				*label elevator_grinds
+				The elevator grinds to a halt on the Elysium floor above you, giving you just enough time to reach the bottom before a sharp, hot rush of air rushes down the shaft, pushing you out onto the ground floor where you crash into Hauberk. 
+				
+				*label building_shakes
+				The building shakes for a moment and then it's still. You swear you can smell the fire, but there are no visible flames. At least down here….
+				
+				"Hauberk, are you sure you deactivated those charges?" Sevinc asks quietly as she searches the lobby for any untimely visitors. A single security guard is collapsed over his desk, unconscious.
+
+				"I know what I'm doing," the Feral replies indignantly. "Why?"
+				
+				"Because you can smell as well as I can that Elysium just went up in flames behind us. $!{name} was right to warn us."
+				*page_break
+				*goto exiting_the_building
+			*if (celerity)
+				*selectable_if (hunger < 5) #[b]Celerity (+ Hunger):[/b] I draw on my ability to enhance my speed, descending with a similar grace to Sevinc.
+					*set sevinc %+10
+					The chaotic world slows to a calm and you can feel the slow pulsing of your Blood as you race to follow Sevinc down the elevator shaft. Your feet touch feather-light against small concrete landings that couldn't be much more than an inch wide, using them to propel yourself downward while occasionally pushing off the steel elevator cable for support and maintaining your equilibrium as you spiral downward.
+					
+					*goto elevator_grinds
+			*if (fortitude)
+				*selectable_if (hunger < 5) #[b]Fortitude (+ Hunger):[/b] I enhance my physical toughness to be able to withstand the jump.			
+					*goto the_great_leap_forward
+			*if (potence)
+				*selectable_if (hunger < 5) #[b]Potence (+ Hunger):[/b] I follow Ward's example and utilize my supernatural strength and toughness to survive a controlled leap downward.
+					*label the_great_leap_forward
+					*set ward %+10
+					"I'll see you in the lobby," you say to Jordan as you follow Ward's lead and take the path downward with the quickest and simplest approach. When you hit the bottom, your feet leave a small dent in the metal and the impact reverberates up your legs painfully. You feel like you've just taken a severe beating to your feet and calves, but you'll mend in time, and you're in too much of a hurry to dwell on the throbbing as your muscles slowly mend themselves. 
+					
+					"Look out below!" Jordan calls down from the floor above before landing nimbly right beside you. "If I hadn't taken smaller jumps I'd have broken my legs in half," ${jordan_heshe} says. @{(current_relationship1 = "jordan") $!{jordan_heshe} offers you a hand and pulls you out, collecting you into a desperate hug. "I thought we weren't going to make it out of there, $!{name}. Please tell me we won't do something that reckless again?" |}
+					
+					A sharp, hot rush of air rushes down the shaft, pushing the two of you to the floor and nearly crashing into Hauberk.
+					*goto building_shakes	
+			#I climb down on my own, trusting my own instincts and no one else's.
+				"Come on, $!{name}," Jordan says as ${jordan_heshe} takes a single harrowing jump into the dark of the elevator shaft.
+				
+				You wait for a moment before following, choosing your own path and trusting your judgment as you do your best to manage a safe descent that's also quick enough to avoid whatever unseen danger is causing Elysium to creak and groan with the disturbing sound of flexing steel.
+		
+				*goto elevator_grinds
+	#"I don't care what the Anarchs do—after all this insanity is over, I'm out of here. I'm not staying around for the fireworks."
+		*set ruthless %-5
+		Jordan seems relieved. "I'm glad you've come to your senses," ${jordan_heshe} says. "I don't think we can talk them out of this any more than Alisha can, but this is the last stop for me. I want out."		
+		*label continue_as_planned
+		
+		"Last chance to come out and face us with some dignity," Ward calls through the door as Hauberk gets to his feet after planting the final explosive. "We can wait all night if we have to." He steps away quietly and motions the rest of you to follow him back toward the elevator. 
+		
+		"It's too good for her," Sevinc mutters as you pass the well-stocked bar leading into the main hall. "She should know that her final death is upon her, so she can reflect on the fact that all her scheming and machinations were for nothing. A wasted second chance at putting her stamp on the world." From this angle, the track lighting covering the floor of Elysium shines through multi-colored bottles, creating a dazzling rainbow effect only somewhat spoiled by the shattered remains of a small cluster that were smashed during the fighting. Glass shards crunch underfoot as you pad quietly away like a thief in the night.
+		*fake_choice
+			#"This sounds personal to you," I whisper to Sevinc.
+				"The final death of any vampire is personal to a child of Haqim," Sevinc says, enigmatically. "But Alisha's is more personal than most."
+			
+			#"I assume you brought those bombs for a reason. You want to be sure to do the job right with the minimum casualties on your side."
+				"An unfortunate necessity," Sevinc says. "I would have preferred to face her myself, but it was not fated to be."
+			
+			#"Somehow, I don't think she would appreciate the revelation."
+				"What you don't know about Alisha Grey could fill many books, $!{name}," Sevinc says. "The empathy she once showed for the downtrodden makes her choices in recent nights all the more repugnant."
+				
+			#I stay silent and focus on escaping Elysium as quickly and quietly as possible.
+				*set sevinc %+5
+				Sevinc seems to appreciate your lack of curiosity. In most Kindred circles, it's best not to pry, and a well-timed silence can eventually pave the way to mutual trust.
+				
+		Ward's remaining disciples abandon their grisly work when they see their leader approaching the elevator. Most of their faces and clothes are spattered with an excessive amount of gore, telling expressive stories of their victims' struggles and eventual submission. The elevator door slides open. It's spacious, designed to accommodate well over a dozen affluent mortals or Kindred at a time.
+		
+		Ward's finger hovers over the off-white light of the ground floor button. "Set the countdown, Hauberk. Even if she realizes we're gone—" He's cut short as the building heaves beneath your feet and something in the walls groans. Support beams creak under a phantom pressure you can't feel or see. "What the hell?" He stabs the button and the elevator door slides closed before beginning a painfully slow descent.
+
+		@{(clan = "Malkavian") A furious $!{malk_name} throws a punch right through the Feral's head, but no one bats an eye. "That idiot set them off early!" |}	
+		
+		"It was on a timer," Hauberk whines to Ward. He scampers as far out of range of his boss's fists as he can within the enclosed space. "Something must have set them off early!"
+		
+		A terrible wave of heat rushes unseen down the elevator shaft, turning the walls and floor of the enclosed room hot enough to blister the hand you'd been leaning with. The elevator jerks in place and its lights flicker before it resumes its downward crawl. Behind you, Sevinc mumbles a prayer in a language you've never heard. 
+		
+		The part of you anticipating the worst is almost disappointed when a delicate tone dings and the door opens, revealing a quiet ground floor. 
+		
+		"There's a security guard up ahead," Jordan whispers. "At least he was when we came in."
+		
+		Sevinc pulls her blade, but Ward puts a hand on her arm to caution her. "The cameras should still be out if we did our jobs right. But if we leave a trail of mortal bodies in places that civilians can see, the cops will be up our ass for weeks. Corliss won't let what happened to Elysium be investigated or hit the press for fear of a Masquerade breach, but we need to be more circumspect in the outside world."
+		
+		You peer around the bend to observe the glass front door. The lobby is dead quiet this time of night—you're surprised by how little the explosion affected the rest of the building. You wonder what kind of physical or mystical reinforcement there was between floors to maintain the club's secretive function. At a desk to the right of the entrance, a bored-looking security guard sits reclined in a padded chair. His glasses reflect flickering video from a movie he's watching on one of his computer monitors.
+		
+		*if (clan = "Malkavian")
+			@{(malk_demeanor = 1) "We should leave him alone," $!{malk_name} says. "He doesn't deserve to die just for being in the wrong place at the wrong time." |}
+			@{(malk_demeanor = 2) "Getting bored of targets that fight back?" $!{malk_name} asks. "Maybe this poor slob is more your speed." |}
+			@{(malk_demeanor = 3) "Sometimes the smartest choice is to not over-think things," $!{malk_name} says. "That guard isn't paying any attention to what's going on around him, but if strange things happen that would make him remember us, then we'll have to kill him. This close to the street, that could cause a whole mess that we want nothing to do with." |}
+			@{(malk_demeanor = 4) "Completely unaware prey," $!{malk_name} says through grinning fangs. "We can't leave witnesses behind, now can we? You know what we have to do. We've come this far—murder is the only natural conclusion." |}		
+		*choice
+			*if (hunger > 2) #After everything I've been through tonight, I'm feeling incredibly hungry. "If he's the only one in the lobby, I could feed on him safely. You could move through while he's lost in the Kiss." @{(storyteller) (dexterity/resolve or wits) |}
+				*gosub_scene functions normal_feeding
+				"You're not the only one feeling the need," Ward says. "But I have options for the end of the night that you don't. If you think you can take him safely, feel free."
+				
+				Sevinc fiddles with something in her pocket, clearly agitated. "And if $!{heshe}'s seen? It's a clear shot to the desk even if the security buffoon is too busy watching a movie to notice us over here."
+				
+				"If $!{name} fucks up, then you can do your thing," Ward replies with a shrug. Let's do this and get the hell out of here."
+				*page_break
+				You creep around the corner and circle behind the security guard's desk. He's paying rapt attention to a YouTube video of an unhinged-looking man ranting about something that sounds vaguely political. This should be easy. 
+				
+				*if ((((dexterity + resolve) > 100) or (wits > 64)) or (clan = "Lasombra"))
+					*set sevinc %+5
+					@{(clan != "Lasombra") A moment before you move in to strike, you notice the reflection of the second computer monitor lines up directly with your chosen approach. You re-judge the angle and adjust accordingly. |} When your fangs sink into the security guard's neck, he gasps in surprise before heaving a heavy sigh and falling back in his chair as you take your fill of him.
+					*goto exiting_the_building
+				*else
+					*set sevinc %-5
+					*gosub_scene functions add_hunger
+					A second too late, you notice that the guard's second computer monitor is angled slightly, clearly showing a reflection of you creeping up. It takes him a moment to notice, but by the time you strike, he's already halfway out of his chair and reaching for an alarm button underneath the desk. You manage to sink your fangs into his neck a moment before Sevinc appears beside you, injecting the contents of a hypodermic needle into him. You cough and sputter, pulling away after only a few sips of the precious fluid.
+					
+					The Assassin glares at you furiously. "You could have cost us everything," she seethes. "Clumsy! Sloppy!" She grabs your arm painfully and pulls you the rest of the way into the vestibule before she lets you go.
+					*page_break
+					*goto exiting_the_building
+			*if (obfuscate)
+				*selectable_if (hunger < 5) #[b]Obfuscate (+ Hunger):[/b] "I'll sneak over to him and knock him out before he can see any of us. No killing, no body. Just a lazy security guard who fell asleep on the job."
+					*set sevinc %+5
+					*gosub_scene functions add_hunger
+					@{((clan = "Malkavian") and (malk_demeanor = 4)) "Uggh," $!{malk_name} says. "You're no fun at all." |}
+					
+					"I should do it," Sevinc says. "We can't afford mistakes." She pulls a small hypodermic needle from a pouch at her waist.
+					
+					Ward shakes his head. "Let $!{name} prove ${himher}self. It's just one mortal, and not a particularly intimidating one."
+					
+					"You put an awful lot of faith in ${himher}," Sevinc grunts. "Maybe too much." She hands you the needle. "Right in the neck. And don't take too long; finish the injection before he has time to move or see you."
+					
+					You take the needle and concentrate on the sluggish flow of Blood through your veins, blocking out the rest of reality until you part ways with it, merging with the shadows to become invisible to the naked eye. Leaving the Anarchs for the moment, you drift around the corner and circle behind the security guard's desk. He's paying rapt attention to a YouTube video of an unhinged-looking man ranting about something that sounds vaguely political. This should be easy.
+					
+					You ready the needle just over the muscles where his neck meets his shoulder and plunge it downward, depressing the plunger the moment you feel skin breaking.
+					
+					"What the hell?" the guard growls, jerking upward, away from his computer in surprise. His hand slaps to his neck and when he discovers the needle, he starts to turn. You pull the syringe free and skirt around behind him before he can see your face. Seconds later he starts drooping to the floor and you pick him up, positioning him with his head down beside the keyboard. If you're lucky, the next mortal to see him will just roll their eyes and assume he's sleeping.
+					
+					"Perfect," Sevinc says when you return the needle to her. "I couldn't have handled it better myself."
+					*page_break
+					*goto exiting_the_building
+			*if (obfuscate = false) #"One of us should sneak over there and knock him out before he can see any of us. No killing, no body. Just a lazy security guard who fell asleep on the job."
+				*set jordan %+5
+				"Sometimes the best ideas are the easiest," Sevinc agrees.
+				
+				"And the cleanest," Jordan says with an approving nod.
+				
+				Sevinc pulls a small hypodermic needle from a pouch at her waist and 
+				*label sevinc_creeps_security
+				creeps around the corner in the direction of the security station. By the time you risk a look, she's completely disappeared from view. Seconds later, the guard jerks backward with a gasp of sudden fear as Sevinc reappears and jabs the needle into his neck. Within seconds, he's out cold and she props him up on his desk, head down beside the keyboard. If you're lucky, the next mortal to see him will just roll their eyes and assume he's sleeping.
+				
+				"Let's go," Ward says. "Before someone comes through here on a late-night stroll."
+				*page_break
+				*goto exiting_the_building
+			#"There's no need to kill him. We should just walk out like we belong here. It looks like he's too lazy to even notice or care about us."
+				*set ruthless %-5
+				@{((clan = "Malkavian") and (malk_demeanor = 4)) "Uggh," $!{malk_name} says. "You're no fun at all." |}
+				
+				"It's not a good idea," Sevinc says. "Too risky to just walk out. We'll be seen."
+				
+				"Better than leaving a corpse," Jordan replies.
+				
+				Ward shakes his head. "We don't have time to argue. This guy doesn't look like he gives much of a shit about his job. He's half-asleep as it is."
+				
+				You end up walking out in groups, casually, two-by-two and three-by-three until you're all past the guard and in the main vestibule.
+				
+				"He didn't even look up once," Hauberk marvels. "What the hell are they even paying him for? Corliss will have his head on a plate if she figures out we walked right past him."
+				
+				"Not our problem," Sevinc says as she turns to Ward. "Get our fresh clothes before we go out. The last thing we need is someone with a functioning brain to see us while they're out on a midnight stroll."
+				*page_break
+				Ward watches the street for pedestrians before running out to the back of his car and popping the trunk, rummaging through it for a minute as you wait impatiently. When he returns, he
+				*goto baggy_shirts
+			#"We need to kill him. Anything else poses too much risk."
+				*set humanity -1
+				*set ruthless %+10
+				*set sevinc %+5
+				*set jordan %-10
+				*set ward %+5
+				"Seriously, $!{name}?" Jordan gasps. "There's no need to be that cruel. Not to mention the fact that a body will raise the alarm as soon as it's discovered. I'm disappointed…" @{(current_relationship1 = "jordan") $!{jordan_heshe} pulls away from you, a sad look on ${jordan_hisher} face. |}
+				
+				@{((clan = "Malkavian") and ((malk_demeanor = 4) or (malk_demeanor = 2))) "Uggh," $!{malk_name} says. "You'd think we were traveling with pacifists instead of a group of Anarchs who just murdered their way through Elysium." |}
+				
+				"As much as I appreciate your enthusiasm," Sevinc says, @{(jordan_heshe = "he") "Mr. | "Ms. } Tremblay is right about one thing: a body in a public area would be an unnecessary complication." She pulls a small hypodermic needle from a pouch at her waist. "This will take care of him without any undue mess." She palms the needle and		
+				*goto sevinc_creeps_security
+				
+*label exiting_the_building
+
+Ward re-enters through the building's glass door and 
+*label baggy_shirts
+tosses two grey duffel bags in your direction. You unzip one of them, surprised to see that it contains a strange mix of oversized clothing. "It's clear outside," Ward says. "We're lucky it was a quiet night. Throw those shirts over what you're wearing and let's get the hell out of here."
+
+Jordan picks a bulky, formless sweater out of the bag and examines it dubiously. "Seriously? You want me to wear this?"
+
+@{(clan = "Malkavian") "The height of fashion," $!{malk_name} says. $!{malk_hisher} ${malk_clothing} fades out, replaced by a sweater that looks just like the ones in Ward's duffel. |}
+
+"To hide the blood and torn fabric," Hauberk says simply as he pulls a dark blue turtleneck over his head. "It's going to be bad enough after pissing off the city's Camarilla this much, but if we get the mortal cops on our tail on top of it, we're well and truly fucked."
+
+You've barely stepped outside when you hear a voice call your name, stopping you in your tracks before you can get in the vehicle with Ward's ghoul, Stan. You wince as if you've been hit with a physical blow and turn to face 
+*if (have_a_second_ghoul)
+	*if (second_ghoul = "sam")
+		*set ch7_ghoul "Sam"
+	*if (second_ghoul = "abagail")
+		*set ch7_ghoul "Abagail"
+	$!{second_ghoul}. $!{second_ghoul_heshe}'s parked right behind the Anarch entourage in the dark blue Lexus ES Gerard acquired for ${second_ghoul_himher}.
+	
+	"You know this mortal?" Ward asks, one hand gripping the sawed-off hidden beneath his coat.
+	
+	"My new ghoul," you say. "But I don't know how ${second_ghoul_heshe} found me here."
+	
+	Ward shakes his head. "Worry about it later. For now just go with ${second_ghoul_himher} and tell ${second_ghoul_himher} to follow us. Find out what happened while you're on your way and we'll decide what to do about ${second_ghoul_himher} when we go our separate ways." He holds a hand out to Jordan. "Come, ride with me. We're all going to the same place."
+	
+	You start to object, but Jordan waves you off. "It's okay, $!{name}. He just wants to make sure we can be trusted. I'll see you in a bit."	
+	*page_break
+	"They thought you might be dead," $!{second_ghoul} says as ${second_ghoul_heshe} pulls the car out to follow the Anarchs. "Gerard didn't believe it, but he said that the Sheriff thought you might have been ambushed on the way to your engagement tonight." $!{second_ghoul_heshe} pauses for a moment. "I've never seen any of those people before. Are they from your…" ${second_ghoul_heshe} struggles to find the right word, "…coterie?" Gerard must have been giving ${second_ghoul_himher} basic lessons in Kindred lexicon. It's a good start, although it means you'll have to be more careful what you say until the Bond is strong enough that you can be sure of ${second_ghoul_hisher} absolute loyalty.
+	*fake_choice
+		#"No questions for now. I just need you to drive. Follow their cars."
+			There's  the briefest hint of a pause before $!{second_ghoul} says "Yes, ${sirmaam}." Perhaps another feeding on your Blood is due soon to ensure immediate compliance. A ghoul who questions your orders is of little practical use.
+			
+		#"Yes, they're members of my coterie. You might be seeing more of them in the coming nights, so there's no reason to be alarmed."
+			*label good_with_faces
+			"Of course," $!{second_ghoul} says. "I'm good with faces, so keeping track shouldn't be a @{(second_ghoul = "abagail") problem. It's one of the reasons Alisha kept me around for so long at the dollhouse." | problem." }
+			
+		#"No, they're not friends of mine. I've been keeping an eye on them. For now, we follow them, but if you see them around my haven be sure to inform me or Gerard immediately."
+			*goto good_with_faces
+		#I ignore the uncomfortable question. "How has Gerard been treating you?"
+			"He's tough, but I guess you could also say he's fair," $!{second_ghoul} says. "It's a lot to take in. But I'm doing my best; that's why I had to come."
+	
+	"Why were you here, anyway?" you ask. "How did you find me?"
+
+	"Someone contacted Gerard when you didn't arrive for the Hunt, so both of us went out looking. I'm not sure where he went first, but he told me to come here and watch the entrance in case you were having a social event."
+	
+	Ahead of your car, the convoy starts to move, and $!{second_ghoul} dutifully keeps a modest distance behind Ward's pickup.
+	*goto wards_pickup
+*else	
+	Gerard. He's parked right behind the Anarch entourage in his black Buick LaCrosse, leaning out the driver-side door and staring directly at you.
+	
+	@{(clan = "Malkavian") "Oof," $!{malk_name} says. He's not happy with us." |}
+	
+	"That's your ghoul, right?" Ward grunts, one hand gripping the sawed-off hidden beneath his coat. "How'd he know where to find us?"
+	
+	"I don't know," you answer honestly. "But if he were going to look for me anywhere, this place is on the short-list. Elysium isn't exactly a secret from our more trusted servants."
+	
+	"Still doesn't answer why he's out looking for you," Ward says. "Or what you're going to tell him now that he's seen you here with me."
+	
+	You think dryly about how that's your concern as well. "I'll drive with him and figure things out." 
+	
+	Ward thinks about it for a moment and then nods. "Not much we can do to avoid it now. Make sure he stays close. If you go running off, Sevinc's on a hair-trigger—I can't tell you what she'd do if she thinks you're not trustworthy after tonight." He holds a hand out to Jordan. "Come, ride with me. We're all going to the same place."
+	
+	You start to object, but Jordan waves you off. "It's okay, $!{name}. He just wants to make sure we can be trusted. I'll see you in a bit."
+	@{(clan = "Malkavian") $!{jordan_heshe} cracks a smile. "You too, $!{malk_name}. Stay safe." |}
+	*page_break
+	"I trust you have a good reason to be leaving Elysium with a group of wanted Anarchs?" Gerard asks you, deadpan. Not many ghouls would dare question their ${master_mistress} so blatantly, but long ago, you'd learned that Gerard serves you best when given a certain amount of free rein.
+	
+	@{(clan = "Malkavian") "Too much free rein is just enough to hang yourself with," $!{malk_name} says. |}
+	*fake_choice
+		#"I'm working undercover, gathering intel on them. You'll need to keep quiet and roll with it or you'll blow my cover."
+			Gerard seems worried, but he decides to keep his mouth shut, at least for the moment. You can tell that he's not happy with the response, but his Blood Bond is strong—he'll remain loyal whatever your decision is in the upcoming nights.
+		#"I'm working with the Anarchs now. Times are changing, Gerard. We'll be the ones to survive."
+			Gerard stifles a grimace. You can tell he disapproves, but there's a difference between voicing a potentially impertinent question and outright castigating one's ${master_mistress}. Your Blood Bond over the ghoul simply won't allow the latter to happen, and for good reason. You need to be able to trust the man will work in your interests, especially now that the times are changing.
+		#"My reasons are my own. It's not the place of my servant to question my motives."
+			*set gerard %-5
+			"Very good, ${sirmaam}," Gerard says. You can tell that he's not happy with the response, but his Blood Bond is strong—he'll remain loyal to you whether he wishes to or not. The perfect servant.
+		#"I've made a mistake, but it might be too late now to back out."
+			Gerard grimaces. "I would say that no mistakes can't be undone, but if you've been seen attacking the Camarilla alongside these Anarchs, you and I should prepare for inevitable blowback. Or even leaving the city entirely."
+			
+			You shake your head. "It can't be that bad yet. I'll think of something."
+			
+			"I'll trust your judgment, ${sirmaam}." Of course Gerard has no choice in the matter. The ghoul's Blood Bond is strong—he'll remain loyal whatever your decision in the upcoming nights.
+			
+	"Why were you here, anyway?" you ask. "How did you find me?"
+
+	"The Sheriff's deputies contacted me when you didn't arrive for the Hunt. They were concerned that the rogue Tremere had captured or destroyed you. I assured them that you were likely just delayed, but they insisted that Qui wanted you found as soon as possible. Elysium was a logical stop during my search." He points to the train of vehicles ahead that are starting to move. "Should we follow them, ${sirmaam}?"
+	
+	You nod. "For now. Ward probably just wants to debrief away from Elysium. He seems to trust me, but keep an eye on the woman he was standing next to. She could be trouble if Ward loses control over the situation."
+	
+	"Her name?" Gerard asks.
+	
+	"Sevinc. Banu Haqim. And hearing the way she talks to Ward, it's hard to know who's in charge sometimes."
+	*page_break
+	Gerard pulls out of the parking spot and keeps a modest distance behind Ward's pickup.
+	*goto wards_pickup
+*label wards_pickup
+He turns south and trends that way for several blocks, eventually leaving downtown behind. Before long, you're wondering just where it is that the Anarch has in mind to settle down for the remainder of the evening. $!{ch7_ghoul} seems to feel the same way, and you can feel the tension building up with each intersection passed with no sign of slowing down or stopping. 
+
+@{(clan = "Malkavian") $!{malk_name} is muttering somewhere in the back of your mind as you watch the road pass by, but you can't quite make out what ${malk_heshe}'s saying. The only thing you can be sure of is that ${malk_heshe}'s not terribly happy. |}
+
+You're passing through a long stretch of industrial roadway without the benefit of street lights—only the stars and headlights to guide you—when Ward's pickup jams on the brakes and you're forced to a screeching halt to avoid colliding with his rear bumper. The smell of burnt rubber reaches your nose even from inside the cab. Through the windshield, you see the Anarch step out of his truck and slam the door angrily, waving a hand in the air at the cars further up in the convoy which also seem to have been ground to an unexpected stop. 
+
+@{(clan = "Malkavian") "Not good," $!{malk_name} mutters. "Not good at all." |}
+
+The air around you seems to decompress as a piercing whine cuts through the night, progressively louder until the first car in your lineup explodes, shattering windows and sending shards of shrapnel tearing outward in every direction. You watch in awe as the Toyota sedan jumps several feet into the air, twists, and lands on its side with a metallic crunch, backlit by the golden orange flames. In its blazing glow you can see the outline of Ward bending down to retrieve his shotgun and the dark forms of several other bodies swarming around like insects from a kicked anthill. You think you can make out Jordan's outline in the smoke, slowly following the others after getting out of Ward's truck. The sight of the fire alone makes you shiver with unnatural fear even though it's not close enough to do you personal harm. How many more rockets do they have? And who the hell is "they?" @{(current_relationship1 = "jordan") The thought of Jordan fighting an unknown foe out there in the dark fills you with dread, but at least ${jordan_heshe}'s sticking close by the biggest Anarch in the convoy for now. |}
+
+$!{ch7_ghoul} manages to stay remarkably calm, all things considered, and looks to you for guidance. "What should we do, ${sirmaam}? There are two more cars behind us; it would be almost impossible to turn around with how crammed together we are."
+
+@{(clan = "Malkavian") "My suggestion would be to get the hell out of this car," $!{malk_name} says. |}
+
+You swiftly realize that was probably the idea, your mind running through a hundred possible scenarios, such as forcing you to a quick bumper-to-bumper stop and then picking you off one by one.
+*choice
+	#If we stay in here, we'll be picked off like fish in a barrel. We should get out and join Ward. We only have a chance if we stick together to fight off whoever's attacking us. 
+		*set ruthless %+5
+		*set ward %+5
+		*gosub ghoul_joins_you		
+		*gosub get_out_of_car
+		You rush to join Ward, keeping low to reduce your profile and avoid incoming fire as you run behind him toward the stacks of tires.
+		
+		"Idiots think they're so smart," Ward grunts. A bullet tears through his shoulder and he barely notices. "Won't be smart with their brains splattered all over the pavement!"
+		
+		A sudden impact takes you in the gut and you fly off-track as the Anarch rages forward, oblivious to the danger you're in. A man dressed head-to-toe in black fires at you again, but this time his shot goes wide, giving you time to counterattack.
+		*label counter_attack
+		*choice
+			#I fire back at him with @{(ch6_carrying_gun = "incendiary") the gun I stole from Hauberk | Desert Eagle } while keeping my distance. @{(storyteller) (composure/resolve or dexterity) |}			
+				*if (((composure + resolve) > 105) or (dexterity > 64))
+					*set sevinc %+5
+					You don't give yourself time to over-think your response—you drop to one knee and fire a single shot in your assailant's direction, hitting him dead center in the chest. He groans and stumbles, bringing his rifle back up to aim, but you don't let him take another shot. You fire twice more, each hitting mid-mass with near-perfect accuracy. 
+				
+					After taking a quick look for any other ambushers lurking in the nearby smoke, you approach the body and kick the weapon away from his hands just in case he's wearing Kevlar. No response. You nudge the body over onto its back, relieved to find that he's dead.
+					*goto end_of_ambush_fight
+				*else
+					You whip around and fire quickly, but the shot goes wide. The ambusher responds in kind and you feel a burning-hot bullet penetrate your thigh before ripping through the other side of your dead flesh. 
+					*label ambush_battle_fail
+					Before you can retaliate, the man falls backward, screaming as his throat tears open, blood pouring from the phantom wound and soaring through the smoke-filled air into Sevinc's gaping maw of a mouth. She stalks forward, and when she's swallowed the last drop of blood her face twists with disdain. 
+					
+					"I can kill a man and drain him dry from across the battlefield," she says wetly, lips and tongue coated with dark red blood. "But you can't even kill him with your weapon? Disappointing." She steps back into the smoke, disappearing from view as the fighting continues.
+					*page_break
+					*goto end_of_ambush_fight		
+			*if (fortitude)
+				*selectable_if (hunger < 5) #[b]Fortitude (+ Hunger):[/b] I enhance my physical toughness and charge the shooter to take him down.
+					*gosub_scene functions add_hunger
+					*set ward %+5
+					Why concern yourself with finesse when brute force will do the job more efficiently? You don't waste time or effort trying to dodge or return fire—you simply lunge at your attacker like a mad-person, not even flinching as bullets tear through your skin and out the other side like angry hornets.
+		
+					*label two_quick_punches
+					Two quick punches to the jaw leave him dazed, and you knock the gun out of his grip, blood dripping from your knuckles as you loom above him with an aura of animal ferocity.
+					*goto end_battle_fight_win
+			*if (celerity)
+				*selectable_if (hunger < 5) #[b]Celerity (+ Hunger):[/b] He can't hit a target moving so fast he can barely see it. I use my enhanced speed to close the distance and take him out before he can take another shot.
+					*gosub_scene functions add_hunger
+					*set sevinc %+5
+					The world feels like it slows down as you concentrate on the flow of your Blood, allowing you to propel your body to impossible speeds. It's almost trivial to dodge your assailant's next shot as you tear through the parking lot, fist colliding with his face before he can so much as pull the trigger a third time.
+					*goto two_quick_punches
+			*if (potence)
+				*selectable_if (hunger < 5) #[b]Potence (+ Hunger):[/b] I enhance my physical strength and smash the man into the ground.
+					*set ward %+5
+					*gosub_scene functions add_hunger
+					You draw power from your Blood and charge your assailant, watching his movements and dodging his shots until you're close enough to bring your fist crashing down on his face. He falls back, jaw dislocated and hanging at an unnatural angle, skin torn open and bleeding.
+				
+					*goto end_battle_fight_win
+			#I charge toward him through the smoke in a zig-zag pattern, hoping that he'll miss his next shot, leaving him open to a physical attack. @{(storyteller) (strength/dexterity or stamina) |}
+				Incensed by the unexpected attack, you charge the gunman, ducking and weaving as you go. You manage to avoid several shots that would have hit you if you'd been less cautious, Blood surging through your veins as you collide with the man and drive him to the pavement beneath you. Two quick punches to the jaw leave him dazed, and you knock the gun out of his grip, blood dripping from your knuckles as you loom above him with an aura of animal ferocity.
+				
+				*if (((strength + dexterity) > 105) or (stamina > 64))
+					*label end_battle_fight_win
+					*set ward %+5
+					Teeth gritted from the pain, the man pulls a serrated knife from his belt and stabs at your chest with surprising speed. You manage to catch his hand just in time to avoid anything more than a shallow cut, breaking his wrist in your grip and sending the weapon clattering to the pavement. 
+					
+					"Why won't you die, you fucking freak?" he gasps, blood frothing at his lips.
+					
+					You're surprised. You might have thought that someone attacking a caravan of vampires would know that you're already dead. But you don't owe him an explanation. One final punch to the face lays him out flat, broken and bleeding on the ground as you pull yourself together and get to your feet.
+					*goto end_of_ambush_fight
+				*else
+					The last thing you expect is for him to pull a knife from his boot and jam it into your chest. You fall back with shock as he twists the blade. 
+					*goto ambush_battle_fail
+					
+		*label end_of_ambush_fight
+		
+		"$!{name}!" You turn back toward the main battle, not entirely surprised to see Ward standing over a small stack of mortal corpses. He's dripping in blood, but if you had to guess, you'd say that little of it was his own. "Thought you'd disappeared and missed all the action!" One of the men at his feet twitches toward a fallen knife and Ward stomps a steel-toed boot down on the questing hand. You can hear the bones break as the man falls back, shock finally sending his body spiraling down a deep well of unconsciousness. $!{ch7_ghoul} isn't far behind, and seems little worse for wear despite having been attacked after being separated from you. Jordan and Sevinc step out of the darkness; it looks like they both got the better of their foes. An unlikely pair, but battle makes for strange allies.
+		
+		@{(clan = "Malkavian") "You're telling me, they're strange," $!{malk_name} says. You resist the urge to ask where ${malk_heshe} disappeared to during the fight. Taunting your own subconscious probably wouldn't do you much good, right now. |}
+		
+		You run up to join them, scouring the service station for signs of additional ambushers lying in wait. @{(current_relationship1 = "jordan") Jordan grabs you and holds tight. |} "Is that all of them?" you ask. "Who are they?"
+		
+		"They were all mortals," Ward grunts. "At least everyone I fought was." He kneels down and slips a wallet from one of the corpse's pockets. A laminated card falls free. "IC0 Defense, Ontario Chapter."
+		
+		"Police?" $!{ch7_ghoul} asks. "Or maybe government?"
+		
+		@{(clan = "Malkavian") $!{malk_name} raises an eyebrow but otherwise stays silent. |}
+		
+		"Goddamn Second Inquisition," Ward grunts. "It's got everyone coming out of the woodwork, guns blazing."
+		*page_break
+		"There's no way these kine were legitimate government-issue vampire hunters," Sevinc says as she takes a look at the card. "Feels more like a self-important civilian militia with delusions of grandeur. Spooks wouldn't carry badges like this." She bends the card into an arch between her thumb and forefinger. "And even if they did, they wouldn't make them this cheaply. The real deal is like a shadow organization—most of their fellow agents have no idea the SI agencies even exist and work alongside them."
+		
+		"If that's true, it makes all of this even stranger," Ward says. "They knew we were coming through here and when to set up a blockade."
+		
+		"Someone talked," Sevinc spits, turning to stare in your direction.
+		
+		@{(clan = "Malkavian") "Woah, woah, woah," $!{malk_name} protests. "I knew she had a thing for us, but that's out of line!" |}
+		
+		"Don't be ridiculous," Jordan says, moving to stand in front of you. "Neither of us even knew what we were getting into when you brought us out tonight. How could we possibly know your entire itinerary?"
+		
+		Sevinc pulls her curved sword and for a moment you think she's going to attack. But she thinks better of it. "I'll be watching," she says. "You fought by our side tonight. Drew blood. So I'll give you the benefit of the doubt. But my eyes are on both of you." She sheathes the sword and stalks off back toward her vehicle directly behind the smoldering one.
+		
+		"She's pissed because it was almost her," Ward says. "Could have tagged her car just as easily as the other."
+		
+		"Who was driving that one?" You point at the flaming wreckage. It's died down quite a bit since the fighting started, but the interior still hasn't burned itself out yet.
+		
+		"Someone I've known for a long time."
+		*fake_choice
+			#"Damn…I'm sorry to hear that, Ward. I really am."
+				*set ruthless %-5
+				"We weren't close," Ward says. "But we were brothers in arms. He deserved better than this.
+			#"It's a shame, but this is war. And war has casualties."
+				*set ruthless %+5
+				*set ward %-5
+				"This wasn't a war," Ward says, kicking one of the dead mortals in the ribs. "This was a cowardly ambush by idiots who had no idea what they were getting into. Goddamn waste of a way to go out.
+			#"He was a warrior and he died in the aftermath of a glorious battle. We should be proud of him."
+				*set ward %+5
+				Ward nods solemnly. "Well-spoken, $!{name}. But this was the wrong place for him to meet his end.
+			#I keep quiet. The dead Anarch wasn't my friend or comrade and it's not my place to speak about his destruction.
+				Ward sighs as the fight drains out of him. "This was the wrong place for him to meet his end.
+		He survived taking the fight right to the top of the Camarilla only to face final death here in the middle of fucking nowhere. Just goddamn bullshit."
+		
+		$!{ch7_ghoul} nudges you and speaks quietly, as not to disturb the brooding Anarch. "We should go. This place isn't well-populated, but it's not too far away from the city. Someone will have heard the shots and have called it in."
+		
+		Jordan nods. "$!{ch7_ghoul} is right. We all have to leave. If the police catch us here, they'll report it right to Qui."
+		
+		"That is, if he survives the Hunt against the Tremere," Ward says with a sniff. "Qui always did have too much influence over Arundel. Would be good to get him out of the way." He waves you back toward your car. "Take Jordan with you this time and go your own way back to your haven. I'll take this as a sign that we shouldn't travel in packs anymore." He starts back to his truck. The door opens with a loud shriek of metal—something from the explosion must have dented it. 
+		
+		He settles down in a seat that looks downright miniature compared to his bulk and turns his key in the ignition. The truck roars to life, headlamps cutting through what remains of the smoke and illuminating a stack of bloody mortal bodies. He rolls down the window, flashing you his signature grin. It looks forced, but you can't blame him.
+		
+		"Welcome to the gang! You'll hear from us soon!" he calls out the window before tearing out around the burned-out car.
+		*finish
+
+	#We need to get out of the car before the next rocket hits, but I won't be joining Ward and the others. It will be far safer to lurk in the dark until the danger has passed and we can sneak away. @{(storyteller) (dexterity/resolve or wits) |}
+		*set ruthless %-5
+		@{(have_a_second_ghoul) "Suits me fine," $!{second_ghoul} says. "I don't think I'm ready for this kind of fight." | "Certainly a more prudent course of action," Gerard says. "But you'd best not let the Anarchs see you hiding. They won't take it well." }
+		
+		*gosub get_out_of_car
+		You can't see anyone approaching at the moment, but if you stay here for too long you'll inevitably be targeted and taken down. You run in an awkward hunched-over gallop behind the line of cars. Fortunately, most occupants have already joined the battle and those who remain are too busy readying themselves for combat to notice you passing by on the fence-side of their vehicles. The garage to the left of the service station looks abandoned, and it's on the other side of the property from the stacks of tires. If you can get there without being seen, you'll probably be able to ride out the ambush without putting yourself in direct danger. 
+		
+		@{(clan = "Malkavian") "Is that really the plan?" $!{malk_name} asks. "Just hide away and wait for the fighting to stop? Your new buddies won't be happy." |}
+		
+		@{(clan = "Malkavian") "They won't say anything if they don't see us." |}
+		You point the garage out to $!{ch7_ghoul}. "Move when I do, and stay low. We don't want either group to see us if we can help it."
+		
+		There's no time to wait around hoping for the perfect moment—you're just going to have to go for it. You dash through the swirling smoke toward the garage, wincing at the crack of gunshots until you realize they weren't directed at you. Halfway across the open stretch you kneel down behind a small stack of old oil barrels. Just one more bit of pavement to cover and you'll be clear!
+		
+		*if (((dexterity + resolve) > 100) or (wits > 64))
+			*set ch7B_hid_in_garage true
+			You couldn't say why, but something pricks at your instincts and you hold back for a moment, delaying your run. Sure enough, it turns out that your gut feelings were right and a tall man clad in a tight black turtleneck creeps through the open space, rifle held at the ready as he moves to join his companions behind the stacks of tires. You don't think you recognize him, but between the lack of light and the smoke from the explosion, you could look at your own reflection and might not realize it was you. @{(clan = "Lasombra") Then again, you haven't seen your reflection since you were Embraced so long ago. Funny how your clan's curse worms its way into your thoughts when you least expect it. |}
+			
+			@{(clan = "Malkavian") "At least we know it wasn't me," $!{malk_name} says. "I wouldn't be caught dead in that turtleneck." |}
+			
+			"Come on," you say to $!{ch7_ghoul}. "It should be clear now."
+			*page_break
+			You're not sure how long you spend crouched behind the rotting-out body of an ancient Buick Century, but if someone told you it was an hour, you'd think they made a pretty good guess. In reality it's only seven minutes before the shooting stops and the survivors get in their cars to drive away.
+			*goto observe_the_carnage
+		*else
+			You get about halfway across the open space when a sudden impact takes you in the gut and you fly off-track. A man dressed head-to-toe in black fires at you again, but this time his shot goes wide, giving you time to counterattack.
+			*goto counter_attack
+	#I'll help Ward and the Anarchs fight off the hidden foes, but I'll do it from the shadows, picking off our attackers before they can even see me. @{(storyteller) (intelligence/resolve or wits) |}
+		*set sevinc %+5
+		*gosub ghoul_joins_you
+		*gosub get_out_of_car
+		You continue beneath the smoke, but rather than directly counter-attacking the shooters like Ward and his associates are, you edge as close to the burning wreckage as you can manage without your Beast breaking free. Eventually your feet grind to an involuntary halt and even though you're still quite a distance from the burning car, fear rages through your veins. @{(clan = "Malkavian") Even $!{malk_name} urges caution. |}
+		
+		No further. Okay then, it's time to get to work. 
+		
+		While your bestial fear of flame works against you, your undead nature is able to assist you in other ways. A mortal walking through the billowing clouds of noxious smoke would choke and suffocate, but you're not burdened with such pedestrian needs as breathing. Wreathed in soot, you sneak around behind the ambushers until one of them leaves the larger group. He's dressed head-to-toe in black, hard to pick out in the night if you hadn't already been watching. You close in, night-shrouded, the sound of your footsteps drowned out by the crackling of flames.
+		
+		*if (((intelligence + resolve) > 100) or (wits > 60))
+			*fake_choice
+				#I use my advantage to kill him from behind. None of these ambushers can be allowed to live.
+					*set ruthless %+5
+					*set sevinc %+5
+					*gosub smoke_wins
+					His neck snaps like brittle kindling in your hands and hangs limp as his body slumps to the pavement below. 
+					
+				#I take him down non-lethally. There's already been too much death tonight.
+					*set ruthless %-5
+					*set ward %+5
+					*gosub smoke_wins
+					A well-directed punch to the back of the head sends him to the ground in a heap. He tries to rise again, swinging his rifle up into the air, but your boot smashes against his jaw, laying him out flat. He's out cold, but it looks like he's still breathing.
+					
+				#I drag him away from his comrades and try to get information from him before deciding what I want to do with him.
+					*set ruthless %-5
+					*set sevinc %+5
+					*gosub smoke_wins
+					He chokes as you wrap your arm around his neck and pull him away from his companions, feet kicking against the blacktop in impotent fury. When you're once again hidden on the other side of a large plume of smoke, you loosen your grip slightly to allow him to talk.
+					
+					"What are you doing here?" you ask. "Who set us up?"
+					
+					The man chokes out a laugh. "Wouldn't you like to know, freak? We're doing what the human race needs to survive. If the government is too infested with you creatures to take you down, then the people will rise up and do the job ourselves!" His left arm jerks upward, jabbing a small knife into your chest. You react instinctively, snapping his neck and pulling away. You should have known better than to expect a proper conversation from a man like this, but at least you know more now than you did before.
+					
+			*goto end_of_ambush_fight
+			*label smoke_wins
+			Your victim never saw it coming. You approach through the smoke, emerging into the clear several feet behind him as he kneels down to retrieve a stack of fresh ammunition clips from a wood crate.
+			*return
+		*else
+			*set sevinc %-5
+			You have no idea how the man heard your approach—maybe he'd been luring you out all along—but as you rush for him, he whips around and fires a single shot into your gut. You stagger, which works out in your favor as his second shot misses entirely, giving you a solid opening for a counterattack.
+			*goto counter_attack
+	#We should stay put and hunker down in the car. Whoever's attacking is expecting us to run out into the dark. @{(storyteller) ([i]No test, but no victory.[/i]) |}
+		*set ruthless %-5
+		*set gerard %+5
+		*set ward %-5
+		*set sevinc %-5
+		*set ch7B_hid_in_garage true
+		"Are you sure that's the best idea, ${sirmaam}?" $!{ch7_ghoul} asks, eyeing the flaming wreckage several car lengths in front of you. "They could have more rockets."
+		
+		"If they did, they'd probably have used them by now. This feels more like they're flushing us out." You draw your @{(ch6_carrying_gun = "incendiary") stolen gun |  Desert Eagle } and push the passenger seat back, using the increased space to crouch down, barely high enough to peek out the windows. You motion for $!{ch7_ghoul} to follow your example. "There's a fine line between foolishness and bravery. There's no point in having eternity cut short because I ran into a smoke-filled battle with no idea what I was facing."
+		
+		*if (clan = "Malkavian")
+			@{((malk_demeanor = 1) or (malk_demeanor = 3)) "Wise words," $!{malk_name} says. "I couldn't have put it better, myself. I'm glad you've come to your senses." |}
+			@{((malk_demeanor = 2) or (malk_demeanor = 4)) "Are you serious?" $!{malk_name} asks. "We're just going to sit in here while everyone else fights? Imagine if Ward or Sevinc caught us in here! We should be getting our hands dirty, not cowering like dogs." |}
+		
+		You're not sure how long you spend ducked beneath the car windows, but if someone told you it was an hour, you'd think they made a pretty good guess. In reality it's only seven minutes before the shooting stops and you hear the survivors get in their cars to drive away.
+		*label observe_the_carnage
+		
+		"I think they're all gone," $!{ch7_ghoul} says. "We got lucky no one looked for us."
+		
+		"We should get an idea what happened before we leave," you mutter, peeking out to make sure the area is well and truly clear before sneaking around the edge of the service station, watching for bodies in the dark as you go. @{(current_relationship1 = "jordan") You try to drive down the persistent thought that Jordan may have been destroyed in the fighting while you hid, but you refuse to listen. Jordan's strong. $!{jordan_heshe} can take care of ${jordan_himher}self. |}
+		
+		In all, you count at least twelve dead, all dressed in the same black turtlenecks and toques. As far as you can tell they're all mortal, although sometimes it's hard to tell the difference between kine and those newly turned without taking the time to properly examine a body.	
+
+		@{(clan = "Malkavian") "I didn't see a single supernatural ability from their side," $!{malk_name} says. "They're either kine or thinbloods, but my money's on kine." |}	
+		
+		$!{ch7_ghoul} kneels down and slips a wallet from one of the corpse's pockets. A laminated card falls free. "IC0 Defense, Ontario Chapter." $!{ch7_ghoul} frowns. "What does that mean?"
+		
+		*if (ch2_allied_with_vivian)
+			You've encountered these people before. At Vivian's estate. Hadn't she claimed that she was going to wipe the rest of them out?
+			
+			$!{ch7_ghoul}'s body gives a sudden jerk and goes limp, collapsing to the blacktop.
+			
+			"I can't say I expected to find you here," a feminine voice calls to you from the shadows of the shop's office. "You're going to have to explain this to me."
+			
+			"Vivian?" you gasp. The erudite Primogen is the last person you'd have expected to find out here at the grungy service station, gliding between broken bodies as if she doesn't even notice they're there. "What are you doing here?"
+			
+			"Such a rude childe," she says menacingly. "You're going to come home with me and explain in very thorough detail exactly how you came to be running with the Anarchs while still in my employ." Her tone doesn't brook disobedience. "We'll take my car."
+			*finish
+		
+		"I thought they might be government agents," you say, taking a close look at the card. "But the card is cheap and the name sounds more like a local militia group than a cabal of government agents and law enforcement." 
+		
+		"We should get out of here, ${sirmaam}. I don't see any of your new friends among the dead, but they left as quick as they could, and with good reason. Even Jordan's gone with them." 
+		
+		You nod in agreement and get back into your car. Amazingly, it's almost entirely unscathed. "It's only a few hours to sunrise," you say, looking at the too-bright dashboard clock. "Enough time to do a few laps around downtown. Watch for a tail and only head home when you're certain we're not being followed."
+		
+		"And if we're accosted by your new friends?"
+		
+		"I don't think we'll be seeing any more of them tonight." You hope you're right. You're not sure you have the energy to handle another fight tonight. If the Anarchs realize you'd ducked out of the battle, forgiveness might not be on the table. You lean back in the seat and close your eyes. Memories of explosions and fire play out in the dark as you feel the car drive over rough road, eventually landing on the smooth pavement of Ottawa proper. What have you gotten yourself into?
+		*finish
+
+*label ghoul_joins_you
+"I'll join you, ${sirmaam}," $!{ch7_ghoul} says without a second thought. You take a second to weigh the pros and cons, but it doesn't take long for you to find yourself in agreement. Ghouls aren't nearly as strong as true Kindred, but their supernatural strength makes them more than a match for multiple mortal foes at a time. And you have a feeling that you're going to need all the muscle you can get.
+	
+*return
+
+*label get_out_of_car
+You push the car door open and you're immediately enveloped in a suffocating surge of heat and smoke. Your undead body recoils from the source and you can't help but think that the attackers would expect that of you. You duck low, head held below the smoke as your eyes dart over the battlefield. Muzzle flares flicker through the night from across the road to the left. Whoever's shooting is hidden behind stacks of old tires in the parking lot of a deteriorating auto service station, long-abandoned and starting to fall in on itself from disrepair. Past the shoulder on the right side of the road, a chain link fence spans the rest of the block, razor wire coiled along the top glinting orange in the flames. You won't be going that way—you'd be riddled with bullets before you were halfway up and the coiled blades would slow your progress considerably.
+
+*return		
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

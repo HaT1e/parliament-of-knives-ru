@@ -1,0 +1,29 @@
+*label start
+*check_purchase adfree wsb
+
+*if choice_purchased_adfree = false
+  [b]Chapters 4 through 10[/b]
+  
+  Unlock chapters 4 through 10, including the thrilling conclusion!
+  
+  *purchase_discount adfree 2022-09-29 $11.99 $9.99 start
+
+*if choice_purchased_wsb = false
+  [b]What Stares Back[/b]
+  
+  Play as a vampire of the insightful clan Malkavian or the manipulative clan Lasombra! New powers, new secrets, and new romance options await within.
+  
+  *purchase_discount wsb 2022-09-29 $4.99 $3.99 start
+
+*if choice_purchased_everything
+  You're completely upgraded!
+
+*if choice_purchased_adfree
+  [b]Chapters 4 through 10[/b]
+  
+  You've paid to unlock chapters 4 through 10.
+
+*if choice_purchased_wsb
+  [b]What Stares Back[/b]
+  
+  You've paid to unlock clan Malkavian and Clan Lasombra.

@@ -1,0 +1,1417 @@
+*temp stealthy false
+*temp rogues_do_it_from_behind false
+*temp scout "Bouchard"
+
+*comment testing
+*comment *goto_scene ch10_ascension test1
+
+*text_image chapter1.png center Chapter 1 Incursion
+
+I extended a hand to the Rabble in the spirit of friendship and tolerance. Such forward-thinking always foments dissent, as I might have learned by studying the mistakes of my mentor in the glory days of London, before Mithras's return. Modern mortals have a saying for this: No good deed goes unpunished.—from the journals of Arundel, Prince of Ottawa
+*line_break
+*line_break
+*page_break
+There is blood beneath your fingernails, remnants of a nightly ritual that has somehow become routine. Your Hunger stirs deep within, lured by the scent, but you cast it from your mind—there are more important matters afoot. 
+
+The full moon casts its ruddy blessing on the Blood Hunt, spiriting your band of assassins through long-cast shadows among the irregular peaks and valleys of an unattended construction site. You lance through the night—a deadly arrow seeking the heart of a vampire you'd heard much of but never knew—Robert Ward, defected from the high society of Ottawa's Camarilla elite to endure in the filth among the clan-less and Anarchs. 
+
+Long years of leisure befitting your rank have left your survival skills blunted, but the thrill of the hunt has brought old instincts once thought forgotten back to the surface, seething with untapped potential. You know this to be true—you can feel it in your bones—but one siren song calls above all others, driving you to distraction: There is blood beneath your fingernails.
+*page_break
+Your feeding before the hunt had been a hurried one, and you'd left your victim dazed as you dabbed your mouth, Sheriff Qui impatiently ushering you to join his motley band of Kindred and mortal mercenaries for the hunt. The smell of blood on your fingertips conjures images of the mortal shivering while you slaked your thirst, their wide doe-eyes glassy and empty of concern. In the decades since your Embrace, you've distanced yourself from the horror of your nightly existence, not the least of which was divorcing yourself entirely from the indelicate art of finding your own victims.
+*fake_choice
+	#I feed from the veritable menagerie of mortal vessels employed by a powerful Kindred: Alisha Grey, of clan Toreador.
+		*set how_i_feed "alisha"
+		Your alliance with Alisha had been considered an unusual one in Kindred circles, but your sire, Eden Corliss, accepted your regular visits to her herd of willing blood dolls as a necessary indulgence.
+		
+	#My manservant Gerard is responsible for catching and sedating my prey.
+		*set how_i_feed "gerard"
+		In the years since you acquired him, Gerard has been an excellent and loyal retainer in all respects. He takes his duties seriously and has rarely disappointed you or left you hungry.
+		
+	#My proximity to Prince Arundel and his Seneschal—my sire, Eden Corliss—affords me only the finest meals, dining on drink- and drug-addled mortal elite.
+		*set how_i_feed "elite"
+		While they may have always kept you at arm's length, Prince Arundel and Seneschal Corliss seemed to delight in sharing their guilty pleasure of feasting on the well-moneyed. Such wealthy socialites regularly over-indulge on wine and narcotics, making them easy prey when mingling with the upper crust of mortal society. 
+		
+Over the years, you managed to convince yourself that there was nothing inherently wrong or unnatural about the act of feeding on the blood of the living, but a small part of you—one that still remembers a time when your heart beat within your chest—cries out with every opportunity to remind you that you are damned.
+
+As with many other Kindred, you'd kept your original name and aspects of your mortal identity—whether as a subconscious effort to anchor your new existence in a bedrock of memorialized humanity or simple nostalgia, you cannot say for sure. But it fits you, and it is yours alone.
+
+What name tethers this un-life to a life once lived?
+*fake_choice
+	#Gabrielle.
+		*set name "Gabrielle"
+	#Silas.
+		*set name "Silas"
+	#Julia.
+		*set name "Julia"
+	#Maxwell.
+		*set name "Maxwell"
+	#Dawn.
+		*set name "Dawn"
+	#None of these are my name.
+		Enter your name below. Not even undeath can strip this name from you.
+		*input_text name
+You had a family name once, and though it is rarely used, a part of you still clings to its memory.
+*fake_choice
+	#Jones.
+		*set last_name "Jones"
+	#Martin.
+		*set last_name "Martin"
+	#Singh.
+		*set last_name "Singh"
+	#Kuznetsov.
+		*set last_name "Kuznetsov"
+	#Moore.
+		*set last_name "Moore"
+	#Biwer.
+		*set last_name "Biwer"
+	#None of these are my family name.
+		Enter your family name below. It remains unforgotten.
+		*input_text last_name
+
+
+
+Moonlight glints off shards of broken glass as you creep along the length of a slowly decaying brick wall, an extended arm of the construction crew's crane shielding your party in its brooding shadow. The sound of your footsteps is masked by the rushing water of the nearby hydro-electric dam restraining the waters of Chaudière Falls. Sheriff Qui's mortal mercenaries are arrayed like a shield around their masters in a wedge of jet-black body armor and bristling semi-automatic rifles. They seem on-edge tonight, professional and competent as always, but there's something in their eyes that betrays uncertainty.
+*page_break
+*image bouchard.jpg
+
+Ahead of you, Bouchard raises a long, gnarled hand in warning and you stop in your tracks. Like all Kindred of Clan Nosferatu, Bouchard's appearance is monstrous and inhuman. Even his facial features are twisted and misshapen. He turns and raises a finger to his lips, a massive pus-filled boil stretching the skin impressively below the first knuckle. A part of you wonders if the old vampire misses the nightlife above ground, enjoyed by the majority of Kindred not afflicted by the Nosferatu's curse. "Ward's Anarchs have set up a perimeter," he gestures at the shadowed carcass of a long-abandoned factory not far ahead and you catch a brief glimpse of movement. "We should cut around. Over the rubble." Even his whispers grate and gurgle like the depths of a sewer.
+
+"They weren't supposed to know we were coming, $!{name}," Jordan pipes up from behind you, taking advantage of the moment to tie back wisps of messy red hair in an impromptu topknot. "She may not care much for me, but Corliss is your sire! She should have been more certain before sending us in. I'm getting a bad read on this one."
+
+Eden Corliss is acting Seneschal of the city, second in command to Prince Arundel himself, and also your sire—the vampire who Embraced you as a mortal and brought you into the hidden world of the Kindred. 
+*page_break
+Every vampire is re-born into a bloodline that some scholars and cultists believe to be a direct lineage leading back to a progenitor of the biblical age: Caine himself. Clans have formed around these bloodlines, each possessed of certain gifts. These abilities are passed on from sire to childe, always marginally diluted the further their generation is removed from the clan's founder. You didn't choose the clan you were brought into, but you adapted well enough over the decades, mastering the disciplines of your clan to the best of your ability. Corliss has seemed pleased with your progress, and when Corliss is pleased, you slumber more soundly.
+
+[b]The effects of these Disciplines may now be read on your stats page. If you are unfamiliar with Vampire: The Masquerade, you may want to examine them before making your choice below.[/b]
+*label clan_choice
+*check_purchase wsb
+*fake_choice
+	#I am of Clan Ventrue: precise and businesslike, intelligent, strong, and intimidating. Disciplines: Dominate, Fortitude, Presence.
+		*set clan "Ventrue"
+		*set stamina %+10
+		*set resolve %+5
+		*set manipulation %+10
+		*set dominate true
+		*set fortitude true
+		*set presence true
+		"Blue Bloods," the other clans call you and your own; at least when your backs are turned and they can be sure none of you are listening in. Eden Corliss has groomed you for a high-ranking position since the moment she drained the life from your mortal body, and she was as strict in her discipline as she was stoic when meting out punishments for failure. As her childe, your behavior reflects on her capabilities, and failure is simply not an option.		
+	#I am of Clan Toreador: an artist and socialite with an eye for detail. Disciplines: Auspex, Celerity, Presence.
+		*set clan "Toreador"
+		*set charisma %+10
+		*set manipulation %+10
+		*set composure %+5
+		*set auspex true
+		*set celerity true
+		*set presence true
+		"Poseur," "Degenerate," "Artiste;" you've heard all the slurs over the years and they might have even bothered you had they been coming from a Kindred with some semblance of class. Eden Corliss had groomed you for a high-ranking position since the moment she drained the life from your mortal body, training you in everything from the fine arts to the arguably higher art of the social influencer. Corliss is drop-dead gorgeous, and from the moment she walks into a room, even the most languid Blood stirs within undead chests. As her childe, your behavior reflects on her capabilities, and failure is simply not an option.
+	#I am of Clan Nosferatu: a powerful monster, able to pass through thin air without a trace. My pet rat can act as a spy. Disciplines: Animalism, Obfuscate, Potence.
+		*set clan "Nosferatu"
+		*set dexterity %+15
+		*set strength %+15
+		*set wits %+10
+		*set charisma %-10
+		*set manipulation %-5
+		*set animalism true
+		*set obfuscate true
+		*set potence true
+		"Sewer Rat," the other clans call you derisively when your back is turned, but you find it difficult to hold their disgust against them. As a Nosferatu, the gift of Corliss's Embrace was a piercing firebrand of agony as your body twisted into a distorted mockery of humanity. You no longer remember what your face looks like—you've long-since set aside any notions of vanity—but you often catch a glimpse in the quickly masked reactions from Kindred of the effete aristocracy. Unable to hide the reality of your monstrous deformities, you are largely condemned to exist beneath the city in a maze of tunnels and sewers with the rest of your kin. 
+		
+		One of your deformities stands out above the others as a defining grotesquery.
+		*fake_choice
+			#My nose bulges from my face with an almost animal-like ridge and flared nostrils.
+				*set deformity "deformed nose and nostrils"
+			#I am completely bald and my head is covered with weeping lesions.
+				*set deformity "head sores"
+			#My fingers are gnarled and twisted. I've learned to use them without a handicap, but if mortals see them they are immediately repulsed.
+				*set deformity "twisted fingers"
+		Despite your deformity, there is a redeeming factor to the Nosferatu curse. Your highly attuned affinity for animals has attracted a most ferocious and loyal companion, confidant, and spy: your pet rat. You never anticipated developing a bond with such a creature, but it heard your call, and unlike so many others, the rat decided to stay of its own free will, becoming your only companion as loyal as your personal servant, Gerard. In an effort to humanize the small creature, you gave it a name.
+		*input_text rat_name
+		As you spent more time training $!{rat_name} to be your eyes and ears, you decided that you no longer wanted to refer to them as an "it," but based on its gender instead.
+		*fake_choice
+			#$!{rat_name} is a boy.
+				*set rat_gender "boy"
+				*set rat_heshe "he"
+				*set rat_hisher "his"
+				*set rat_himher "him"
+			#$!{rat_name} is a girl.
+			*if (choice_randomtest = false) #I want to write my own pronouns. $!{rat_name} probably won't mind.
+				Rather than say "Good boy, $!{rat_name}!" you would say: "Good _____, $!{rat_name}!"
+				*input_text rat_gender
+				Rather than "he" or "she," you would use: 
+				*input_text rat_heshe
+				Rather than "his" or "her," you would use:
+				*input_text rat_hisher
+				Rather than "him" or "her," you would use:
+				*input_text rat_himher
+		The underground home you share with $!{rat_name} and your mortal retainer Gerard is surprisingly lavish given that it's so close to an active branch of the sewer system. You made accommodations for $!{rat_name} as well, the decor tastefully appointed to match ${rat_hisher} fur color.
+		*fake_choice
+			#$!{rat_name}'s fur is white.
+				*set rat_fur_color "white"
+			#Brown.
+				*set rat_fur_color "brown"
+			#Black.
+				*set rat_fur_color "black"
+			#Gray.
+				*set rat_fur_color "gray"
+			#Red.
+				*set rat_fur_color "red"
+			*if (choice_randomtest = false) #Pick your own color!
+				What color is $!{rat_name}'s fur?
+				*input_text rat_fur_color
+				
+	#I am of Clan Lasombra: calculating and fierce. Once, my clan were enemies to the Kindred establishment, but in modern nights the established order has begun to change. My sire and I were forced to masquerade as Ventrue for years, but the time for such deception is coming to an end. Disciplines: Dominate, Oblivion, Potence.@{choice_purchased_wsb | [Requires separate purchase of [i]What Stares Back[/i]]}
+		*check_purchase wsb
+		*if choice_purchased_wsb = false
+			*gosub wsb_pitch
+			
+			*purchase_discount wsb 2022-09-29 $4.99 $3.99 lasombra_start
+			*page_break No, Thanks
+			*goto clan_choice
+		*label lasombra_start
+		*set clan "Lasombra"
+		*set composure %+5
+		*set intelligence %+5
+		*set resolve %+5
+		*set wits %+5
+		*set charisma %-5
+		*set manipulation %+10
+		*set dominate true
+		*set oblivion true
+		*set potence true
+		"Shadows," "Traitors," "Turncoats;" you've heard all the slurs for your clan before. But in instances where the name Lasombra simply won't do, you prefer to think of yourself as a "Magister." For centuries your clan has ruled from the darkness, subverted the world's religions, and manipulated political events to benefit yourselves. Once the de facto heads of the terrifyingly monstrous Sabbat, many Lasombra have since been forced into an uneasy alliance with the establishment Camarilla. Unfortunately for you, old prejudices have a habit of lingering in the ancient order, and you've been forced to hide your true nature from all but a select few confidants.
+		
+		Corliss, as always, was ahead of the curve. Well over a century ago, she recognized Prince Arundel's rising star and formed an alliance with him, fanning the flames of his unusual tendency to accept Kindred of clans that other Ventrue would never welcome into their inner circle. When he became Prince of Ottawa, Arundel kept your sire's secret, presenting her as a fellow Ventrue to the Court. If any Kindred remained un-fooled, they wisely decided to keep their mouths shut.
+		
+		Your sire has groomed you for a high-ranking position since the moment she drained the life from your mortal body, and she was as strict in her discipline as she was stoic when meting out punishments for failure. As her childe, your behavior reflects on her capabilities, and failure is simply not an option.		
+		*page_break	
+	#I am of Clan Malkavian: enigmatic and shrewd, feared and grudgingly respected. A traveler shadows my path—an ethereal companion whom only I can perceive. Disciplines: Dominate, Obfuscate, Auspex. (Recommended for experienced players who have already completed the game once.)@{choice_purchased_wsb | [Requires separate purchase of [i]What Stares Back[/i]]}
+		*check_purchase wsb
+		*if choice_purchased_wsb = false
+			*gosub wsb_pitch
+			
+			*purchase_discount wsb 2022-09-29 $4.99 $3.99 malk_start
+			*page_break No, Thanks
+			*goto clan_choice
+		*label malk_start
+		*set clan "Malkavian"
+		*set manipulation %+15
+		*set intelligence %+15
+		*set wits %+10
+		*set composure %-10
+		*set stamina %-5
+		*set dominate true
+		*set obfuscate true
+		*set auspex true
+		"Lunatic," members of other clans call you derisively when your back is turned, at least that's what you hear when the rooms you pass through breathe their secrets. Eden Corliss had groomed you for a high-ranking position since the moment she drained the life from your mortal body, training you to embrace your gifts and the insight they bring. She is one of the few Kindred aware of your mysterious companion; even though she can't see them, she's never questioned the sincerity with which you spoke of them in your early nights. Since then, you've learned that it's often best to keep quiet about such…irregularities. There are those who might use the knowledge against you, after all.
+		
+		Your companion whispers many things in your frequently-receptive ears, and when they do, they call themselves…
+		*fake_choice
+			#Lucy
+				*set malk_name "Lucy"
+			#Stanley
+				*set malk_name "Stanley"
+			#Therese
+				*set malk_name "Therese"
+			#Svetlana 
+				*set malk_name "Svetlana"
+			#Lynn
+				*set malk_name "Lynn"
+			#Damien
+				*set malk_name "Damien"
+			#Raye
+				*set malk_name "Raye"
+			#Norrin
+				*set malk_name "Norrin"
+			#Akihiro
+				*set malk_name "Akihiro"
+			#Spot
+				*set malk_name "Spot"
+			#None of these is my companion's name.
+				Enter your companion's name below: 
+				*input_text malk_name
+		Although ${malk_name} never appears	to anyone other than yourself, they typically take human form. You've often wondered if such pretenses are truly necessary for what amounts to an imaginary friend. Perhaps you should ask sometime.
+		*fake_choice
+			#$!{malk_name} is female.			
+			#$!{malk_name} is male.
+				*set malk_gender "man"
+				*set malk_heshe "he"
+				*set malk_himher "him"
+				*set malk_hisher "his"
+				*set malk_manwoman "man"
+				*set malk_guygirl "guy"			
+			*if (choice_randomtest = false) #I want to write my own pronouns. $!{malk_name}'s gender can't be defined by such narrow terms.
+				Rather than say "He's a good man," you would say: "They're a good…"
+				*input_text malk_gender
+				Rather than "he" or "she," you would use: 
+				*input_text malk_heshe
+				Rather than "his" or "her," you would use:
+				*input_text malk_hisher
+				Rather than "him" or "her," you would use:
+				*input_text malk_himher				
+		*comment To avoid bogging the story's flow down into a game of twenty questions, which would bring the player completely out of the action, we complete the remainder of the companion's setup upon return to the player's haven at the end of the chapter.
+	
+	
+*set name_and_clan_chosen true
+
+"$!{name}?" Jordan asks, watching you quizzically. Sheriff Qui has paused behind Bouchard to watch you in obvious impatience. Jordan was right of course; your sire surely did her homework before sending you out here, and she's put too much work into you to send you into a trap unawares. That can only mean something has changed and the Anarchs are on the move, perhaps making some kind of power play. It's up to your band to stop them before they can threaten your Prince's domain during his absence.
+
+*if (clan = "Nosferatu")
+	"I was thinking," Jordan says. "Don't you think it's a bit strange that more than half of our strike team are Nosferatu? If I didn't know any better, I'd say Corliss thinks you're all expendable."
+	
+	"No, Corliss is one of us. She chose us because she knows she can trust us."
+You shake your head and try to focus on the matters at hand. "We might not be able to take them head-on if they're guarding the entrance," you whisper, index finger tracing the curved trigger of your Desert Eagle—a gift from Corliss that you've only recently reacquainted yourself with. The gun feels alien in your grip, but you're certain that your training will kick in if it comes to that. "Our briefing said that Ward's quarters are in the back end of the factory. Maybe we could cut around?"
+*if (clan = "Malkavian")
+
+	This is the point where ${malk_name} would typically offer some pearl of questionable wisdom, but for whatever reason ${malk_heshe}'s chosen to leave you on your own for this one. No. Wait. There ${malk_heshe} is—balancing atop a perilous crag of half-demolished cinder blocks, peering into the distance. You avert your eyes and look to Qui, somehow unsurprised to find ${malk_name} has appeared again, an arm draped around the Sheriff's shoulders. $!{malk_heshe} has a way of getting around instantly when you're not looking—not that anyone else ever notices.
+	
+	"I don't like it," ${malk_name} says. "Not one bit."
+	*fake_choice
+		#"What did you see from up there?"
+			"Movement in the upper floor windows," ${malk_name} says. "It's hard to see, though. It may be your guy. Impossible to know for sure."
+			
+		#"No one asked for your opinion."
+			${malk_name} crosses ${malk_hisher} arms and sniffs. "That's what I get for trying to be helpful."
+			
+		#I stay silent. Speaking to an invisible phantom in public is a bad look.
+			*goto qui_motions
+	You realize a moment later that speaking to your companion while ${malk_heshe}'s draped over the Sheriff's shoulders could easily be misinterpreted. Bouchard flashes you an amused look, but fortunately everyone else seems too preoccupied to notice.				
+		
+*label qui_motions
+Qui motions for the rest of you to shrink as far back into the shadows as possible while a path forward is deliberated. He sets down a heavy gasoline can, and you can hear the liquid inside sloshing back and forth, yearning to be set alight. Long, black hair frames the eagerness on his face; Qui would be considered good-looking as Nosferatu go, but even then there's something unsettling about him by mortal standards. Something impossible to place a finger on. 
+
+"I'm not sure if I agree with your sentiment, $!{name}," he says. "There are a dozen of us plus our mercenaries and there should be less than six of them even in the worst-case scenario, sentries or no," he says, lips pursed thinly in thought, "but you're right that we might be better served taking an alternate route. Destroying Ward will be significantly more difficult without the element of surprise. You haven't met him before—trust me when I say that, like most of the Rabble, he's not to be trifled with. And don't forget the most important thing: once he's incapacitated, we'll need to let the fire do the rest. That way there's no coming back."
+*set name_and_clan_chosen true
+*page_break
+Once the Sheriff has finished speaking, one of your party pushes forward from behind to address you. It's Lucca, moonlight glinting off inquisitive eyes narrowed with worry. The elder childe of Corliss, she's recently returned from overseas where she managed your mutual sire's business interests. Despite you barely knowing each other, she's taken to you with what seems like genuine enthusiasm, greeting you like a long-absent sibling.
+*if (clan = "Toreador")
+	Her hair—which you swear is a different color every time you see her—has been dyed dark blue for the occasion. She wears tight, form-fitting clothes that stand in stark contrast to the other Kindred in the raiding party, but if she's anything like her sire, you doubt her dubious choice of attire will hinder her ability to fight.
+	*goto lucca_ran_numbers
+*elseif (clan = "Nosferatu")
+	The Nosferatu curse had treated her more harshly than most, manifesting itself in a mostly-bald, lumpy scalp the color of day-old oatmeal. From what you gather, she's a brilliant strategist, but most of her control over Corliss's business had to be remote, where Lucca could hide her face from the managers and money she manipulated with practiced ease.
+	*goto lucca_ran_numbers
+*else 
+	She uses long, lacquered fingernails to sweep a length of fine brown hair away from her cheek. She'd arrived for the raid dressed in a fashion more suitable for a business lunch than a Blood Hunt, but you were relieved she chose dark colors at the very least.
+	*goto lucca_ran_numbers
+*label lucca_ran_numbers
+
+"I've run the numbers," she says in a barely audible whisper. "The intelligence reports show that there shouldn't be more than six Anarchs in the city at the moment. All the others we've been tracking have shown their faces around Montreal within the last few nights. They could have made their way here by now—at least in theory—but my eyes and ears in Quebec are certain that they haven't left."
+
+"That settles it then," Qui says decisively. "No retreat. $!{name}?" He grabs your full attention. "Nests of Anarchs infiltrating our Prince's domain without his knowledge or blessing are a cancer that the Camarilla has seen again and again, and it's only gotten worse since so many in the Brujah and Gangrel clans defected to join them. If we leave them here to fester, they're a Masquerade breach waiting to happen." 
+
+The Masquerade: The one set of rules almost all civilized Kindred can agree upon. Mortals can never be allowed to learn about the supernatural reality that encircles them. Nothing is more important to a vampire in modern nights. Of course such widespread deception is impossible to maintain constantly, and the occasional breach has led to the rise of professional vampire-hunters and secretive government agencies allied into a Second Inquisition—the greatest threat to your kind in centuries.		
+
+The Sheriff gestures toward the building beyond. "We're here to take out their leader. Widening our scope to include the other agitators lessens our chances of decapitating the beast. Corliss told me that your input is to be trusted, $!{name}, so now's your time to show us what you're made of. What's your read on the situation?"
+*choice
+	*if (oblivion) #[b]Oblivion:[/b] Using my vampiric gifts, I can see through the darkest night, allowing me to survey the field with supernatural precision.
+		You counsel Bouchard and Qui to be silent for a moment as you step away from them into the darkness. You concentrate on channeling the Blood. Your contemporaries believe that you're accomplished in the art of Auspex, but this particular gift is a darker one. The way of the Lasombra. 
+		
+		One of these nights your superior gifts will be respected, even feared, by other Kindred of the Court. But for now you must practice them in secret. It chafes when you think about it—even the mindless zealots of the Sabbat wield their power more openly than you. But then again, most of the Sabbat have been run out of the country or destroyed while you remain here in a position of power and privilege. To be a Lasombra is to fight, survive, and win. Sometimes, loath as you are to admit it, coming out on top requires a period of performative humility. 
+		
+		Your irises go black and in seconds you can see perfectly what darkness once hid from your view. While
+		*goto technically_changed
+	*if (auspex) #[b]Auspex:[/b] Using my vampiric gifts, I can drastically heighten my senses to survey the field.
+		You counsel Bouchard and Qui to be silent for a moment and close your eyes, channeling your Blood into your senses of perception. You open them again, and while 
+		*label technically_changed
+		the construction site hasn't technically changed, myriad new elements of the topography stand out that you had previously been unaware of. You imagine it's not all that unlike a blind man miraculously able to see for the first time. You scrutinize the factory where Bouchard had noted the sentries, immediately spotting at least two more humanoid shapes lurking deeper in the shadows.
+		
+		"There are two more sentries," you whisper. Qui curses. "Not only that," you continue, "the ones in the dark have guns, too."
+		
+		"There's no question, then," Lucca says, arms crossed as she peers in the same direction. "We have to go around and catch them by surprise."
+		
+		Bouchard glides over to you, his steps almost silent even to your enhanced senses, although the stench of the ancient Sewer Rat is enough to make you feel ill. "Look for heavily trod areas away from the obvious entrance. A side door or escape vector."
+		
+		You'd noticed it even before he spoke: A small door of corrugated metal, blending in almost perfectly with the rusted wall of the decaying building. The area immediately outside it has been disturbed by multiple sets of footprints, and you'd guess it was recently. You tell the old Nos what you see and he nods thoughtfully before passing the info off to Qui.
+		
+		*if (clan = "Malkavian")
+			"Bad idea," ${malk_name} says as ${malk_heshe} paces back and forth between you and the warehouse. $!{malk_hisher} footsteps make no sound when treading through the loose gravel. $!{malk_heshe} sniffs. "I didn't tell you about it for a reason. I won't be joining you."
+			
+			"Not that you're in any real danger," you mutter. "Fine. Wait out here, then."
+			
+			"Pay attention," ${malk_name} says. "They'll think you're talking to yourself again." You look back toward the hunters. $!{malk_heshe}'s right. Lucca's looking at you expectantly.
+		
+		"We should use the hidden door," Lucca says, and you can tell she's sensed it, too. "I mean, they could have sentries anywhere, but they're least likely to expect us coming this way, and it's closer to where the report says Ward's chambers are. It would be stupid to waste our time attacking from the front; this is the smart option. Don't you agree?"
+		*choice
+			#Lucca is right. We can't get carried away and rush in. Taking the side door is the only smart choice. 
+				*set intelligence %+10
+				*set wits %+10
+				*set composure %+10
+				*set dexterity %+5
+				*label grumpy_qui_is_grumpy
+				"Corliss insisted that I respect your input, but are you certain this is the best course of action?" Qui asks you and Lucca. "As Sheriff, I have several mandates from the Prince, including punishing those who flout the Tradition of Hospitality. These Kindred have not only abandoned the Camarilla, but they've infringed on our domain unannounced. The penalty for such a violation is final death."
+				
+				"Corliss ordered a Blood Hunt on Robert Ward," you say. "If we get caught up fighting his fodder, he could escape and all this would be for nothing."
+				
+				"It's a fair point," Bouchard rasps. "Let's do what we came to do and be done with it. This should be a job for the mercenaries and I'm growing weary of running about in all this moonlight. Bad for the skin."
+				
+				Qui groans, but you can still see the indecision in his eyes. "Normally I'd override this decision," he growls, "but you're correct, $!{name}. The Seneschal's orders were clear. We'll avoid the front entrance and concentrate on getting to Ward as quickly as possible. We can't allow him a chance to escape."
+				
+				*if (rogues_do_it_from_behind)
+					*page_break
+					*return
+				Lucca grins. "This will be good. He won't suspect a thing."
+				*page_break
+				The rusty, corrugated metal bites into the palms of your hands as you shift it gently to the side. It's not so much a door as a makeshift panel to camouflage a hole in the factory wall, really, but your second sight rarely lies—this entrance was favored by a number of past arrivals. You take your time, the door shifting almost imperceptibly as you gaze into the blackness beyond. Your eyes shift slowly, penetrating the dark and revealing its secrets. What you discover nearly sends you into a panic: Each time your eyes sweep through the murk, they notice yet another sentry, each armed with a heavy rifle held at sling-ready position. You count it a small blessing that each is focused on the front entrance rather than the shadowed breach you entered through, but if you stay there, it's only a matter of time before a stray glance reveals your position. You can feel Lucca shift behind you, stifling a gasp when she sees them, too. Not far from you, a dim light marks the location of Robert Ward's office in the exact place your intelligence reports suggested it would be. Closer scrutiny reveals an outline well-described by Corliss—a bulky behemoth that could only be the quarry you seek. You move aside as the last of the mercenaries silently enter the building, using hand signals to coordinate their advance.
+				
+				"We have to move in," Qui whispers low enough that you can barely hear him from a foot away. "There's someone approaching us from behind."
+				
+				"They were ready for us," you reply, creeping inside at the Sheriff's behest. "Armed sentries."
+				
+				Qui slips past you, creeping through the dark alongside Bouchard with uncanny agility, wearing the shadows like a cloak as they both target the two guards between your position and Ward's office. Not for the first time, you marvel at the Horrors' ability to hide in plain sight, although you're hardly envious—simply imagining your features scarred and peppered with fissures and pustules makes you feel ill. Nonetheless, never let it be said that they aren't good at their work. Bouchard strikes first, covering his victim's mouth with a pallid hand before pulling him into the darkness. Qui follows much the same, and in a matter of seconds they appear by your side once again. One side of Qui's mouth is quirked up in a smirk. "Mortals," he whispers. "Most of these sentries are mortal. We have a clear shot to his office now; we're not going to get a better chance at this."
+				
+				You approach the office. You're almost to your target and as far as you can tell, you haven't been detected.
+				*fake_choice
+					#"Why have mortals on patrol when he has command over the local Anarchs?"
+						"Front line of defense," Qui whispers. "Not enough Anarchs and he doesn't seem worried about Masquerade breaches. Just another reason he has to be destroyed tonight."
+						
+						Lucca peers out through the darkness. "Or it's just meant as a visual deterrent. He might have been hoping we'd see them and decide to back off."
+						
+						"Not his lucky night, then," Bouchard rattles. "Let's go make things worse for 'im."
+						*page_break
+					#"Did you kill them?"
+						Qui scoffs. "Of course we did. This isn't a game, $!{name}. Do you think armed mercenaries would think twice about destroying us? Better to kill them now and take them off the board."
+						
+						"Besides," Bouchard says, licking blood from his long fingernails. "It was fun."
+						*page_break
+					#"Well, Ward just made this easier for us, then. Let's go."
+					#I don't waste time with words. Let's end this.
+				*achieve surprise_attack	
+				"How the hell?" Robert Ward leaps back from behind a cheap metal desk, kicking it forward in an effort to slow you down. At first, you think you've tracked down the wrong man—well-worn jean overalls smudged with black grease and a red-checked shirt hardly evoke a sense of fear or respect—but one glance at Qui's face confirms that you're right where you're supposed to be. Momentary surprise vanishes from Ward's face, replaced by grim determination as he dashes forward faster than your eye can track and grabs you by the neck. With your heightened awareness, you can feel each individual muscle in his fingers contracting as he lifts you from the floor.
+				*goto ward_choices
+				
+			#The hidden entrance could be a trap. The Anarchs are a danger to us all if left unchecked; we should charge in and destroy them all!
+				*goto let_caine_sort_the_dead
+			#The hidden door is too much of a gamble. We should circle quietly behind the factory, attacking from behind.
+				*goto factory_sneaker
+	*if ((obfuscate) and (clan != "Lasombra")) #[b]Obfuscate (+Hunger):[/b] I can slip through the shadows without being seen to get a good look at how protected the building is before we attack.	
+		*comment Still not 'out' as a Lasombra yet. Disappearing right in front of so many council members would cause far too many questions to be asked. Oblivion option included above for balance.
+		*set hunger +1
+		*set dexterity %+10
+		*set manipulation %+5
+		*set wits %+5
+		*set resolve %+5
+		*set stealthy true
+		Qui nods reluctantly when you voice your idea, and you notice him shiver as he represses violent impulses. "It's a pragmatic idea; I should have considered it earlier," he admits. "I'll come with you—it's been a long time since you've been in a hot zone like this. Trust me; if you're discovered, you'll want me to have your back." You give the Sheriff a nod. He's right about your lack of recent experience, and it can't hurt to have him by your side. Qui and Bouchard whisper back and forth for several seconds, and the latter eventually grunts his approval. 
+		
+		"No time to waste," Qui says as he returns to your side. "The longer we screw around, the less likely we are to nail Ward." Something about him [i]shifts[/i] then, and he slips away from the wall, wearing the shadows as though it were the most natural thing in the world. You know from experience that others not gifted with your ability would find it almost impossible to locate the Sheriff in such low light, and you smile as you shift as well, eliciting a sharp gasp from behind you.
+		
+		"I will never get used to that, $!{name}," Jordan whispers. "Good luck!"
+		*page_break Sneaking Forward
+		"There are two more," you whisper. "Further back."  Qui curses. "Not only that," you continue, "the ones in the dark have guns, too." You scrutinize the factory where Bouchard had noted the sentries, immediately spotting at least two more humanoid shapes lurking deeper in the shadows, watching the entrance.
+		
+		"Let's get as close as we can," Qui says. You can tell by the direction of his voice that he's creeping forward. "See what we can learn before heading back. I hate to say it, but that old Leper might have been right. If we charge this place head-on, we'll be slaughtered." It's unusual for Qui to cede ground to Bouchard, but even you would agree that your party no longer has a choice in the matter. Your feet shift soundlessly, covering ground beside Qui until you're within fifty feet of the factory's entrance. The two of you hang back amid a pile of rubble, watching and listening; getting much closer would pose significantly more risk due to the brightly lit front door. 
+		
+		You think you recognize the two foremost sentries—Kindred of Clan Gangrel you met in passing over a decade ago. One stalks up to his companion, eyes sweeping the perimeter as he walks, missing you and Qui despite his advanced senses.
+		
+		"I'm getting tired of Ward treating us like guard dogs," one of the Ferals grunts to the other as he pulls and twists lengths of matted, dun-colored hair. "No Cammies are showing up tonight. He's a paranoid ass."
+		
+		The other sentry smacks her companion in the chest with a heavy backhand. "Ward's a goddamned visionary, you ignorant shit. They might not be coming tonight, but they'll come eventually. We have to be ready."
+		
+		"Fine," the original replies with a piercing whine. "But this isn't going to end well. Even you have to agree that the folks he brought aren't the best choice he could have made. Not sure I trust them if they find out who they're really working for."
+		
+		"Even visionaries sometimes make mistakes," she says with a sigh before both of them lapse into a long silence.
+		
+		Qui taps your shoulder to get your attention. "I think I've heard enough," he whispers.
+		*fake_choice
+			#"How could they have known to expect us?"
+				"I don't know," Qui whispers. "But trust me when I say I intend to find out. Someone must have talked, and I just can't abide by that in my city.
+			#"What company do you think they're talking about?"
+				"Can't know for sure, but we also can't sit here on our hands all night.
+			#"What does she mean by saying Ward's a visionary? Isn't he just an Anarch like any other anti-establishment ex-Camarilla?"
+				"I can't know for sure," Qui says slowly, obviously thinking it out as he goes. "But he has a long history in Ottawa, and I have my suspicions about why he's back." He pauses. "But those suspicions need to stay with me for now. Making accusations without proof is a good way to meet final death.
+		Let's head back."
+		*achieve detect_deter_report
+		
+		When you return and report to Bouchard and the others, the old Nosferatu's face splits in a cadaverous grin as striking as Qui's resulting scowl. Whispered words and careful planning ensue, and after several minutes of deliberation, everyone is on the same page. You'll have to sneak through the back of the factory and take down Ward by stealth rather than an all-out assault.
+		*page_break Time To Move In
+		*goto behind_the_factory2
+		
+	#"We should cut around behind the old factory, stealthily avoiding the sentries. We have a job to do, and we can't risk losing our primary target."
+		*label factory_sneaker
+		*set dexterity %+5
+		*set composure %+10
+		*set resolve %+10
+		*set ruthless %-5
+		*set stealthy true
+		*goto behind_the_factory
+	#"The Anarchs are a threat. I say we charge and slay them all as quickly as possible with overwhelming force. Left unchecked, any of them could bring ruin on the city in Prince Arundel's absence."
+		*label let_caine_sort_the_dead
+		*set strength %+10
+		*set resolve %+5
+		*set stamina %+10
+		*set ruthless %+5
+		*goto through_the_front
+	*if (clan != "Nosferatu") #"We need to take them all out, but we should do it quietly. I'll risk sneaking ahead of the main forces with Qui to take down the sentries in silence before signaling the others forward."
+		*set dexterity %+10
+		*set manipulation %+5
+		*set wits %+5
+		*set resolve %+5
+		*set ruthless %+5
+		*set stealthy true
+		*label through_the_front
+		*set qui %+5
+		"A wise decision," Qui praises you with a smile. "Corliss charged us with the final death of Robert Ward, but if she'd known the extent of the Anarch presence here, she surely would have altered her orders. @{(stealthy) The others will stay here, ready to go once $!{name} and I have disabled the sentries."| We'll all move in at once on my signal. Things will get chaotic once they know we're here, so be ready to push through and keep on moving until Ward is finished." He sets eyes on Bouchard. "You sneak around the back of the factory and take at least two of our fastest mercenaries. If Ward tries to run, cut him down before he knows you're there."}
+		
+		"I don't think this is a good idea," Jordan says warily. "But I don't have any reads against it. If we weren't going to make it out of this, I'd have seen the signs."
+		
+		"Well that's downright comforting coming from the likes of you," Bouchard growls with a sniff, muttering something about insane Malkavians before skulking down the shadowed line of your raiding party, passing on the change of plans to make sure each of you is on the same page, waiting for Qui's signal. When he returns, he gives a sharp nod, causing his distended jowls to quiver. He peers into the dark and smells the air for good measure. "The sentries aren't paying attention. Now's as good a time as any."
+				
+		*if (stealthy = false)
+			In the years since your Embrace, you've witnessed numerous death sentences and calls to battle, but something about Qui's voice chills your blood. He raises his hand, his long, tapered nails backlit by the moon, and whispers. "Take them all out. No quarter."
+			*page_break
+			Neither of the oblivious sentries notices your hunting party until it's far too late. Qui reaches them first, hooked fingers ripping through the Anarch's neck and chest, eliciting an unearthly scream. You arrive moments later and square off with the second vampire, 
+			*label logan
+			taken aback when his fingernails extend to inhuman proportions, forming a deadly set of razor-sharp claws. You calm your mind, trying to focus on your old combat training. You'll need to re-sharpen your instincts if you're going to survive.
+			
+			"You shouldn't have come here, Cammy," he growls, launching himself at you like a beast, claws spread, hungry for your blood.
+			*fake_choice
+				#My speed and intuition are more than a match for this animal.
+					*set dexterity %+5
+					*set wits %+5
+					You duck to the right in a blur of fluid motion, dodging the Anarch's slashing claws by a matter of inches before sliding around behind his back. 
+					*label pez_dispenser
+					Wasting no time, you draw your handgun, firing several shots in rapid succession. It's almost impossible to miss from this close, and your opponent drops, twitching. 
+				#I meet the beast's advance, countering its feral rage with my unholy strength.
+					*set strength %+5
+					*set composure %+5
+					Your bestial opponent hesitates for a fraction of a second as you meet his charge, and that's more than enough time for you to slam an elbow to his jaw, dropping him to his knees with a feral scream and shattering of bone.
+					*goto pez_dispenser
+				#I withstand the brunt of my opponent's attack, tricking him into getting close before I smash his head in.
+					*set stamina %+5
+					*set manipulation %+5
+					You stand firm, rooted in place as your bestial opponent charges, claws outstretched and raking against your flesh. You lean into the attack as he lunges with abandon, clearly expecting you to dodge away or flee. Instead, you bring your forehead down with a sharp crack against his nose, snapping the bone and sending him to his knees with a feral scream and a torrent of creative epithets.
+					*goto pez_dispenser
+			*label body_hits_the_floor
+			You jump back as his body falls to the floor, eyes already scanning the factory's entryway for enemies. Your mercenary allies and the other Kindred have already surged past while you and Qui took care of the sentries, and the sound of gunfire booms off the crumbling red bricks. 
+			
+			Rough hands jerk you away from the body and toward the outer wall. You take aim, ready to fire before you recognize Qui's voice. "I don't know how," he grunts, "but they knew we were coming. There are at least four of them down there with automatic rifles. I almost walked into the kill-zone myself while you were finishing that rabid dog."
+			
+			"Are they all…"
+			
+			"No," he shakes his head. "Looks like most of us are pinned down in a stairwell. Sal is down, but he'll probably make it; he crawled into one of the side offices. Our mercs are in rougher shape—humans are so damned fragile."
+			
+			You stiffen, the reality of your situation finally crashing down on you, and suddenly all you can smell is gunpowder and copper. Years of privileged un-life as one of the Camarilla elite have atrophied your primal instincts, and while you're a force to be reckoned with in a one-on-one fight, you haven't the first idea how to contend with an ambush of this magnitude. "I'm not properly trained for this," you stutter.
+			
+			"No one is," Qui grunts. "An ambush can put even the most seasoned warrior off-guard. But we've got a job to do and I intend to see it through. They probably have our escape cut off anyway; that's what I would do." He cracks his knuckles angrily. "The way out is through."
+			
+			You nod, steeling yourself for what needs to be done.
+			
+			"There are two of them on the catwalk above and two at ground level. One of us needs to climb up there and deal with them quickly while the other draws fire by going after the shooters on the ground." You gaze up at the rickety scaffolding leading to the rusty metal of the catwalk. Climbing up from this position would be difficult, but doing so quietly enough to sneak up on the snipers would be quite a trick indeed.
+			*choice
+				*if (fortitude) #[b]Fortitude:[/b] I can shrug off a hail of gunfire without meeting final death. Not only can I distract the snipers, I can also charge them and take them down while I'm at it.
+					*goto fortitude_shrug
+				#I'm resilient enough to be able to distract the snipers and take a few hits if they get lucky before Qui deals with them.
+					*goto shrug_it_off
+				#I'm nimble enough to climb up to that catwalk in my sleep. Let's just hope Qui is able to distract the snipers long enough for me to come up from behind.
+					*goto catwalk_snipers
+				#I have a better idea. I'm powerful enough to smash the catwalk's supports and send the snipers toppling to the floor where Qui and I can finish them off.
+					*goto hulk_smash
+		
+		*else
+			*page_break
+			Neither of the oblivious sentries notice you or Qui silently drifting through the shadows until it's far too late to escape. Qui's target drops quickly, but yours must possess keener hearing. He whirls just as you strike, lashing out with a sharp kick to gain some distance. He staggers as his body regenerates from the wound, but soon he's grinning with dagger-sharp teeth and you're
+			*goto logan
+		
+	#"We need to keep cool heads and remember our mission. We'll circle around the factory, but we'll do it quickly, before Ward has a chance to escape."
+		*set stamina %+5
+		*set composure %+10
+		*set resolve %+10
+		*set ruthless %-5
+		*label behind_the_factory
+		*set rogues_do_it_from_behind true
+		*gosub grumpy_qui_is_grumpy
+		*label behind_the_factory2
+		Bouchard creeps forward, disappearing from view as he scouts ahead, two of the most agile mercenaries ghosting by at his side with their rifles held at the ready to defend their master. You lead the hunt through crags of concrete and half-demolished walls toward the back of the factory, @{(stealthy) your keen eyes spotting several bits of loose scree and pieces of crumbling mortar before they have a chance to trip you up.| nearly tripping over several bits of loose scree and pieces of crumbling mortar in your haste to catch Ward before he has a chance to flee. Sentries mean he's skittish and ready for anything.} The crashing sound of water from the nearby river is almost deafening on the east side of the decaying building. You note the high water level. It's almost too much for the dam to handle. It's no wonder the city had the bridge closed off for so long. But this works to your advantage.
+		
+		Without warning, Bouchard materializes and pulls you low to the ground to whisper in your ear. The Nosferatu's open mouth smells like rancid meat. "There are no guards posted back here on the ground, but there [i]are[/i] windows," he points upward to indicate five gaping holes in the building's wall, only one of which still desperately clings to a few jagged shards of glass. "The factory is only one floor, but a catwalk rings the place. I saw one of them take a look down here before moving on to the front." 
+		
+		"So how can we get in without being spotted?" you ask.
+		
+		"There's a rusted set of double doors right in the center over there," Bouchard says, gesturing at the rear wall. "I gave it a tug. It shifted, but we shouldn't open it while there are patrols above—might make too much noise. There's some good news though—part of the wall is crumbled enough for proper handholds. We could send someone up there to take out the watcher while the rest of us work on the door."
+		*choice
+			#Bouchard is clearly a master of stealth. I suggest that he climb up and take out the second floor sentry.
+				*set bouchard %+5
+				"If it will get us out of here faster, I'm all for it. Give me a five minute head start. We good, Qui?" the Sewer Rat grumbles, melting out of view again before the Sheriff can respond. Seconds later, he's already ascending the factory wall, his body swathed in darkness you would have never noticed if you didn't know exactly where to look.
+				
+				Qui bristles. "That old lick is getting far too comfortable not following my instructions. He may have a few decades on me, but out here on the Hunt he needs to listen to my directives." He clenches his fists. "But the two of you are right. He's best for the job. Let's give him the head start he asked for and get to that door."
+				*goto hello_housekeeping
+			#Qui's incredible strength is unmatched. If anyone can climb that wall by hand and take out the sentry in a matter of minutes, he can.
+				*set scout "Qui"
+				*set qui %+5
+				Bouchard gurgles with what could only be described as a demented giggle. "Qui? We might as well just nuke them from orbit. Might be subtler." He covers his mouth to stifle a second cackle.
+				
+				"What the esteemed Primogen means to say," Qui growls, his face drawn with a deep frown, "is that I'm more accustomed to muscle-work than sneaking around. Despite appearances."
+				
+				"It's not a bad idea, though," Jordan says to Qui quietly. "Whoever climbs the wall will need to take out the guard before they can raise the alarm. I'd take you over Bouchard any day for that kind of violence."
+				
+				Bouchard stops laughing and scowls at the three of you.
+				
+				"Maybe you're right," Qui says, giving you a pointed look. "A wise choice. Give me a five minute head start and then get everyone through that door as quickly as possible." 
+				*goto hello_housekeeping
+			#I'll do it myself. I'm graceful and confident enough to climb the wall with ease and take out the guard before they can raise an alarm.
+				*set scout "you"
+				*set dexterity %+5
+				*set composure %+5
+				"Absolutely out of the question," Qui says grimly. "You've been out of the field too long."
+				
+				Bouchard scoffs. "What's the worst that could happen, Qui? You wanted to run right in, guns blazing. 'Kill 'em all and let Caine sort the dead,' right? At worst, $!{name} will fail and you'll get your wish. If not, we can gut Ward before he knows what hit him."
+				
+				You give Bouchard the side-eye. "You watch. I may not have been in the field for years, but I'm not a pushover. You just get the others ready. Give me a five minute head start, then come in through the door."
+				*page_break
+				Despite your bravado, you're slightly concerned about your abilities, but as you dig your fingers into the crumbling fissure in the brick wall, your expertise comes rushing back to you, rendering your worries laughable as you scale the edifice like a spider, silent and foreboding. When you reach the window, you latch tightly beneath it, listening for footsteps. When none approach, you risk glancing over the sill. The factory is poorly lit, likely to keep the location hidden, but you have little difficulty picking out the guard stationed on the catwalk. You study his movements, getting a feel for where he's going to go next and how quickly he can access the rifle strapped around his chest. Something about him feels…off. Sloppy. You narrow your eyes and watch closely, pleased with what you see. Your job just got a whole lot easier—you're almost certain that your enemy is mortal.
+				
+				The sentry turns his back on you. Leaving no time to second-guess yourself, you leap over the window, landing silently on the catwalk with padded feet. Not so much as a twitch from your mark. You move forward silently, melding with the shadows along the wall until you're directly behind the man—you can sense the mortal blood pulsing in his veins. You reach out and wrap an arm around his neck, your other hand covering his mouth to prevent a warning scream. He struggles and almost frees himself, but your supernatural strength prevails over the mortal's training and he finally goes limp in your arms. You slowly ease the body to the metal slats of the catwalk as your eyes dart from side to side. You can't let your nerves get to you. One step at a time. Below, you see the dim outline of Qui leading the others along the opposite wall.
+				
+				A sharp electrical crackle is the only warning you have before dozens of floodlights blaze to life, immediately followed by an ear-splitting clatter of gunfire as men and women swathed entirely in black emerge from all corners of the factory. You watch in horror as Qui's band dashes for the shelter of an old stairwell, dust and chips of brick exploding in violent fractures all around them.
+				*goto swing_low_sweet_vampire
+
+		*label hello_housekeeping
+		*page_break
+		Jordan twitches with worry as you wait for ${scout} to take out the sentry. "Did Corliss ever tell you why she sent us on the Hunt? Surely Qui had better options than us for an operation like this."
+		
+		You shake your head. "She just said I was growing too complacent. That I needed to get my hands dirty again or I'd forget my nature."
+		
+		"Huh," Jordan whispers. "Maybe she's right. But the whole thing strikes me as odd."
+		
+		"It's time," @{(scout = "Bouchard") Qui| Bouchard} says. "$!{scout} should have taken that sentry down by now." He grips the rusty back door to the factory in pallid hands, his long, talon-like nails digging through the opening to slowly force it open. He looks back at you and whispers. "Ward's office should be close to here, near the back of the building. Be on your guard and don't give him a chance to run." Ever so reluctantly, the door accedes to his demands, and one by one your party files into the darkness beyond.
+		*page_break
+		You slink along the crumbling factory wall, sharp shards of brick digging into your shoulders as you move. Not far from your position, a dim light marks the location of Robert Ward's office in the exact position your intelligence reports suggested it would be. Closer scrutiny reveals an outline well-described by Corliss—a bulky behemoth that could only be the quarry you seek. @{(scout = "Bouchard") Qui| Bouchard} gestures toward the silhouette and you nod, increasing your pace as you grow ever-nearer to your target.
+		
+		"Wait," @{(scout = "Bouchard") Qui| Bouchard} whispers, holding a hand up to stop you in your tracks. "Something's…"
+		
+		A sharp electrical crackle is the only warning you get before dozens of floodlights blaze to life, immediately followed by an ear-splitting clatter of gunfire as men and women swathed entirely in black emerge from hiding on the catwalk above. Below, two feral-looking Kindred advance, their fingernails unnaturally lengthened into deadly claws.
+		
+		"It's a trap!" Jordan exclaims. "We have to get out of here!"
+		
+		You stiffen, the reality of your situation crashing down on you, and suddenly all you can smell is gunpowder and copper. Years of privileged un-life as one of the Camarilla elite have atrophied your primal instincts, and while you're a force to be reckoned with in a one-on-one fight, you haven't the first idea how to contend with an ambush of this magnitude.
+		
+		"There!" Lucca says, pointing at an old stairwell in the nearby wall where you can take shelter and plan a counter-attack. "Let's move!" A bullet slams into her shoulder, throwing her back several feet before she manages to shrug it off and stumble back toward the group. "Let's go!"
+		*choice
+			*if (fortitude) #[b]Fortitude:[/b] I can shrug off a hail of gunfire without meeting final death. Not only can I distract the snipers, I can also take them out of the game while I'm at it.
+				*label fortitude_shrug
+				*set stamina %+10
+				*set hunger +1
+				You leap out in front of the others, immediately taking three direct shots to the chest that would have killed a mortal on the spot. You can't help but chuckle to yourself as your body mends the wounds in a matter of seconds. It's been decades since you've felt this powerful. Perhaps Corliss was right to send you out on the hunt with Qui and the others. Is this what she wanted you to remember?
+				
+				You're marginally aware of Lucca dashing off in the opposite direction, charging the sentries on the east end of the factory while you concentrate on clearing out the west. Chunks of burning-hot metal score your face, neck, and limbs, but you barely feel the impact thanks to your supernatural gifts. The feeling of bullets ripping through your undead flesh and tearing a ragged hole out the other side one after the other is a curious one, not unlike the sensation of being lightly tugged backward by a rope tied around your chest. The sentries—less than a dozen feet ahead now—begin to panic, and you realize with relief that they aren't vampires at all. They're mortals! Your job just got a lot easier. You laugh at the sheer absurdity of it all. Who would have thought you'd feel so alive charging a firing squad single-handedly? 
+				*page_break
+				*achieve rip_and_tear
+				You smash into the mortals' ranks like a bull, using your momentum to send them flying in disarray before drawing your gun and returning fire. Your unpracticed aim is largely off-mark, but you manage to make up for it with brute strength conferred to you through your undead abilities. When the last of the kine falls to the floor with a groan, you stagger back and hold yourself up against the wall for several seconds. You'd forgotten what a rush combat can be, but now you're recalling the downsides as your body mends and you try to put the pain out of your mind.
+				
+				*label check_on_companions
+				You turn to check on your companions, relieved to find them safe and emerging from the shelter of the stairwell. You shift your gaze over to a small office room tucked away in the corner. Your briefing suggested that Ward would be staying inside, but there's no sign of him. As your haze of bloodlust wears off, you nearly trip over the bulky leg of a dead mortal and a memory from your past causes you to recoil. You used to be one of these creatures. Once, you had been drained of blood, dying in the dirt. But unlike these victims, you'd been pulled back from the brink of oblivion, granted an eternity of power at the cost of damnation.
+				
+				A meaty hand closes around your neck and you're forcibly torn from your reverie as some unknown brute hoists you skyward, your feet dangling uselessly off the ground. 
+				*label qui_shouts
+				You hear Qui shouting distantly, followed by a clatter of running footfalls as the others close in on you. Shifting in the monstrous grip, you struggle to catch a glimpse of your attacker and lock eyes with one of the largest Kindred you've ever seen, his craggy face and massive bulk fitting Corliss's description of Ward to a tee, but his well-worn jean overalls smudged with black grease and red-checked shirt hardly evoke the sense of fear or respect you'd anticipated. With your heightened awareness, you can feel each individual muscle in his fingers contracting as he lifts you from the floor.
+				*goto ward_choices
+		
+			*if (clan != "Ventrue") #I'm resilient enough to be able to distract the snipers and take a few hits if they get lucky while the others make their way to safety.
+				*label shrug_it_off
+				*set stamina %+10
+				You leap out in front of the others, immediately taking three direct shots to the chest that would have killed a mortal on the spot. Staggering backward as your body works to repair the damage, you focus on your goal and ignore the pain burning through your body. It's been decades since you subjected yourself to such abuse, and you're suddenly worried you may have bitten off more than you can chew. You dash in the opposite direction of the stairwell, neatly dodging the next shots as the last of your party finds safety behind the thick concrete walls.
+				
+				Qui's got to be planning a counter-attack. Your mind races desperately as you reverse course. There has to be a way for your group to—
+				
+				The floor in front of you erupts in a hail of concrete shards and dust, and you're pushed back several feet by an angry fist of concussive force, your face on fire with a peppering of hot shrapnel. You've triggered some kind of explosive trap. Before you're able to get your bearings, a meaty hand closes around your neck from behind, strangling you as it hoists you skyward, your feet dangling uselessly off the ground. "Not so tough now, eh?"
+				
+				*goto qui_shouts
+			#I'm nimble enough to climb up to that catwalk while the others distract the snipers long enough for me to come up from behind.
+				*label catwalk_snipers
+				*set dexterity %+10
+				Diverging from the others, you run toward the catwalk, avoiding the areas most lit by the ambushers' flood lights. Luckily, the sentries focus almost entirely on the larger group and the thunder of gunfire masks any sound you make while running. You leap up against the wall, kicking off and grabbing hold of the catwalk. Before you can pull yourself up, the old metal wrenches downward under your sudden weight, alerting a nearby shooter. He walks above you, steel-toed boots crunching down on your fingertips as you hang helplessly. 
+				
+				"It's end-times for you, freak," the man says grimly as his finger tenses on the trigger. You blink. Freak? Does he not realize who he's working for? You bring your feet up against the wall, pushing your dangling body out of the way as the mortal narrowly misses you with his first shot, surprised by your sudden speed and inhuman agility. You reach upward and grab his leg, using your leverage against the wall to tear him from his perch, sending him tumbling to the floor head-first where he lands with a bone-crunching thud.
+				
+				You pull yourself up, only to find yet another sentry lying in wait, rifle trained on your position. "He'd better be okay, blood-sucker," the black-clad woman growls before opening fire, several shots tearing through your chest as you drag yourself forward along the guardrails like a demon possessed. "Wh—why won't you die?" she gasps, confidence shaken, eyes wild with fear. She turns to run, and you have little choice but to let her go as your body mends and you slowly get to your feet. It seems like forever since you've been in peril of meeting final death, and you can feel your inner Beast threatening to assert control. You calm yourself the way Corliss taught you so many years ago, and in a few seconds that seem to span an age, you're your own creature once again.
+				*label swing_low_sweet_vampire
+				*page_break
+				You peer down through the metal slats of the catwalk and fix your gaze on a shooter directly below, still firing on the remaining members of the hunting party, some of whom are still bunkered in the old stairwell. Baring your fangs, you grip the guardrail tightly and leap over the edge, swinging down. You collide with the man, knocking him to the floor in a heap, unconscious.
+				
+				*goto check_on_companions
+			#I have a better idea. I'm powerful enough to smash the catwalk's supports and send the snipers toppling to the floor where @{(scout = "Bouchard") Qui| Bouchard} and I can finish them off.
+				*label hulk_smash
+				*set strength %+10
+				Diverging from the others, you run toward the catwalk, attempting to avoid the areas most lit by the ambushers' flood lights. Luckily, the sentries focus almost entirely on the larger group and the thunder of gunfire masks any sound you make while you close the distance. As you run, you manage to pinpoint the location of the two nearest snipers as well as the strut holding up the catwalk nearest them. Focusing your supernatural strength, you barrel into the support beam with all your might, tearing the brittle, aged metal from its moorings in the floor below. Shouts echo from above as the catwalk shifts and then crashes to the floor in a clatter of metal on concrete.
+				
+				"Good work, $!{name}," a voice from behind startles you. A quick glance confirms it as Qui. "They should be easy to finish off. Just mortals. I'll take the one on the right," he says, and then he's gone again, reappearing moments later to drive his fist deep into the struggling sniper's chest. You quickly run for the remaining enemy as his panicked shooting goes wide.
+				
+				"Not today, devil!" the sniper grunts as you close in, brandishing an oblong device in his right hand. "I'm taking you to hell with me!" the mortal shouts, pulling a pin from the device. In the second it takes you to blink with surprise, flames explode around you and you're pushed back several feet by an angry fist of concussive force, your face on fire with a peppering of hot shrapnel. Before you're able to get your bearings, a meaty hand closes around your neck from behind, strangling you as it hoists you skyward, your feet dangling uselessly off the ground. "Not so tough now, eh?"
+				
+				*goto qui_shouts 
+				
+*label ward_choices
+
+"Corliss's childe?" Ward grunts, eyes narrowing as he scrutinizes your face. "You're being used, $!{name}. This isn't how it has to end."
+*fake_choice
+	#"This is exactly how it needs to end!" I yell, using my free arm to shoot him in the face.
+		*set subversive %-10
+		*set ward %-10
+		*set ward_hates_you true
+		*set loyalty_to_corliss +1
+		Ward flinches away and your shot wings him in the neck. He growls in surprise, sucking air in through gritted teeth as his massive fingers clench harder around your neck. "I wanted to give you a chance, $!{name}," he grunts. "but I guess you're not ready to hear the truth."
+		
+	#"What do you mean I'm being used? You're the one trying to strangle me!"
+		*set ward %+5
+		*set ruthless %-5
+		*label theres_a_hole_in_your_mind
+		"I have very little choice at the moment," he growls, eyes shifting to Bouchard as the Nosferatu slinks toward him, fangs bared, making way for Lucca and Jordan to aim their guns. They hesitate, only holding back their shots to avoid hitting you. "Your mind has been tampered with, $!{name}. Question those in power around you and you'll learn the truth. We'll meet again."
+		
+		@{(clan = "Malkavian") "Tampered mind, eh?" $!{malk_name} grunts. $!{malk_heshe}'s trying to peel Ward's fingers away from your neck with negligible results. It would probably help if ${malk_heshe} wasn't an intangible figment of your imagination. "No shit? If this big sack of hammers wants to help, maybe he should let us go!" |}
+		
+	#"You Anarchs are all the same, all brawn and no brains. Surrender to us now and the rest of your gang might survive to see another night."
+		*set ward %-5
+		*set subversive %-5
+		*set ward_hates_you true
+		*set loyalty_to_corliss +1
+		"Your ignorance speaks volumes, whelp," he grunts. "I wanted to give you a chance, $!{name}, but maybe you're not ready to hear the truth."
+		
+	#"I wasn't told why they want you dead. Just put me down and we'll talk."
+		*set ward %+5
+		*set subversive %-5
+		*goto theres_a_hole_in_your_mind
+*set hunger 5
+The muscles in Ward's left hand tense around your neck as his right arm wraps around your torso with the speed of a viper. In your peripheral vision, you can see Qui charging forward, seemingly in slow motion as the world revolves around you in a sickening spiral. Ward heaves you backward with such force that the fragile brick wall explodes outward, sending you flying almost a hundred feet into the open air in a graceless arc, your world tumbling around you. Time seems to slow as you descend, jagged pieces of rebar slashing at your neck and chest as you manage to twist aside just in time to avoid being impaled grotesquely on the leaning wall of a partially demolished building. You hit the ground, skidding and twisting through a field of heavy gravel and chunks of pulverized concrete which tear at your open wounds. 
+
+When you finally come to a stop, your vision swims, red-rimmed and dark in one eye. You blink, for a moment imagining you must be hallucinating, but then the spinning twin visions converge on each other, manifesting in the form of a cowering mortal couple. One of them has been struck in the head by a fist-sized chunk of brick. Blood oozes from the deep gash, and their companion, who had been holding a bit of cloth to their forehead in an attempt to stanch the flow, has dropped it in favor of shielding their partner. Stinging pangs of desire overwhelm you, and for a moment all you can see is a talking sack of meat and blood.
+
+"Please…" the mortal stutters. "We need to get to a doctor!"
+
+Stupid thing to say, if only because you doubtless look worse than they do. Your hands claw at the dust and gravel as you pull yourself forward, unable to vocalize your desperate need, your only true desire in this moment. Primal Hunger overwhelms years of social programming and Camarilla directives—the loss of Blood as your body mended itself has awakened the Beast within. You must feed.
+
+As you grow closer, you lose focus again and the couple swims before your eyes, their faces changing into ghostly visions. As what remains of your humanity does battle with the Beast threatening to consume you, it digs through long-hidden memories, slowly reeling you back from the brink of madness. The appearance of the uninjured mortal twists and morphs until you are staring into a mirrored set of eyes, a mirrored face. A mirrored soul from a time before it was indelibly stained by corruption. 
+
+You would weep to see this earlier version of yourself if you had tears left to shed.
+(This choice determines your gender and age.)
+*fake_choice
+	#Before me, I see the image of a young woman, powerful and defiant.
+		*set age "young"
+	#A young man stares back at me, his eyes ablaze with youthful vigor.
+		*set gender "man"
+		*set age "young"
+		*label he_is_me
+		*set heshe "he"
+		*set himher "him"
+		*set hisher "his"
+		*set sirmaam "sir"
+		*set boygirl "boy"
+		*set manwoman "man"
+		*set mrms "Mr."
+		*set guygirl "guy"
+		*set master_mistress "master"
+	#A middle-aged woman stares sadly at me, as though knowing what she will become.
+		*comment Default
+	#A middle-aged man gazes wistfully through me, longing for a different future.
+		*set gender "man"
+		*goto he_is_me
+	#An elderly woman smiles comfortingly, and I bask in the glow of her warmth.
+		*set age "elder"
+	#An elderly gentleman narrows his eyes, peering back at me as though he doesn't believe I am real.
+		*set gender "man"
+		*set age "elder"
+		*goto he_is_me
+	#None of these visions are adequate to describe my gender; my identity can't be defined in such narrow terms.
+		*set gender "person"
+		*set heshe "zhe"
+		*set himher "zhim"
+		*set hisher "zhir"
+		*set sirmaam "master"
+		*set boygirl "childe"
+		*set manwoman "Kindred"
+		*set mrms "Neonate"
+		*set guygirl "person"
+		*set master_mistress "master"
+		You defined your own identity outside the common dictates of society. But as a mortal, age visited your earthly body the same as it would any other.
+		*fake_choice
+			#I am young.
+				*set age "young"
+			#I am middle-aged.
+			#I am elderly.
+				*set age "elder"
+Your eyes shift away from your mirror image to ${hisher} companion, and a sharp pang of anguish wracks your body and mind. Long-forgotten memories of a partner you once cherished float before you, marred by the deep gash on their forehead, a bloody omen of an unforgivable betrayal that will never truly be forgotten, no matter how distant your un-death draws you from your earlier life.
+*comment In accordance with CoG editors' notes, this choice will not set an immutable sexuality, and readers will not be locked away from any relationship, allowing bi/pan folks their choice of partner gender. The choice is primarily used to designate the background character of the betrayed mortal lover from the past.
+*fake_choice
+	#I see a vision of a woman I once loved, smiling and foolhardy.
+		*set sexuality "women"
+	#A man gazes back at me, face flush with hopeful naivety.
+		*set sexuality "men"
+		*set jordan_gender "man"
+		*set jordan_heshe "he"
+		*set jordan_hisher "his"
+		*set jordan_himher "him"
+		*set jordan_hishers "his"
+	#I had never been interested in intimate relationships. It's not a lover I see before me, but the face of my closest and most-loved friend. 
+		*set sexuality "ace"
+	#My lover transcended the boundaries of gender—they always had hope for a brighter world. Right up to the end…
+		*set sexuality "nb"
+*if (sexuality = "nb")
+	*gosub nb_bloodlust
+	*goto newly_mended_legs
+In this moment of pure animal desperation, all you can think of, all you want in the world is to @{(sexuality = "ace") hold your friend tight to you,| brush your lips against ${jordan_hishers} and banish the eternal cold of un-death, even if only for a fraction of a second,} to relive some of what has been lost, to heal your mind as well as your body. This unearthly desire proves too great to resist, and you draw forward, embracing your @{(sexuality = "ace") friend| lover} and pulling ${jordan_himher} close. $!{jordan_heshe} struggles at first, but eventually yields to your touch, a deep groan of pleasure on ${jordan_hisher} lips. The feeling is euphoric. Hot tears stream down your cheeks and your chest constricts with gut-wrenching emotion as your embrace spans what feels like hours of pure bliss. And then there is pain. You're able to ignore it at first, but it returns with a vengeance as your @{(sexuality = "ace") friend| lover} is torn from your arms, a sad smile etched on ${jordan_hisher} lips.
+
+"No!" the word rips its way out from the bottom of your black and shriveled lungs. "Not again!" Your eyes shift to the demon pulling your @{(sexuality = "ace") friend| lover} away, and you recognize yourself in its face once again. Not as you once were, but as you are now—soul twisted and shriveled, a gaping maw with protruding fangs. You leap forward, ripping your doppelganger away from ${hisher} prey before plunging your teeth into ${hisher} neck. "Not…ever…again!" you grunt against ${hisher} flesh, crimson bubbles flowering at the edges of your mouth as you scream defiance even while you drain your personal demon dry. When at last ${heshe} breathes no more, you fall back, triumphant exultation fading as your body finishes knitting itself together again. Reality settles around you again, and you feel a biting sting of dread as you turn to take in the true scene.
+
+The mutilated body of a young ${gender} lies sprawled on the ground, ${hisher} neck torn open and hanging at an unnatural angle, expression locked in sheer terror and disbelief. $!{heshe}'s tightly grasping the hand of another mortal—${heshe}'d somehow held on even as you drained the life from ${hisher} body. Unlike ${jordan_hisher} partner, the surviving young ${jordan_gender} has yet to succumb to oblivion—irregular breathing causes ${jordan_hisher} chest to rise and fall and ${jordan_hisher} eyes drift listlessly until they alight on you, your lips and chin slathered in a mix of blood from both your victims. $!{jordan_heshe} tries to scream, but finds ${jordan_himher}self unable to summon the necessary breath, and all that comes from ${jordan_hisher} lips is the pitiful squeak of a prey animal. $!{jordan_heshe}'s dying. $!{jordan_heshe} knows it. You know it.
+
+"I don't want to die here," ${jordan_heshe} rasps, ${jordan_hisher} knuckles going white as ${jordan_heshe} clutches ${jordan_hisher} dead partner's hand.
+	
+Your head is spinning as you sink to your knees before the ${jordan_gender}, unable to banish the vision of your @{(sexuality = "ace") friend| lover}'s face. $!{jordan_hisher} expression of betrayal was not at all dissimilar to the gaze of this young ${jordan_gender}, soft eyes searching for answers and wondering why—how you could have done such a thing.
+
+"Please," ${jordan_heshe} whimpers. 
+*fake_choice
+	#I can never forgive this ${jordan_gender} for reminding me of my past so harshly. I harden my heart and kill ${jordan_himher} up close and personal.
+		*set ruthless %+5
+		A darker part of you takes hold, perhaps rooted in the Beast, but more likely wrought of rekindled emotion. You stare down at the helpless mortal with contempt. This pathetic creature is not worthy of your mercy, nor of the memory ${jordan_heshe} had the audacity to evoke.
+
+		You kneel beside ${jordan_himher} and bring your hand to ${jordan_hisher} throat, your dead eyes causing ${jordan_himher} to shudder and look away. $!{jordan_hisher} neck is a ruin of ruptured blood vessels and ragged skin—you can almost feel the throbbing of what little blood remains in those pulsating veins, but you hold yourself back from draining ${jordan_himher} dry. Your other hand joins the first in a choke-hold, starving the dying body of oxygen. $!{jordan_heshe} sputters feebly, tries to call out for help, and goes limp. 
+		
+		You release ${jordan_hisher} neck with disgust. It's been decades since you've attacked kine for any reason other than to feed. Perhaps you've gone too soft. You'll need to thank Corliss for having the wisdom to send you on this mission.
+	#$!{jordan_heshe} deserves mercy. Killing ${jordan_himher} is the most humane thing I can do.
+		*set ruthless %-5
+		You're not certain why you choose to take mercy on this mortal. The memories ${jordan_heshe} evoked are painful, and part of your undead instinct dearly wishes for ${jordan_himher} to suffer for making you remember. Perhaps your mercy is merely pragmatism—if your victim somehow manages to survive against all odds, ${jordan_heshe} could be a Masquerade risk that may be traced back to you, and your sire would doubtlessly treat you with far less charity than you showed your own victim.
+		
+		You kneel beside ${jordan_himher} and pick up a knife-like shard of debris. You could shoot ${jordan_himher}, but you don't want to attract too much attention while you're still on your own and only newly mended. To business, then.
+		
+		You grit your teeth as you slash the mortal's throat with the makeshift knife. $!{jordan_heshe} gasps and blood pulses through the wound. Such a waste. Within seconds, ${jordan_heshe}'s on the ground, blissfully passed on to whatever afterlife awaits ${jordan_himher}.
+
+	#I can't bear to cause this innocent ${jordan_gender} any more harm. I turn my back and allow ${jordan_himher} to die in peace.
+		*set ruthless %-5
+		You turn away from your victim and start toward the factory once again, your bloodlust sated now that your body is fully mended. The disturbing memory the ${jordan_gender} had conjured within you is already fading into background noise out of necessity—you have to return to the fight.
+		
+		"No!" the ${jordan_gender} cries desperately from behind you. "You can't just leave me here!"
+		
+		"I won't harm you further," you state flatly.
+
+		"It hurts!" ${jordan_heshe} howls.  "Please!"
+
+		You stop for a moment, wracked with indecision before continuing to the factory. "You'll feel nothing soon enough," you say, not entirely unkindly. "Make your peace and then join your companion in the afterlife."
+
+		$!{jordan_heshe}'s silent then, though whether due to blood loss or accepting the inevitable, you cannot say.
+
+*label newly_mended_legs
+*page_break
+*set hunger 1
+Your newly mended legs carry you over the stony grit with remarkable strength, your renewed sense of vigor immediately apparent as you tread uneven terrain. The crashing churn of the nearby dam might largely mask the sound of gunfire if you didn't know to listen, but sporadic bursts indicate that the battle is still in full swing. 
+*if (clan = "Malkavian")
+
+	"That was pretty messed up, $!{name}," a voice calls from behind you. It's ${malk_name}. "You okay?" You whirl with irritation.
+	*fake_choice
+		#"You know damn well that I'm not okay."
+			"Look, I get it," ${malk_name} says. "But you know I can't actually help you. I can't even touch you."
+			
+			"Yes, I know," you say. "But a little more tact would be appreciated."			
+		#"Now you choose to show up? After all that? Where were you?"
+			"I was waiting for you to get out of there," ${malk_name} says. "But you know I can't actually help you. I can't even touch you."
+			
+			"Yes, I know," you say. "But a little tactical advice couldn't have hurt. You might have warned me about Ward."			
+		#"I guess you were right not to follow me in. It wasn't safe at all."
+			"Nice to have my instinct validated for once," ${malk_name} says. "But I'm glad you're okay. Who else would I talk to?"
+			
+			"Good to know you care."
+You round a large pile of dirt, approaching the building from the rear when you hear a guttural shout of warning from within.
+
+The factory abruptly explodes in a fiery conflagration, showering you in an avalanche of brick, wood, and concrete debris. You stand still for a moment, stunned and rooted to the spot before your bestial vampiric instincts overwhelm you and you flee the fire heedless of other, more mundane concerns. It takes several minutes for you to wrest control back and turn yourself around; you grind your teeth as you force your feet to carry you back toward the demolished building, your unnaturally strong aversion to flames screaming in the back of your mind. The air itself smells burnt, and your eyes sting from the clouds of disturbed dust. 
+@{(clan = "Malkavian") ${malk_name} is gone. Maybe ${malk_heshe}'s still running from the fire. You've heard rumors that spirits can be harmed by flames, but you've never had any confirmation. |}
+
+That maniac Ward must have rigged the place to blow. The shock wears off when you see that the flames have already burned out—the majority of the building was built of metal and brick—and you try not to cringe as you wade into the wreckage, gun held at the ready. Someone in your group must have survived; they can't all be destroyed.
+*choice
+	#I search, hoping to find Lucca. She's close to me, after all, the childe of my own sire.
+		*set lucca %+10
+		*set ch1_person_rescued "lucca"
+		You pass by the twisted and burned remains of several mercenaries, and as time goes by, you begin to wonder if any of your companions made it out intact. The scents of charred flesh and burnt hair are overwhelming as you push open an office door to check inside. The contents of several filing cabinets have disgorged hundreds of manila folders across two heavy-looking metal desks, papers scattered manically across their surfaces and spilled over the edges. From behind one of the desks, you hear a familiar voice call out. It's Lucca.
+		
+		"Who's there?" The muzzle of a gun pops out from the edge of the desk. "Answer me or you're dead, asshole!"
+		
+		"It's me, Lucca," you say calmly. "Put the gun down. I haven't seen a single mortal or any of Ward's Anarchs left moving around in here."
+		
+		A quick sigh of relief and Lucca rises up from behind a veritable mountain of papers, folders, and ruined computer equipment. "We had Ward on the run. Qui was sure that we had him!"
+		*fake_choice
+			#"Is that when he set the explosives off?"
+				Lucca nods, wincing. "It was a nightmare, $!{name}. Bouchard
+				*goto rabble_rabble
+			#"Did you manage to finish him?"
+				"No," Lucca says. "Bouchard 
+				*label rabble_rabble
+				and Qui had him flanked, and I was taking shots, but—you know the Rabble—fast as they are pretentious. He jumped through a window right before the blast. After that, we really weren't in any kind of shape to go after him.
+			#"Are the others okay?"
+				"I saw Jordan running to the front exit, but we got cut off from each other.
+		I couldn't think with the flames surrounding me; I didn't have much time to gather my thoughts, so I hid in here until I could think straight." She shakes her head. "We need to search for survivors and witnesses before the police get here. I'm not going to be blamed for a Masquerade breach when I've barely been back home for a month. They started this mess—shot at us and tried to destroy us. At this point, taking them out is self-defense." 
+		
+		She's looking more than a bit unnerved after such a close brush with final death. It's the first time in decades either of you have seen real action, but she's determined to make it through. You decide not to point out that it was technically your party who initiated the encounter; Lucca probably wouldn't appreciate the correction.
+		*fake_choice
+			#"We'll eliminate any Anarchs or their mercenaries in the area, but we can't search for long. The local authorities will be on their way."
+				*set lucca %+5
+				*set ruthless %+5
+				*label lucca_good
+				"Good, good. That's the best idea," Lucca says. You can't tell if she's telling you or if she's trying to convince herself. "Let's get going."
+				
+				As soon as you open the door to exit the small office, you spot a quick flurry of movement on the other side of the building. Lucca motions toward it and starts off at a trot. You follow, not sure you relish another battle after such a close brush with death, but fully understanding Lucca's reasoning for why it must be done. You follow after her, pursuing the running target. The mortal—you can tell she is one at this point—whirls in place when she notices you and fumbles at her belt, pulling loose a cylindrical metal object.
+				
+				"Fucking burn, freaks!" she shouts before pulling a pin from the object and hurling it in your direction.
+				
+				"Grenade!" Lucca yells.
+				*fake_choice
+					#I dive in front of Lucca to shield her from the blast. I'm tough enough to survive it.
+						*set stamina %+10
+						There's no time to think! You dive in front of Lucca to shield her as the grenade explodes. Burning hot shards of shrapnel dig into your skin as you're blown backward, slamming into a brick wall with a bone-shattering crunch. You cough, and you can feel your innards shifting as you mend, putting your newly acquired Blood to work. Before you can return to assist in the fight, you hear three gunshots, and through bleary eyes you see the mortal fall to the ground, dead. 
+						
+						Lucca hurries over to you, panic writ large on her face. "Are you okay?" she asks. "I can't believe you did that for me!"
+						
+						"I knew I could handle it," you groan. "But I wasn't sure if you could. Besides, there wasn't much time to think."
+						*goto saving_lucca
+					#I'm fast enough to dive forward, grab the grenade, and throw it back at the mortal.
+						*set dexterity %+10
+						There's no time to think. You dive forward, your hand raking the concrete floor until it grasps the cold metal of the grenade. The mercenary gawps as you deftly arc the incendiary back at her moments before it explodes, sending hot shrapnel in every direction. You duck low next to Lucca, shielding your face with your arms as your ears ring painfully. The metal shards embedding themselves in your arms sting like hell, but you'll take it over the brunt of an explosion any day.
+						
+						"Damn," you hear Lucca exclaim as you uncover your eyes. "I've seen a lot, but I can't remember the last time I saw something that nasty." The mortal's body is nearly torn in half from the force of the explosion, and bits of metal have sliced her with dozens of deep, oozing wounds. "I think it's safe to say she's dead."
+						
+						You nod, biting your lip. Is this what Corliss wanted you to see when she sent you out?
+						*label saving_lucca
+						
+						"Thanks for the save," Lucca says with a stuttering smile. She looks back and forth through the smoky building, checking for movement. "I think we should get the hell out of here."
+						
+						You can't help but agree.
+						*goto lucca_end
+					#I use my full strength to knock Lucca as far out of the way as I can.
+						*set strength %+10
+						There's no time to think. You slam the full weight of your body into Lucca's, causing both of you to hurtle away from the grenade's trajectory seconds before it explodes, sending waves of burning hot shrapnel whizzing through the air. Lucca rolls to her feet before you can, bringing her gun to bear on the surprised mortal and pulling the trigger three times. The woman's body jerks with each impact and then slumps over, dead before she hits the floor.
+						*goto saving_lucca
+			
+			#"We can't risk spending any more time here than we already have. We won't be doing ourselves any good if the police catch us in the middle of this."
+				*set ruthless %-5
+				*set composure %+5
+				"But we can't let them get away…" Lucca mutters stubbornly.
+				
+				"It's too late for that," you say, pulling her by the arm to get her moving. "The whole mission's blown, and there's no way anyone's going to view it as your fault. Let's not complicate matters by messing things up even more."
+				
+				"Getting caught in the middle of this bloodbath," she replies solemnly. "You're right, of course. I'm sorry."
+				
+				"Don't be sorry; just let's get moving, okay?"
+			#"I'll meet you halfway: If we see any Anarchs or hirelings while we're escaping, we'll take them out."
+				*goto lucca_good
+		*label lucca_end
+		*page_break
+		You navigate the crumbled walls and beams, exhaling a sigh of relief when you finally exit the factory. Qui and Jordan 
+		*goto argue_over_prisoner	
+	#My thoughts turn to Qui. If anyone can get us out of this mess, it will be the Sheriff. Hopefully I can find him.
+		*set qui %+10
+		*set ch1_person_rescued "qui"
+		You pass by the twisted and burned remains of several mortal mercenaries, and as time goes by you begin to wonder if any of your companions made it out. The scent of charred flesh and burnt hair are overwhelming as you catch sight of movement through the haze of smoke. You duck low, advancing defensively until you can make out two figures ahead of you, locked in combat. Through their grunts and brief vocalizations you're certain that one of them is Qui, but you can't be sure which is which without getting closer.
+		*fake_choice
+			#My intuition is second to none. I leap into the fray with the confidence that I know just what to do.
+				*set wits %+10
+				*goto snap_judgment
+			#I'm strong enough to take down any enemy that I face! I'll charge in and let the chips fall where they may.
+				*set strength %+10
+				You leap into battle without a moment's hesitation, plowing through the choking smoke until you can finally see yourself squaring off against Sheriff Qui.
+				
+				"Not helping…" he grunts as he narrowly ducks a raking set of claws sweeping out of the smoke. "Help me or get out of my way!" A feral growl ripples through the air as the brute attacks again. 
+				*goto assist_or_hell
+			#I have an excellent memory, and I'm sure that I recognize the movements of one combatant. I attack the stranger.
+				*set intelligence %+10
+				*label snap_judgment
+				You examine both brawlers through the haze of smoke as you run toward them and make a snap judgment. The stance, the growling—you're certain that the one on the left is one of the Ferals you saw fighting earlier and therefore your enemy. You leap into the fray and narrowly duck a wildly-swinging claw. To your right, Qui emerges, bloodied as ever. 
+				
+				"Help me or get out of the way, $!{name}!"
+				*label assist_or_hell
+				
+				Qui is a marvel to watch in combat, and within seconds you can tell exactly why Prince Arundel chose him as the city's Sheriff. As you draw the animal-like Kindred's attention with your sudden appearance, Qui fades to the vampire's side, just out of his peripheral vision before grabbing his arm and dragging him backward, tripping him over his extended leg. Without releasing his opponent's arm, Qui brings a meaty fist down against the wrist, audibly shattering bones. The deadly claw hangs useless and the pathetic creature howls in agony as Qui repeats the process on his other arm in the time it takes you to blink.
+				
+		"Grab the chain from my pack," Qui calls over to you as he restrains the wounded Anarch. "Quickly now! The Gangrel will mend soon enough!"
+		
+		You rush over and fumble with the pack's straps, bringing forth a heavy set of chains. "Why the chains?" you ask. "Didn't you say you wanted to finish them all?" You hand the chain to Qui, bemused by his change of heart.
+		
+		The Sheriff wraps the Gangrel's arms behind his back with practiced precision, even as the cracked bones begin to pull themselves back together. "I'm not doing him any favors," Qui says, shoving his prisoner to the floor. "Down, boy!" he yells, pulling the chain earthward with an inhumanly strong whip-crack, snapping several more bones as the restraint constricts. Qui stares down at him. "No moving until we tell you to." Now that the prisoner is bound, the Sheriff gives you an appraising look. "It looks like you're tougher than I thought, $!{name}. Ward hit you like a damned truck."
+		
+		"It's good to see you too, Sheriff."
+		*page_break
+		The imprisoned Feral pants hard, his long, brown hair a mess of knots and dried blood. Now that you have a moment to think and take in your surroundings, the stench of him nearly overwhelms you. You're reminded of a beaten and nearly dead dog you'd once seen slink into an alley, never to be seen again. Maybe it's easier to think of the Anarchs as animals, but you know that they aren't all like this one. 
+		
+		"You think you can just do whatever you want to us, don't you?" the prisoner growls. "Cammy sacks of shit! And you wonder why we left your stupid court to find something real!"
+		
+		"You'd have all met final death if it weren't for us," Qui says as he pulls the prisoner up to his feet. "For all your 'peace and love,' you still prey on the weak and drink the blood of kine just like the rest of us. You think the mortals conducting the Second Inquisition care about how our philosophies differ from each other? They just want us dead, and if you insist on breaking the Masquerade, that's just what we'll be."
+		*fake_choice
+			#"He probably deserves this for what he's done here, but I'm still not comfortable with treating him like an animal."
+				*set ruthless %-5
+				*set qui %-5
+				Qui looks at you like you've lost your mind. "Look at him, $!{name}," he says, shaking the chain with trembling fingers. "Think about all he represents; the destruction of everything we've worked toward for centuries!" 
+				
+				You can't help but compare the Nosferatu to the prisoner, wondering just which of them the mortals would consider more monstrous. In the end, it doesn't matter. The bound Gangrel was part of Ward's group of Anarchs, and not only did they risk breaking the Masquerade, they tried to destroy you as well. There isn't a thing you can do to change that, at least at the moment.
+			#I look at the prisoner with disgust. "You Anarch scum are all the same. You think you're better than us, but the truth is you're not good enough to lick our boots."
+				*set subversive %-5
+				*set qui %+5
+				*label prisoner_spits
+				The prisoner spits at you. "This is why your precious Camarilla will fail," he snarls. "Arrogance! Moments ago, our clan was with your court, but now we can see how you've truly felt for centuries. We're better off alone!" He fixes his eyes on Qui and smiles viciously. "How long before you Sewer Rats are seen as too unpleasant for formal company?"
+				
+				Qui rages wordlessly, barely holding back from attacking the prisoner. "You know nothing of loyalty!" he shouts, far louder than he should. "One slight against a Gangrel Justicar and you leave an alliance that's served us all well for generations? We know better. You and I are [i]not[/i] the same."
+				
+				You know little of international Kindred politics, but you gather that this "Justicar" must be an incredibly important person to have caused the clan to defect after so many years of working with the Camarilla.
+			#"We should destroy him here and now, not risk him escaping."
+				*set ruthless %+5
+				*goto prisoner_spits
+
+		You navigate the crumbled walls and beams, exhaling a sigh of relief when you finally exit the factory. Lucca and Jordan are arguing over something in animated whispers, and behind them you see Bouchard and the others getting ready to move out. Many are singed or limping, but none seem to have met final death.
+		*goto get_out_now
+		
+	#I need to find Jordan! $!{jordan_heshe}'s the closest person I have to a true ally in the city.
+		*set jordan %+10
+		*set ch1_person_rescued "jordan"
+		It takes several minutes of digging, but you finally discover Jordan trapped beneath a fallen support beam. $!{jordan_heshe} gasps in pain, reaching out as you shift the heavy piece of hot metal to the side with a monumental heave. "I knew you'd come," ${jordan_heshe} says, but you can see in ${jordan_hisher} frightened eyes that ${jordan_heshe} was sure of no such thing. "We had Ward on the run. Qui was sure we had him."
+		*fake_choice
+			#"Is that when he set the explosives off?"
+				Jordan nods, wincing.
+			#"Did you manage to finish him?"
+				"I…I don't think so," Jordan says. "Qui and Lucca were ahead of me so I can't be sure."
+			#"Are the others okay?"
+				"I saw Bouchard crawl out of some rubble a minute ago, but he didn't hear me calling for him. The explosion was so loud…"
+		Portions of ${jordan_hisher} neck are covered in a fine char which you know from personal experience will take several nights to mend.
+		
+		"We need to get you out of here," you say urgently, pulling ${jordan_himher} up to ${jordan_hisher} feet. "You're in no shape to put up a fight."
+		
+		"Don't worry," Jordan says, shaking ${jordan_hisher} leg, grimacing as something pops back into place with a wet crunch. "This isn't where my story ends." You wrap an arm around ${jordan_hisher} shoulder and support ${jordan_hisher} weight as you weave your way through a labyrinth of rubble. "But I'm starting to wonder," ${jordan_heshe} mumbles, lost in thought for a moment. "If I didn't see the blast coming, what else could I have missed?" $!{jordan_heshe} sucks air between ${jordan_hisher} teeth sharply before pushing you away from ${jordan_himher}. You stumble to the ground, caught off guard by the unexpected shove, more injured by the unexplained slight than any physical pain.
+		
+		One of Ward's sentries steps out from behind a snaggletooth column and fires through the air where you were less than a second ago, and you can hear the bullet chip the concrete foundation behind you. Above, Jordan replies to the crack of gunfire calmly, in a disturbing monotone voice that you've heard once before.
+		
+		"Drop your weapon." A brief moment's hesitation and the man does as he is commanded. The gun clatters to the ground. "Sit." The mortal does so immediately. No matter how many times you see such mental abilities in practice, it never becomes any less awe-inspiring. 
+		
+		Jordan hunkers down next to the man on bent knees, weight resting on ${jordan_hisher} toes. $!{jordan_heshe} places ${jordan_hisher} index fingers and thumbs along the length of the mortal's forehead and speaks softly enough that you can't quite make out what ${jordan_heshe}'s saying. The man shivers and then looks up at Jordan warily before grimacing in disgust and gets to his feet. You can tell by looking him in the eye that Jordan has re-written his memories. No monsters. No vampires. Just people killing people.
+		
+		"I can't believe they just left me here to die," the man says in a thick French-Canadian accent, spitting on the floor with a snarl as he checks the readiness of his weapons. A sharp knife glimmers on the ground below him where he must have dropped it during Jordan's mental manipulation. "If you hadn't saved me, I might have…" he reaches out to shake your hand. "Thank you."
+		*fake_choice
+			#I shake his hand like nothing is wrong and let him go. Asking questions might ruin Jordan's work.
+				*set ruthless %-5
+				*set composure %+10
+				You take the mercenary's hand; it's slick and gritty with perspiration and powdered concrete dust. 
+				*if (deformity = "twisted fingers")
+					*gosub hand_shrinking				
+					*goto best_of_luck_merc
+					
+					*label hand_shrinking
+					He shrinks back when he feels your deformed and twisted fingers. Curse of the Nosferatu.
+					
+					"Damn," he exclaims. "You get caught in the blast or something? I usually wouldn't say anything, but…damn."
+					
+					"It's okay," you say. "I get that a lot."
+					
+					"Sorry for mentioning it," he says. "No offense meant."
+
+					"It's all good," you say.
+					*return					
+				He shakes it warmly, and you imagine that in whatever fiction Jordan spun in his mind, you were instrumental to his escaping with his life.
+				*label best_of_luck_merc
+				
+				"Best of luck to the two of you," he says, and you can tell that he's sincere. He turns and sprints off into the night, not looking back.
+			
+			#I shake his hand and ask: "Where did you meet the man who hired you?"
+				You take the mercenary's hand; it's slick and gritty with perspiration mixed with powdered concrete dust. 
+				*if (deformity = "twisted fingers")
+					*gosub hand_shrinking				
+					*goto best_of_luck_merc2					
+				He shakes it warmly, and you imagine that in whatever fiction Jordan spun in his mind, you were instrumental to his escaping with his life.
+				*label best_of_luck_merc2				
+				"Where did you meet the man who hired you?"
+				*label friendly_and_familiar
+				*set charisma %+10
+				*set ruthless %-5
+				you ask, hoping to come off friendly and familiar. The man's face darkens immediately and you catch a glimpse of Jordan shaking ${jordan_hisher} head over his shoulder.
+				
+				"That's an odd thing to ask when I followed you into this mess. You get hit on the head, boss?"
+				
+				"It was one hell of an explosion," you reply weakly. "We need to look into this assignment more and find out how this happened."
+				
+				He shrugs, and suddenly looks extremely tired. "I never actually saw the client, myself, but trust me, we'll start digging as soon as we get back to Montreal."
+				
+				You decide it's not a good idea to push much further, lest you accidentally disturb any of Jordan's implanted memories. The mercenary gives you a nod and turns to sprint off into the night, not looking back.
+			
+			#I shake his hand and ask: "Where was your squad planning to regroup?"
+				You take the mercenary's hand; it's slick and gritty with perspiration mixed with powdered concrete dust. 
+				*if (deformity = "twisted fingers")
+					*gosub hand_shrinking				
+					*goto best_of_luck_merc3					
+				He shakes it warmly, and you imagine that in whatever fiction Jordan spun in his mind, you were influential to his escaping with his life.
+				*label best_of_luck_merc3				
+				"Where does your squad plan to regroup?"
+				*goto friendly_and_familiar
+			#I pick up the knife and drive it into his neck. I can't let a mortal live after trying to destroy me.
+				*set jordan %-5
+				*set ruthless %+5
+				*set strength %+10
+				You take the mercenary's hand; it's slick and gritty with perspiration mixed with powdered concrete dust. He shakes it warmly and says, "I'll see you back in Montreal, then?" and you imagine that in whatever fiction Jordan spun in his mind, you were influential to his escaping with his life. Too bad it's quite the opposite of the truth. While you have the man's arm tightly held, you pick up the knife with your other hand and plunge it into his neck, jerking him toward you as he tries to flee.
+				
+				"Why…would you?" he gasps. "Doesn't make any…" You let him fall to the floor where he bleeds out before he can finish his sentence.
+				
+				"What the hell, $!{name}?" Jordan seethes, furious. "He wasn't a threat! He didn't remember anything about us!"
+				
+				"I couldn't let a mortal live after trying to destroy me," you reply grimly.
+		*page_break
+		You navigate the crumbled walls and beams, exhaling a sigh of relief when you finally exit the factory. Qui and Lucca 
+		*label argue_over_prisoner
+		are arguing over a kneeling prisoner who's badly wounded and bound tightly. Behind them, you see Bouchard and the others. Many are singed or limping, but none seem to have met final death.
+		
+		Qui gives you an appraising look. "It looks like you're tougher than I thought, $!{name}. Ward hit you like a damned truck."
+		
+		"It's good to see you too, Sheriff."
+		*goto get_out_now
+		
+*label get_out_now
+*page_break
+*image hauberk.jpg
+Qui pushes the prisoner to get him moving. The Feral looks none too pleased, but he follows his instructions. For now. 
+
+"We need to go," the Sheriff says, his calm cracking under pressure as he looks about furtively. "Eden can only keep the police away for so long. If we get caught, we'll be wishing that maniac had finished us off in the warehouse."
+
+Your exhausted party picks themselves up and limps toward the bridge leading back into Ottawa, your pace speeding up when sirens blare from the north, over the border in Gatineau. Bouchard nearly topples over as he lurches into a run, and two of his mercenaries lean down to help him up.
+
+Lucca looks over her shoulder, face painted with worry. "Corliss doesn't have the reach that the Prince did across the river," she says as you arrive at the edge of the construction site. "If Arundel really was Beckoned, we have a lot of slack to pick up. It's a good thing Corliss brought me back here when she did." She edges into a full run as the police sirens grow closer.
+
+"It's too early to make assumptions," you grunt, your foot almost catching on a metal support bar as you cross the bridge at a run. "We already have enough trouble with the Anarchs." 
+
+Rarely is the weight of power more keenly felt than in the event of its sudden absence. The bedrock of Ottawa's Camarilla society had been patiently chipped away by a hundred knives, each skillfully wielded by those Kindred whose day-spawned dreams bloomed ripe with a hunger for ascension, eternally waiting just out of reach. But they could wait. Un-death, after all, conferred a distinct advantage over the fleeting ambitions of humanity. And now, it seemed, their long nights of plotting were about to pay off.
+
+Four nights ago, Ottawa's Prince had simply disappeared, abandoning engagements which he had always routinely met with extreme punctuality. What was first seen as an unusual political slight became a concern on the second night of missed appearances, and by the third and fourth, unrest within the community was all but inevitable. As the Prince's Seneschal, your sire Eden Corliss now faces the full weight of responsibility, and powerful Kindred have already expressed doubts about her ability to handle the pressure, even before Arundel's vanishing act. Of course, if she manages to impress them, she may rise to the office of Prince herself—despite what some might think, the title has always been gender-neutral.
+
+*page_break A Quick Dash To Safety
+*image dever.jpg
+It's nearly dawn when you arrive back in your haven, exhausted from the night's events. @{(clan = "Nosferatu") Your home is a rather exclusive piece of underground real estate with access to the local sewers—essential for the Nosferatu on the go. |} You throw open the carved, wooden doors, pleased to find Gerard waiting for you attentively, his face creased with worry. He's dressed as befits his station: a well-tailored suit not quite ostentatious enough as to feel completely out of place on the average Ottawa street, but sufficiently genteel if he were required to attend the larger Kindred Court.
+@{(clan = "Lasombra") Gerard is one of the only mortals aware of your true clan, and he guards the secret of your Lasombra heritage with his life. He also handles the majority of your tasks that would require you to deal with advanced computers and other technical gadgets of the modern era. Vampires of your bloodline have a devil of a time using such tools thanks to your connection to the Abyss. |}
+
+"Your clothes are in tatters," he states dryly. "Did your evening not go as planned?" When you don't immediately respond, he continues. @{(how_i_feed = "gerard") "Fortunately, I've recently acquired a new vessel for you. He's waiting in the guest room should you have need of him."| "With your permission, I'll inquire about finding you a vessel to tide you over."}
+
+Whereas many Kindred of your standing employ more than one retainer to do their bidding, you'd been fortunate enough with Gerard's skill set that the idea of acquiring a second servant rarely enters your mind. As with many personal attendants, Gerard is a ghoul—a mortal who has been granted a taste of your own Blood in exchange for unnatural strength and abilities. These powers come at the price of much of their free will—ghouls become addicted to their master's or mistress's Blood, and withdrawal symptoms can be quite cruel. 
+
+So why only have one when they make such devoted servants? @{(clan = "Lasombra") The Lasombra ruling over their Sabbat packs, after all, are known for mass-Embracing and the indiscriminate usage of mortal pawns. But you're more forward-thinking than the cults of Caine could ever be. That's why you'll succeed where they failed. |}  Each ghoul requires maintenance—a regular feeding of your own precious vitae—to maintain their agelessness and enhanced strength, and you have little wish to be so burdened with the additional upkeep where one superior servant will do nicely. Universally adapted to your needs, your ghoul also excels in one area in particular:
+*fake_choice
+	#Gerard was once a soldier for a major crime syndicate. He may be my servant now, but he still has contacts in the underworld that I can make use of.
+		*set gerard_skill "soldier"
+		Gerard has never been held back by anything as pedestrian as a moral compass. Before entering your employ, he worked as an enforcer for a local crime syndicate. Calm, cool, and professional. When the syndicate chose to attack one of Prince Arundel's companies, he'd ordered the organization wiped out, but saved their most useful men and women for his own use, granting you one of your choosing. Gerard had been the obvious pick, and he reacted well to the gift of agelessness, exchanging loyalty to money for loyalty to the Blood.  
+	#He was once a financial assistant for one of my sire's companies. His skills bring additional cash flow and problem solving.
+		*set gerard_skill "finance"
+		Gerard was a financial prodigy from an early age, poached by one of Corliss's firms directly out of university. Several years ago, he chose an unfortunate night for unauthorized overtime and witnessed the grisly murder of an Anarch agent. Spotted by Arundel, he was given a choice between death and eternal life as your ghoul, spared only due to his extraordinary skill. Far from being horrified, Gerard had enthusiastically assented to ageless servitude. He'd taken to the bond with unusual ease and been a loyal servant ever since.
+	#He was a butler for one of the wealthiest families north of the US border. His attention to detail is almost uncanny.
+		*set gerard_skill "butler"
+		Gerard's life had been spent in service to the family of a wealthy politician in the late 1800's. His detail-oriented loyalty had been such that he attracted the true power behind the money—the Camarilla elite. When he was afflicted with a deadly disease, his masters had offered him the choice of agelessness in exchange for an eternity of service. If the records are to be believed, Gerard hadn't so much as blinked before agreeing to their terms. When you had proven yourself as a neonate, Prince Arundel had gifted him to you. The gifting of ghoul servants is relatively rare, but passing the Blood bond to you had gone surprisingly smoothly.
+
+You discard your clothes and Gerard collects them gingerly, his nose wrinkling at the state of their disrepair. "These won't be of much use to you anymore," he says. "I'll see about replacing them."
+*if (clan = "Malkavian")
+	He pauses for a moment. "And your companion? $!{malk_heshe} remains well?"
+	
+	You catch sight of ${malk_name} out of the corner of your eye, lounging back in one of your comfortable recliners. "I'm not sure if anything can harm ${malk_himher}, Gerard. But I'm sure ${malk_heshe} appreciates your concern." Gerard has known about ${malk_name} for years now. When one is observed talking to the open air often enough, even a loyal servant eventually asks questions. You'd decided that if you can trust anyone, it would have to be the man who guards you while you sleep.
+	
+	"Excellent to hear," Gerard says with a firm nod. "Well, I'll have your replacement clothes by the time you wake up for the night."
+
+"That would be good, Gerard. Thank you."
+
+"If I may be so bold, ${sirmaam}," Gerard asks with an unusual degree of trepidation in his voice. "Has Prince Arundel resurfaced yet? I've heard rumors among the servants…they believe he's left the city."
+*fake_choice
+	#"Kindred affairs are not the domain of mortals, Gerard. No matter how elevated. You should remember this at all times."
+		*set gerard %-5
+		"Of course," Gerard says, having the dignity to at least look chagrined. "I apologize for overstepping, ${sirmaam}." He nods curtly.
+	#"We don't know yet," I admit. "I'll be speaking with Corliss about it tomorrow, once I've had time to rest."
+		*set gerard %+10
+		*label unexpected_candor
+		*set opened_up_to_gerard true
+		"That was unexpectedly candid of you, ${sirmaam}," Gerard says. "I appreciate it; the greater my knowledge, the better I will be able to serve." He inclines his head with respect.
+	#"I believe all is well, Gerard," I say with uncertainty. "Arundel does not always explain his whereabouts to the court, nor is he required to. In the meantime, Corliss has everything under control."
+		*set gerard %+5
+		*goto unexpected_candor
+	#A servant should know better than to ask such questions. I offer him a withering gaze and no words at all.
+		*set gerard %-5
+		Gerard blinks, his hands unconsciously knotting in the dirty bundle of clothing he is carrying. "My apologies ${sirmaam}," he says finally.
+"Will that be all for today?"		
+	
+"Just about," you say, weariness enveloping you as the outside world grows closer to dawn. "I'll be needed at Corliss's offices tomorrow and I may be gone for most of the night. I have a job for you in the meantime."
+*fake_choice
+	#"I'd like you to research the construction site at Chaudière Crossing. Let me know if any known Kindred have ties to it."
+		*set ch1_gerards_research "construction"
+	#"There was an explosion by the Chaudière Bridge tonight. I need you to gather any information about what the police found there."
+		*set ch1_gerards_research "police"
+	#"Find out if there have been any recent sales of large quantities of explosives in the last week, most likely in the underground economy."
+		*set ch1_gerards_research "explosives"
+"Of course, ${sirmaam}. I'll get on it right away and hopefully have something helpful by the time you're done with your sire tomorrow night." 
+
+Gerard finally leaves you in peace and you make your way to your bed chamber, eager to put the disastrous night behind you. It surprises you how easily you fell back into the pattern of violence from your fledgling days, but now that you have the time to reflect, your entire body shudders and you feel weak in the knees. Un-life in the upper crust of Ottawa's Camarilla society is rarely dull and is filled with very real dangers, but those are attacks of a political nature, and to fall in a battle of wits rarely leads to a violent and bloody end—although it's certainly known to happen. Tonight, you faced final death on more than one occasion, and the resulting flood of memories from your mortal life brought back a heavy weight of long-repressed guilt.
+
+@{(clan = "Lasombra") Such emotion should be the domain of mortal chattel, not a Magister like yourself, and yet you feel it weighing on your spirit regardless. Perhaps retaining a link to your Humanity isn't the worst thing that can happen. Corliss made sure you devoted much of your study to the fundamentals of your vampiric nature. To understand yourself is to know why the Sabbat failed—there is no reasoning in their blind zealotry, no attempts to truly comprehend who they are or realize their place in the world. It led to their destruction and the fall of Montreal. Their failure sickens you, as it should any proper Lasombra in modern nights. |}
+
+Fear of dying is a persistent instinct in both mortals and vampires alike—even decades after your first death, you're surprised to still feel the faux spike of adrenaline and the gnawing fear of the grave. Agelessness, as you'd quickly learned upon your Embrace, can be stripped violently away, much the same as it is granted. Left to their own devices, a vampire's un-life could extend indefinitely, but the undead eventually desire purpose. True to the spirit of your damned nature, this desire manifests in the form of deadly politics, activism, or violence. For years now, the latter of these has been the furthest thing from your thoughts, but thanks to Corliss's prompting and Robert Ward's strangely personal attack, you're once again reminded that you are an inherently violent creature, and the thought both repulses and intrigues you, although not in equal measures.
+*fake_choice
+	#Barbaric attacks are the desperate means of creatures beneath me. I prefer to deal in intelligent negotiation to get what I want.
+		*set ruthless %-10
+		*set intelligence %+5
+		*set manipulation %+5
+		*set charisma %+5
+	#I am pleased to be reminded of what I truly am. Unlike more subtle tactics, violence can put an end to my problems permanently.
+		*set ruthless %+10
+		*set strength %+5
+		*set stamina %+5
+		*set resolve %+5
+	#It's not the nature of my own feelings that matters at the moment. What's important is for me to understand why Corliss wanted me there so I can leverage it if I ever need to.
+		*set subversive %+10
+		*set manipulation %+5
+		*set wits %+5
+		*set resolve %+5
+	#The means to an end are irrelevant as long as the outcome benefits Camarilla society and quashes Anarch activity within the city.
+		*set subversive %-10
+		*set charisma %+5
+		*set composure %+5
+		*set strength %+5
+*if (clan = "Nosferatu")
+	A delicate squeaking near your foot intrudes on your thoughts and you gaze down to find your rodent companion, $!{rat_name}. $!{rat_heshe} had been absent earlier tonight and you hadn't pressed the bond, preferring to leave ${rat_himher} here rather than risk losing ${rat_himher} in the Anarch conflict. In retrospect, you're certain $!{rat_name} would have been useful in scouting the factory and revealing the mercenaries lying in wait. You silently curse yourself for a fool—you'll need to treat future conflicts more seriously. You pick ${rat_himher} up, idly stroking ${rat_hisher} ${rat_fur_color} fur until ${rat_heshe}'s had enough and bounds from your hand, chittering with satisfaction. You've put it off for too long—eventually you'll need to decide whether ${rat_heshe} is a friend or simply a tool to be used, but you've had your fill of difficult decisions for now.
+*if (clan = "Malkavian")
+	"Strange, is it not?" ${malk_name} says from ${malk_hisher} seat back in the living room. "That you'd be roped back into all of this mess so suddenly? The violence? Nearly getting blown up?"
+	
+	"Isn't it about time for you to go to bed?" you mutter. ${malk_name} rarely lingers this close to sunrise. "I've seen more of you tonight than in the last two weeks combined."
+	
+	$!{malk_name} sighs. "God, what a pair of dreadfully dull weeks. Can you blame me for skipping to the good parts? Most people do."
+	
+	"Leave me be." You wave a hand idly. You simply don't have the patience to deal with ${malk_himher} at the moment. ${malk_name}'s feeling unusually snippy tonight; the excitement has clearly gotten to ${malk_himher}.
+	
+	Just like a creature of flesh and blood, ${malk_name} has a personality all ${malk_hisher} own, and you've had no choice but to become accustomed to it over the years. $!{malk_heshe}'s often aloof and irreverent, but from time to time other personality traits shine through.
+	*fake_choice
+		#$!{malk_name} is often friendly and gives well-meaning advice, even if it's not the most useful commentary you've ever heard.
+			*set malk_demeanor 1
+			"I'll let you get on with your morning rituals, then," ${malk_name} says
+		#$!{malk_heshe} can be a bit unpredictable and snarky. $!{malk_hisher} instincts are solid, though.
+			*set malk_demeanor 2
+			"You want me to leave you be?" ${malk_name} snaps. "You ever think about what it would be like in my shoes? I don't get much of a choice in the matter—I go where you go. I can just tune it out, but I can't really leave. Maybe think about that the next time you want me to bow out during the exciting bits." $!{malk_heshe} shakes ${malk_hisher} head. "Just…you do you," ${malk_heshe} says
+		#$!{malk_heshe} is intelligent but often aloof. $!{malk_hisher} insights are excellent, but ${malk_heshe} favors you with fewer pearls of wisdom.
+			*set malk_demeanor 3
+			"I suppose I'll let you get ready for bed," ${malk_name} says. "But you should give serious thought into why you were sent to that warehouse tonight. Why were those Anarchs really there? Why risk blowing themselves up? It all seems like a little bit too much risk to take on for no tangible gain." $!{malk_heshe} shakes ${malk_hisher} head
+		#$!{malk_heshe} is a killer, prone to giving in to the Beast and urging you to engage in the most horrible of crimes when it suits ${malk_hisher} fancy. 
+			*set malk_demeanor 4
+			"I just can't get over the fact that you let Ward grab you 'round the neck and throw you like a rag doll. And in front of the Sheriff, no less! You made us look weak, $!{name}. We've got to do something about it!"
+			
+			"I survived and the Anarch's base is destroyed," you say. "What more could I possibly do?"
+			
+			"Qui's got that prisoner, right? The Gangrel?" $!{malk_heshe} nods to ${malk_himher}self. "Why don't we get some info out of him? Little torture never hurt anyone."
+			
+			"Look, I know you've been bored lately, but even you know torture's out of my wheelhouse these nights."
+			
+			"Tell that to the woman we dismembered under the Queensway the other week," ${malk_name} says with a self-satisfied smirk.
+			
+			"That's just in your head," you reply. You don't have time for this nonsense tonight. It's an obvious lie meant to rattle your cage. Right? You haven't been anywhere near the Queensway lately. Well, there was that one time, but you don't remember…
+			
+			"Of course. Just in our head," ${malk_name} says
+	as ${malk_heshe} stands up unsteadily from the comfortable recliner. You have to admit that ${malk_heshe} looks quite @{(malk_heshe = "he") dashing | lovely } in ${malk_hisher}…
+	*fake_choice
+		#…business casual clothing.
+			*set malk_clothing "business casual clothes"
+		#…jeans and t-shirt.
+			*set malk_clothing "jeans and t-shirt"
+		#…red leather jacket.
+			*set malk_clothing "red leather jacket"
+		#…designer winter coat.
+			*set malk_clothing "winter coat"
+		#…orange prison jumper.
+			*set malk_clothing "orange prison jumper"
+		#…suit and tie.
+			*set malk_clothing "suit and tie"
+		#…butcher's apron and welding goggles.
+			*set malk_clothing "butcher's apron and welding goggles"	
+		#…floor-length red dress.
+			*set malk_clothing "red dress"
+		#…blood-splattered tank top.
+			*set malk_clothing "blood-splattered tank top"
+		#…straightjacket.
+			*set malk_clothing "straightjacket"
+		#…flowing black occult robe.
+			*set malk_clothing "occult robe"
+
+You approach your bedchamber with relief, all other details flying from your burdened mind as you focus on renewing your strength by sleeping the day away.
+*fake_choice
+	#I sleep on a plush mattress in a lavish bedroom, the bed itself hemmed in by luxurious blackout curtains.
+		*set bed "luxurious bed"
+		What good is an ageless un-life if you can't lead it in style? You close the curtains and sink into the mattress with a deep sigh, gazing up at the canopy as you settle in to sleep.
+	#I sleep in a tasteful coffin. It may be a cliche, but for some reason it makes me feel more in-tune with my state of un-death.
+		*set bed "coffin"
+		The coffin had made Gerard surprisingly uncomfortable at first, but he adapted quickly, as is his nature. In truth, you had gotten the idea from Corliss and for whatever reason it simply feels right. You slip in and close the lid above you, enveloping yourself in blackness.
+	#I sleep in a regular, everyday bed; it helps to ground me and keep me humble.
+		*set bed "bed"
+		Both your sire and Gerard had been perplexed by your insistence on humble furnishings, but they eventually ceased insisting that you decorate according to your elevated station. You lay back with a deep sigh, gazing up at the luxuriously painted ceiling. It had been commissioned by the suite's former mortal occupant, and though he has long-since passed on, you couldn't bear to have it altered. Abstract shapes cavort in an elegant dance of color in a modern masterpiece that you could stare at for hours if you felt so inclined.
+		
+An image floats before you of the mortal you attacked tonight in a rage of Hunger. In your Blood-starved mind, you'd been certain that they were someone from your past, before the Embrace. @{(sexuality != "ace") A lover perhaps, although you can no longer recall the particulars. |} What you can remember is the intense feeling of [i]wrongness[/i] you'd felt, like there was a secret locked within your mind nagging from behind a wall of repressed memory. 
+
+You close your eyes and images flood back in quick flashes before solidifying into a scene you'd visited often, but never remembered in your waking hours. A lost memory—stolen from your cold and long-dead mind—but it's resurfacing more frequently now, as if something has shaken it loose to rattle around in your head like a specter. 
+
+You'd been chosen by your sire because your mortal abilities fit with her ideals for the ${clan} clan. The dead have no need of mortal memories, but without some anchor to your past, will your humanity be gone forever? The vision is as vivid as it always is, and for fleeting seconds, you're confused as to why you're so surprised. You've always been here. This is who you are. 
+*comment Note: This isn't to suggest that all ${clan} are the same, but it's Corliss's vision of the clan's ideals that you fit.
+
+In life, before you were chosen by Corliss to join clan ${clan}, you were…
+
+[b](Your choice of profession will influence your starting stats. Choices listed below differ from clan to clan.)[/b]
+*if (clan = "Toreador")
+	*fake_choice
+		#…an influential journalist. I traveled the world and reported from war-torn countries. (+strength, +wits, +resolve)
+			*set occupation "a journalist"
+			*set strength %+10
+			*set wits %+15
+			*set resolve %+15
+		#…a master of propaganda. No mind was so set in its ways that I couldn't change it. (+manipulation, +charisma, +intelligence) 
+			*set occupation "a propagandist"
+			*set manipulation %+15
+			*set charisma %+15
+			*set intelligence %+10
+		#…an artist possessing unrivaled skill and drive. My steady hand and attention to detail had others in awe. (+dexterity, +composure, +stamina)
+			*set occupation "an artist"
+			*set dexterity %+15
+			*set composure %+15
+			*set stamina %+10
+	*goto remember_everything								
+*elseif (clan = "Ventrue")
+	*fake_choice
+		#…a wildly successful venture capitalist. Negotiation and business dealings always came naturally to me. (+manipulation, +charisma, +intelligence)
+			*if (gender = "man")
+				*set occupation "a businessman"
+				*goto capitalist
+			*elseif (gender = "woman")
+				*set occupation "a businesswoman"
+				*goto capitalist
+			*else
+				*comment gender = "person"
+				*set occupation "a venture capitalist"
+				*goto capitalist
+			*label capitalist
+			*set manipulation %+15
+			*set charisma %+10
+			*set intelligence %+15
+		#…the black sheep of a wealthy family. I rejected the lavish lifestyle I was born into in favor of a life of high adventure. (+strength, +stamina, +dexterity)
+			*set occupation "a black sheep from a wealthy family"
+			*set strength %+15
+			*set stamina %+15
+			*set dexterity %+10
+		#…an international weapons dealer. (+wits, +composure, +resolve)
+			*set occupation "an arms dealer"
+			*set wits %+10
+			*set composure %+15
+			*set resolve %+15
+	*goto remember_everything					
+*elseif (clan = "Nosferatu")
+	*fake_choice
+		#…a brilliant hacker, dedicated to the freedom of information. And maybe a little mischief on the side. (+intelligence, +manipulation, +wits)
+			*set occupation "a hacker"
+			*set intelligence %+15
+			*set manipulation %+10
+			*set wits %+15
+		#…an underground boxer. None could withstand the fury and tenacity I brought to the ring. (+strength, +stamina, +resolve)
+			*set occupation "a boxer"
+			*set strength %+15
+			*set stamina %+15
+			*set resolve %+10
+		#…an actor, adept at stagecraft and convincing an audience that I could be anyone at all but myself. (+dexterity, +charisma, +composure)
+			*set occupation "an actor"
+			*set dexterity %+15
+			*set charisma %+15
+			*set composure %+10
+	*goto remember_everything
+*elseif (clan = "Lasombra")
+	*fake_choice
+		#…a politician who was the true power behind a high-profile elected official. (+composure, +manipulation, +charisma)
+			*set occupation "a politician"
+			*set composure %+15
+			*set manipulation %+10
+			*set charisma %+15
+		#…a religious figure who dug deep and discovered the truth about the Lasombra's manipulations of your faith. (+intelligence, +wits, +dexterity)
+			*set occupation "a holy person"
+			*set intelligence %+15
+			*set wits %+15
+			*set dexterity %+10
+		#…an incredibly talented athlete. The Magisters love a champion, and when you won your fourth gold medal, Corliss knew she had to have you. (+strength, +stamina, +resolve)
+			*set occupation "an athlete"
+			*set strength %+15
+			*set stamina %+15
+			*set resolve %+10
+	*goto remember_everything	
+*else
+	*comment (clan = "Malkavian")
+	*fake_choice
+		#…a university professor who once desired to shape the minds of mortals. Not much has changed, to be honest. Aside from being dead, of course. (+intelligence, +manipulation, +wits)
+			*set occupation "a professor"
+			*set intelligence %+15
+			*set manipulation %+10
+			*set wits %+15
+		#…a paramedic with the constitution and strength of will to save the lives of the mortals I now prey upon. (+strength, +stamina, +resolve)
+			*set occupation "a paramedic"
+			*set strength %+10
+			*set stamina %+15
+			*set resolve %+15
+		#…an actor, adept at stagecraft and convincing an audience that I could be anyone at all but myself. (+dexterity, +charisma, +composure)
+			*set occupation "an actor"
+			*set dexterity %+10
+			*set charisma %+15
+			*set composure %+15
+	*goto remember_everything
+	
+*label remember_everything
+You remember now—you remember everything: your life, your death, your Embrace—no, that's not right at all…the scent of blood, oblivion flooding over your senses like a cool wave, and an entirely unfamiliar set of eyes staring back as the gift of un-death takes you. Dead eyes glazing over as they watch you rise. 
+
+The disturbing image of your past is replaced by a more comforting one, your sire hovering over you as she brought you back from the brink. You remember the smile on her blood-smeared face, light from above casting a radiant halo around her head. In that singular moment,
+@{(clan = "Nosferatu") her Nosferatu disfigurements didn't matter. She | she }
+was the most beautiful thing you had ever seen, and you knew with unerring certainty that each night of your continued agelessness was a gift she had seen fit to bestow upon you.
+*gosub_scene functions add_hunger
+*finish_advertisement
+
+
+
+		
+*label nb_bloodlust	
+*comment Sorry for the redundancy. I know it's bad form, but this section was too damn complicated for me to account for the they/them pronouns without turning it into unreadable gibberish. Simplified and re-done below.	
+In this moment of pure animal desperation, all you can think of, all you want in the world is to brush your lips against theirs and banish the eternal cold of un-death, even if only for a fraction of a second. To relive some of what has been lost, to heal your mind as well as your body. This unearthly desire proves too great to resist, and you draw forward, embracing your lover and pulling them close. They struggle at first, but eventually yield to your touch, a deep groan of pleasure on their lips. The feeling is euphoric. Hot tears stream down your cheeks and your chest constricts with gut-wrenching emotion as your embrace spans what feels like hours of pure bliss. And then there is pain. You're able to ignore it at first, but it returns with a vengeance as your lover is torn from your arms, a sad smile etched on their lips.
+
+"No!" the word rips its way out from the bottom of your black and shriveled lungs. "Not again!" Your eyes shift to the demon pulling your lover away, and you recognize yourself in its face once again. Not as you once were, but as you are now—soul twisted and shriveled, a gaping maw with protruding fangs. You leap forward, ripping your doppelganger away from ${hisher} prey before plunging your teeth into ${hisher} neck. "Not…ever…again!" you grunt against ${hisher} flesh, crimson bubbles flowering at the edges of your mouth as you scream defiance even while you drain your personal demon dry. When at last ${heshe} breathes no more, you fall back, triumphant exultation fading as your body finishes knitting itself together again. Reality settles around you again, and you feel a biting sting of dread as you turn to take in the true scene.
+
+The mutilated body of a young mortal lies sprawled on the ground, ${hisher} neck torn open and hanging at an unnatural angle, expression locked in sheer terror and disbelief. $!{heshe}'s tightly grasping the hand of another young mortal—they'd somehow held on even as you drained the life from ${hisher} body. Unlike their partner, the young person has yet to succumb to oblivion—irregular breathing causes their chest to rise and fall and their eyes drift listlessly until they alight on you, your lips and chin slathered in a mix of blood from both your victims. They try to scream, but find themselves unable to summon the necessary breath, and all that comes from their lips is the pitiful squeak of a prey animal. They're dying. They know it. You know it.
+
+"I don't want to die here," they rasp, their knuckles going white as they clutch their dead partner's hand.
+	
+Your head is spinning as you sink to your knees before the them, unable to banish the vision of your lover's face. Their expression of betrayal was not at all dissimilar to the gaze of this young one, soft eyes searching for answers and wondering why—how you could have done such a thing.
+
+"Please," they whimper. 
+*gosub_scene functions subtract_humanity
+*fake_choice
+	#I can never forgive this mortal for reminding me of my past so harshly. I harden my heart and slit their throat.
+		*set ruthless %+10
+		*gosub_scene functions subtract_humanity
+		A darker part of you takes hold, perhaps rooted in the Beast, but more likely wrought of rekindled emotion. You stare down at the helpless mortal with contempt. This pathetic creature is not worthy of your mercy, nor of the memory they had the audacity to evoke.
+		*label angel_of_death2
+		You kneel beside them and bring your hand to their throat, your dead eyes causing them to shudder and look away. Their neck is a ruin of ruptured blood vessels and ragged skin—you can almost feel the throbbing of what little blood remains in those pulsating veins, but you hold yourself back from draining them dry. Your other hand joins the first in a choke-hold, starving the dying body of oxygen. They sputter feebly, try to call out for help, and go limp. 
+		
+		You release their neck with disgust. It's been decades since you've bled kine for any reason other than to feed. Perhaps you've gone too soft. You'll need to thank Corliss for having the wisdom to send you on this mission.
+	#They deserve mercy. Killing them quickly is the most humane thing I can do.
+		*set ruthless %-5
+		You're not certain why you choose to take mercy on this mortal. The memories they evoked are painful, and part of your undead instinct dearly wishes for them to suffer for making you remember. Perhaps your mercy is merely pragmatism—if your victim somehow manages to survive against all odds, they could be a Masquerade risk that may be traced back to you, and your sire would doubtlessly treat you with far less charity than you showed your own victim.
+		
+		*goto angel_of_death2
+	#I can't bear to cause this innocent mortal any more harm. I turn my back and allow them to bleed out in peace.
+		*set ruthless %-5
+		You turn away from your victim and start toward the factory once again, your bloodlust sated now that your body is fully mended. The disturbing memory the mortal had conjured within you is already fading into background noise out of necessity—you have to return to the fight.
+		
+		"No!" they cry desperately from behind you. "You can't just leave me here!"
+		
+		"I won't harm you further," you state flatly.
+
+		"It hurts!" they howl.  "Please!"
+
+		You stop for a moment, wracked with indecision before continuing to the factory. "You'll feel nothing soon enough," you say, not entirely unkindly. "Make your peace and then join your companion in the afterlife."
+
+		They're silent then, though whether due to blood loss or accepting the inevitable, you cannot say.		
+*return		
+		
+		
+		
+*label wsb_pitch
+[i]What Stares Back[/i] adds the option to play as clan Malkavian or Lasombra, and 165,000 words of new story content. Unravel the mysteries of [i]Vampire: The Masquerade — Parliament of Knives[/i] from a fresh perspective, opening pathways and relationships once forbidden. Master the stygian Abyss with new options and abilities. Discover the secrets of Primogen Ophelia and the powerful Magister diplomat Michalis Basaras. Explore a new relationship with Lucca, your mistress's estranged childe, or feed the unbridled passion for bloodlust of the Banu Haqim Anarch, Sevinc.
+ 
+Clan Malkavian: A Hallucinatory Accomplice
+ 
+It has been said that a Malkavian is never truly alone—their visions and prophesy are a constant companion—but in your case, the concept of solitude has lost all meaning. An accomplice stalks your footsteps, often out of sight but never far away. It clouds your mind with fractured perception and insight, but not always in equal parts.
+ 
+• As a vampire of clan Malkavian, an eternal companion accompanies you. None but you can see it or hear its words of wisdom and delusion.
+• The unseen companion is yours to interpret as you see fit—name, gender, appearance, and demeanor.
+• Others too are afflicted by Malkav's gifts. Your sire Eden Corliss and her childe Lucca are each changed in unique ways, with new twists waiting to be discovered.
+ 
+Clan Lasombra: A Keeper of Shadows
+ 
+Creatures subtly at odds with mundane reality, Lasombra vampires are expected to triumph at any cost. Ruthlessness is a sought-after trait in progeny, making their reputation as betraying interlopers well deserved. Most do not seek attention, preferring to act as puppeteers, powers behind the proverbial throne.
+ 
+• Control the otherworldly forces of Oblivion as a vampire of clan Lasombra.
+• Hide in plain sight or emerge from the shadows. Many in the Council believe that you and your sire belong to clan Ventrue. A necessary deception. But now that many Lasombra are integrating with the Camarilla, is it time to reveal your true nature at last?
+*return

@@ -1,0 +1,132 @@
+screenshots
+*script window.animateEnabled = false;
+*page_break
+
+*set name "Sabrina"
+
+
+*script changeBackgroundColor("sepia")
+
+
+A sentry steps out from behind a snaggletooth column and fires through the air where you were less than a second ago, and you can hear the bullet chip into the concrete foundation behind you. Above, Jordan replies to the crack of gunfire calmly, in a disturbing monotone voice that you've heard once before.
+
+"Drop your weapon." A brief moment's hesitation and the human does as he is commanded. The gun clatters to the ground. "Sit." The human does so immediately. No matter how many times you see the Domination ability in practice, it never becomes any less awe-inspiring. Jordan hunkers down next to the man on bent knees, weight resting on ${jordan_hisher} toes. $!{jordan_heshe} places ${jordan_hisher} index fingers and thumbs along the length of the human's forehead and speaks softly enough that you can't quite make out what ${jordan_heshe}'s saying. The man shivers and then looks up at Jordan warily before grimacing in disgust and gets to his feet. You can tell by looking him in the eye that Jordan has re-written his memories. No monsters. No vampires. Just humans killing humans.
+
+"I can't believe they just left me here to die," the human says in a thick French-Canadian accent, spitting on the floor with a snarl as he checks the readiness of his weapons. "If you hadn't saved me, I might have…" he reaches out to shake your hand. "Thank you."
+*fake_choice
+	#I shake his hand like nothing is wrong and let him go. Asking questions might ruin Jordan's work.
+	#I shake his hand and ask: "Where did you meet the man who hired you?"
+	#I shake his hand and ask: "Where was your squad planning to regroup?"
+	#I drive a dagger into his neck. I can't let a human live after trying to kill me.
+	
+
+*script changeBackgroundColor("black")
+
+Eden Corliss rolls her eyes. "And you believed that the Prince's favor afforded you the privilege of peace of mind? Have you any idea, Vizier, how many death threats I receive on a weekly basis?" The Banu Haqim shakes his head. "Enough that I no longer read them. My servants simply burn them and make note of their purported authors in a ledger."
+
+Kashif seems taken aback, but that doesn't stop him from continuing. "When I confronted Lang about his clan members' insult—"
+
+"You did [i]what[/i]?" Corliss's eyes burn with anger. 
+
+"He insisted that my allegation was absurd and went on to suggest I had fabricated the letter in the first place."
+
+"And what did you expect?" Corliss hisses, reasserting control over the room. "After the prince offered you protection, most Tremere left Ottawa in protest. Is it too much for your fragile ego to know that a single one remains? Does Lang's continued presence so stick in your craw, Vizier? When did the once-proud clan of assassins grow so fearful and petty?"
+*fake_choice
+	#I largely admire the power of the Tremere sorcerers and their long and loyal history with the Camarilla, and quietly supported them in opposition to the prince's public declarations.
+	#The Banu Haqim Viziers have need of the Camarilla's friendship after fleeing their homeland. I agree with the Prince that they have the potential to be powerful allies.
+	#I care little for the petty squabbles between opposing factions of sorcerers and agree with my sire that we'd be best served by staying out of the bickering.
+*script changeBackgroundColor("sepia")
+
+	
+	
+	
+Even if it weren't for your acute sense of time and the tint of the sky, you can always tell it's growing closer to first light by the flow and energy of the city's people. The early risers purchasing coffee, the middle-age wage-slaves grumbling about work under their breath, shops that were closed overnight showing signs of slowly rumbling back to life. Sunrise will soon be upon you.
+
+You're still a few minutes' walk away from your building when a commotion erupts several blocks to the north—a rumbling followed by screams, and finally gunfire. Above a squat office building, you can see a faint wisp of smoke rising toward the heavens. There's no way to be certain, but you think that's the Sheriff's building. Qui's compound. An assault this soon after the Anarch raid is unlikely to be a coincidence, and Qui [i]had[/i] taken a prisoner. If Robert Ward was willing to blow up the factory to throw Ottawa's Camarilla off his scent, it's not much of a leap to think he'd go this far to rescue an ally—or silence a wagging tongue. You're close enough to the commotion that you may be able to make a difference and help thwart the Brujah's plans.
+*fake_choice
+	#[b]Celerity (+Hunger):[/b] As a Toreador, I can slip into the quiet alleys unseen and use my supernatural speed to reach the fighting in time to make a difference.
+	#I remain calm and hurry back to the office to tell Corliss what happened.
+	#I use my powers of persuasion to convince a nearby human to give me his bike and zip through the alleyways.	
+	#I take a moment to think—it's always been easy for me to remember all the twists and turns of the roads and shortcuts. I'm sure I can find a way to cut the escape off if I play this smart.	
+	
+	
+	
+	
+
+	
+"I overheard some very sensitive plans while I was waiting," you say. "What would it be worth to you for me to keep my mouth shut about them?"
+
+Vivian at least has the grace not to deny your accusation. "A young, enterprising Ventrue like yourself shouldn't bother themselves with rumors. But I admire your spunk. There aren't many Kindred left with the fortitude to threaten me right to my face. Well done." She claps lightly, and you're surprised to realize that it's not a mockery, but a true sign of approval. "Do you think Eden isn't expecting the city's Primogen to do their due diligence? The only thing that would surprise Eden Corliss is [i]not[/i] being investigated, just as I'm not surprised by you showing up unannounced at my doorstep. It was inevitable that she would send someone here to sniff for secrets. This is the way the game is played, childe."
+*fake_choice
+	#"You're bluffing. Corliss will eat you alive if she hears about this and you know it."
+	#"You know, that makes a surprising amount of sense."
+	#"I suppose we can keep this between us for now, then. Assuming you answer my questions satisfactorily."
+	#"We'll keep this between us for now, then."	
+	
+
+	
+	
+	
+Eden Corliss is acting Seneschal of the city, second in command to Prince Arundel himself, and also your sire—the vampire who Embraced you as a mortal and brought you into the hidden world of the Kindred. Every vampire is re-born into a bloodline that some scholars and cultists believe to be a direct lineage leading back to a progenitor of the biblical age: Caine himself. Clans have formed around these bloodlines, each possessed of certain gifts—Disciplines, as the elders would call them. These gifts are passed on from sire to childe, always marginally diluted the further their generation is removed from the clan's progenitor. You hadn't chosen the clan you were brought into, but you'd adapted well enough over the decades, mastering the Disciplines of your clan to the best of your ability. Corliss seems pleased with your progress, and when Corliss is pleased, you slumber more soundly.
+*fake_choice
+	#I am of clan Ventrue; precise and businesslike, intelligent, strong, and intimidating. Disciplines: Dominate, Fortitude, Presence		
+	#I am of clan Toreador; an artist and socialite with an eye for detail. Disciplines: Auspex, Celerity, Presence
+	#I am of clan Nosferatu; a powerful monster, able to pass through the shadows without a trace. My pet rat can act as a spy. Disciplines: Animalism, Obfuscate, Potence
+	
+	
+
+*set name "Sabrina"
+
+
+*comment NEW screenshots for the DLC
+
+You didn't choose the clan you were brought into, but you adapted well enough over the decades, mastering the disciplines of your clan to the best of your ability. Corliss has seemed pleased with your progress, and when Corliss is pleased, you slumber more soundly.
+
+[b]The effects of these Disciplines may now be read on your stats page. If you are unfamiliar with Vampire: The Masquerade, you may want to examine them before making your choice below.[/b]
+*fake_choice
+	#I am of Clan Ventrue: precise and businesslike, intelligent, strong, and intimidating. Disciplines: Dominate, Fortitude, Presence.
+	#I am of Clan Toreador: an artist and socialite with an eye for detail. Disciplines: Auspex, Celerity, Presence.
+	#I am of Clan Nosferatu: a powerful monster, able to pass through thin air without a trace. My pet rat can act as a spy. Disciplines: Animalism, Obfuscate, Potence.
+	#I am of Clan Lasombra: calculating and fierce. Once, my clan were enemies to the Kindred establishment, but in modern nights the established order has begun to change. Disciplines: Dominate, Oblivion, Potence.
+	#I am of Clan Malkavian: enigmatic and shrewd, feared and grudgingly respected. A traveler shadows my path—an ethereal companion whom only I can perceive. Disciplines: Dominate, Obfuscate, Auspex.
+	
+
+*comment ---------------------------------------------
+
+"Have any last words?" you ask.
+
+"Why…yes I do," Moretti gasps. " I do indeed." He seems to be mending quickly. If you want to finish him, you'll have to be quick about it.
+
+"Then say them and be done with it."
+
+"I can…offer you power. True power above that of your peers. Enough to one day make you a Prince or even…leave your shattered Camarilla behind. Power over Oblivion. I can teach you."
+*fake_choice
+	#Enough of this. I use his own sword to decapitate him and be done with his lies and deceit.
+	#"I'm listening," I say. "I'm willing to learn, but I need to know I can trust you." I offer him the choice between drinking my blood to bond him, or a swift destruction.
+	#Such a vile being deserves no mercy. I crush his head in with my boot. It will be an agonizing demise—one which he has earned.
+
+	
+*comment ---------------------------------------------
+*comment This is slightly modified to take out some banter so things fit within the screenshot while retaining the playful nature.
+
+"Sometimes I really wish Corliss hadn't recalled me to Canada. This weather is the worst."
+
+"Don't worry," you say. "Pretty soon we can enjoy a whole two weeks of Spring before Summer is here."
+
+Lucca smiles. "Shut up."
+
+"Feeling better?"
+
+"A little." Her hands relax their death-grip on the wheel. "More than a little—I think this has been good for me. We worked well together, tonight."
+*fake_choice
+	#I'm starting to develop feelings for Lucca. I let her know how I feel subtly, by holding her off-hand while she drives.	
+	#I'll keep this strictly professional. "We work well as a team. If I need help with a job in the future, I know who to call to have my back."
+	#I've got strong feelings for Lucca and I'm sure she has them for me too. I tell her the truth of my affections in no uncertain terms.
+
+	
+	
+	
+	
+
+
+

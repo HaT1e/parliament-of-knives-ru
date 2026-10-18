@@ -1,0 +1,177 @@
+
+
+*label gerard_construction1
+*comment Do any Kindred have ties to the construction site/warehouse?
+"I was able to confirm that the warehouse site you wished me to investigate is owned by a holding company based out of Toronto called Blackstrom. Further digging revealed well-disguised links to Ottawa Kindred circles.
+*if ((gerard_skill = "butler") or (ch1_gerards_research = "construction2"))
+	*comment Full info is triggered here if Gerard has the skill set or if you chose for him to continue investigating this plot point a second time. Same below.
+	*if (ch5_talked_to_gerard = false)
+		*achieve gerard_first
+		*comment Only gives achievement if Gerard gets the full info on the first try by matching his skill set. Same with others below.
+	*set gerard_found_kindred_ties_to_warehouse true
+	Specifically those owned by Alisha Grey." @{(gerard_skill = "butler") He clears his throat. "Before I served you, I worked as a butler for several prominent Kindred. I'd recognize her signature and that of her childer anywhere." | }
+	*comment Note for editorial: That's not to say that he was a ghoul for all these Kindred, but he was a butler before he was bonded to you.
+	
+	*if (how_i_feed = "alisha")
+		You frown, disturbed. In all your years of friendship with Alisha, you never heard anything about holdings in such real estate. Have you been too blinded by the blood dolls she provides to look at her dealings critically?
+		
+	"That seems unusual	for Alisha," you mutter, as much to yourself as to Gerard. "I've never known her to be invested in real estate. I could see maybe a museum or a theater, but not a construction site."
+
+	"If I may say, ${sirmaam}, the area is planned for urban renewal. Land titles are being consolidated by another company for building developments along the riverside. It is entirely possible that Ms. Grey simply planned on offloading the property at a steep profit."
+	
+	"It still doesn't explain why the Anarchs were there," you say.
+	
+	Gerard nods slowly. "It's quite a coincidence, but sometimes that's all it is. In any case, I got the impression that further digging may reveal your involvement no matter my level of discretion. Perhaps it would be best to keep this knowledge in your pocket while I move on to other tasks."
+	*goto gerard_tasks1
+*else
+	Unfortunately, I have yet to track down the exact individual in control of the properties. Specific details will take me at least another day if you wish for the investigation to continue, otherwise I can be about other tasks for you."
+	*label gerard_tasks1
+	*fake_choice
+		*if (gerard_found_kindred_ties_to_warehouse = false) #"I want you to keep investigating the warehouse. I need to know which Kindred owns the property."
+			*set ch1_gerards_research "construction2"
+		*if (gerard_found_police_cover_up = false) #"There was an explosion by the warehouse in question. I need you to gather any information about what the police found there."
+			*set ch1_gerards_research "police"
+		*if (gerard_uncovered_explosives_origin = false) #"Find out if there have been any recent sales of large quantities of explosives in the last week, most likely in the underground economy."
+			*set ch1_gerards_research "explosives"
+		*if (gerard_uncovered_ward_history = false) #"Look into any history the Anarch Robert Ward may have had with my sire or Prince Arundel. Knowing his motivations could prove invaluable."
+			*set ch1_gerards_research "ward"
+	*return
+	
+	
+*label gerard_police1	
+*comment What did police find at the warehouse?
+He lowers his voice to a whisper. "I leveraged my contacts at the police station to obtain copies of the paperwork relevant to the warehouse investigation per your request. It seems that the human police force was held back from performing a full inspection,
+*if ((gerard_skill = "soldier") or (ch1_gerards_research = "police2"))
+	*if (ch5_talked_to_gerard = false)
+		*achieve gerard_first
+	*set gerard_found_police_cover_up true
+	and I almost wasn't able to figure out why." His mouth quirks up in a rare grin. "I was, however, able to use one of my @{(gerard_skill = "soldier") contacts from the old syndicate. | contacts. } It took less than a minute to get him to talk."
+	
+	*if (gerard_skill = "soldier")
+		You bite your lip—sometimes you manage to forget your manservant's background in underground crime. "An old informant is still alive and engaged in public life?" you ask.
+		
+		He nods. "One of the few loose ends your sire didn't clean up. All it took was a mention of her name and he broke out in a sweat. Couldn't work hard enough to help me out."
+		
+	"And what did you find?"
+		
+	"The investigation was held back from the get-go by order of Sheriff Qui. He sent in his own men after cordoning the entire site off. Very hush-hush. As far as my contact knows, nothing was written down, just delivered verbally to the man himself before the site was scrubbed. I got the impression that further digging may reveal your involvement no matter my level of discretion. Perhaps it would be best to keep this knowledge in your pocket while I move on to other tasks."
+	*goto gerard_tasks2
+*else
+	but I haven't yet been able to puzzle out why. I've been developing some contacts in the police department, but I have to use a soft touch unless you want other Kindred to know you're snooping around, especially when the Sheriff himself is sitting in your foyer. Specific details will take me at least another day if you wish for the investigation to continue, otherwise I can be about other tasks for you."
+	*label gerard_tasks2
+	*fake_choice
+		*if (gerard_found_police_cover_up = false) #"I want you to keep investigating this police cover-up. It could be standard procedure, but my gut tells me there's more to this than it seems."
+			*set ch1_gerards_research "police2"
+		*if (gerard_found_kindred_ties_to_warehouse = false) #"I'd like you to do background research on the construction site at Chaudière Crossing. Let me know if any known Kindred have ties to it."
+			*set ch1_gerards_research "construction"
+		*if (gerard_uncovered_explosives_origin = false) #"Find out if there have been any recent sales of large quantities of explosives in the last week, most likely in the underground economy."
+			*set ch1_gerards_research "explosives"
+		*if (gerard_uncovered_ward_history = false) #"Look into any history the Anarch Robert Ward may have had with my sire or Prince Arundel. Knowing his motivations could prove invaluable."
+			*set ch1_gerards_research "ward"	
+	*return	
+	
+*label gerard_explosives1	
+*comment Has anyone recently bought a large amount of explosives? 
+"I was able to track down the most likely source of the explosives used during the Blood Hunt at your request. It's a company named Waterloo Ordnance Works, and a shipment was sent to Ottawa less than a week ago."
+*if ((gerard_skill = "finance") or (ch1_gerards_research = "explosives2"))
+	*comment Financial Gerard can track this down immediately. Other Gerards require another night.
+	*set gerard_uncovered_explosives_origin true
+	*if (ch5_talked_to_gerard = false)
+		*achieve gerard_first
+	He lowers his voice to barely a whisper. "The shipment was purchased through one of Corliss's shell companies run by her childe Lucca, Kurzawa Imports. I got the impression that further digging may reveal your involvement no matter my level of discretion. Perhaps it would be best to keep this knowledge in your pocket while I move on to other tasks?"
+	
+	Is the room a little colder or is it your imagination? Did Lucca plot something without your sire's knowledge? Or is Corliss setting Lucca up for the fall if she's found out? Either way, you're going to have to be careful whom you share this knowledge with. An accusation reaching the wrong set of ears could prove disastrous. What other work can you move Gerard on to in the meantime?
+	*goto gerard_tasks3
+*else
+	He frowns suddenly, almost embarrassed. "I've been getting push-back from sources I know work for members of the Camarilla. That's concerning in its own right, but I'm starting to get the impression that the purchaser of these explosives might be someone close to you. If you'd like me to dig a little deeper on this, I think it may take at least one more day. But it's dangerous. I can't stress that enough."
+	*label gerard_tasks3
+	*fake_choice
+		*if (gerard_uncovered_explosives_origin = false) #"I want you to keep investigating the source of the explosives. We need to get to the bottom of this."
+			*set ch1_gerards_research "explosives2"
+		*if (gerard_found_kindred_ties_to_warehouse = false) #"I'd like you to do background research on the construction site at Chaudière Crossing. Let me know if any known Kindred have ties to it."
+			*set ch1_gerards_research "construction"
+		*if (gerard_found_police_cover_up = false) #"Let's forget the explosives themselves for now. I need you to gather any information about what the police found at the site of the explosion."
+			*set ch1_gerards_research "police"
+		*if (gerard_uncovered_ward_history = false) #"Look into any history the Anarch Robert Ward may have had with my sire or Prince Arundel. Knowing his motivations could prove invaluable."
+			*set ch1_gerards_research "ward"	
+	*return
+	
+	
+	
+*label ward1	
+*set gerard_uncovered_ward_history true
+*comment Look into any history the Anarch Robert Ward may have had with my sire or Prince Arundel. Knowing his motivations could prove invaluable.
+"It didn't take much asking around to find out more about Robert Ward for you. Surprisingly enough, it's not a lack of information that's the problem—it's the preponderance of it. Almost everyone I spoke to had a story or they'd heard one. Usually it's like pulling teeth to find out information about Kindred, so the excursion was rather refreshing. That is, until I started to get conflicting reports."
+
+"Conflicting?" you ask. "It's to be expected, I suppose. How much is conflicting?"
+
+Gerard grimaces. "Over a third of it. It seems our friend Ward left an impression wherever he went. Big personality."
+
+"Not surprising," you say. You remember the man's face leering up at you as his hand tightened around your neck. "Some meetings are hard to forget."
+*fake_choice
+	#"Is there any information that you think is more than rumor? Facts are hard to come by, but contradictions weed themselves out."
+		*set gerard %+5
+		"Of course. I wouldn't have made it this far in my trade without being able to sort truth from rumor."
+	#"Tell me one of the most audacious rumors. I want the dirt on Ward."
+		*set subversive %+5
+		Gerard looks almost alarmed. "You're certain you want to hear it? Understanding, of course, that I can't vouch for the validity of the claims."
+		
+		"Of course," you say. "Go on."
+		
+		"I heard this story more than once, though there were variations, you understand. It involves Corliss and Arundel."
+		
+		You wave him on, impatiently. It almost feels like the man is delaying.
+		
+		Gerard clears his throat. "Well, the most persistent rumor is that Robert was romantically involved with the Prince. Which, as I'm told, is why your sire wanted him gone from the city even before most of his clan defected from the Camarilla."
+		
+		You're genuinely surprised. You would have thought you'd have heard such rumors yourself if they are so prevalent. Though perhaps your status as Corliss's childe made others less inclined to share information that could anger your sire. 
+		
+		"I know it's not my place to ask, ${sirmaam}, but I would appreciate it if you'd not speak of this to your sire. Good informants are hard to come by, and I'd be less capable of serving you if my contacts began to expire of unnatural causes."
+		
+		"Of course," you say off-handedly. "There's no need to cut off my nose to spite my face. I need access to all the information I can get. What else did you learn?"
+		*page_break
+	#"I'll trust your judgment, Gerard. What do you think is worth knowing?"
+		*set gerard %+5
+Gerard sits down behind his desk and flips several pages through his notebook. "As a quick aside, do be aware that I'm destroying these notes before I retire this afternoon. There will be no record of our inquiry."
+
+You nod. No reason to leave physical evidence behind. 
+
+"Here's what I've pieced together about his history," Gerard continues. "Ward was Embraced in the late 1800s in England. None of my contacts are aware of any surviving records that indicate who his sire was or why he was Embraced. He came to Canada shortly thereafter with some clan-mates and settled in Berlin, now known as Kitchener, Ontario. The Brujah weren't welcome in the capital then, but when Prince Arundel took praxis and welcomed the Rabble, Ward arrived almost immediately."
+
+"Corliss told me about some of that," you say. "It's one of Arundel's only decisions that she spoke out against publicly."
+
+"That was one of the most referenced items on my list," Gerard says, skipping down a few lines with his finger. "Ward and Arundel grew close, close enough to cause friction with Corliss. Shortly thereafter, the Brujah largely split with the Camarilla, though my contacts couldn't tell me why." He arches an eyebrow in an unspoken question. You shake your head. Some Kindred matters are not for servants, no matter how loyal. "After the split Ward chose ideology over friendship and left to join the Anarchs. There was no word from him until a few nights ago." He closes the notebook. "Given the recent unrest, I was thinking I may be able to assist you in more than an information-gathering capacity. Arranging for haven defenses, procuring offensive equipment—whatever I can do to assist."
+*fake_choice
+	#"I like the sound of that. Let's increase security on all entrances. Alarms, motion sensors, the works."
+		*set gerard_sets_up_home_security true
+	#"Do you think you could track down any firearms that can shoot incendiary rounds?" Not much can defend against vampire attackers, but incendiaries hurt Kindred worse than just about anything.
+		*set gerard_gets_incendiaries true
+	#"Keep a close watch on my holdings and finances, maybe move some money to an off-shore account. There's more than one way to ruin an immortal. Kindred love to see an enemy grovel."
+		*set gerard_manages_finances true	
+*return
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+

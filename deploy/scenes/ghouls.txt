@@ -1,0 +1,27 @@
+
+
+
+*label sam_drives_first_time
+You take a moment to procure a burner phone and make a call to the number Gerard gave your new driver, Sam. He answers it quickly, but in a less than professional manner. 
+
+"Um, hello?" you hear the newly bonded ghoul's voice on the other end of the line. "This is Sam," he adds belatedly.
+
+"Sam," you say. "I need a ride as soon as possible. Has Gerard purchased you a vehicle to my specifications?"
+
+"Yes, ${sirmaam}. I'll be right there." He hangs up.
+
+You stare at the phone with increasing irritation. You knew that Sam would require a little work to break in, but there's only so much ineptitude you can tolerate. The phone rings again and you take the call.
+
+"Um, boss?"
+
+"Yes?"
+
+He clears his throat. "I forgot to ask where you were."
+*page_break
+Sam arrives in a dark blue Lexus ES. It's sleek, but a bit small for your liking—not exactly the kind of car that you're accustomed to being chauffeured around in. Then again, you'd asked Gerard for lower-profile than your usual ride, and he'd delivered. You sigh. At least the windows are tinted.
+
+*return
+
+
+
+

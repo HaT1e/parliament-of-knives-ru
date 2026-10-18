@@ -1,0 +1,1515 @@
+
+*gosub_scene functions BACK_UP_VARIABLES
+
+*label begin_chapter_2
+
+*text_image chapter2.png center Chapter 2 Misgivings
+
+*temp annoyed_corliss false
+*set chapter 2
+
+
+"This inhospitable land of ice and snow ill-suits me—my waking hours are plagued by chill reception, in climate as well as the demeanor of my Camarilla hosts. Prince Arundel risked much by opening his city to me, and until such night as the terror Ur-Shulgi releases his grip on precious Alamut, I shall remain indebted to the Ottawa Ventrue for their grudging hospitality. The rise of the Black Shepherd has resulted in unsettling new alliances I would once have believed unthinkable."—Kashif Salik, Banu Haqim Vizier
+*line_break
+*line_break
+*page_break
+*image ward.jpg
+
+The grinning face of Robert Ward stares up at you, all blocky alabaster teeth filed in perfect rows like tombstones. There's an anger behind those dead eyes, but it's largely subverted by a mirthful quirk of his lips. His shirt is unbuttoned and his crossed arms are laced with sinewy muscle. For the second time in as many nights this man has caused you no small amount of difficulty, although, were you given the option, you'd doubtless repeat today's misfortune over the events of the previous night. You massage your temples with your thumb and forefinger as you place the Anarch renegade's file back on your desktop. When mortals prattle on about their vampire myths, they rarely suggest that the undead too might be afflicted with such trite concerns as stress headaches and a sinking stupor of boredom.
+
+*if (clan = "Malkavian")
+	${malk_name} is pacing back and forth through the middle of the room, clearly bored out of ${malk_hisher} mind.
+	@{((malk_demeanor = 1) or (malk_demeanor = 3)) "I'd forgotten what it was like," ${malk_heshe} says. "Out there on the prowl. We should see if Corliss will let you out of the box more often, $!{name}." | "I can't believe she's still sticking us in here, sitting at the same desk after what happened last night!" ${malk_heshe} says. "It's intolerable!"}
+	@{(malk_heshe = "he") He's wearing a white button-down shirt tucked into pants held up by wide, black suspenders. | $!{malk_heshe}'s wearing a 1960s-style pencil skirt, decorated in a gaudy flower pattern. } You've never seen that outfit before.
+	
+	"What happened to the ${malk_clothing}?" you ask.
+	*comment I know this is a little unusual, but I really wanted to subvert the whole 'make the character look exactly as you like' idea and make readers think 'Hey, did the game really just do that?' in the way only a Malkavian can. They go back to wearing the selected outfit after this scene.
+	
+	${malk_name} stops dead in the middle of the room and turns in a clean pivot to face you, shoes squeaking on the polished floor. 
+	@{((malk_demeanor = 1) or (malk_demeanor = 3)) "We may be thick as thieves, $!{name}, but as much as I respect your judgment, you shouldn't be picking out my wardrobe. I mean, if that's alright with you. You don't know what it feels like to be an image in someone's head." | "You don't actually think you can dictate what I wear, do you?" } 
+	$!{malk_heshe} mimics a person typing on an invisible keyboard. "Let's see." $!{malk_heshe} strokes ${malk_hisher} chin in mock-thought. "A white V-neck shirt tucked into an out-of-date pair of khakis. Maybe a pair of glasses for that sophisticated look?" $!{malk_heshe} shoves the imaginary keyboard aside and you swear you can hear it crash on the floor. "I'm not a set of sliders and calibrations. I think we should both treat each other with a little more respect."
+	
+	"But you always wear the ${malk_clothing}."
+	
+	"I thought I'd try something new. Do you like it?"
+	*fake_choice
+		#"Not really. No."
+			The new clothes fade away, replaced by the ${malk_clothing}. "Better?"
+			
+			"Much." 
+		#"It's okay. Dress however you want."
+			${malk_name} smiles. "I appreciate that, $!{name}. I really do. I'll go back to the old stand-by once I'm tired of this one, rest assured."
+			
+		#"It doesn't matter to me. This is a stupid waste of time."
+			${malk_name} huffs. "Maybe you shouldn't have brought it up, then."
+			
+			$!{malk_heshe}'s got you there.
+	You look back at the desk. Ward's face is still down there, staring up at you. Grinning. It's going to be a long evening.
+
+From the moment you greeted her in the early hours of the night, your sire had been beside herself with irritation at the botched warehouse raid. It wasn't so much the dressing down that disturbed you, however—it's the fact that she apologized to you in the aftermath. Eden Corliss never apologizes to anyone, let alone a childe who disappointed her. Before she hid herself in her office, she handed you several file folders and instructed you to review their contents. Still recovering from your disbelief, you missed her instructions entirely, and she had to repeat them with a snarl. No further apologies were forthcoming.
+
+Your desk sits to the left of a massive set of double doors leading to Corliss's private office, walls of striped marble rising on either side to an impressive peak. Voices above a hushed whisper have a tendency to echo throughout the chamber at dizzying frequencies which unnerve you as much now as they did when you first set foot here, your naive eyes wide as they took in the opulent splendor. 
+
+On a typical visit to Corliss's office, your sire requires little of you aside from the occasional clerical duties she couldn't entrust to her buzzing hive of worker-bees. You've often wondered if the dreary tasks were merely her way of asserting dominance over the younger generation, but you have to admit to yourself that the constant stream of reports on Ottawa's Kindred community have been useful to keep an eye on. In modern nights, knowledge can be a deadly weapon. You thumb through the reports. There must be at least one on every important member of Ottawa's Kindred community.
+
+*set kindred_primer true
+[b]Primers on these important Kindred are now available in your stats screen.[/b]
+*page_break
+
+[b]Parliament of Knives now features a 'Storyteller Mode' that may be toggled on to display which disciplines or attributes are tested in certain choices later in the game. Please select whether or not you would like to enable Storyteller Mode below: [/b]
+*choice
+	#No. I'd like to play the game without hints.
+		[b]If you change your mind in the future, 'Storyteller Mode' can be switched on in the stats menu at any time.[/b]
+		*goto leaning_back
+	#Yes. Turn on Storyteller Mode.
+		*set storyteller true
+		[b]Storyteller Mode enabled.[/b]
+		
+		Parliament of Knives is primarily focused on alliance building and story branching, but will sometimes check your attributes to see if you succeed or fail at a particular task. If a choice will result in such a test, the text will now inform you beforehand. Most of these tests occur in later chapters once you've established your alliances. 
+		
+		Some tests will check a single attribute while others will check more than one in order to allow for multiple avenues to success depending on your build. 
+		
+		If a test will check for the highest value of one attribute or the other, it will be displayed as: (attribute 1 / attribute 2)
+		
+		Some tests will check multiple attributes at once while offering an alternative for success. Example: (composure/resolve or dexterity) means that the test checks your composure + your resolve to succeed, or your dexterity alone, whichever total is higher.
+		
+		Unless otherwise noted, usage of your vampiric disciplines results in a successful outcome. If a stat test is listed in a discipline choice, that test will be easier than a non-discipline choice.
+		*goto leaning_back
+		
+*label leaning_back
+*page_break
+You lean back in your chair, grateful for the quiet that nighttime work provides you. You imagine the building during the day, swarming with hundreds of mortals all going about their agendas, then you look down at the files again and drum your fingers along the edge of the desk. Maybe the constant buzz of businessmen and women would be preferable, after all. @{(clan = "Nosferatu") $!{rat_name} stirs inside a small pouch at your side, and you slip ${rat_himher} a small piece of cheese to tide ${rat_himher} over until you're able to set ${rat_himher} free.|}
+
+You stare up at the ceiling, unsure whether or not it's safe to leave and go about your night, or if Corliss expects you to remain here until she tells you otherwise. @{(clan != "Lasombra") Since the Camarilla ordered an online communications blackout, your nights here have become dreadfully dull. Of course, after watching footage of the Second Inquisition's attack on Vienna, you understand why such precautions are warranted—once the mortal inquisitors find a Kindred domain, they stop at nothing until every last vampire is wiped out. |}
+
+Your mind drifts back to the Hunt—how might you have dealt with the Anarch infestation if you were in charge?
+*fake_choice
+	#The Brujah and Gangrel clans were officially a part of the Camarilla not all that long ago; immediate violence may not have been the best idea. I would have sent a team to convince them to leave peacefully.
+		*set ruthless %-10
+		*set charisma %+10
+		*set manipulation %+10
+		*set composure %+5
+	#The more I think about it, the more I believe we should have brought an overwhelming force and slaughtered every last Anarch.
+		*set ruthless %+10
+		*set strength %+10
+		*set resolve %+10
+		*set composure %-5
+		*set charisma %-5
+		*set stamina %+5
+	#I think Corliss's plan was the right one. Even if it didn't go perfectly, we forced the Anarchs to retreat and none of us died. There was no need to finish them all, just send a forceful message.
+		*set subversive %-10
+		*set strength %+10
+		*set stamina %+10
+		*set composure %+5
+	#We should have worked out a better strategy. It would have been easy to manipulate the police into performing a raid. The Anarchs' mortal allies would have fled, and even Anarchs would think twice before starting a war with local law enforcement.
+		*set ruthless %-5
+		*set intelligence %+10
+		*set wits %+10
+		*set manipulation %+5
+	#We should have been smarter and quieter. A small strike team might have been able to sneak in and destroy Ward without ever alerting the mercenaries if we'd had the proper intelligence. 
+		*set ruthless %+5
+		*set dexterity %+10
+		*set intelligence %+10
+		*set resolve %+5
+*image salik.jpg
+You're shaken from your thoughts as the entry door slams open, revealing one of the city's more recent arrivals—a vampire of the Banu Haqim clan. It takes you a moment to remember his name, and by that point he's already torn his way through the room in a storm of scowls and swirling robes. "Greetings, Mr. Salik," you say solemnly, doing your best to reset the room to a sense of proper decorum. "What can I do for you?" 
+
+"I must speak with Seneschal Corliss!" the Vizier replies, wringing his tightly clasped hands. He smells musty, like old books, and his short black hair is unkempt. You imagine he hasn't groomed himself for several nights.
+
+*if (clan = "Malkavian")
+	@{((malk_demeanor = 1) or (malk_demeanor = 3)) ${malk_name} grins as the Vizier passes through ${malk_himher}. "An interesting wrinkle. Perhaps the evening won't be a waste after all." | ${malk_name} frowns as the Vizier passes through ${malk_himher}. "Who does this guy think he is, busting in here with his demands? Don't give him what he wants." }
+	@{(malk_demeanor = 4) $!{malk_heshe} picks at Kashif's robes. "Might make good kindling…" |}
+*choice
+	#Corliss wouldn't want me to let him in, so I should stall. "What is this regarding?" I ask. "I don't believe you have an appointment."
+		*set corliss %+10
+		*set subversive %-5
+		*label whats_up_kashif
+		The Vizier wrings his hands before schooling himself to a modicum of calm. "I must speak with her regarding the absence of our Prince," he says reluctantly once he realizes you're not going to simply let him in without a proper reason. "His lack of oversight seems to have…emboldened certain factions which Arundel had forced into submission."
+		
+		You have to admit, that does sound serious. Perhaps you should check with your sire and see whether or not you should admit him. "Please wait for a moment while I announce you to the Seneschal," you reply. "As I'm sure you understand given recent events, she's quite busy."
+		
+		He waves you on in a poor attempt at calm dismissal and you slip through the double doors into Corliss's office. She looks up at you from a desk spilling with paperwork and reports. "Yes, childe?"
+		*fake_choice
+			#"The recent arrival from the Banu Haqim is here, demanding to speak with you. Should I tell him to leave?"
+				*label the_old_goat
+				*set corliss %+5
+				Corliss favors you with the briefest of smiles. "The old goat is later than I expected.
+			#"Kashif Salik is requesting an audience. It sounds like he has something very important to report."
+				Corliss quirks an eyebrow. "Does it now? A great many things are of import at the moment, childe, least of which are the concerns of the Banu Haqim." She sighs. "But I was expecting him to show up with demands. 
+			#"Mr. Salik of the Banu Haqim blustered in here with no appointment and demanded to see you. I thought I should check with you before throwing him out."
+				*goto the_old_goat
+		You were right to detain him, but it's best that I deal with the man now rather than leaving him to stew. Send him in."
+		*goto kashif_audience
+	#This could be interesting. I show the Banu Haqim Vizier in without giving him a hassle.
+		*set corliss %-5
+		*set kashif %+15
+		*set subversive %+5
+		*set ch2_helped_kashif true
+		The Banu Haqim Vizier smiles gratefully at your kindness, and you have little doubt that he'll remember this favor in the future. "Gratitude," he says with a respectful nod. "I regret to say that I've forgotten your name."
+		
+		"$!{name}," you reply simply before opening the large set of double doors to admit him. Corliss frowns as she looks up at you from a desk spilling with paperwork and reports. "Yes, childe? What do you—" She cuts off when she sees the Vizier. "Oh," she says with a disapproving sniff. "Do announce guests beforehand, $!{name}. This intrusion is unseemly."
+		*goto kashif_audience
+	#It seems like he must have something important to tell my sire, but I shouldn't let him in without asking why he's here.
+		*set ruthless %-5
+		*goto whats_up_kashif
+		
+*label kashif_audience
+
+You step aside as the Vizier practically marches into the office before dropping into an elaborate bow. "It's lovely to see you, Eden," he says as he stands up straight, flashing a nervous smile at the Seneschal. You can tell he's attempting to be charming, and it's obvious that Corliss is having none of it.
+
+"Welcome to my office, Kashif Salik," she says bluntly. All business. 
+@{(clan = "Nosferatu") Kashif barely manages to disguise his surprise at seeing Corliss's Nosferatu disfigurements on display. Typically, she wears the face of another woman when taking guests, but she hasn't had time to prepare for an audience. | }
+"You've caught me at an inopportune time, so I must request we skip the formalities and cut to the chase. What can I do for you?"
+
+"Apologies," Kashif mutters as his eyes sweep the room, looking for a chair. There is none. "To the point, then," he says with a flash of mild irritation. "Last night my servant handed me a sealed letter which he claimed had been given to him by a rather unusual courier. Furtive fellow. Eyes like a ferret." The Vizier procures a neatly folded paper from one of his robe's voluminous pockets and clutches it at his side. "The letter claimed to be from an anonymous Tremere outside of the city, and it went into great detail about how they intended to torture and eventually end me. In most cases, this wouldn't have been entirely unusual given the enmity between the Tremere and Banu Haqim, but I have been placed under Prince Arundel's protection." 
+*page_break
+Corliss rolls her eyes. "And you believed that the Prince's favor afforded you the privilege of peace of mind? Have you any idea, Vizier, how many death threats I receive on a weekly basis?" Kashif shakes his head. "Enough that I no longer read them. My servants simply burn them and make note of their purported authors in a ledger."
+
+Kashif seems taken aback, but that doesn't stop him from continuing. "When I confronted Lang about his clan members' insult—"
+
+"You did [i]what[/i]?" Corliss's eyes burn with anger. 
+
+@{(clan = "Malkavian") $!{malk_name} clasps ${malk_hisher} hands together, muttering to ${malk_himher}self. "Interesting." |}
+
+@{(clan = "Malkavian") Kashif continues as though he hadn't noticed $!{malk_name}'s interruption. Of course he hadn't. |}
+"He insisted that my allegation was absurd and went on to suggest I had fabricated the letter in the first place!"
+
+"And what did you expect?" Corliss hisses, reasserting control over the room. "After the Prince offered you protection, most Tremere left Ottawa in protest. Is it too much for your fragile ego to know that a single one remains? Does Lang's continued presence so stick in your craw, Vizier? When did your once-proud clan grow so fearful and petty?"
+*fake_choice
+	#I care little for the petty squabbles between opposing factions of sorcerers and agree with my sire that we'd be best served by staying out of the bickering.
+		*set corliss %+5
+		*set loyalty_to_corliss +1
+		Why position oneself in a place of weakness between dueling factions of sorcerers and warlocks when you can simply step back and watch them keep each other in check?
+		
+	#I admire the power of the Tremere sorcerers and their long and loyal history with the Camarilla. I quietly supported them in opposition to the Prince's public declarations.
+		*set lang %+10
+		The Tremere have been loyal members of the Camarilla for centuries before your rebirth, and you were quietly disturbed when your Prince had forsaken them in favor of admitting one of the Assassins.
+	#The Banu Haqim Viziers have need of the Camarilla's support after fleeing their homeland. I agree with the Prince that they have the potential to be powerful allies.
+		*set kashif %+10
+		Refusing powerful alliances on the basis of an old grudge had always seemed like folly to you. One of these nights, the Tremere will come to their senses and realize that unity makes every civilized clan more powerful.
+		
+Assamites, Assassins—or the Banu Haqim as they're now properly called in the West—have a long and sordid history with the Tremere dating back centuries to 1496, when the Tremere afflicted them with a Blood Curse to prevent them from feeding off Kindred Blood—their precious [i]vitae[/i]. The Banu Haqim had never forgiven them, and the mutual enmity has run hot ever since. The curse has been lifted for over twenty years now, but it seems some individuals refuse to leave the past in the past.
+
+Kashif seems taken aback by Corliss's bluntness and his right arm twitches involuntarily, hand twisting into an arcane claw. Corliss raises an eyebrow and the Vizier slowly relaxes his posture. "I am neither fearful nor petty, Seneschal," Kashif replies dryly. "I merely petition the court on my own behalf. I was accepted into this city by its Prince under the Tradition of Hospitality, after which the Tremere voluntarily left the domain in protest. If they now make external threats against Kindred within the city, is that not an affront against the Prince's domain? The Traditions themselves?"
+
+*fake_choice
+	#I back up Corliss. "Be that as it may, we have yet to see any proof that these threats are even from the Tremere. How could we possibly hold them in contempt of the Traditions without proof?"
+		*set corliss %+10
+		*set kashif %-5
+		"My sentiments exactly," Corliss says, flashing you an approving smile.
+	#I back up Kashif Salik. "These are disturbing allegations. Perhaps we shouldn't be so hasty to dismiss them."
+		*set kashif %+10
+		*set corliss %-5
+		*set annoyed_corliss true
+		Both Kindred seem taken aback by your outspokenness, but they recover quickly.
+		
+		"Disturbing indeed," Kashif replies with a nod and thin-lipped smile. "Were the Prince present to receive me, I am certain he would take this news quite seriously."
+		
+		"Do not forget yourself, Vizier. You are speaking to me, not our Prince," Corliss says menacingly.
+	#I back up Kashif, but in a way that will help Corliss save face. "We wouldn't want such rumors to run rampant while Prince Arundel is not receiving petitioners. Perhaps an investigation for the court's peace of mind?"
+		*set kashif %+5
+		Kashif smiles, emboldened, and Corliss casts you a cautioning look.
+		
+		"The childe knows my will, and though ${heshe} speaks out of turn, ${heshe} is correct in ${hisher} assessment of the situation. An investigation will be undertaken, if only to bring peace to these restless nights. But between the two of us, Vizier, have you not seen through this obvious trickery?" Corliss clasps her hands in mock concern.
+	#I'm too wary to take sides for the moment. Remaining quiet won't curry any favor, but it also won't stir up undue anger against me.
+		*set corliss %+5
+		Corliss seems to approve of your silence and continues addressing the Vizier.
+"Why would the Tremere play their hand so openly? Far more likely, another is manipulating you against them, using knowledge of your clans' sordid histories."
+
+Kashif nods sagely. "It is indeed a possibility. But one which should be investigated. Between this boldness and the growing presence of the Anarchs, I fear that the rumors being passed around Elysium may be true."
+
+Corliss arches an eyebrow, hands on her hips.
+
+"That the Prince has been called by the Beckoning," Kashif continues, undeterred. "Off to the Middle East. By all accounts, the condition is pandemic—elders from all corners of the globe unnaturally pulled to the Holy Lands to fight in the Gehenna War. Word is, our beloved Prince is the latest to be called."
+
+"Wild speculation," Corliss says with a sniff. But she says it too quickly. Both you and Kashif can sense that the circulation of such a rumor interests her greatly. "None saw Arundel leaving the city."
+
+"Other elders in different cities have disappeared without a trace as well," Kashif continues, pushing his luck. "The Beckoning strikes at random, drawing the elder blood home. Perhaps one night it will see all of us drawn to battle. Pray that such a night does not come soon."
+
+*if (clan = "Malkavian")
+	@{(malk_demeanor = 1) "I hope he's wrong," $!{malk_name} says. "But we're in this together even if it's true." |}
+	@{(malk_demeanor = 2) $!{malk_name} snorts. "It's gotta be nonsense. Convenient cover stories for missing Kindred who were probably assassinated." |}
+	@{(malk_demeanor = 3) "I believe the vizier is right," $!{malk_name} says. "This Beckoning phenomenon has been spreading far too fast to be some mere ploy to cover up assassinations or disappearances. Something seriously wrong is happening here." |}
+	@{(malk_demeanor = 4) $!{malk_name} crosses ${malk_hisher} arms. "We need to find out more about this thing. Never let a good war go to waste, right? There's killing to be done!" |}
+*fake_choice
+	#I've heard about many such cases. I openly agree with Kashif that these rumors should be taken seriously.
+		*set subversive %+5
+		*set kashif %+5
+		*set corliss %-5
+		*set annoyed_corliss true
+	#"Baseless rumor and speculation," I say. "Leave these rumors in the whispers of Elysium. They must not be trafficked here."
+		*set subversive %-5
+		*set corliss %+5
+	#"It would be wise not to cast doubt on the power and presence of your Prince, Kashif. Especially after he extended his hand to you and offered sanctuary."
+		*set subversive %-5
+		*set corliss %+5
+	#I remain quiet and listen. I'm more interested in learning than making alliances at the moment.
+		*set ruthless %-5
+"All are aware of the Beckoning," Kashif says. "Speaking of our Prince being called is not to cast aspersions; only the most powerful feel its pull. Such a rumor honors him."
+
+Corliss sighs in an attempt to feign boredom. "Enough. I have heard your petition, Vizier. I will open an investigation into the alleged Tremere threats. Does that satisfy you?"
+
+Kashif nods and drops into a formal bow. "My thanks. I am grateful, Seneschal," he says before righting himself and spinning on his heel to face the exit, his multi-colored robes swirling. He closes the door softly behind him, leaving you alone with your sire.
+
+Corliss waits for several seconds until she is certain that Kashif has left the adjoining room. "These rumors concern me, $!{name}. @{(annoyed_corliss) And I do not appreciate being undermined during an audience.|} Have you grown weary of your paperwork?"
+
+You can't help an involuntary nod. The task is dreadfully dull.
+
+@{(clan = "Malkavian") "Finally!" $!{malk_name} groans. |}
+
+"Very well," she says. "We must begin an investigation into the rumors of Arundel's disappearance. If he was truly Beckoned, it would be best to learn everything we can before the accusations begin."
+
+"Accusations?"
+
+"Of course, childe. Don't be naive. In the event of a powerful Kindred's mysterious disappearance, blame and suspicion are always certain to follow. In this particular case, I am Ottawa's second in command. If the Prince cannot be found, I will assume control of the domain until such time as he returns. The office of Seneschal is not one to take lightly; Arundel hand-picked me for the position against the will of the court, and such slights are rarely forgotten. I expect many of those same self-serving licks will work against me in the coming nights. They may have begun spinning their schemes already."
+
+You nod in understanding.
+
+"I must ask," Corliss continues. "Have you personally heard rumors about the Prince's disappearance? From whom?"
+
+You've actually heard several mentions of such a rumor, most recently from Corliss's other childe, Lucca, and your retainer Gerard. Telling Corliss this may ingratiate her to you, but you doubt Lucca or Gerard would appreciate your loose tongue.
+*fake_choice
+	#"Lucca mentioned it to me after the raid, though it sounded like more of a quiet concern than spreading a seditious rumor."
+		*set corliss %+5
+		*set lucca %-5
+		*if (clan = "Nosferatu")
+			*image corliss_nos.jpg
+			*goto childe_have_more_sense
+		*else
+			*image corliss.jpg
+			*goto childe_have_more_sense
+		*label childe_have_more_sense
+		"I would have thought the childe would have more sense," Corliss says with a sniff. "She's spent too much time away from the Court. Perhaps I should have taken a firmer hand with her. Thank you for informing me, $!{name}. Your honesty is greatly appreciated."
+	#Lie: "Lucca couldn't stop talking about it during the raid. It was like she wanted everyone to know."	
+		*set corliss %+10
+		*set lucca %-10
+		*if (clan = "Nosferatu")
+			*image corliss_nos.jpg
+			*goto childe_have_more_sense
+		*else
+			*image corliss.jpg
+			*goto childe_have_more_sense
+	#"My ghoul Gerard said that there are rumors among the servants that Arundel has left the city."
+		*set corliss %+5
+		*set gerard %-5
+		*if (clan = "Nosferatu")
+			*image corliss_nos.jpg
+			*goto interesting_corliss
+		*else
+			*image corliss.jpg
+			*goto interesting_corliss
+		*label interesting_corliss
+		"Interesting," Corliss says. "Too many Kindred forget that their servants have eyes and ears of their own. As you've seen, they speak to each other and spread rumors the same as you or I. Do not worry—your ghoul's life does not fall under my purview—but I'd be careful what I say around him if I were you. Thank you for informing me, $!{name}. Your honesty is greatly appreciated."
+	#Lie: "I haven't heard anyone sharing rumors about the Prince."
+		*set corliss %-5
+		*set subversive %+5
+		*set lucca %+5
+		*if (clan = "Nosferatu")
+			*image corliss_nos.jpg
+			*goto hmm_corliss
+		*else
+			*image corliss.jpg
+			*goto hmm_corliss
+		*label hmm_corliss
+		"Hmm," Corliss intones as she stares deep into your eyes thoughtfully. "That is quite a shame. I hope you'll be more aware of your surroundings in the future. You're of little use to me if you can't report rumors and goings-on. Think hard on that, childe."
+	#Lie: "Sheriff Qui was talking to the others during the raid. It was like he wanted everyone to know."
+		*set corliss %+5
+		*set qui %-5
+		*if (clan = "Nosferatu")
+			*image corliss_nos.jpg
+			*goto really_now_corliss
+		*else
+			*image corliss.jpg
+			*goto really_now_corliss
+		*label really_now_corliss
+		"Really, now?" Corliss raises her eyebrows. "The old Leper always did seem to be too nosy for his own good. He's supposed to be the muscle, not a deep thinker. I'll have to keep an eye on that one. Your honesty is greatly appreciated, $!{name}."
+She looks over a sheet of paper on her desk for a few silent seconds before returning her attention to you. "Two missions, two childer. As my eldest is currently absent, you may choose and the remaining assignment will go to Lucca." 
+
+She holds up her index finger. "First, if the Prince meant to leave the city in secret, it's likely he would take the sewers—he's far too recognizable. Many Blue Bloods would never consider such a thing, but Arundel never held himself above @{(clan = "Nosferatu") us | the } Nosferatu. I need you or Lucca to visit the Primogen, Bouchard, in his lair. Question him—gently—about any unusual activity he may have learned about in his domain." @{(clan = "Toreador") Just the thought of spending your night ankle-deep in sewer water fills you with a deep, existential dread. Of course Lucca—also being from clan Toreador—will feel the same. One or the other of you will need to bite the bullet and interview Bouchard tonight. At least you have the option of choosing which of you go where. |}
+
+Corliss holds up another finger. "Second, I need one of you to speak to one of our elder Ventrue at her estate. Vivian Maier was the last of us to meet with Arundel according to the Prince's personal agenda. Anything she can tell us about that night could be vital to discovering the Prince's location."
+*choice
+	#I'll question the Nosferatu, Bouchard, in his sewer lair. I'll do whatever it takes to get to the bottom of this.
+		*set ruthless %+5
+		*if (clan = "Lasombra")
+			*gosub corliss_lasombra
+		*goto investigate_bouchard
+	#I'll hold a polite meeting with Vivian. She is more likely to respond with courtesy than brusqueness.
+		*set ruthless %-5
+		*if (clan = "Lasombra")
+			*gosub corliss_lasombra
+		*goto investigate_vivian
+	#I'll meet with the Nosferatu in the sewer—but I'm not Corliss's lapdog—I'll use the information I find as I see fit.
+		*set subversive %+5
+		*if (clan = "Lasombra")
+			*gosub corliss_lasombra
+		*goto investigate_bouchard
+	#An important meeting with the Ventrue Primogen? That sounds like an opportunity to make a profitable alliance. I'll visit Vivian in her estate.
+		*set subversive %+5
+		*if (clan = "Lasombra")
+			*gosub corliss_lasombra
+		*goto investigate_vivian
+		
+*label corliss_lasombra
+"Excellent," Corliss says. "You should be on your way, then." You turn to leave and are halfway to the door when she raps her knuckles on her desk, drawing your attention back to her. "There's one more thing we should discuss," she says. "Regarding our heritage."
+
+You try not to cringe. What mistake did you make this time? What wagging tongue must be silenced? Whose servants need to be paid off? The times may be changing for many in the Lasombra clan, but you've spent decades of your un-life in fear of discovery while masquerading as a Ventrue. The power of Oblivion tempts you from beyond the veil, but you rarely give in to its alluring song. Your sire disciplined you quite harshly in the past for indiscretions and you've learned to be careful with your secret. Nevertheless, there is a desire burning deep within you for something more. The Blood in your veins recoils at the very idea of hiding your proud lineage.
+
+Few know the truth about what you are. Arundel. Corliss. Jordan. So many vampires in Ottawa are from the old guard, from a time when the Lasombra and their vicious packs of Sabbat terrorized the Canadian capital. Will they ever accept you and your sire? Unlikely, unless force or coercion of some kind is involved. You wait impatiently for Corliss to get on with whatever she has to say.
+
+"Our years of hiding may be coming to an end," she says. She's watching your eyes for a reaction. "Arundel planned to make the announcement within the next few weeks that the Lasombra are welcome in Ottawa without the need for the grotesque sacrifices other princes require. Things will be changing very quickly, $!{name}. And we can be free of this charade. Free to rule."
+*fake_choice
+	#"That's fantastic news! The fear of discovery has been unbearable all these years!"
+		"Don't let your guard down just yet, childe," Corliss says, tempering your enthusiasm. "We still have the matter of Arundel to contend with."
+	
+	#"But Arundel is gone. If he's truly been Beckoned, we may have missed our chance."
+		"Arundel isn't the only power in this city sympathetic to our plight, childe," Corliss says. "And don't forget the position I occupy. While a Prince is indisposed, a Seneschal is empowered to make decisions on his behalf."
+		
+		"But that's more of a tradition than a law," you say.
+		
+		"Traditions are greater than law, $!{name}," Corliss says. "The Traditions embody the Camarilla, and we will use that to our advantage."
+	
+	#"You really think that the other elders will just roll over and accept that we've been Lasombra this whole time? Deceiving them? That's a dangerous gambit."
+		"That depends on what reaction advantages them the most," Corliss says. "No clan is a monolith. Some elders may hold all Lasombra accountable for the actions of their forebears, but most will not. The world is changing. The savage Brujah and Gangrel are out and we are moving in to fill the void to form a more sophisticated Camarilla."
+		
+	#"What grotesque sacrifices do you mean?"
+		Corliss frowns. "Some Princes are demanding that younger Lasombra offer up their elders to them as tribute to join the local Camarilla. Luckily for us, Arundel is not a savage. He recognizes the difference between us and the…lesser clans. Even if he wouldn't put it that way."
+
+"So how do we plan to move forward?" you ask. "Why tell me this now, while the Prince is still missing?" You're not sure that Corliss has her priorities straight. If she were to expose herself as a Lasombra now, so soon after Arundel went missing…
+
+"For now, I simply wish to rectify a mistake," Corliss says. "One which you are likely to stumble over whether I inform you of it or not, so I might as well explain."
+
+There it is again. Corliss acknowledging a mistake. What could have gotten into her?
+
+"You're aware that my second childe, Lucca, has returned to Canada after managing my businesses overseas."
+
+You nod. "She's been gone for quite some time. It's good that she's back, actually, especially if we need support when we reveal ourselves for what we are." The superior clan. The worthy clan. No more hiding like dogs. Yes, the more you think about it, the more you agree with the sentiments of your Blood.
+
+"And you've hit on the crux of the matter," Corliss says. "Lucca does not know her lineage."
+*fake_choice
+	#"How is that possible? We can't hide from the power in our Blood!"
+		"You shouldn't underestimate the power of an elder Kindred to alter the nature of a young, malleable mind," Corliss says. "Especially that of a fledgling." You're not sure you like the way she said that. She continues. "Lucca was a special case.	
+	#"Is that why you sent her away? To hide her from the truth?"
+		"No, my reasons were far more practical. The girl is simply good at what she does and she was positioned exactly where she needed to be. I brought her home for the same reason—I require her presence."
+		
+		"But why—"
+		
+		Corliss cuts you off. "I'm getting to that.
+	#"How can we possibly expect her to side with us in the coming nights if she's been deceived all this time?"
+		"She must be brought around carefully," Corliss says. "If she hasn't figured it out already, of course.
+When Arundel and I arrived in North America, we deceived the local Kindred populace as a second nature. We'd spent years in England doing the same, and we saw little reason to alter our behavior in the New World. What better way to exert control over the great power of the Camarilla than to manipulate it from within? We Lasombra are gamesmen, $!{name}. It doesn't matter how we win, as long as the results come out in our favor. 
+
+"There came a time where I required worthy childer. You may have heard of Nathaniel, my first. He was brash, utterly reckless, and by the end of his first year he'd announced his heritage to a small coterie of neonates with delusions of grandeur. Needless to say, Arundel and I were forced to destroy the lot of them. With Lucca, we would take no such chances. Arundel placed strategic blocks in her mind to ward off her access to Oblivion. He couldn't remove her abilities per se, but the mind cannot employ functions that it doesn't remember exist. She was raised as a Ventrue."
+
+Corliss can't be telling the truth… "Even Arundel can't have that kind of power," you say. "Surely such a thing is impossible!"
+
+"You'd be surprised what a powerful elder can do with repeated treatments as a fledgling grows into her powers." She pauses and smacks her lips. "But you may actually be correct. I believe Lucca's latent disciplines have begun to assert themselves. And with Arundel's absence, I cannot reinforce the block on my own. Much as I loathe to say it, his ability to manipulate minds far exceeds my own."
+*fake_choice
+	#"If you went through this much trouble with Lucca, why didn't you do the same to me? Why am I still able to access Oblivion?"
+		Corliss chuckles. "We Lasombra don't double-down on missteps.
+	#"How can you possibly expect me to trust you after telling me something like that?"
+		Corliss chuckles. "I wouldn't expect you to trust anyone. We are Kindred. But I should note that your heritage was not taken from you. 
+	#"So what you're saying is that your experiment failed, and now you want me to help you pick up the pieces?"
+		Corliss glares at you. "Not in the slightest. I simply wished to inform you of her condition. I'll be dealing with her, myself. You should feel honored.
+The manipulations proved more trouble than they were worth and you've been a loyal childe. You took to your lessons and impressed me every step of the way. You earned your clarity of mind. Given time, you might prove to be my greatest achievement and I won't have it mucked up by hindering access to your abilities."
+
+You're not sure how to respond to that—it's a lot to process at once. Best to keep it simple. "Thank you, sire."
+
+Corliss waves a hand as if what you are discussing is the simplest thing in the world. She wants to appear calm, but there's turmoil behind her eyes. "I intend to bring Lucca back into the fold. Carefully. I simply ask that you afford me the courtesy of discretion. Do we have an understanding?" 
+	
+You nod. "We do."
+
+But do you?
+*fake_choice
+	#I intend to inform Lucca about this as soon as possible. No Kindred should have their minds manipulated and true nature hidden from them.
+		*set subversive %+10
+	#Corliss is my sire and I will do as she bid me. I will keep this secret from Lucca for as long as possible.
+		*set subversive %-10
+	#I don't approve what's been done to Lucca, but if I stick my nose into it I might just make things worse. Best to let Corliss fix her mistake on her own.
+		*set subversive %-5
+	#I'll play this by ear. If come upon a situation where informing Lucca could benefit me, I'll consider letting her know.
+		*set subversive %+5
+Corliss dismisses you from her office. You try to clear your mind as you walk to the elevator. You can't worry about Lucca now—you have a mission to fulfill before the night is out. Soon enough you'll have time to decide how to make use of the information Corliss has given to you.
+*page_break	
+*return
+	
+*label investigate_bouchard
+*set ch2_who_i_investigated "Bouchard"
+You set off immediately, discreetly accessing the sewer system through an alley several blocks removed from Eden Corliss's office building that you know is close to the Sewer Rat's domain. You look up at the grime-encrusted ceiling as you descend the ladder, managing to spot one of the tiny, well-disguised cameras @{(clan = "Nosferatu") your clanmates | the Nosferatu } utilize to track guests, both welcome and unwelcome. You have little doubt that it has already scanned you and verified your identity. The security precautions bring up a question you're surprised Corliss hadn't addressed: If Arundel disappeared through the sewers, wouldn't there have been a record of him passing through? As Seneschal, she could have easily looked up the records from the last few weeks. Or does the Prince have his own personal ways of entering and exiting this subterranean labyrinth that no one else knows about?
+
+*if (clan = "Nosferatu")
+	You've grown intimately familiar with the sewers over the decades of your un-life, as your disfigured appearance often necessitates travel underground. There were times where you resented the secrecy—slogging through the sewers while other Kindred mingle with kine up above—but you'd grown to appreciate your domain and the privacy it affords you. The benefits are tangible and even the stench no longer gives you pause. You let ${rat_name} out of your pouch and ${rat_heshe} scurries along beside you, stretching ${rat_hisher} scrawny legs, claws clicking on the concrete.
+	
+	Knowledge of the sewer comes in handy when tracking down particular locations that might give other vampires issues, and you find yourself outside the Primogen's lair in excellent time. You hear movement within—a voice muttering to itself—and you decide to wait for a moment on the threshold. Moments later, the door opens, revealing, not Bouchard, but a short, squat goblin of a creature, hands clutching a sheaf of paperwork.
+	
+	"Shawn!" you exclaim. The goblin-like Nosferatu stops muttering to himself and looks up at you with beady brown eyes. His face is red with splashes of advanced acne, large boils, and an unnaturally long, protruding nose. You can't help but wonder what he's doing here, especially after hearing about his dispute with Bouchard concerning the clan's dominance over modern technology. "Is Bouchard in?" you ask. "I need to speak with him."
+	
+	"The boss stepped out for a moment," Shawn says, his eyes darting this way and that furtively. "Head on inside. He should return presently."
+	*fake_choice
+		#"What is it that you're holding, Shawn?" I point out the paperwork clutched tightly in his gnarled hand.
+			The squat vampire holds the papers close to his chest. "It's nothing important, $!{name}, not that it's any of your business. I brought these for the boss to sign, but he wasn't here, so I'm leaving."
+		#"Why were you in Bouchard's chambers alone?" I ask suspiciously.
+			"Not that it's any of your business, $!{name}," the squat vampire grunts, holding his paperwork close to his chest, "but I had papers for the boss to sign. He wasn't there, so I'm leaving."
+		#I give Shawn a knowing glance, letting him know without words that I can hold his trespass over him if I choose.
+			*set ruthless %+5
+			The squat vampire furrows his brow with irritation, but says nothing as he clutches the paperwork close to his chest.
+		#I remain casual. I can use this knowledge or not at my discretion in the future. There is no use making waves until I know what's going on.
+			*set ruthless %-5
+			The squat vampire gives you a nod of appreciation at your silence.
+	He shuffles forward and you stand aside, watching him go in silence. His behavior seems odd to you, and you wonder if you should report this to Bouchard. Maybe you should wait outside? Then again, you're on official business and there should be no need to wait out in the cold.
+	*goto bouchards_lair
+
+*else
+	*comment Not Nosferatu
+	You step off the ladder and immediately regret it, pulling your pant leg up above your ankle—it's sopping wet with who knows what filth. You wonder just how the Sewer Rats manage to make their way in such a repulsive domain as your eyes adjust to the dimly lit corridor beneath the city. You groan. There it is behind you, the ledge your foot missed the first time, providing a walkway above the constant stream of sludge. You step backward gingerly, managing to avoid a second brush with human waste. When Corliss had presented her options for investigation to you, speaking to Bouchard had seemed like the best choice to procure useful information, but the longer you spend here, the more you're beginning to regret that decision. You square your jaw and strengthen your resolve as you stroll with what you hope appears to be casual indifference through the muck-covered halls—there's no telling how many hidden pairs of eyes may be watching you from the dark at any given moment.
+	
+	*if (clan = "Malkavian")
+		${malk_name} picks ${malk_hisher} way through sludge behind you.
+		@{(malk_demeanor) "Much as I'd love to stick with you, I think I'm gonna sit this one out. Be careful, $!{name}. I don't like the smell of this." | "We're up to our elbows in shit, you know. I'm not sure I'd trust anyone living down here. Think I'm gonna bail. Enjoy." | "I don't like it one bit. All those cameras on the walls—how do we know who has access to them? Is it just the elder Sewer Rat himself, or have others tapped in? Knowing Bouchard, he probably wouldn't even notice if he'd been hacked. I'm backing off for now, but I'll be watching. Be careful." | "Un-fucking-believable. We could have chosen to go to a posh mansion and you actually chose to come down here and wallow in filth? The hell is wrong with you, $!{name}?" $!{malk_heshe} brushes a hand along the wall and snaps up a fat, wriggling rat. The thing screeches and twists in ${malk_hisher} grip. "I've had just about enough." Muscles twitch along ${malk_hisher} arm and the rat's bones snap. $!{malk_heshe} tosses the lifeless body into the muck. Some part of you wonders if the rat was real or a hallucination, but you're not about to go diving after it to verify, either way. ${malk_name} sniffs with irritation. "I'm out of here. Let me know how it goes if you ever get out of this death trap." }
+		$!{malk_hisher} form dissipates, fading into the darkness as you continue your journey through the elder Nosferatu's domain alone.
+		*page_break
+
+	You make several embarrassing wrong turns on the way to Bouchard's lair. The hidden signs scrawled on the walls of each intersection are partially obscured by years of entropy. When you finally reach the entryway to the hidden chamber, you just catch sight of a retreating pair of legs attached to the squat body of a goblin-like creature receding into the darkness in the other direction. You could swear that you've seen the vampire before—a relatively young neonate—but you can't seem to recall his name. No matter. You're not here for him.
+	*goto bouchards_lair
+	
+*label bouchards_lair	
+*page_break
+Bouchard's lair stands in stark contrast to the sewer system just outside its front doors. If you hadn't known it was below ground, adjacent to literal rivers of human filth, you would have laughed at the mere suggestion. Walls of richly carved mahogany span upward to an elaborate ceiling at least twenty-five feet high, lit by a dozen rows of tastefully recessed modern lighting fixtures. The smell of wood and oil permeates the room. The oil scent brings your attention to a rack of melee weapons of all kinds: swords, axes, and halberds gleam, each well-loved and polished, shining brightly along keen edges. You have little doubt that each and every one of these museum-quality pieces is as deadly as it is exquisite.
+
+You clear your throat, unsure how to signify your arrival. Bouchard does not appear, but you think it best to wait here. Delving any deeper into the underground suite could be met with accusations of snooping.
+
+You browse the room slowly, waiting for the elder to arrive. A stately wooden desk sits in the dead center of the room, a large map curled open along its length, held down on each end by leather-bound historical texts. A quick glance reveals it as a detailed map of sewers and tunnels beneath nearby Gatineau. You shake your head. It's an odd thing for the elder to be studying. After all, no Nosferatu is more familiar with the depths beneath Ottawa. Perhaps Bouchard seeks to expand his influence? It seems like something Prince Arundel would be hesitant to approve. You look up from the map and walk slowly to the far wall, hands clasped behind your back—it wouldn't do to be caught poring over the Primogen's papers. Paintings depicting historical scenes from the area hang on the rear wall; if you had to guess, you'd say they were originals, well over a hundred years old.
+
+"Beautiful, are they not?" a gurgling voice calls out from the entry door as Bouchard slinks into the chamber. "That one's an original John Elliott Woolford," he says with a crooked grin, clearly expecting you to recognize the name. His pock-marked face crumbles into a frown as he settles into a luxurious office chair behind his desk. "Sometimes I forget you're not even a century old, $!{name}. Regardless, welcome to my humble domain. @{(clan = "Nosferatu") It's been many nights since I've seen you in my office, though I suppose this is about Corliss's business, not about more personal affairs." | What is it that I can do for you? It's not often that the $!{clan} trek down into the depths. I do hope you found your way here without difficulty." He smiles a mouth of jagged, dagger-like teeth.}
+*label bouchard_questions_begin
+*fake_choice
+	*if ((clan = "Nosferatu") and (told_on_shawn = false)) #"Are you aware that Shawn has been poking around your office?"
+		*set bouchard %+5
+		*set told_on_shawn true
+		The elder Nosferatu's hands ball up into fists in anger, and he swears loudly when he realizes that he's caused damage to his map of the sewers. "That obnoxious son of a bitch! What was he doing here? Do you know?"
+		*fake_choice
+			#"He had a sheaf of papers in his hands, but I can't be sure if he took them or if he was bringing them to you."
+				*set ch2_accused_shawn_theft true
+			#"I have no idea. He left as soon as I arrived. I just thought you should know."
+			#"It looked like he had something to hide, I'm pretty sure I interrupted a theft."
+				*set ch2_accused_shawn_theft true
+		*achieve tattle
+		"A thief in my house!" Bouchard rages, tossing the map aside, its edges tearing where they were held down by heavy hardcover books. The elder takes a moment to compose himself, and you wisely keep your mouth shut. "Apologies," he says finally, sitting back down with a huff. "I'll deal with the little imp on my own time, I'm sure that's not why you came here. How can I help you?"
+		*goto bouchard_questions_begin
+	*if (ch2_asked_bouchard_about_maps = false) #"Those maps on your desk are quite in-depth. Is something important happening beneath Gatineau?"
+		*set bouchard %-5
+		*set ch2_asked_bouchard_about_maps true
+		The elder leans forward, resting his elbows on the map in question. "It is my business to know the twists and turns of the underground, $!{name}. Both inside my domain and out. I never know when I might be called out of the city, and unlike most Kindred I can't simply hail a cab, can I?" He looks exceedingly agitated; maybe it would be best to not pursue this line of questioning. Still, it [i]is[/i] interesting.
+
+		"I'm sure you didn't come to my office to speak of my old maps," Bouchard rumbles. "What are you really here for?"
+		*goto bouchard_questions_begin
+	#"I assume you've heard the rumors regarding the Prince by now." I get right to the point and explain why I'm here.
+		*label rumor_monger
+		*set subversive %+5
+		*set bouchard %-5
+		"What rumors would those be?" Bouchard asks blandly. His asymmetrical features give him an excellent poker face. "Speak your mind or leave the way you came in. No weasel words."
+	
+		"Some Kindred claim that the Prince has left the city," you reply.
+		
+		"Interesting," Bouchard says, clasping his hands in front of him. "I hadn't heard. And what would this information have to do with me? I'm not in the business of starting rumors, $!{name}, you can tell your Seneschal that."
+		
+		You groan inwardly. This isn't getting off to a good start. "I'm not here to lay blame. In truth, we are attempting to track Arundel down and we would like your assistance."
+		
+		*label ask_bouchard_outright
+		*set ch2_told_bouchard_arundel_missing true
+		"So," Bouchard grunts. "It's true then? This won't do." He shakes his head. "This won't do at all. And if Corliss is coming to me for information, that means she's got nothing. Either that or…" He trails off, eyes squinted as though deep in thought. 
+		*fake_choice
+			#"Either that or…" I prompt him to continue.
+				"Nothing, $!{name}, nothing," Bouchard says, waving a hand to dismiss your line of inquiry. "Idle speculation that has no place in such a serious conversation."
+			#"She's already told me that she's concerned other elders may come for her. If she sent me to you, that means she views you as an ally."
+				*label bouchard_coming_for_me
+				*set bouchard %+5
+				*set ruthless %-5
+				Bouchard leans back in his chair, his craggy face betraying surprise at last. "Interesting that Eden chose you for this mission, $!{name}. Your eagerness reveals more than you know, but I'll be damned if such raw sentiment isn't appreciated after all the cloak and daggers nonsense going on elsewhere."
+				*goto pulls_open_desk
+			#I plant a seed of sedition in Bouchard's mind. "Either that or she only wants us to think she doesn't know where he is."
+				*set bouchard %+5
+				*set corliss_influence -1
+				*set loyalty_to_corliss -1
+				*goto bouchard_sedition2
+			#I remain quiet and allow the elder to gather his thoughts.
+				Bouchard comes back to himself with a start and mutters to himself. "Not the time for idle speculation."
+		*label pulls_open_desk
+		The elder pulls open a desk drawer and procures a stack of hand-written papers. "These are reports from all over my domain for the last month. Anything older than that is filed away."
+		
+		"It's all on paper?" you ask.
+		
+		Bouchard nods. "Never trusted those damn computers. And since the mortals started breaking down Kindred doors and tracking us online, I'm all for a return to the analog way of doing things. It's good and proper." He sifts through the papers, muttering to himself. "No sightings of Arundel here, but I think there's a page missing. @{(told_on_shawn) If I find out that that no good lick, Shawn, stole my reports, I'll have him flayed!"| That's odd." He seems genuinely puzzled. "I'm usually so good about keeping things in check. You know what? I was wrong, everything seems to be in order." He's clearly lying about the missing page, but do you really want to press the issue? }
+		*set ch2_bouchard_missing_paper true
+		*fake_choice
+			#"So no one's seen anything unusual at all?"
+				"Hmmf," Bouchard grunts.
+				*goto bouchard_about_tremere
+			#"That missing page is concerning, Bouchard. You should send word to Corliss when it's located."
+				"Obviously, I misspoke," Bouchard says, eyes narrowing. "Everything seems to be in order here." He shoves the paperwork back into the drawer.
+				*goto bouchard_about_tremere
+			#"Corliss will need me to bring her back something, Bouchard. Anything you can tell me will be helpful, even if it's not specifically about the Prince."
+				"Hmmf," Bouchard grunts.
+				*goto bouchard_about_tremere		
+	#"Thank you very much for your kind welcome. I just have a few questions to relay from the Seneschal."
+		*set ruthless %-5
+		*set subversive %-5
+		The elder's mouth splits unnaturally wide in a mocking smile. "By all means, $!{name}. By all means." He gestures toward a single long-tipped, bat-like ear. "I'm all ears."
+	
+		"Then I'll get right to the point," you say, keeping it all business. "Seneschal Corliss requests any information you may be able to provide concerning unusual goings-on within your domain."
+		
+		Bouchard arches an eyebrow. "Such as?"
+		*choice
+			#I keep it vague. Bouchard doesn't need to know that Arundel is actually missing.
+				*set bouchard %-5
+				*set corliss %+5
+				*set subversive %-5
+				"I wasn't given precise details, but anything that I could bring back to Corliss would be helpful. After our raid on the Anarchs, it makes sense for her to want to keep her ear to the ground."
+				
+				Bouchard strokes his chin. "Of course, of course. No need to give me the details, $!{name}." He pauses and shows his teeth. "I'm only a goddamned Primogen! If you want specific information, then ask for it or get out of my sight!"
+				
+				Well, that escalated quickly.
+				*fake_choice
+					#I continue to insist that I don't know exactly what Corliss is looking for. All she wants is a general report of unusual activity.
+						*set ruthless %-5
+						"Hmmf," Bouchard grunts. "Vague questions are only going to get you vague answers."
+						
+						"That's all I could ask," you say politely. Looks like he bought your act. Bouchard won't learn about Arundel's disappearance from you tonight.
+						
+						*label bouchard_about_tremere
+						"There have been two unusual sightings in the last week. The Anarchs have been spotted twice, but that shouldn't be a surprise after last night, but the Tremere—"
+						
+						"Tremere?" you repeat, your interest piqued.
+						
+						"Yeah. One of my boys saw a whole mess of them crawling through the muck beneath Parliament Hill. There's not really any rule against it, but the Prince made it clear that he wasn't keen on anyone using those tunnels. I sent Thompson up with a report for Arundel, but he told me the Prince wasn't receiving visitors. Can't say I didn't try to let him know. Still, I don't think it's a huge deal. What would Tremere be doing if they weren't poking their noses into old piles of shit? It's what they do. Anyway, that's about it. The one that saw them didn't get names, and he's not really good with faces."
+						*if (ch2_allied_with_bouchard)
+							*return
+						*fake_choice
+							#"Then how'd he know they were Tremere if he doesn't know who they were?"
+								Bouchard frowns. "Manner of dress, stench of blood magic…is my word not good enough for you?"
+								
+								"It just struck me as odd, that's all," you stammer.
+								
+								"Well remove the thought from your head. I wouldn't claim something like that without being sure it was them.
+							#I press him for more info: "Are you sure you haven't seen anything else unusual?"
+								Bouchard frowns. "I said there were two unusual sightings. The only one we haven't discussed is the Anarchs amassing to the south of Chaudière Falls. Obviously, we already acted on that intelligence and Corliss was apprised of the situation.
+							#I take him at his word, thanking him genuinely and not pressuring him.
+								*set bouchard %+5
+								*set ch2_bouchard_told_you_corliss_was_with_tremere true
+								You pause for a moment just in case he has anything else to say. When nothing is forthcoming, you offer your hand to shake and he takes it in a strong grip. "Thank you for your help," you say. "I'll make sure Corliss gets the information immediately."
+								
+								"You know," Bouchard says hesitantly. "I wasn't originally planning to say this, considering who you are, but you've treated me fairly and I appreciate the restraint you've shown. You probably already know this, but your sire was with those Tremere we saw under Parliament Hill."
+								
+								That's news to you; you didn't even know she's been having meetings with the Tremere who left the city, much less skulking about beneath Parliament with them. But should you let Bouchard know that?
+								*fake_choice
+									#"I was aware that she had business with the Tremere, but I have no idea why she was underground with them."
+										*label bouchard_aware_tremere
+										Bouchard sniffs. "Not at all unusual. I wouldn't take it personally. Elders rarely tell their childer everything they're up to. Hell, it would be unusual if she did. I just thought you might find the information useful."
+										*page_break
+									#"That's strange. She never mentioned that to me."
+										*goto bouchard_aware_tremere
+									#"As you said, that's something I already knew about, but it's good to know how tight security is down here."
+								"Well, that's about all I have for you," the elder says as he stands up behind his desk.
+								*goto end_of_bouchard_interview
+						I think that's all I have for you," the elder says as he stands up behind his desk.
+						*goto end_of_bouchard_interview
+					#I come right out with it and ask if he's seen or heard of Arundel moving through the sewers lately.
+						*goto ask_bouchard_outright
+					#I ask if he's heard the rumors about Prince Arundel's disappearance.
+						*goto rumor_monger
+			#I ask if he's heard the rumors about Prince Arundel's disappearance.
+				*goto rumor_monger
+			#I come right out with it and ask if he's seen or heard of Arundel moving through the sewers lately.
+				*goto ask_bouchard_outright
+			
+	#"I have inside information on Eden Corliss that you may find useful, and I'm willing to exchange it for information of equal value."
+		*set subversive %+5
+		*set bouchard %+5
+		*set loyalty_to_corliss -1
+		Bouchard's face undergoes a subtle change. "You're barking up a dangerous tree here, $!{name}," he says. "I don't know if this is some kind of test from Corliss to see if I'm trustworthy or not, but I'm not having any of it. There, see? I passed your idiotic inspection."
+		*fake_choice
+			#"Excellent. My sire wanted me to make sure you could be trusted before we got to anything too serious."
+				*set bouchard %-5
+				The elder's eyes narrow in irritation. "Well now that that bullshit is out of the way, let's get to brass tacks before I get in an even shittier mood."
+				
+				You nod calmly. Maybe it's good that you walked things back. Bouchard might not have been the best accomplice for whatever it is that you're planning. "I assume you've heard the rumors regarding the Prince by now," you say, getting to the real reason you were sent.
+				
+				*goto rumor_monger
+			#"I assure you this isn't a test and I wasn't put up to anything by my sire. I'm just interested in a mutually beneficial exchange of information."
+				Bouchard narrows his eyes. "An exchange is only possible if you have something that I wish to know. Why don't you drop the bullshit and give me something. Or get out of my office." He gestures to the door.
+				
+				You're going to have to offer him some information, but you won't let him know everything just yet. He may have info that you can use to your own advantage. "I can confirm the rumors that have been floating around Elysium: Arundel is missing. Does that pique your interest?"
+			#"I can confirm the rumors that have been floating around Elysium: Arundel is missing. Does that pique your interest?"
+		*set subversive %+5
+		*set ch2_told_bouchard_arundel_missing true
+		
+		"It does indeed," Bouchard says, hands clasped before him, pointed ears perked like a jackal's. "And if Corliss is coming to me for information, that means she's got nothing. Either that or…" He trails off, eyes squinted as though deep in thought. 
+		*fake_choice
+			#"Either that or she only wants us to think she doesn't know where he is." I say with a knowing smile.
+				*goto bouchard_sedition2
+			#"Corliss has already told me that she's concerned other elders may come for her. If she sent me to you, that means she views you as an ally."
+				*goto bouchard_coming_for_me
+			#"Whether or not Corliss knows what happened to Arundel is irrelevant if he's been Beckoned. What does matter is what the court believes she did with him. You and I can influence that."
+				*label bouchard_sedition2
+				*set subversive %+5
+				Bouchard chuckles deep in his throat. "Oh, young one, it has been so long since I've seen a neonate this hungry to meet final death. But say I humored you—where are you going with this?"
+				*fake_choice
+					#"I want you as an ally. I'll be your eyes and ears in Corliss's office while you keep me informed of the goings-on underground."
+					#"If Arundel doesn't return, Corliss's rise in power will be opposed by other elders. Delicate questions will be asked. Having an ally close to her could shift things in a very positive direction for you."
+					#"Corliss doesn't seem to realize the trouble she's in. Perhaps it's time for a stronger leadership. I can help you get what you want."
+				"You'd have me take you as an ally?" Bouchard grins daggers as he stalks around the desk to look you over.
+				
+				You nod, unflappable.
+				
+				"You, with all the subtlety of an atom bomb. The age and experience of a child! The cunning of a worm. You believe I would have you as an ally?"
+				
+				"I do."
+				
+				He laughs then, a full-throated belly-laugh. Rolls of fat under his chin wiggle grotesquely as he wipes tears away from his eyes. "This," he says, catching his wind. "This is delightful." He composes himself and sits back in his seat. "It's unbelievable that I would ever accept such an alliance."
+				
+				"That's why it will work," you say.
+				
+				He arches forward over the desk, beady eyes staring into your soul. "My thoughts exactly."
+				*page_break
+				*achieve nos_spy
+				*set ch2_allied_with_bouchard true
+				"Now, the first thing you need to understand," Bouchard says, "is that I have no desire to be Prince, so put that out of your scheming little head. I'm a scrapper and I like my privacy. Always have, always will. I also have no particular dislike of your sire—I could take her or leave her. If Arundel doesn't return, my main concern is who will rise to power in his stead and what they'll do to change the status quo. Understand—the Camarilla have instituted a blackout on all digital communications between Kindred; I can thank the Second Inquisition for that. There are those in @{(clan = "Nosferatu") our| my} clan who would rebel against the ban, and others who would aid them. @{(clan = "Nosferatu") Corliss fought against the return to an analog society as well; she was at the forefront of our clan's digital ventures. |} I would see to it that we remain secure against the Inquisition. For the sake of our survival."
+				
+				"A reasonable request," you say. "So we make certain to push policies in a direction that suits you and tip the scales in favor of would-be princes whose policies don't run counter to your needs."
+				
+				"Exactly," Bouchard replies. "Not that I expect one such as you to be capable of providing these changes ${himher}self, but some weight put in the right direction, no matter how small, can tip the balance in favor of our survival. A return to the old ways. To that end, I will require regular intelligence reports from you regarding Corliss's activities and who is moving against her. Everything of relevance."
+				
+				"Within reason," you reply.
+				
+				"Of course. Within reason. Let me be clear—this is not a game. If your sire catches you siphoning information to me, you'll be lucky to survive a week. You understand?"
+				*fake_choice
+					#"Yes. I knew the risks when I made my offer."
+					#"I don't think I realized how serious this was. It wasn't meant to go this far."
+						*set bouchard %-5
+						Bouchard laughs. "You're too honest to be this ambitious. But it's too late now."
+
+						"Why's that?"
+						
+						"Because now I have leverage against you," he says with a malevolent smile. "I'm sure Corliss would love to know what her childe is up to."
+						
+						"You wouldn't—"
+						
+						"I would. So get used to the idea."
+						
+						You grind your teeth, but you have to admit that he's got you and it's your own damn fault.
+						
+					#I simply nod. He knows I wouldn't have offered without understanding the risks.
+				"Now then," Bouchard continues. "You'll be wanting some useful information from me." He doesn't wait for you to respond.
+				*gosub bouchard_about_tremere
+				
+				"Interesting," you say, pondering the relevance of this revelation.
+				
+				"What's more interesting is that your sire was with those Tremere we saw. I've kept that info close to my chest—Corliss doesn't know that I know. She's been chumming around with the warlocks even after Arundel's policies made them quit Ottawa. Fascinating, isn't it?"
+				
+				"That may prove useful," you say. "Thank you."
+				
+				"May it be the first in a long series of mutual exchanges," the elder says as he stands up behind his desk.
+				*set ch2_bouchard_told_you_corliss_was_with_tremere true
+				*goto end_of_bouchard_interview
+
+*label end_of_bouchard_interview
+"I should make sure you get back to the surface safely." It seems somewhat abrupt, but it looks like your meeting is at its conclusion.
+
+"No need," you reply with a respectful nod. "I can find my way." You approach the front door and pull it open. The stench of the sewer hits you like a wall of bricks.
+
+"$!{name}!" Bouchard calls out from behind you. "Do give my regards to your sire. Eden is welcome in my domain any time." 
+*goto walking_home
+	
+	
+*label investigate_vivian
+*set ch2_who_i_investigated "Vivian"
+You set off immediately,
+*if (clan = "Ventrue")
+	*set ch2_saw_toreador_at_vivians true
+	instructing the driver Corliss provided to take you to Vivian's estate in Rockcliffe Park to the northeast. It's an affluent neighborhood, largely cut off from the poorer parts of the city by an abundance of native greenery and the Rideau River. 
+	
+	The home is surprisingly understated, even more so knowing that Vivian is an incredibly powerful Primogen. Your ride takes you up a wide semicircular driveway to approach a large two-story house of light-brown brick. Tall, well-maintained trees dot the spacious lawn, and a stone staircase leads you past two potted ferns to the oversize doorway. As you run your hand along the lip of the stone pot, you vividly remember the first time you came here with your sire. A visiting dignitary held up his nose and made a snide comment about "slumming it." He was ejected from the estate, and when you left later that evening, the pot previously occupying this space had been broken in two, soil dashed about the ground in an unsightly mess. It's strange—you don't think you've ever seen the man again after that affair. It's funny how things work out sometimes.
+
+	A butler answers the door with a raised eyebrow and you recognize him as Vivian's personal ghoul, Robert. "$!{master_mistress} $!{name}," he intones. "I do not believe you have an appointment." 
+	
+	It's unusual for a Kindred of station to be held at the front door without at least being offered the opportunity to step inside. Could this be some sort of slight?
+	*fake_choice
+		#"My apologies, Robert. I'm here on official business. I won't be but a moment."
+			*set ruthless %-5
+			"No apologies necessary, ${sirmaam}, I assure you," the butler replies, grateful for your manners. "I was merely startled by the unexpected pleasure of your appearance.
+		#"Surely Seneschal Corliss asked you to expect me. Show me inside, Robert."
+			*set ruthless %-5
+			"Unfortunately, we have yet to hear from the good Seneschal. The communications blackout, ${sirmaam}, it makes everything so much more difficult than it needs to be.
+		#I push past the ghoul and wait in the foyer. I won't tolerate his rudeness.
+			*set ruthless %+5
+			*set vivian %-5
+			The butler falls back against the door with a startled "woof" as you push past him. "That was entirely uncalled for, ${sirmaam}. I was about to show you in.
+	My lady is entertaining guests at the moment. Might I request you await her inside?"
+	
+	You take a seat in the luxuriously furnished foyer, idly wondering just how long you'll have to wait for your meeting. From the adjoining room you hear a muffled conversation between two—no, three people. Curiosity takes hold and after making certain that the butler is no longer hovering, you idly walk nearer to the voices under the pretense of gazing up at a breathtaking Victorian-era portrait of your host. 
+	
+	"—absolutely crucial that you aren't seen, you understand?" a female voice says. You're relatively certain that you recognize it as Vivian.
+	
+	"I can't make that promise," another voice responds. "It's impossible for me to walk into a room without being noticed," this followed by a short laugh. "But I can guarantee that, while eyes are focused on us, our agent will be able to get some good pics of Corliss's private paperwork."
+	
+	"Understand, Andrea," Vivian says. "That if this is ever linked back to me, I'll have the skin flayed from your bones. You'll still draw eyes, but for all the wrong reasons."
+	
+	"There's no need for such vulgarity," a third, more grounded voice says. "We're professionals. Now let us do our work." The voices are approaching the door and you scamper back to your seat. You can barely believe what you've just heard.
+	*page_break
+	*achieve awkward_conversation
+	You stand courteously as the door to the sitting room opens, revealing your host and her companions, a pair of angelic blondes you recognize as socialites from Clan Toreador—Jasmine and Andrea, you believe. All three seem surprised to see you there, though they disguise it with varying levels of success. The two guests offer Vivian quick kisses on each cheek which she accepts grudgingly before showing them out.
+	
+	When the door closes, Vivian spins on her right heel in a perfect 180 to face you, but ruins the effect by swiping at her cheek with the back of her hand and arranging the lapels of her formal white pantsuit. "Let that be a lesson to me," she says. "I'll never invite those two cretins into my home again. I can't tell if they wanted to make a deal or molest me. Likely both. Does my hair look all right to you?" You can't tell if she's joking or not—her dark hair is tied up in a bun so severe that you doubt anything short of a hurricane wind would budge it out of place.
+	*fake_choice
+		#"You look gorgeous. Flawless, even."
+			*set vivian %-5
+			*set ruthless %-5
+			Vivian stares you down. "You sound just like they did. I'm not interested in flattery.
+		#"Your hair looks fine, nothing out of place."
+			*set vivian %+5
+			Vivian gives you a brief nod. "Excellent. Thank you for the professional assessment.
+		#I don't think she was really asking, so I move on to matters of business.
+			*set ruthless %+5
+			*set vivian %+5
+			Vivian's lips narrow, but she doesn't seem offended by your ignoring her question, merely interested. "Well then.
+	I assume you're here for something more than a social visit." It's not a question.
+	*goto vivians_home
+	
+*else
+	*comment Player not Ventrue
+	not realizing until you're several blocks away that you're not entirely certain where Vivian's personal estate actually is. Then again, the night is young, so it's still fairly likely that you'll be able to find her in her offices on Queen Street, and those are easy to get to and almost impossible to miss. Your fingers itch as you grasp for a cell phone that's no longer there. "Too dangerous," the Prince had said in his decree. While some princes turn a blind eye to cell phone usage, there had been too many breaches of protocol in the city and Arundel clamped down. Hard. In these days of the Second Inquisition, he was probably right.  
+	@{(clan = "Lasombra") Not that you miss it most of the time. Your Lasombra heritage makes using a phone a dodgy proposition at best. You can't count the number of times you had to replace the damn things. They work for you more than some other Magisters, but the inevitable always comes to pass and the phones short out at the worst possible opportunity. If you didn't know any better, you'd swear they had it in for you. | But once you're accustomed to having it, losing access to so much information at your fingertips feels like cutting off a limb. }
+	
+	@{(clan = "Nosferatu") You tighten your thick wool scarf and pull your toque down so only your eyes show through. The disguise works well enough during the harsh Canadian winter to avoid questions regarding your disfigurements as long as you don't engage in close social interactions. Coupled with your supernatural abilities, it makes short walks above-ground relatively safe.|} As you walk several blocks southwest, you're struck by just how many mortals are out and about on the street tonight—the city has been a hive of activity lately, at least this close to Parliament Hill. It takes less than fifteen minutes to reach the towering office building secretly owned by one of Vivian's shell companies through a means of financial wizardry you don't quite comprehend. Above the first floor, its soaring walls are a shining plane of mirrored segments, reflecting back the streetlights and silhouettes of adjacent buildings. You push through a revolving glass door into a spotless lobby, its marble floors polished and shining. At the front desk you're greeted by a member of Vivian's staff.
+
+	"Greetings, ${sirmaam}. What can I do for you this evening?" @{(clan = "Nosferatu") She shrinks away as you draw closer and she gets a quick peek at your ${deformity}. The reaction only lasts for a moment, though. She's clearly seen others of your kind—Vivian wouldn't take chances with her front-line staff asking the wrong kind of questions. |}
+	
+	"I'm here to see Vivian Maier," you say.
+	
+	"Of course," the young woman says, looking down briefly to check something on a computer screen. "Your name?"
+	
+	"$!{name} $!{last_name}."
+	
+	"Ah, yes, one of our exclusive clients." She opens a desk drawer and pulls out an old-fashioned Rolodex, flipping through the cards to find your name. "There we are. I apologize for the wait. What is this regarding?"
+	*fake_choice
+		#"It's a private matter. Simply inform her that I'm here."
+			*set ruthless %+5
+			The young woman sniffs distastefully. 
+		#"I've been sent to discuss an important business opportunity."
+			*set ruthless %-5
+			The young woman looks curious, but manages to bite her tongue before asking any more questions.
+		#"I'm here under the authority of Eden Corliss to ask Ms. Maier a few questions."
+			*set ruthless %-5
+			"Oh my!" The young woman holds a hand in front of her mouth demurely. "Might I ask about the subject of inquiry?"
+			
+			You shake your head. "Apologies, but it's a private matter."
+			
+			The clerk looks disappointed.
+	"Very well. I regret to inform you that Ms. Maier is not available at the moment. I have, however, been instructed to inform our exclusive clients that she is available this evening at her estate. Shall I call a car for you?"
+	
+	You wince in frustration. The delay is irritating, but at least Vivian has a system in place to shuttle her "exclusive clients" to her home and back. "Yes," you respond. "Thank you for the offer, a car would be very helpful."
+	*page_break
+	The drive to Vivian's estate in Rockcliffe Park is rather pleasant. The driver knows to keep mostly to himself and you're able to watch the city fly by your window in a blur of streetlights and neon signs. Your destination is an affluent neighborhood, largely cut off from the poorer parts of the city by an abundance of native greenery and the Rideau River. The home is surprisingly understated for a Primogen. Your ride takes you up a wide semicircular driveway to approach a large two-story house in light-brown brick. Tall, well-maintained trees dot the spacious lawn, and a stone staircase leads you past two potted ferns to the oversize doorway.
+	
+	*if (clan = "Malkavian")
+		"I expected more of a mansion," ${malk_name} says. $!{malk_heshe}'s sitting in the seat beside you, buckled in as though ${malk_heshe}'d been there the entire time. Maybe you're just so used to the company that you forget ${malk_heshe}'s there unless ${malk_heshe} speaks.
+		*fake_choice
+			#"Not all Ventrue fit the stereotype, I guess."			
+				${malk_name} laughs. "You don't believe that one. I'd know—I'm in your head."
+				
+				You sigh. "One can be of two minds about something."
+				
+				"Isn't that the truth."
+				
+			#"This is just one of her homes. I'd bet that she has dozens of properties like this or bigger."
+				"You're probably right," ${malk_name} says. "Show too much wealth in one place and it can draw the wrong kind of attention. I bet she owns a bunch of slums too. Collecting that sweet, sweet rent money from her cattle." $!{malk_heshe} rolls ${malk_hisher} eyes.
+				
+			#"Maybe she just has a sense of taste. There's nothing more gaudy than a massive mansion."
+				"Like you wouldn't want a massive mansion if you could afford one," ${malk_name} says.
+				
+				"Not at all. Like I said, they're gaudy."
+				
+				"Keep telling yourself that," ${malk_name} says with a chuckle.
+				
+			#"I don't care if she lives in a cardboard box—I just want to get this over with."
+				"On that note we can agree," ${malk_name} says. "Although I must admit that it would be a lot more interesting if she did live in a cardboard mansion."
+
+				$!{malk_heshe}'s not wrong. "It would get pretty uncomfortable after a few days of rain and snow," you say.
+				
+				"Interesting doesn't always mean comfortable."
+	
+	A butler answers the door with a raised eyebrow. "Your name, ${sirmaam}?" he intones. 
+	
+	"$!{name} $!{last_name}. I'm here to speak with Ms. Maier."
+	
+	"I do not believe you have an appointment." It's unusual for Kindred of station to be held at the front door without being offered the opportunity to step inside. Could this be some sort of slight?
+	
+	Fortunately, your name is familiar to the butler. "Ms. Maier has recently concluded unrelated business. I shall inform her of your arrival. Might I request you await her in the foyer?"
+	
+	*if (clan = "Malkavian")
+		$!{malk_name} clasps ${malk_hisher} hands in a display of mock sincerity, mimicking the butler's voice. "Might I request you await her in the foyer?" 
+		
+		"Cut it out," you whisper. "This is serious."
+		
+		"$!{sirmaam}?" the butler replies.
+		*fake_choice
+			#"I wasn't speaking to you."			
+			#"It was nothing."			
+			#"Sorry, just talking to myself. It's been a long night."		
+			#I say nothing. The butler's opinion doesn't concern me.
+		The butler raises an eyebrow, but when no further explanation is forthcoming he turns back to the door and leads you into the foyer.	
+		
+		"Leave this to me, okay?" you mutter low enough that only ${malk_name} will hear. "I can't afford to be distracted when I'm talking with Vivian."
+
+		@{(malk_demeanor) "Fair enough. Good luck, boss." | "Keep talking to me and you're only going to weird out Jeeves even more. But sure, whatever. I'll ghost." | "That would be prudent. I'll speak with you later, $!{name}." | "So you're going to leave me alone with Jeeves, here?" ${malk_name} asks. "Did you know he's going to die soon? I can smell it in his aura. Delicious." Honestly, you don't want to know. Or do you? No, definitely not. You have work to do. }
+	*page_break
+	*image maier.jpg
+	You take a seat in the luxuriously furnished front room, idly wondering just how long you'll have to wait for your meeting. Luckily, it's not long at all. Vivian strolls into the foyer at a brisk pace before stopping directly in front of you, placing long, slender fingers on hips accentuated by a well-tailored white pantsuit. Everything about her appearance is designed to draw attention at a high-powered business meeting, from her dark hair tied up in a severe bun to the tips of her designer shoes.
+	
+	"$!{name}," she says flatly. "I assume you're here for something more than a social visit." It's not a question.
+	*goto vivians_home
+
+*label vivians_home
+"What does Eden want from me this time?"
+*label vivian_questions
+*choice
+	*if ((clan = "Ventrue") and (overheard_plot = false)) #"I couldn't help noticing that you were speaking to your two guests about investigating my sire. I hope you have a good explanation."
+		*set vivian %-5
+		*set subversive %-5
+		Vivian at least has the grace not to deny the accusation. "If you wish to report my indiscretions, then there is little I can do to stop you." She huffs.
+		*goto overheard_plot2
+	*if ((clan = "Ventrue") and (overheard_plot = false)) #"I overheard some very sensitive plans while I was waiting. What would it be worth to you for me to keep my mouth shut about that?"
+		*set vivian %+5
+		*set ruthless %+5
+		*set subversive %+5
+		Vivian at least has the grace not to deny the accusation. "A young, enterprising childe like yourself shouldn't bother themselves with rumors. But I admire your spunk. There aren't many Kindred left with the fortitude to threaten me right to my face. Well done." She claps lightly, and you're surprised to realize that it's not a mockery, but a true sign of approval.
+		*label overheard_plot2
+		*set overheard_plot true
+		"Do you think Eden isn't expecting the city's Primogen to do their due diligence? The only thing that would surprise Eden Corliss is [i]not[/i] being investigated, just as I'm not surprised by you showing up unannounced at my doorstep. It was inevitable that she would send someone here to sniff for secrets. This is the way the game is played, childe."
+		*fake_choice
+			#"You're bluffing. Corliss will eat you alive if she hears about this and you know it."
+				*set vivian %-5
+				*set ruthless %+5
+				*set subversive %-5
+				Vivian's face hardens. "Don't press your luck.
+			#"You know, that makes a surprising amount of sense."
+				*set ruthless %-5
+				*set vivian %+5
+				Vivian flashes a thin-lipped smile. "It does. This is simply the way the court functions, and if you last longer than a century, it will become second nature to you.
+			#"I suppose we can keep this between us for now, then. Assuming you answer my questions satisfactorily."
+				*set ruthless %+5
+				*set vivian %-5
+				Vivian sniffs disdainfully. "I'll answer how I wish to answer. And if you don't like it, you can tell Eden whatever you want.
+			#"We'll keep this between us for now, then."
+				*set subversive %+5
+				*set vivian %+5
+				Vivian flashes a thin-lipped smile. "Your discretion is appreciated, $!{name}, but ultimately that is up to your judgment.
+		Do what you will. I won't trouble myself over things I have no interest in controlling. Now…what did you actually come here to discuss?"
+		*goto vivian_questions
+	
+	#I get straight to the point: "The rumors you may have heard are true. Prince Arundel is missing, and I've been instructed to speak to you about your most recent meeting with him."
+		*label vivian_rumors_are_true
+		*set vivian %+5
+		*set ruthless %+5
+		*comment Note: Vivian is lying here. No one has come to visit her at all until the player which she finds more disturbing than being bombarded.
+		Vivian's eyes narrow. "My dear, sweet, ${boygirl}. Everyone already knows that those rumors are true—you're the sixth to come to me with this information on this night alone. Even Eden can't possibly think that she's kept the lid tight on this particular Pandora's box. It's well known that Arundel visits my home every Saturday evening to discuss mutual affairs over a…refined meal, and with his absence from the court since then, it stands to reason I'd be considered a person of interest.
+		
+		"Do 
+		*label question_vivian_mid
+		you have any particular questions, or would you like me to go on about that evening's vintage? Our dear Prince brought quite a treat with him that evening, a daughter of foreign royalty. She was a delight."
+		*fake_choice
+			#"Royalty? Doesn't that strike you as reckless? A high profile victim could breach the Masquerade."
+				*set vivian %-5
+				*set subversive %-5
+				"Do you truly think Arundel would have borrowed the girl if he believed there was the slightest hint of a risk? She was an offer by our associates in the Middle East—the Ashirra. Of course, her father didn't know that when he came here, and since she's been returned to him little worse for wear, he'll never find out. We don't drain the elite, merely sample them."
+			
+				"And what were you celebrating that warranted such an extravagant meal?" you ask.
+				
+			#"Sounds like quite an extravagant evening. Were you and Arundel celebrating something?"
+				*set vivian %+5
+				*set ruthless %-5
+				"As a matter of fact, we were."
+				
+				You wait for her to go on, but several seconds pass and no further information seems to be forthcoming. "And what was the celebration about?" you finally ask.
+				
+			#"And how did the Prince's mood seem that night? Energetic? Focused? Distracted?"
+				"An odd question," Vivian replies. "It has always been difficult to divine the true nature of Arundel's moods, but I don't believe I noticed any particular distraction. Excitement was on display, but that was another matter entirely."
+				
+				"Excitement?" you ask.
+				
+		Vivian sighs. "We were discussing oil futures with a visiting Ashirra from Dubai and brought together quite a lucrative scheme. Having our fingers in both Ottawa and the Middle East has its advantages, and we have appearances to maintain. Up until recently, we in the Camarilla knew little about Ashirra—they're vampires with rather strange customs—but their money is good, and sometimes that's all that matters. @{(clan = "Nosferatu") It's nothing I'd expect a Nosferatu to understand. |} While the Prince is an equal arbiter in all things, we are close after all, and thus he celebrated my good fortune."
+		*fake_choice
+			#"Does this visiting Ashirra have a name?"
+				Vivian laughs. "He does."
+			
+				"Care to tell it to me?"
+				
+				"I do not."
+				
+				"Corliss is going to want an answer." you say.
+				
+				"Then let Eden come to me and I'll tell her the same."
+				
+			#"I'm sure all these dealings were above-board? We wouldn't want to attract the eyes of mortal law enforcement."
+				"My sweet summer childe," Vivian says, obviously amused. "We are the ones who define what is and is not 'above-board,' as you so quaintly put it. And if Eden and Qui can't keep their reins tight on the police, that's none of my concern. Take it up with your sire."
+				
+			#"That sounds like quite a big deal. Were there any other Kindred at your celebration?"
+				"No," Vivian says flatly. "It was a private affair. Only the three of us and our tasty, young morsel."
+				
+				"So the Ashirra was present as well, then?"
+				*goto vivian_nods
+		
+		"Was the Ashirra present during your celebration with Arundel?"
+		*label vivian_nods
+		
+		Vivian nods. "He was, in fact. But if Eden wants to talk with him, she'll have a difficult time of it."
+		
+		"Why is that?"
+		
+		"He flew back home the next day. So unless she wants to break the Prince's online blackout, she'll have to send for him personally. That could take weeks."
+		
+		You grit your teeth in irritation. "Couldn't we have mortal representatives talk to each other online?"
+		
+		"You could, but it's highly discouraged. I'm sure Eden knows this, even if you do not. Besides, my associate overseas is unlikely to respond in the immediate future—the Middle East is a dangerous place for us these days. The Gehenna War is growing out of control, and with so many elders being compelled—'Beckoned'—to join the fight, it's best for us little fish to stay in our own ponds and reap financial benefits from the chaos, wouldn't you say?"
+		*fake_choice
+			#"Funny you should mention that. Rumor has it that Prince Arundel was Beckoned, and that's why he hasn't been seen for so many nights."
+				*set vivian %+5
+				"I have heard such rumors myself," Vivian says with a detached nod. "And it's a possibility that 
+				*goto you_dont_know_him_like_i_do
+			#"Making so much money off the suffering of our own kind seems like it would be a bad deal in the long run. It's also a pretty bad look."
+				*set vivian %-5
+				*set subversive %-5
+				Vivian allows herself a small smile, but you have a feeling that it's at your expense. "Do all kine love each other, childe?"
+				
+				"Of course not."
+				
+				"Then why would you expect the Damned to love each other as a single family? We've formed and maintained clans throughout the centuries, but we are our own individuals first and foremost. We make peace from time to time, war with one another, yes, but we are not entirely unlike the chattel we rule over. At our core, we are selfish creatures, one and all. Remember that if you wish to survive your first century.
+				
+			#"Sounds like you've got this all figured out," I say admiringly.
+				*set vivian %-5
+				"Are you prone to flights of flattery, ${boygirl}, or have you simply misjudged my mood?" Vivian says, her mouth twisted as though she tastes something rotten.
+				*goto figured_it_out
+			#"Sounds like you've got this all figured out," I say sarcastically.
+				*set ruthless %+5
+				*label figured_it_out
+				"What I've figured out is how to survive in an increasingly smaller world. I'd suggest you do the same if you wish to complete your first century.
+				
+		"There are many among us," she continues, "who would have us believe that our Prince has been Beckoned. For whom this power vacuum would be…more than mere convenience. The validity of these rumors
+		*label you_dont_know_him_like_i_do
+		would seem entirely likely to one who doesn't know Arundel on a personal level."
+		
+		"What do you mean?" you ask.
+		
+		"What I mean is that Arundel is not a man with a taste for war, nor is he interested in the politics of the Middle East. If anything, he didn't pay close enough attention, which is how we ended up with that Banu Haqim in our city. You've met Kashif?"
+		
+		You nod. It's hard to forget the Vizier, Mr. Salik's, entrance into Corliss's chambers earlier this evening.
+		
+		"A dreadful business that cost Arundel the support of the Tremere. Many seem to have forgotten the days of the Assassins' wanton diablerie. I have not. I have a very, very long memory, childe." She reaches for a white, fur-lined coat on a discreet hanger near the front door, clutching it tightly between thin fingers. "I do hope I've been of some help to you." She slips each arm into the coat delicately. "Give Eden my best."
+		
+		And with that, you're dismissed, off-hand as though she were the one to summon you. Vivian disappears out the door without another word, and when you move to catch up with her, the butler slides into the intervening space like a ghost.
+		
+		"Shall I inform your driver that you are ready to depart, ${sirmaam}?"
+		*fake_choice
+			#"That would be excellent, thank you."
+				*set ruthless %-5
+				"Very good, ${sirmaam}."
+				
+			#"I wasn't done speaking to Ms. Maier yet."
+				"Apologies, ${sirmaam}, but you have been dismissed from your audience. Ms. Maier has urgent business downtown and she was quite gracious to speak with you. I'll call your car."
+				
+			#"She's going to have a lot to answer for if she thinks she can walk out on an investigation."
+				"An investigation, ${sirmaam}?" the butler queries as if he hadn't spent the entire time standing just out of view. "How dreadful. I'm certain that Ms. Maier will do everything in her power to assist you."
+				
+				You feel an urgent need to explain that she's just done the exact opposite, but it would be wasting your proverbial breath. You give the infuriating manservant permission to call up your driver.
+
+		The ride home passes in a blur as you ponder the implications of Vivian's words. She'd been surprisingly forthcoming in places she hadn't needed to be, and you remind yourself that everything someone like Ms. Maier says—and especially what she does not—is calculated down to the last syllable. You'll have to think critically before choosing what to pass on to your sire. @{(ch2_allied_with_vivian) Vivian's body language had been curious when you offered yourself up as an ally, and suggested that her butler may be an untrusted set of eyes and ears. You suppose you'll know soon enough whether she took you seriously or not.|}
+		
+		When you reach the city proper, you decide to have the driver drop you off on a slow-moving side street several blocks from your haven. The brisk air and short walk will give you time to think, to clear your head and avoid blundering into any hidden pitfalls. When two elders clash, it's their servants and childer that are most likely to feel the sting of final death, and you have no intention of being caught in the crossfire.
+		*goto walking_home
+		
+
+	#I ask my questions without admitting Arundel is missing: "Thank you for seeing me. I'm here to discuss a sensitive matter for Eden Corliss."
+		*set vivian %-5
+		*set ruthless %-5
+		"Vague, but intriguing," Vivian replies. "Pray, do get to the point, though. I have other work to attend to before dawn."
+		
+		"I've been asked to discuss your most recent meeting with the Prince, particularly any oddities you may have noticed."
+		
+		"And why would I discuss my private meetings with you?" Vivian says, not entirely unfairly. You're going to have to give her more to work with or she won't have any reason to tell you anything.
+		*choice
+			#"I'm not allowed to go into details, but there was a serious crime committed that night, and the Seneschal is requesting information from everyone in Ottawa's Kindred community."
+				"A crime?" Vivian says, confusion on her face for a moment before it's schooled away. "What was the nature of this crime?"
+				
+				"I'm not at liberty to say, ma'am. Apologies."
+				
+				The Ventrue grumbles. "Typical Eden, always keeping the details to herself. About my meeting, then. Do
+				*goto question_vivian_mid
+			#"Apologies, but I don't know the reasoning, myself. I'm only a messenger for the Seneschal. I'm sure Corliss would be happy to speak to you personally about her reasoning at a later date, but for now I just need some basic answers."
+				*set vivian %-5
+				*set ruthless %-5
+				*label sour_grapes
+				Vivian's face sours, and she glares at you with naked irritation. "I assure you that I [i]will[/i] be speaking to her about this. You wanted to know about my meeting, then. Do
+				*goto question_vivian_mid
+			#"The rumors you may have heard are true. Prince Arundel is missing and I've been instructed to speak to you about your most recent meeting with him."
+				*goto vivian_rumors_are_true
+	#"I have inside information on Eden Corliss that you may find useful, and I'm willing to exchange it for information of equal value."
+		*set vivian %+5
+		*set subversive %+5
+		*set loyalty_to_corliss -1
+		Vivian's chest goes still as she stops breathing. Not that she needs to breathe, of course, but it's an excellent habit to adopt when dealing closely with mortals. Consternation flashes on her face before the mask of icy calm settles back again so quickly you could almost have imagined the changeover. She stares at you for the most awkward thirty seconds of your un-life before seeming to come to a conclusion.
+		
+		"You are aware of what Eden would do if I were to report this breach of trust to her, yes?"
+		
+		You nod. You've seen Corliss take out her wrath on more than one pitiable soul. "She sent me here to gather information about the last night you spent with the Prince, but I'm more interested in what we can do for each other."
+		
+		"Your composure suggests that you either have nerves of steel or…or this is some sorry attempt at manipulation on Eden's part. Well, I'll have none of it. I have no use for your information or your test of loyalty."
+		*fake_choice
+			#"I assure you that my offer is genuine. I'm looking to make alliances."
+				Vivian snorts. "And what a strange way to go about it. 
+				*label vivian_why_alliance
+				Why should I make an alliance with you, $!{name}? An alliance which would serve you well while providing me with little more than added risk? I have no interest in subverting Eden's power—she's doing just fine on that front without my help. And if she truly did send you here to gather information, then she surely doesn't have the first idea as to what has become of our beloved Prince."
+				*fake_choice
+					#"Either that or she only wants us to think she doesn't know where he is," I say with a knowing smile.
+						"Did you come up with that on your own?" Vivian asks you. "Or did Eden suggest it for you?"
+						
+						"How better to solidify her power," you insist. "If Arundel is never found, she is his successor. And if she did have knowledge of his disappearance, what better way to throw the Primogen off her trail than by questioning the court about it?"
+						
+						*label vivian_hip
+						*set ch2_allied_with_vivian true
+						*achieve ventrue_spy
+						Vivian places a slender hand on her right hip. "I'm beginning to think that you're stupider than I initially assumed. If you were acting as an agent of your sire, that would explain your actions, but if you are truly intent on allying with me against Eden, you are well and truly out of your mind. And I have no interest in allowing your madness to drag me down with you."
+						
+						You start to protest, but she places a finger to her lips and inclines her head toward the front door where her butler lurks, still as a statue. She nods slowly. Deliberately. And then she continues as though nothing had happened.
+						
+						"So, now that I've passed your test, allow me to address the evening in question. Do
+						*goto question_vivian_mid
+					#"Corliss has already told me that she's concerned other elders may come for her. If she sent me to you, that means she views you as an ally."
+						"Of course she does. I'm the obvious source of pertinent information. She would want my words to mirror hers when she eventually goes public."
+						*goto vivian_hip
+					#"Whether or not Corliss knows what happened to Arundel is irrelevant if he's been Beckoned. What [i]does[/i] matter is what the court believes she did with him. You and I can influence that."
+						"Or better yet, we can search for the truth, which, in my experience, is rarely as irrelevant as you suggest."
+						*goto vivian_hip
+			#"It's good to see that you are loyal to your duties. My sire will be pleased."
+				*goto sour_grapes
+			#"This isn't a test. I can confirm the rumors that have been floating around Elysium: Arundel is missing. Does that pique your interest?"
+				"Interesting," Vivian says. "Interesting that you would assume I don't already know that.
+				*goto vivian_why_alliance
+	
+
+*label walking_home
+*page_break
+Even if it weren't for your acute sense of time and the tint of the sky, you can always tell it's growing closer to first light by the flow and energy of the city's people. The early risers purchasing coffee, the middle-aged wage-slaves grumbling about work under their breath, shops that were closed overnight showing signs of rumbling back to life. Sunrise will soon be upon you, and you should return to your haven before reporting to Corliss, which will be understandable given the lateness of her request.
+*if (clan = "Malkavian")
+	${malk_name} still hasn't resurfaced—you're starting to think that ${malk_heshe} may be gone for the night, though it's impossible to tell. It's the nature of your own particular beast after all. Your personal brand of chaos. 
+
+You're still a few minutes' walk away from @{(clan = "Nosferatu") the proper back-alley sewer entrance| your building} when
+*if (ward_hates_you)
+	*comment You refused to listen to Robert Ward's warning in chapter 1. 
+	a commotion erupts several blocks to the north—a rumbling followed by screams, and finally gunfire. 
+	*label squat_office
+	Past a squat office building, you can see a faint wisp of smoke rising toward the heavens. @{(ch2_ward_proposed_prison_break) How could he have attacked the police station already? He must have already had his people in place in case you declined his offer.| There's no way to be certain, but you think that's the police station—Sheriff Qui's center of influence. You can't be sure who is attacking the building, be it an act of terror or a Kindred affair, but an assault the night after the Anarch raid is unlikely to be a coincidence, especially after Qui took a prisoner. If Ward was willing to blow up the factory last night to throw Ottawa's Camarilla off his scent, it's not much of a leap to think he'd go this far to rescue an ally—or silence a wagging tongue.} You're close enough to the commotion that you may be able to make a difference and help if Ward is involved.
+	*choice
+		*if (celerity) #[b]Celerity (+Hunger):[/b] I can slip into the alleys unseen and use my supernatural speed to reach the fighting in time to make a difference.
+			*set hunger +1
+			*set qui %+5
+			*set dexterity %+5
+			*set stamina %+5 
+			*comment In these first two chapters, using abilities mainly provides different flavor. In subsequent chapters once the stats are rounded out, they will usually confer an automatic pass to the player.
+			You step into a nearby alley and spend a moment scouring the area for any stray pair of eyes that might witness your superhuman speed. Assisting Qui may be important, but it's not worth the punishment a blatant Masquerade violation would entail. Fortunately, it's still early enough in the morning and the threatening sun hasn't yet given rise to street life that would dart between buildings from time to time, and what few kine are out and about are already distracted by the explosions and gunfire. You'll be careful, but you'll also be faster than any mortal could dream of. You feel the Blood within your body surge, and suddenly the world around you seems to slow down. The lazy plumes of smoke in the sky above appear at first glance to have ceased their ascension entirely, and a fat gray rat savors a meaty delicacy pulled from a nearby trash bin with the slowest chewing you've ever seen. Even the panicked screaming of distant mortals deepens in pitch to an almost comical guttural basso. Of course it's not these things that have changed, merely your perception of them, but such distinctions matter little when your feet pass over the ground with a feather-light touch, propelling you onward even as your gaze sweeps for dangers and prying eyes.
+			
+			In the twist of an alleyway ahead, you spot a flash of movement and dig in your heels, bringing yourself to a lurching halt. You duck and hide in the shadow of a reeking dumpster, head reeling from your return to normal speed. You can smell the stink of smoke radiating off the creature from at least twenty feet away, and as it—he—gets closer, you recognize him as Qui's prisoner, running for his life. The Feral looks over his shoulder, face drawn with panic as he turns to run right past your hiding spot. Behind him, you catch sight of another running figure, this one coming in even faster as it pursues the fugitive.
+			*label capture_gangrel
+			*choice
+				*if (oblivion) #[b]Oblivion:[/b] I use a subtle application of my control over the alley's shadows to grapple the Feral's feet, tripping him and sending him face-first into the pavement. I then dismiss the shadow before any pursuer can witness it and lunge in to secure my captive.
+					*gosub_scene functions add_hunger
+					*set ch2_ward_shot_me true
+					You rarely summon the mystical Arms of Ahriman, but when you do, you've learned to control them with precision. The need to conceal your nature necessitates such fine-tuning of your abilities, and your meticulous attention to detail pays off tonight when the fleeing vampire runs right into your trap and falls flat on his face with a crunch of bone and smashed cartilage. You dismiss the shadowy appendage immediately—for all any observer knows, the Gangrel simply tripped on a hazard in the dark, garbage-strewn alley. How unfortunate for him.
+				
+					You leap out from your hiding place and grab hold of the fleeing Gangrel.
+					*goto slimy_gangrel
+				#I tackle the fleeing vampire from the shadows, hoping to trip him up long enough for his pursuer to catch up and take him back into custody.
+					*label leap_out_gangrel
+					*set ch2_ward_shot_me true
+					You leap out from your hiding place in the shadows and grab hold of the fleeing Gangrel, tackling him to the dirty pavement. 
+					*label slimy_gangrel
+					His skin is slimy and he smells awful enough that you're forced to suppress your still-instinctive breathing. The creature wriggles in your grip like a greased eel, screeching incoherently as the figure following him gets closer. You raise your eyes from your captive, fully expecting to see one of Sheriff Qui's muscle-bound deputies, but instead you're greeted by the leering grin of Robert Ward. @{(ch2_ward_proposed_prison_break) How did he get here so quickly? He barely looks hurt from the assault.|}
+			
+					"Thanks for the assistance, $!{name}," he says, and a fire explodes within your chest as a gunshot echoes throughout the alley. You fall back against the trash bin, splattering it with a smear of red as you collapse. Another shot follows, point-blank, and you grit your teeth, nearly passing out from the pain. Ward pulls back a sawed-off shotgun and brandishes it at the whimpering Feral as he grabs him by the neck. "Don't worry," he grunts. "You'll survive it, but picking out that buckshot's not gonna be a good time."
+					
+					Your vision blurs and Ward's body doubles as you try to get up.
+					
+					"You'll be seeing more of us soon," Ward says with a laugh as he marches the former prisoner away through the maze of alleys. "Give my regards to Corliss."
+					*page_break
+					You blink, but your vision is blurred, smearing the light of a nearby street lamp across your line of sight. You try to stand and find yourself gently restrained. A familiar voice cuts through the ringing in your ears.
+					
+					"Don't worry, ${sirmaam}. I'll help you get home."
+					
+					"Gerard?" How did your manservant find you in the alleyway?
+					
+					Gerard senses your question before you vocalize it. "I was at the police station following up on the research you requested. Qui's men found you here while they were chasing the Anarch and brought me to you. It's only been a few minutes, but we need to get you home. The sun's nearly up."
+					
+					"I'll be fine, just let me stand."
+					
+					Gerard steps back at your direction. "Of course, ${sirmaam}. You're looking better already."
+					*goto sleep_at_your_haven
+				#I let the prisoner go, not sure whether it's because I feel sympathy for him or if I'm just curious to see what happens next.
+					*set ch2_let_gangrel_go true
+					The Gangrel shoots by your position in a terrified haze, oblivious to your presence, not even bothering to turn back and gauge the distance of his pursuer. And within seconds, you know exactly why.
+					
+					You were expecting one of Sheriff Qui's muscle-bound deputies was after the prisoner, but the vampire who runs past you next is a brawler of a different kind entirely, and even though you can only see his back as he races away from your hiding spot, it's hard not to recognize the Brujah @{(ch2_ward_proposed_prison_break) who so recently proposed you help him with this breakout. How did he get here so quickly? He barely looks hurt from the assault.| who so recently threw you through a brick wall and blew up the factory.} Ward. But if he rescued the prisoner, why is the Feral running from him?
+					
+					Before you have a chance to go after him, Ward looks over his shoulder and bares his teeth. "Nice to see ya, $!{name}," he grunts as he runs after his prey. "We have to stop meeting like this." 
+					
+					Barely slowing down, Ward hooks his hands under a dumpster filled to the brim with food scraps from a nearby restaurant and hurls it at you. You manage to roll to the side, but when you leap over the barrier to pursue, Ward and his prey have disappeared down a side street, and instead you're confronted by a very angry Italian couple who have emerged from the back door of their restaurant to bar your way. By the time you've managed to convince them that you had nothing to do with their dumpster's sudden flight to the other end of the alley, you've lost all hope of finding either Ward or the prisoner.
+					
+					Nursing your wounded pride, you clear out of the alley, watching the sky as daylight threatens to break through and turn an already dangerous night into a lethal exercise. You'll manage to reach your haven, but there simply isn't enough time for any further detours.
+					*goto sleep_at_your_haven
+				#I attack the fleeing vampire with the intent to destroy him. Between blowing up the warehouse and his jailbreak, he's broken the rules of this domain too many times. Plus he's also a Masquerade breach waiting to happen.
+					*set ruthless %+10
+					*goto leap_out_gangrel
+			
+		#I persuade a nearby mortal to let me borrow his bike and zip through the alleyways.
+			*set qui %+5
+			*set charisma %+5
+			*set manipulation %+5
+			"You want my what?" the young mortal asks, scratching his head as he looks nervously from you to the explosion and back again. He's a skinny thing—couldn't weigh more than one-ten.
+			
+			"Your bike. I need to get over there to help someone as quickly as possible." @{(clan = "Nosferatu") He shrinks away; you must look quite intense, maybe not as convincing as you are intimidating. You try to stay far enough away that he doesn't get a proper look at your deformities.| He regards you suspiciously and you play up your good Samaritan routine.}
+			
+			"Look," he says, thrusting the bike at you. "Just take it." On closer inspection, it's in very poor condition and you have a feeling this will be its last ride. "I was planning on replacing it soon anyway."
+			
+			You favor the boy with a nod and mount the bike, taking off at break-neck speed for a nearby alley that angles toward the police station. Wind whistles by your ears as you race between connecting alleyways until you spot a figure running in your direction, looking over his shoulder for signs of pursuit. It's Qui's prisoner. You bring the bike to a quick 
+			*label reeking_dumpster
+			stop in the shadow of a reeking dumpster, waiting as the vampire's footsteps near your position. In a small shard of a broken mirror, you catch sight of another running figure, this one coming in even faster as it pursues the fugitive.
+			*goto capture_gangrel
+		#I take a moment to think—it's always been easy for me to remember all the twists and turns of the roads and shortcuts. I'm sure I can find a way to cut the escape off if I play this smart.
+			*set qui %+5
+			*set intelligence %+5
+			*set resolve %+5
+			You've devoted countless hours to memorizing each and every twisting alley and shortcut that Ottawa has to offer, and as usual, your studies and persistence pay off. You plot the optimal course in a matter of seconds before taking off like a shot down a nearby alley. After several blocks and a half-dozen twists and turns, you spot a figure running in your direction, looking over his shoulder for signs of pursuit. It's Qui's prisoner. You duck low and
+			*goto reeking_dumpster
+		#I'm no fighter. It would be best for the situation if I remain calm and hurry back to the office to tell Corliss what happened.
+			*set corliss %+5
+			*set composure %+5
+			*set wits %+5
+			*set subversive %-5
+			*set ch2_hauberk_freed true
+			*set loyalty_to_corliss +1
+			You stand, rooted to the spot in indecision as plumes of smoke billow out from the police station several blocks to the north. You can't be sure exactly what's happening, but for the moment, you want no part of it. Besides, if Qui's massive goons can't handle the attack, there's not much practical purpose in getting involved yourself unless you're actively seeking out your own death.
+			
+			You turn in the opposite direction, running alongside men and women fleeing the fighting. You tell yourself that you're not like them, that you're running with purpose, but you're not sure you believe your own justifications. 
+			*label arrive_at_corliss
+			*set ch2_saw_tremere_at_corliss_office true
+			You arrive at Corliss's office building a few minutes later and make your way to the executive elevator. The lobby is surprisingly quiet to the point of being eerie. You fumble in your pockets for your keycard, swiping it against a rectangular black sensor causing the door to open obligingly. The elevator hums and you wring your hands nervously as it rises with what feels like unusual slowness past the thirteen floors to your sire's offices. You calm yourself—composure is a must for dealing with the Seneschal.
+			
+			The door glides open soundlessly, revealing a strange scene. Three well-dressed Kindred you recognize as self-exiled Tremere stand in a wedge before Corliss's inner door, barring your entrance. A faint sense of power radiates off of them as they eye you warily. It's the first time you've seen them since they left the city after Arundel's decision to admit Kashif Salik into his domain—their distrust of the Banu Haqim runs deep.
+			
+			"What is your business here?" one of them asks. He clearly recognizes you, and as such he should know exactly what you're doing here. But the question has been asked regardless, and it hangs in the air between you uncomfortably as you try to make sense of the situation.
+			*fake_choice
+				#"I could ask the same of you. Why are you blocking access to my sire?"
+				#"You know exactly what I'm doing here. Now move out of my way; the Seneschal will be furious to know you barred my entry."
+					*set ruthless %+5
+				#"Please step aside. I have pressing business with the Seneschal."
+					*set ruthless %-5
+			"Ms. Corliss is in a private meeting at the moment," the Tremere says slowly. "You'll have to wait."
+			
+			"This is an emergency," you say, irritation and insistence showing into your voice. These men have no right to bar you here and they should know it. "There's been an attack on the police station."
+			
+			The Tremere doesn't look at all surprised. "Yes, so we've been told. That is what your sire is discussing now. The Sheriff sent a runner the moment the Anarchs stepped inside. She arrived a full five minutes ahead of you, I might add."
+			*fake_choice
+				#"That doesn't explain why you're here."
+					*set ruthless %+5
+					"Our business is our own," the infuriating Tremere says. "If Corliss wishes to explain anything to you, she will do so herself once this situation is resolved."
+					
+				#"It's good to know that's being handled, then. I was getting worried it was too late."
+					*set ruthless %-5
+					"Indeed," the Tremere says. "As a matter of fact, Ms. Corliss was so intent on addressing the situation that our meeting was cut short, which is why we await her here."
+					
+				#"I'd still like to speak to her. I have information to pass on."
+					*set ruthless %-5
+					"Unless that information is pertinent to the ongoing attack, I think you'd be better off waiting until tomorrow night," the Tremere says with an infuriatingly bored expression on his face.
+					
+			The door to the inner offices bursts open, nearly hitting the rearmost Tremere in the head as he dodges to the side awkwardly. Corliss stalks out and, seeing you waiting by the elevator, utters a grunt of irritation. "Poor timing, $!{name}," she says testily. "I'll have to address your findings tomorrow night. We have precious little time to deal with the Anarch attack before sunrise as it is." She pauses her flurry of movement to stare at you. "Go on. Return to your haven and seek me out after the sun has fallen. You're of no use to me here."
+			*fake_choice
+				#"But why are these Tremere here?"
+					"I was about to find out when Qui's runner came barging into my office," Corliss seethes. "But for now they, like yourself, will have to wait until another night."
+				#"I'll do as you command."
+					*set corliss %+5
+					"Excellent," your sire says, swinging around to stare at the Tremere pointedly. "There is something to be said for those who can actually follow instructions."
+				#"These Tremere were blocking my access to your room. Since when do they have the right to do that?"
+					"They overstep, but they were not entirely wrong to do so. I was being debriefed," Corliss seethes. 
+			The Seneschal stalks past you, anger radiating off her in palpable waves. It's unlikely that you'll have the opportunity to speak to her tonight, and you join the trio of Tremere in an exceedingly awkward elevator ride back to ground level.
+			
+			Once you're outside, it seems that things have calmed down. Passers-by go about their business as usual, and the sound of gunfire and shouting has ceased. Even the billowing smoke has disappeared.
+			
+			"Strange, isn't it?" one of the Tremere says from beside you. "Even in a relatively peaceful country, the mortals are able to ignore outbreaks of violence as though they never even happened. They'll hear about it on the evening's newscast, but after a week, it will be the farthest thing from their minds. I've often wondered if this mortal resilience in the face of adversity is the only reason the Masquerade has held up all these centuries. They see what they want to see, selectively forget that which causes them confusion and fear." He proffers a white-gloved hand to you. You shake it out of common courtesy if nothing else. "My name is Trevor. I've seen you around the court before, but I don't believe we've ever been formally introduced."
+			
+			"$!{name}," you say, perhaps unnecessarily.
+			
+			Trevor points up at the skyline. "A new day dawns. We should retire."
+			
+			You nod, plotting the quickest course to your haven in your head.
+			
+			"Do you ever miss the sun, $!{name}?" the Tremere asks abruptly. "When my years of damnation eclipsed my living days, I began to wonder if my memory was accurate. The blazing ball of light and warmth that brings comfort to kine and animals alike."
+			*fake_choice
+				#"I remember it clearly, as if it was yesterday that I last saw it."
+					*set trevor %+5
+					"I wish that I had such a keen mind," Trevor says. "Unfortunately, I believe even your memory will fade with time." 
+				#"I don't remember the sun at all. That part of my life is over now and I don't miss it."
+					*label trevor_shame
+					"A shame," Trevor says, looking skyward. "We lose that part of ourselves along with our humanity."
+				#"I see it in flashes sometimes, when I remember bits of my previous life. But most of those memories are lost to me."
+					*goto trevor_shame
+			He adjusts a wide-brimmed hat and steps out onto the sidewalk. "Perhaps we'll see each other again, $!{name}," he says before briskly walking south. You have to wonder what he meant, and for that matter, why he was in Corliss's offices. Other than Lang, all the Tremere had left the city in protest. If they're back now, can it mean they're already aware of the Prince's disappearance? The thought concerns you, but there is little time left to ponder it as you take to the street. You'll have plenty of time to mull over political machinations in the following nights.
+			*set met_trevor true
+			*goto sleep_at_your_haven
+					
+*else
+	*comment You suggested that you might listen to Robert Ward during your meeting in chapter 1
+	a well-muscled arm shoots out from the dark of a nearby alley and plucks you off the street with supernatural force. You attempt to cry out, but a meaty hand curls over your mouth, stifling any call for help. Anger boiling within, you reach for your concealed handgun as the shock of your abduction wears off and you recognize your assailant as the Brujah, Robert Ward. He puts a finger up to a pair of chapped and split lips.
+	
+	"Silence, $!{name}. I'm not here to hurt you—I just couldn't risk you calling out. I'm gonna let you go now—just promise you'll let me have my say and you're free to go. Everything's gone to hell and you need to know the truth if you want to survive what's coming. Don't yell, now."
+	
+	You try to respond with "I don't have much of a choice, do I," but it comes out in a muffled garble.
+	
+	Ward removes his hand. "A gesture of good will. Just hear me out and at the end, if you want to go, I won't stop you. You've gotta understand…I didn't bomb that factory. I think the whole thing was a setup from the beginning."
+	
+	You can't help noticing that his other hand is still clamped around your forearm.
+	*fake_choice
+		#"You're being awfully violent for someone claiming to be innocent."
+		#"Remove that hand before I tear it off your torso!"
+		#"Fine. I'll listen to what you have to say, but it better not turn out to be bullshit."
+	"Ha!" Ward laughs. "That's the spirit!" 
+	
+	He removes his hand from your arm and you briefly consider running to safety before thinking better of it. If you turn to run, his lightning reflexes and strength will make it easy to snap you back up again. That leaves talking or attacking, and even with what skills you possess, fighting off an enemy this powerful is easier said than done. And who knows? Maybe he actually has something of interest to say.
+	
+	"What do you mean the whole thing was a setup?" you ask, eyeing him warily. "Why would anyone want to set you up when you're already exiled from the city? It seems to me that the damage to your reputation is already done."
+	
+	Ward relaxes visibly now that you've engaged him in conversation. Suddenly, he looks immensely tired and run-down—the cocky grin droops from the edges of his mouth and eyes so recently filled with violent intent dull to an expression of worry. If you didn't know any better, you'd almost think he was…sad.
+	
+	"I was told to wait at the construction site on the island," he says. "The instructions came through a dead drop I thought was sent by Arundel himself. It had the authentic seal and passcodes that only the Prince and I should have known. Once I got dug in, I sent out some feelers—spies, if you like—to figure out what the hell was happening. No one could reach Arundel and rumors were already starting that he'd gone missing. I got a bad feeling and hired some mercs to watch the perimeter while I figured it out. The whole thing just didn't pass the smell test. I added some of my Gangrel to guard the front line while I started packing. Then you showed up."
+	*fake_choice
+		#"Your lies are pathetic and desperate. I suggest you leave before you're hunted down and destroyed."
+			*set ruthless %+5
+			"I can see why you'd think that, $!{name}. I haven't exactly been put in a good position."
+			
+			"You pulled me off the street and held my mouth shut; not exactly the actions of a trustworthy person. It reeks of desperation. You'd say anything!"
+			
+			"And so what if I'm desperate?" Ward grunts. "That doesn't make me a liar, it makes it even more important to get the truth out there!"
+			
+			"You haven't even told me what you want. All this posturing is a bad look for you."
+			
+			Ward growls. "Fine. I'll get to the point." He tries to get himself under control. Calm as he can be, given the circumstances. 
+		#For some reason, the Anarch seems to trust me. I take advantage of this to attack him.
+			*label attacking_ward1
+			*set ward_hates_you true
+			*set ch2_declined_wards_offer true
+			*set ward %-5
+			*set stamina %+5
+			*set strength %+5
+			You watch the burly Anarch's eyes and pay lip-service to his desperate yammering, all while your hand slowly creeps toward your hidden weapon. Finally, it's time to strike.
+			
+			You whip the handgun upward with incredible speed, firing a shot that catches him in the neck. He tries to gasp something but all that comes out is a harsh gurgling noise. You attempt to press the advantage, but now that you've revealed your intentions, he uses what remains of his immense strength to shove you roughly against the alley's wall, shattering brick and sending sharp shards into your back. He staggers and covers the wound with his right hand while glaring balefully at you, backing away slowly. 
+			
+			As you try to regain your feet, two men emerge from the shadows, each taking one of Ward's arms before speeding away with him. By the time you've recovered from his attack, the Brujah is gone.
+			
+			That wound won't finish him, but it hit him a lot harder than either of you expected. The surprise in his eyes was no act.
+			
+			Nursing your wounded pride, you clear out of the alley, watching the sky as daylight threatens to break through and turn an already dangerous night into a lethal exercise. Less than an hour left. You think you should—
+			Three explosions rock the earth from several blocks away and the few mortals on the street frenzy as waves of panic take them.
+			
+			*goto squat_office
+			
+		#"Let's say I believe you. What could you possibly expect me to do about it?"
+			*set loyalty_to_ward +1
+			*set ward %+5
+	"I need you to help me liberate the prisoner Sheriff Qui took after your raid. He's innocent. He's only been in the game for a year and he has no idea what I accidentally got him into. They'll destroy him, $!{name}, and they'll take their time while they pump him for information he doesn't have."
+	
+	"You expect me to walk into the police station with you and break out a prisoner?" you ask, your mouth hanging open in disbelief. "Even if I were that crazy, we'd never even make it to the cells."
+	
+	The Brujah shakes his head. "Not everyone from my clan are 'shoot first ask questions later' stereotypes. I have a plan that should pose no threat to you if you follow my instructions to the letter."
+	*achieve modest_proposal
+	*set ch2_ward_proposed_prison_break true
+	*choice
+		#"No way. You're out of your mind." I decline his insane idea.
+			*set ward %-5
+			*set composure %+5
+			*set intelligence %+5
+			*set ch2_declined_wards_offer true
+			"No way," you say with a shake of your head. "I let you talk, and you may even be telling the truth about some of it, but I'm not helping you with a prison break. You're out of your mind."
+			
+			Ward sighs. "It really is a shame you can't understand how important this is. We could have done this quick and easy. Relatively bloodless. But without you, we have to go the hard way." He pulls a small burner-phone from his pocket and taps one of the buttons before speaking. "It's me. Blow the charges." He looks back to you and your skin crawls. "You have potential," he says in the same conversational tone as three explosions rock the earth from several blocks away. "But you're just not ready to break out of the cage Corliss has you trapped in. We'll talk again."
+			
+			For a moment, you think he's going to turn his back and walk away, but he whirls unexpectedly, using his immense strength to punch you in the chest, sending you flying into the alley's wall. Brick shatters, sending sharp shards into your back as you grunt in surprise and pain.
+			
+			"Don't bother trying to stop the breakout," Ward says as he lopes out of the alley in an awkward gallop. "It's already done."
+			
+			You pull yourself free of the wall, brushing off large chunks of mortar and brick dust as you try to recover your wits. He's probably right about your ability to help at the police station—from what you can tell, he already had several agents there and ready to blow it up—but you can sound the alarm to Corliss. At the very least, your sire has influence over the local police and can arrange cover for any Masquerade violations.
+			*page_break
+			*goto arrive_at_corliss
+		#I've heard enough. If Ward really does have a death wish, I'm not letting him take me down with him. I attack him while his guard is down to bring an end to this.
+			*goto attacking_ward1
+		#"I'm listening. What exactly did you have in mind?" I'll go along with his plan as long as it doesn't involve me breaking the Masquerade or letting Corliss find out I'm involved.
+			*set ward %+25
+			*set resolve %+5
+			*set loyalty_to_ward +1
+			*if (loyalty_to_corliss > 0)
+				*set loyalty_to_corliss -1
+			*set ch2_rescued_hauberk_yourself true
+			Ward's face breaks open into a smile of gratitude. "Fantastic," he says, leading you out of the alley in a friendly manner. He hunches up under a heavy coat and hat that mask most of his features. You take his cue and walk beside him as he talks, keeping away from any mortals walking the street lest they overhear your plans. "The boy's a young Gangrel—calls himself Hauberk for God knows what reason. Barely knew his sire. When his gang of Ferals split off from the Camarilla he was a lost soul, but then he found me—joined my 'pack' as he put it." Ward side-steps an old woman waiting for the bus. "He's gonna be scared." 
+			
+			"That's probably true," you say. "Qui can be intimidating."
+			
+			Ward shakes his head. "I mean he'll be scared of [i]me.[/i] The one thing his sire taught him is that weakness won't be tolerated. Almost destroyed him before abandoning him."
+			
+			"So he's going to run."
+			
+			"Probably, yeah. So if you see me man-handling him, I just want you to know that I'm not trying to kill him, just get his ass in gear. Won't have time to explain things in the thick of it."
+			
+			"You're not making this sound as easy as you suggested," you say.
+			
+			"My part? Probably not," Ward admits. "But you? It's pretty straightforward. Having any second thoughts?"
+
+			"Not yet, but if there're any more pitfalls you're going to tell me about at the last second, things aren't going to go well for you."
+
+			"Fair enough," Ward says. You're starting to wonder if the man ever stops grinning. "This is what I need you to do."
+			*page_break The Mission
+			You slap your hands down on the cold granite countertop in front of a bored-looking police officer. "I need to see Qui."
+
+			"Do you have an appointment?"
+			
+			"No," you say. "But I'm on his list." You proffer a card, which the man takes. He looks it over and gives you a nod.
+			
+			"I'll buzz you in."
+			*choice
+				#The job I chose is simple. I need to make sure Qui and his heavy squad are out of the building in the next half hour by telling them I saw Ward several blocks away.
+					*set ch2_jailbreak_method "distraction"
+					"You saw him?" Qui asks, worrying at his long fingernails. "On the street? It's getting close to daylight. I can't be seen out there." You can't blame him for his caution. @{(clan = "Nosferatu") As a Nosferatu yourself, you know all too well that it's highly discouraged to get anywhere near mortals, and even then you'll always need to be heavily disguised. As it gets closer to daybreak, your heavy coat and face coverings won't be quite enough anymore. There's a reason the other clans call you Sewer Rats. | While his face isn't as badly disfigured as other Nosferatu, a casual glimpse of him would make the average mortal sick to their stomach at best. Covering up in a heavy coat, scarf, and hat will only get him so far this close to dawn.}
+				
+					"I followed him from way back," you reply. "He ducked into an alley and started working a sewer entrance open. If we go quick, we can still probably catch him."
+					
+					"Yes," Qui says, scratching absently at his left cheek. "I'll gather my people."
+					*fake_choice
+						#"Will you be bringing your ghouls, or just mortal cops?"
+							"Mortals wouldn't do much good against Ward," Qui says. "But they'll make good bullet-sponges if things get hairy. I'll bring a mix. Ward won't know who to target.
+						#"We need to move quickly. He could be gone if we wait too long."
+							"That's true," Qui says. "But if I learned anything from our raid, it's not to underestimate the man. I need to get backup or there's no point in catching up to him.
+						#"Ward used to be part of the community here, didn't he? Why do you think he would try to destroy us all in the factory? Why the bomb?"
+							Qui shakes his head. "He didn't just used to be part of the organization, $!{name}. He was right up at the top. Close to the Prince himself. A year ago, I'd have said this was impossible, but his actions speak for themselves.
+					Meet me out back in five minutes and I'll have my team together."
+					*page_break Events Go…Poorly
+					*label qui_error
+					"Son of a bitch!" Qui slams his fist into a filing cabinet, sending it to the other end of the room with a crash. At least a year's worth of paperwork slowly floats down through the air around him as he seethes with impotent rage.
+					
+					It was almost amazing how easily Ward's plan worked. The distraction was a credible threat after all, and while the Sheriff gathered his biggest guns to investigate, Ward and two of his allies broke into the cells and incapacitated the four police officers left on guard. By the time Qui realized what was going on, it was far too late.
+					
+					*if (ch2_jailbreak_method = "distraction")
+						"He must have known you saw him in that alley," Qui says through gritted teeth. "He knew you'd jump at a chance to bring him in after he nearly finished you in the factory. I should have seen it coming! I'm smarter than this!"
+						*goto locke_and_qui
+					*else
+						"I should have known," he says. "I should have known the explosion was a distraction! There's too much crap going on at once!"
+					*label locke_and_qui
+					
+					"You really should start delegating more, sir," one of Qui's companions says softly. "This isn't going to be a good look." She shuffles nervously as the Sheriff glares at her. "We've got to be practical."
+					
+					Qui slumps down in his chair. "Of course. You take point on this Ward business, Karla. I'm too close to it. I'm making mistakes and I have too many other issues demanding my attention." He looks over at you. "I don't suppose there's any chance you could frame this in anything other than an embarrassing light to your sire? There's going to be hell to pay."
+					*fake_choice
+						#"I'll do my best to paint you in a good light. None of this is really your fault."
+							*set qui %+5
+							*set ruthless %-5
+							"That's kind of you to say," Qui says. "Hopefully Corliss will believe it if she hears it from you."
+							
+						#"I can't lie to my sire. Corliss will hear the truth of the matter."
+							*set qui %-5
+							*set corliss %+5
+							*set subversive %-5
+							Qui grunts. "I understand. We all do what we have to do."
+							
+						#"I have to tell her what happened, but I'll downplay anything that would look too bad for you."
+							*set qui %+5
+							*set ruthless %-5
+							"Thank you," Qui says. "That's all I could really ask for at this point."
+							
+					You can't remember ever seeing him look this defeated. Hopefully he'll get his act together fast and return to his usual self. You may have agreed to help Ward out here, but that doesn't necessarily mean you want the entire institution to come tumbling down around you. Does it?
+					
+					"It's getting close to dawn, $!{name}," Qui says. "You should go back home and get some rest. I have a feeling it's going to be a busy night tomorrow."
+					
+					You nod in agreement. It's hard to argue with him, and if you don't get going now you'll be stuck sleeping in the station's emergency shelters in the basement below. Not exactly the way you want to spend your day. You say your goodbyes and make your way back to your haven as quickly as possible, all the while fighting with yourself internally over your own motivations. In the end, you decide to sleep on it. 
+					*goto sleep_at_your_haven
+				#I need to set up explosives in a far corner of the station where no one will get hurt. Once the distraction sends Qui and his guards running, Ward will break in from the opposite side.
+					*set ch2_jailbreak_method "explosives"
+					Rather than turning to Qui's office as you told the man at the front desk, you make certain that you're not being watched before you duck around the opposite corner toward the far end of the station away from the offices and cells. There, just like Ward described, you find an unused conference room filled with ancient paperwork and broken-down office chairs. You'd think someone would just clean the mess up. Well, after today, they won't have much of a choice.
+					
+					You set the small explosive device on the floor against the far wall where it's least likely to do actual harm and arm the mechanism the way the Brujah showed you. There's no clock or countdown meter, but Ward said you'd have five minutes to get out of the area and over to Qui's office. After taking a peek through the partially opened door, you exit into the hallway unscathed and unseen, resuming a normal pace as you reach the Sheriff's office and knock on the door.
+					*label office_qui
+					
+					"Yes?" Qui's muffled voice comes from the other side. You try the door, but it's locked. "You'll have to wait a few minutes. I'm clearing out some junk and old records. I was supposed to have a clear schedule today."
+					
+					You go over the last part of the plan: plausible deniability, why you were here in the first place.
+					*fake_choice
+						#"It's $!{name}. I needed to let you know; I think I just saw Robert Ward outside!"
+							You hear a cabinet slam from behind the door. "I knew that bastard wouldn't take the hint and back off!"
+						#"I need to speak to the prisoner and see if I can get any information from him. Tracking down the Anarchs would be a huge win for Corliss."
+							"It would be a win for all of us, not just her. I'm not sure what you're expecting to get from the animal, but I might as well let you have a shot at him. It can't hurt."
+						#"Corliss has me gathering information. I need to ask you a few questions about the Prince."
+							You hear a cabinet slam from behind the door. "I knew this was coming," he grunts. "Sometimes I think that sire of yours believes we're all simple-minded down here."
+					You hear the lock turn over and Qui opens the door. Behind him, his office is in wild disarray. It looks like he wasn't kidding about the reorganization. "Not the best timing," he says dryly.
+					
+					"I guess no—"
+					
+					The room rumbles beneath your feet as @{(ch2_jailbreak_method = "explosives") the explosives you set detonate.| an explosion rocks the building. Hopefully Ward was true to his word and nobody was killed, or you're going to have a lot of explaining to do.}
+					
+					Qui practically launches himself from the doorframe, dust from his cleaning frenzy creating a plume in his wake as he races toward the explosion, calling for his guards as he goes. He yells back over his shoulder to you. "Don't just stand there, $!{name}! Let's go!"
+					
+					You stumble into a run to follow the Sheriff, nervously picking your way through the halls as mortal officers pop out of the woodwork to join you in the hunt. You're astonished at how easy it was to play Qui for a fool.
+					*page_break
+					*goto qui_error
+				#I was given a small device that's supposed to disrupt the building's power and camera systems with an electronic pulse. According to Ward, all I have to do is be there. No other action required.
+					*set ch2_jailbreak_method "device"
+					You fumble with Ward's electronic device in your pocket as you pass through the door and into the station proper, switching it to the "on" position without much difficulty. The lights around you flicker for just a second before settling back into a steady glow. Hopefully that means it's working as intended. 
+					@{(clan = "Lasombra") Vampires of clan Lasombra tend to have difficulties with electronic devices, but this one must have a simple enough interface that it's unaffected by your affliction. It doesn't get much more straightforward than a single analog button, even if the mysterious mechanism beneath is a different beast altogether. |}
+
+					Now that the cameras and alarms are down, Ward will break in through an unused conference room and set a small explosive device. If he's to be believed, it shouldn't cause any casualties, only make one hell of a racket—a proper distraction is all he needs.
+			
+					You calm your nerves and maintain a normal pace as you reach the Sheriff's office and knock on the door.
+					*goto office_qui
+			
+			
+*label sleep_at_your_haven
+*page_break Sleep Comes Quickly
+Since the night of your Embrace, dreams have largely eluded you as you slumber during the day in your ${bed}. Rare exceptions to this rule occur on days of particular import, as well as when you are recovering from physical trauma. It's simple to recognize the dream for what it is, and as always the confused dreamscape narrative is an unsolvable riddle, offering incoherent glimpses at your past life and the formative years of your un-death. 
+
+Fragments of memory coalesce into a scene from the first year after your Embrace, as your sire inducted you into the high society of the local Camarilla. It is far from a pleasant memory—Corliss had been a taskmaster, driving your learning with ruthless efficiency. She made it clear to you from your very first night that the result of failure would be termination. As with any sire, Corliss favored particular lessons, pressing you to excel at very specific skills.
+*fake_choice
+	#I see visions of intensive training in the art of navigating the pitfalls of Kindred high society. I can always find an angle and work it to my advantage. (+Manipulation, +Charisma, and +Wits)
+		*set manipulation %+15
+		*set charisma %+15
+		*set wits %+10
+		"All the physical training in the world cannot prepare one of our kind to survive the intricacies of higher court, $!{name}," Corliss had said. "We fight smarter. Rather than wallow in the muck, clawing and biting, we rise above, and use our gifts to make certain that others do our fighting for us."
+	#My bones ache from the remembrance of intense physical discipline. From the very beginning, Corliss had me trained by the finest warriors. (+Strength, +Dexterity, and +Stamina)
+		*set strength %+15
+		*set stamina %+15
+		*set dexterity %+10
+		"Being well-versed in matters of the court is one thing," Corliss said, "but there will eventually come a time when your life depends on your physical prowess and combat training."
+	#My focus in those early years was an intense battery of studies and lessons to understand both the world around me as well as Kindred culture. (+Intelligence, +Wits, and +Composure)
+		*set intelligence %+15
+		*set composure %+15
+		*set wits %+10
+		"Every skill you learn has a grounding in knowledge and study," Corliss had said. "Martial prowess has its basis in understanding the human and inhuman body and tactics analysis. Courtly discipline is rooted in history and intricate etiquette, none of which would be possible without a baseline of studies from which to begin your journey as a childe I can be proud of."
+	#Corliss had a vested interest in training me as a spy. My training in spycraft was elaborate and multifaceted, lasting several years before I was deemed suitable for the task. (+Dexterity, +Manipulation, and +Resolve)
+		*set dexterity %+15
+		*set manipulation %+15
+		*set resolve %+10
+		"You will learn not only how to blend in with the shadows," Corliss said, "but to blend in with a crowd. Focus and social engineering are as integral to a spy's toolkit as the ability to move about unseen."
+		
+Even though they were said decades ago, in the dream, your sire's words ring as clearly as they had the first day you'd heard them. Say what you will about Eden Corliss—and there are a great many things to say, both good and bad—but she hadn't kicked you out of the nest without preparing you for an undead life among the deadliest, most manipulative creatures in existence. No, it was more than that. She hadn't simply prepared you to survive their constant tests and political attacks, she [i]made[/i] you one of them. 
+
+Did she see you going soft as you languished alongside the Ivory Tower elites? Is that why she sent you out to fight against Robert Ward and his band of Anarchs after years spent in the safety of her care and your extravagant haven? You twist uncomfortably in your ${bed} as you remember the early days when you were required to procure your own meals: stalk mortals, drown out their fear and screams as blood surged through your body in a heady euphoria of revitalization. You've grown complacent. Docile. The predator had been stripped from you, but now you're [i]awake[/i] again. 
+
+And you're hungry.
+*set hunger +1
+*finish_advertisement
+		
+			
+			
+

@@ -1,0 +1,815 @@
+*label stat_screen1
+
+*if (first_time_stats)
+	*set first_time_stats false
+	Welcome to the Codex Screen! 
+	
+	On the following page you'll be able to examine your personal stats, clan affiliation, relationship status, a Vampire: The Masquerade glossary, and more.
+	
+	Like many other Choice of Games titles, Parliament of Knives uses a skill system which rates your abilities on a scale of 0 to 100. Fans of the Vampire: The Masquerade tabletop roleplaying game may feel more at home displaying these percentages as 'dots' rather than a number scale.
+	
+	Would you like to display your attributes as Choice of Games percentage bars or would you rather display them as dots?
+	
+	[b]This option can be changed at any time in the codex screen. [/b]
+	*choice
+		#Please display my attributes as percentages bars. (0% to 100%)
+			*goto stat_screen1
+		#Display my attributes as traditional Vampire: the Masquerade dots. (○○○○○, ●○○○○, ●●○○○, etc…)
+			*set stat_dots_option true
+			Stats will be displayed as dots! 
+			
+			Your dots will increase at certain experience point (XP) thresholds. Your attributes gain XP through level-up choices at certain points in the story as well as the decisions you make in the first two chapters which define the type of character you wish to play.
+			
+			Choices which will result in major level-up boosts to XP for your attributes will be noted in the text, so don't worry about missing them by accident!
+			*page_break To The Codex
+			*goto stat_screen1
+			
+*if (name_and_clan_chosen)
+	*stat_chart
+		text Name
+		text Clan
+*comment text Status
+	
+[b]Hunger:[/b] 
+*if (hunger = 0)
+	○○○○○ Completely Satiated
+	*goto skills_section
+*elseif (hunger = 1)
+	●○○○○ : Satisfied
+	*goto skills_section
+*elseif (hunger = 2)
+	●●○○○ : Growing Hungry
+	*goto skills_section
+*elseif (hunger = 3)
+	●●●○○ : You should feed soon.
+	*goto skills_section
+*elseif (hunger = 4)
+	●●●●○ : Ravenous
+	*goto skills_section
+*else 
+	●●●●● : Starved
+	*goto skills_section
+	
+[b]Disciplines:[/b]
+*if (clan = "Ventrue")
+	Dominate, Fortitude, @{(ch6_moretti_taught_oblivion) Presence, Oblivion | Presence }
+*if (clan = "Toreador")
+	Auspex, Celerity, @{(ch6_moretti_taught_oblivion) Presence, Oblivion | Presence }
+*if (clan = "Nosferatu")
+	Animalism, Obfuscate, @{(ch6_moretti_taught_oblivion) Potence, Oblivion | Potence }
+*if (clan = "Malkavian")
+	Dominate, Obfuscate, @{(ch6_moretti_taught_oblivion) Auspex, Oblivion | Auspex }
+*if (clan = "Lasombra")
+	Oblivion, Dominate, @{(ch6_moretti_taught_oblivion) Potence, Oblivion | Potence }	
+
+*label skills_section
+	
+*line_break
+*text_image skills.png none Skills
+[b]Physical Attributes[/b]
+*if (stat_dots_option)
+	*gosub_scene functions to_next_dot
+	*comment The above sets the numbers needed to hit the next dot for display below.
+
+	Strength:
+	*if (strength < 25)
+		○○○○○ (${to_next_strength_dot} XP to next dot)
+		*goto dexterity_dots
+	*elseif (strength < 35)
+		●○○○○ (${to_next_strength_dot} XP to next dot)
+		*goto dexterity_dots	
+	*elseif (strength < 45)
+		●●○○○ (${to_next_strength_dot} XP to next dot)
+		*goto dexterity_dots	
+	*elseif (strength < 55)
+		●●●○○ (${to_next_strength_dot} XP to next dot)
+		*goto dexterity_dots	
+	*elseif (strength < 65)
+		●●●●○ (${to_next_strength_dot} XP to next dot)
+		*goto dexterity_dots	
+	*elseif (strength < 75)
+		●●●●● 
+		*goto dexterity_dots	
+	*else
+		●●●●● 
+		*goto dexterity_dots	
+	*label dexterity_dots
+	
+	Dexterity: 
+	*if (dexterity < 25)
+		○○○○○ (${to_next_dexterity_dot} XP to next dot)
+		*goto stamina_dots
+	*elseif (dexterity < 35)
+		●○○○○ (${to_next_dexterity_dot} XP to next dot)
+		*goto stamina_dots	
+	*elseif (dexterity < 45)
+		●●○○○ (${to_next_dexterity_dot} XP to next dot)
+		*goto stamina_dots	
+	*elseif (dexterity < 55)
+		●●●○○ (${to_next_dexterity_dot} XP to next dot)
+		*goto stamina_dots	
+	*elseif (dexterity < 65)
+		●●●●○ (${to_next_dexterity_dot} XP to next dot)
+		*goto stamina_dots	
+	*elseif (dexterity < 75)
+		●●●●● 
+		*goto stamina_dots	
+	*else
+		●●●●● 
+		*goto stamina_dots	
+	*label stamina_dots
+	
+	Stamina: 
+	*if (stamina < 25)
+		○○○○○ (${to_next_stamina_dot} XP to next dot)
+		*goto charisma_dots
+	*elseif (stamina < 35)
+		●○○○○ (${to_next_stamina_dot} XP to next dot)
+		*goto charisma_dots	
+	*elseif (stamina < 45)
+		●●○○○ (${to_next_stamina_dot} XP to next dot)
+		*goto charisma_dots	
+	*elseif (stamina < 55)
+		●●●○○ (${to_next_stamina_dot} XP to next dot)
+		*goto charisma_dots	
+	*elseif (stamina < 65)
+		●●●●○ (${to_next_stamina_dot} XP to next dot)
+		*goto charisma_dots	
+	*elseif (stamina < 75)
+		●●●●● 
+		*goto charisma_dots	
+	*else
+		●●●●● 
+		*goto stamina_dots	
+	*label charisma_dots
+	
+	[b]Social Attributes[/b]
+	
+	Charisma: 
+	*if (charisma < 25)
+		○○○○○ (${to_next_charisma_dot} XP to next dot)
+		*goto manipulation_dots
+	*elseif (charisma < 35)
+		●○○○○ (${to_next_charisma_dot} XP to next dot)
+		*goto manipulation_dots	
+	*elseif (charisma < 45)
+		●●○○○ (${to_next_charisma_dot} XP to next dot)
+		*goto manipulation_dots	
+	*elseif (charisma < 55)
+		●●●○○ (${to_next_charisma_dot} XP to next dot)
+		*goto manipulation_dots	
+	*elseif (charisma < 65)
+		●●●●○ (${to_next_charisma_dot} XP to next dot)
+		*goto manipulation_dots	
+	*elseif (charisma < 75)
+		●●●●● 
+		*goto manipulation_dots	
+	*else
+		●●●●● 
+		*goto manipulation_dots	
+	*label manipulation_dots
+	
+	Manipulation: 
+	*if (manipulation < 25)
+		○○○○○ (${to_next_manipulation_dot} XP to next dot)
+		*goto composure_dots
+	*elseif (manipulation < 35)
+		●○○○○ (${to_next_manipulation_dot} XP to next dot)
+		*goto composure_dots	
+	*elseif (manipulation < 45)
+		●●○○○ (${to_next_manipulation_dot} XP to next dot)
+		*goto composure_dots	
+	*elseif (manipulation < 55)
+		●●●○○ (${to_next_manipulation_dot} XP to next dot)
+		*goto composure_dots	
+	*elseif (manipulation < 65)
+		●●●●○ (${to_next_manipulation_dot} XP to next dot)
+		*goto composure_dots	
+	*elseif (manipulation < 75)
+		●●●●● 
+		*goto composure_dots	
+	*else
+		●●●●● 
+		*goto composure_dots	
+	*label composure_dots
+	
+	Composure: 
+	*if (composure < 25)
+		○○○○○ (${to_next_composure_dot} XP to next dot)
+		*goto intelligence_dots
+	*elseif (composure < 35)
+		●○○○○ (${to_next_composure_dot} XP to next dot)
+		*goto intelligence_dots	
+	*elseif (composure < 45)
+		●●○○○ (${to_next_composure_dot} XP to next dot)
+		*goto intelligence_dots	
+	*elseif (composure < 55)
+		●●●○○ (${to_next_composure_dot} XP to next dot)
+		*goto intelligence_dots	
+	*elseif (composure < 65)
+		●●●●○ (${to_next_composure_dot} XP to next dot)
+		*goto intelligence_dots	
+	*elseif (composure < 75)
+		●●●●● 
+		*goto intelligence_dots	
+	*else
+		●●●●● 
+		*goto intelligence_dots	
+	*label intelligence_dots
+	
+	[b]Mental Attributes[/b]
+	
+	Intelligence: 
+	*if (intelligence < 25)
+		○○○○○ (${to_next_intelligence_dot} XP to next dot)
+		*goto wits_dots
+	*elseif (intelligence < 35)
+		●○○○○ (${to_next_intelligence_dot} XP to next dot)
+		*goto wits_dots	
+	*elseif (intelligence < 45)
+		●●○○○ (${to_next_intelligence_dot} XP to next dot)
+		*goto wits_dots	
+	*elseif (intelligence < 55)
+		●●●○○ (${to_next_intelligence_dot} XP to next dot)
+		*goto wits_dots	
+	*elseif (intelligence < 65)
+		●●●●○ (${to_next_intelligence_dot} XP to next dot)
+		*goto wits_dots	
+	*elseif (intelligence < 75)
+		●●●●● 
+		*goto wits_dots	
+	*else
+		●●●●● 
+		*goto wits_dots	
+	*label wits_dots
+	
+	Wits: 
+	*if (wits < 25)
+		○○○○○ (${to_next_wits_dot} XP to next dot)
+		*goto resolve_dots
+	*elseif (wits < 35)
+		●○○○○ (${to_next_wits_dot} XP to next dot)
+		*goto resolve_dots	
+	*elseif (wits < 45)
+		●●○○○ (${to_next_wits_dot} XP to next dot)
+		*goto resolve_dots	
+	*elseif (wits < 55)
+		●●●○○ (${to_next_wits_dot} XP to next dot)
+		*goto resolve_dots	
+	*elseif (wits < 65)
+		●●●●○ (${to_next_wits_dot} XP to next dot)
+		*goto resolve_dots	
+	*elseif (wits < 75)
+		●●●●● 
+		*goto resolve_dots	
+	*else
+		●●●●● 
+		*goto resolve_dots	
+	*label resolve_dots
+	
+	Resolve: 
+	*if (resolve < 25)
+		○○○○○ (${to_next_resolve_dot} XP to next dot)
+		*goto after_stat_chart
+	*elseif (resolve < 35)
+		●○○○○ (${to_next_resolve_dot} XP to next dot)
+		*goto after_stat_chart	
+	*elseif (resolve < 45)
+		●●○○○ (${to_next_resolve_dot} XP to next dot)
+		*goto after_stat_chart	
+	*elseif (resolve < 55)
+		●●●○○ (${to_next_resolve_dot} XP to next dot)
+		*goto after_stat_chart	
+	*elseif (resolve < 65)
+		●●●●○ (${to_next_resolve_dot} XP to next dot)
+		*goto after_stat_chart	
+	*elseif (resolve < 75)
+		●●●●● 
+		*goto after_stat_chart	
+	*else
+		●●●●● 
+		*goto after_stat_chart	
+		
+
+*stat_chart
+	percent Strength
+	percent Dexterity
+	percent Stamina
+[b]Social Attributes[/b]	
+*stat_chart	
+	percent Charisma
+	percent Manipulation
+	percent Composure
+[b]Mental Attributes[/b]	
+*stat_chart	
+	percent Intelligence
+	percent Wits
+	percent Resolve
+*label after_stat_chart
+*line_break
+*text_image relationships.png none Reputation
+*comment *stat_chart
+*comment 	text players_influence Your Court Influence
+*comment 	percent anarch_strength Anarch Strength
+	
+*line_break
+
+*stat_chart
+	percent corliss Seneschal Corliss
+	percent Lucca
+	percent Jordan
+	percent Gerard
+	percent Qui
+*if (chapter > 1)
+	*stat_chart
+		percent Alisha
+		percent Bouchard
+		percent Ophelia
+		percent Vivian	
+		percent Kashif
+		percent Ward
+*if (met_adeline)
+	*stat_chart
+		percent adeline Archon Adeline
+
+*line_break
+*text_image personality.png none Personality
+*stat_chart
+	opposed_pair Ruthless
+		Cordial 
+	opposed_pair Subversive
+		Loyal		
+	
+	
+	
+*label main_menu
+*choice
+	*if (false) #Journal.
+		*comment Trigger variables during the main story events to add them here.
+		- Prince Arundel has been missing for over a week now and the Council is growing restless.
+		
+		@{(ch2_who_i_investigated = "Bouchard") - I went to interview Bouchard at Corliss's request. He claims that he didn't see Arundel leaving through the sewers. |} @{(ch2_allied_with_bouchard) - I managed to convince him to join with me in a mutually beneficial alliance. |}
+			
+		@{(ch2_who_i_investigated = "Vivian") - I went to interview Vivian at Corliss's request. She doesn't appear to know where Arundel has disappeared to, but she made a hasty exit when I pressed her for details.   |} 
+		
+
+		@{(ch2_allied_with_vivian) - I managed to convince Vivian to join me in a mutually beneficial alliance. |}
+
+	
+		*goto main_menu
+	*if (kindred_primer) #Notable Kindred of Ottawa.
+		Your access to Corliss's files and notes gives you the uncommon privilege of insight into the most important Kindred currently residing in Ottawa.
+		*label primer	
+		*fake_choice
+			#Prince Arundel
+				*image arundel.jpg
+			
+				Clan: Ventrue
+				
+				@{(chapter > 6) [b]A memory surfaces as you recall these notes. Words spring to life as if they were branded into your mind: Collective Lucidity. You have no idea what the context of the strange words is, but it's somehow impossible to forget them. [/b] |}
+				
+				Embraced several centuries ago, Arundel assumed the name of his mortal birthplace in an attempt to retain a portion of his humanity. Few Kindred know his birth name, and if they do, they aren't telling. He is the first Prince of Ottawa to survive the incessant Sabbat incursions on Canada's capital city from nearby Montreal. Arundel assumed command after the erstwhile Prince Cranston's ambitions ended with her meeting final death at the hands of those she thought to be allies. As Cranston's Seneschal, Arundel narrowly escaped the ambush's flames with the help of the Nosferatu "Qui."
+
+				After numerous Kindred fled Ottawa in the wake of attacks from Montreal, Arundel rebuilt the local Camarilla from the ground up, recruiting from those he trusted as well as attracting from unusual elements, emulating the governing style of his former mentor, London's Valerius. He offered incentives to the Brujah of Kitchener and Cambridge as well as the Gangrel of southwestern Ontario to consolidate power and hold the city against attack. His sharing of political capital enraged many of his supporters among the Ventrue, causing them to withdraw their support. He was only able to retain his grip on the domain with the help of Eden Corliss and Qui, whom he raised to Seneschal and Sheriff respectively. 
+
+				When Montreal was scoured clean by FIRSTLIGHT as part of the Second Inquisition, Ottawa transformed overnight from a desperate enclave into a burgeoning metropolis that attracted Kindred from all over the globe. Elder Kindred rode high on the wave of sudden popularity, gaining wealth and influence. Arundel has also managed to enrich himself in the process, elevating his tech firm to one of the most lucrative businesses in Canada.
+
+				During these early years of prosperity, Arundel grew close with the Brujah, Robert Ward, a friendship that was said to raise the ire of his Seneschal, Eden Corliss. When most of Clan Brujah violently broke with the Camarilla following the Conclave of Prague, Arundel reportedly pleaded for Ward to stay with the Camarilla (why he felt so strongly about the matter is the focus of wild speculation among Ottawa elders.) When the Brujah left to join the Anarchs anyway, reports from Corliss suggested that Arundel was "inconsolable" for at least a week before reappearing as if nothing had happened.
+
+				In recent nights, Arundel opened his domain to Banu Haqim refugees led by the Vizier, Kashif Salik. As Corliss wisely predicted, the move proved quite controversial. When Arundel refused to retract his offer of sanctuary, the majority of Clan Tremere left Ottawa and retreated to their former home in Quebec City, leaving behind only their Primogen Lang as a representative. 
+
+				Mere weeks ago, Prince Arundel suddenly disappeared from public view and hasn't been seen since. Rumors of his whereabouts fly furiously around the court, with suggestions ranging from assassination to a mysterious pull elder Kindred have felt in recent nights termed "The Beckoning" which inexorably draws its targets to a war with the Cainites in the Middle East.
+				
+				*goto primer
+			#Eden Corliss.
+				*if (clan = "Nosferatu")
+					*image corliss_nos.jpg
+					*goto corliss_desc
+				*else
+					*image corliss.jpg
+					*goto corliss_desc
+				*label corliss_desc
+
+				Clan: @{(((clan = "Malkavian") or (clan = "Malkavian_IF")) or (clan = "Malkavian_AB")) Malkavian | ${clan} } 
+				
+				@{(clan = "Nosferatu") In a world of high-powered business, Eden regularly uses her advanced levels of the Obfuscate discipline to assume the face of another woman. At least while she's in public… |}
+				
+				Embraced centuries ago in Birmingham, England, Eden Corliss has a long-held habit of lying low and working from the shadows, earning herself the nickname "The Spider." She witnessed Arundel's rise to prominence after he was selected to work under Regent Valerius in London and silently marked him as a Kindred of interest. At Eden's suggestion, Arundel abandoned London before Valerius's master Mithras returned in the late 1800's, sparing both of them from the powerful methuselah's wrath. They arrived in the United States a decade after the American Civil War before relocating to Ontario shortly after Canada's confederation.
+
+				Not long after Arundel took praxis over Ottawa, Corliss was elevated to Seneschal due in large part to her display of loyalty in defending the Prince from a political uprising within his own clan. Since then, she has supported the majority of his political choices, although she spoke against his association with the "Rabble" of the Brujah and the feral Gangrel, her concern stemming from Arundel's emulation of Valerius's policies which led to his downfall in London. 
+
+				Corliss has sired three childer since her arrival in Ottawa: You, Lucca Taylor, and Nathaniel Harris, permission from Arundel given with unusual frequency that has led to grumbles of favoritism in the Primogen Council.
+
+				In recent nights, Corliss publicly disagreed with Arundel over his decision to welcome the refugee Banu Haqim into Ottawa's Camarilla society, and then she refused to condemn the Tremere when they left the city in protest. Of course she was far from the only prominent Kindred to disagree with the decision, but her closeness to Arundel made the schism that much more interesting to the usual rumor-mongers. 
+				
+				@{(((clan = "Malkavian") or (clan = "Malkavian_IF")) or (clan = "Malkavian_AB")) $!{name}'s private, personal note: Corliss has been receiving numerous pieces of written correspondence from an anonymous tipster calling themselves 'Grace' in recent nights. I took the liberty of examining both the incoming messages and the replies Corliss sent back and noticed something curious. Both Grace's letters and Corliss's responses are in the exact same handwriting. I've seen thousands of handwritten pages pass over her desk, and I'd know that style anywhere. Is Corliss writing and responding to herself? Or is this mysterious 'Grace' simply mimicking Corliss's handwriting in exquisite detail? |}
+
+				*goto primer
+			#Lucca Corliss.
+				*if (clan = "Nosferatu")
+					*image lucca_nos.jpg
+					*goto lucca_desc
+				*else
+					*image lucca.jpg
+					*goto lucca_desc
+				*label lucca_desc
+				
+				Clan: @{(((clan = "Malkavian") or (clan = "Malkavian_IF")) or (clan = "Malkavian_AB")) Malkavian | ${clan} } 
+				
+				The second childe of Eden Corliss, Lucca has spent most of her un-life abroad, managing her sire's interests overseas. You've met her on several occasions when she returned to attend the Council, but never really got to know her until recent nights. The two of you have always got along, but there is no 'sibling' bond per-se. Kindred childer aren't linked by birth, after all, and Corliss never Embraced a mortal without a specific role in mind for them to play. 
+				
+				Despite the fact that you share the same sire, you know surprisingly little about Lucca or Corliss's first childe, Nathaniel. The one constant seems to be Lucca's dogged insistence on winning over her sire's favor no matter the personal cost. She's foregone friendships, lovers, allies, and dropped everything to follow her sire's instructions. Such loyalty reaps its rewards, even if the affection Lucca seeks isn't easy to come by. She's been lavished with wealth and extravagant living accommodations worldwide, the like of which mortals only dream of. And yet you can see in her eyes that it all rings hollow. Maybe one night she'll find inner peace, but tonight is not that night.
+				
+				*goto primer
+			#Sheriff Qui.
+				*image qui.jpg
+			
+				Clan: Nosferatu
+				
+				Sheriff Qui arrived in Ottawa in 1977 at the request of the former Prince Cranston as a co-conspirator in her coup against then-Prince Jonah. Jonah had failed miserably in his attempts to take Montreal from the rival Sabbat, leading to the destruction of several Kindred as well as innumerable valuable ghoul servants. 
+				
+				Unfortunately, Cranston followed in her predecessor's footsteps when her overconfidence resulted in an ambush that led to her destruction. Qui managed to save only one member of the Prince's party, Cranston's Seneschal, Arundel. 
+
+				Shortly after Arundel ascended to the office of Prince, he offered the position of Sheriff to Qui, which the Nosferatu gratefully accepted. Qui is fiercely loyal to his Prince and will stop at nothing to discover where he has disappeared to. 
+
+				*goto primer
+			#Jordan Tremblay.
+				*if (jordan_gender = "man")
+					*image trembley_m.jpg
+					*goto jordan_post
+				*else
+					*image trembley_f.jpg
+					*goto jordan_post
+				*label jordan_post
+				
+				Clan: Malkavian
+				
+				Embraced in 1968, Jordan gained the attention of ${jordan_hisher} sire as a prominent protester of the Vietnam War in the streets and campuses of New England colleges and universities. After being followed from protest to protest by a shadowy figure, Jordan eventually gave in and confronted ${jordan_hisher} stalker, leading to ${jordan_hisher} unwilling Embrace. Whether or not ${jordan_hisher} sire agreed with Jordan's ideals is unknown. All ${jordan_heshe} can remember from ${jordan_hisher} first nights of un-life is a babbling torrent of words from ${jordan_hisher} sire as he desperately attempted to explain Jordan's part in a grand conspiracy. Involving aliens.
+
+				Jordan managed to escape ${jordan_hisher} sire with the help of a Gangrel named Melody. Wishing to leave the United States and its war behind them, both Kindred fled to Canada. During their journey, Jordan had several extremely lucid visions of the future which terrified ${jordan_himher}. The thought that ${jordan_heshe} would go "crazy" like ${jordan_hisher} sire was a constant fear that Melody was able to put to rest by explaining the nature of Malkavians. Jordan eventually settled in Ottawa and said goodbye to Melody who intended to meet up with other Gangrel in western Ontario.
+
+				*goto primer
+			#Michel Bouchard.
+				*image bouchard.jpg
+			
+				Clan: Nosferatu
+				
+				Little is known about the origins of the powerful Nosferatu Primogen. Though rumors have circulated among neonates for years that he was Embraced during the War of 1812, these tales have been widely discredited by local elders who are well aware that Bouchard is likely significantly older than he wishes to let on. 
+
+				More reasonable estimates place Michel's Embrace in the early 1600s during the French colonization of North America. Bouchard and the erstwhile Nosferatu Prince Cranston came to blows over territory in Ottawa's sewer system, and before Cranston's destruction, she amassed a detailed dossier on Bouchard's past, suggesting he had been embraced not long after the founding of Quebec City, then capital of New France. Unfortunately, the veracity of these claims are nearly impossible to verify after Cranston's destruction at the hands of Montreal's Sabbat. If the dossier survived, it is doubtlessly among Prince Arundel's personal belongings.
+
+				Bouchard is the undisputed master of the sewers and tunnels running below the busy streets of Ottawa, and he manages a list of those who access his domain and what they do while they're there via an extensive system of cameras and surveillance equipment. While Michel himself is distrustful of modern technology, he employs a network of human and neonate servants to catalogue the recordings and tabulate them on paper for his records. 
+
+				*goto primer
+			#Vivian Maier.
+				*image maier.jpg
+			
+				Clan: Ventrue
+				
+				Rumored to have lived in Ottawa since its incorporation in the mid-1800s, Vivian Maier is said to all-but control the mortal politics of Canada. Her influence runs deep, with strings firmly attached to prominent members of both the Conservative and Liberal parties. Recent rumors suggest that she has infiltrated both the NDP and Bloc Québécois as well, giving her near total dominance over Canadian kine's political landscape.
+
+				Vivian's eye for detail and meticulous business sense made her the logical choice as Ottawa's unofficial Harpy—arbiter of disputes over status and debt, as well as de-facto diplomat for relations with the Middle Eastern vampires known as the Ashirra. Now that the notorious information network "SchreckNet" has been dismantled, it has been suggested that no other Kindred in Ottawa has amassed a larger treasure trove of data regarding the domain's inhabitants than Ms. Maier.
+
+				While she abides by no explicit alliances, Vivian is known to have been close with Arundel even before he became Prince. While many have speculated that the two had been lovers, they have each denied this on several occasions, insisting that their relationship is strictly professional.
+
+				*goto primer
+			#Kashif Salik.
+				*image salik.jpg
+			
+				Clan: Banu Haqim
+				
+				Kashif Salik was welcomed into Ottawa by Prince Arundel after he fled the Banu Haqim's ancestral home. He's spent the last six months acclimating to the vastly different political atmosphere which he's found as difficult to adapt to as the cold Canadian climate. Many Kindred in the city distrust him and find his insistence on waking during the day to pray toward Mecca strange and illogical, possibly even insane. The Tremere strongly opposed Kashif's welcome into Ottawa's Camarilla circle, and they abandoned the city in protest, leaving Henrik Lang, their chantry keeper, as their sole presence in Ottawa.
+
+				Like many of his clan, Kashif has a strong sense of justice and he finds himself bewildered by the inability of his Camarilla hosts to rein in the anonymous threats he receives on a regular basis which he assumes are delivered by the furious Tremere. He has since formed an unexpected friendship with Ophelia, the Malkavian Primogen, who took an almost immediate liking to him.
+
+				*goto primer
+			#Alisha Grey.
+				*image grey.jpg
+			
+				Clan: Toreador
+				
+				In life, Alisha was a burlesque performer who attracted the attention of her sire through intense devotion to her art and tendency to push boundaries. Her sire, a female Kindred socialite with an appetite for young female kine, was entranced by Alisha’s pushing of LGBT boundaries in a late-1800s world where such things were considered obscene and punishable by jail time.
+
+				During the rise of the Internet in the early 1990s, Alisha created her own sex-positive, feminist-friendly porn studio, laying claim to a number of hot online domains. The revenue allows her to live a lavish lifestyle and provides her with a number of well-cared-for and willing vessels to slake her thirst and that of her associates. Her primary influence is as the Keeper of Elysium—within the walls of the exclusive Rideau Club.
+
+				Often dismissed by Kindred outside her own clan, Alisha is actually quite savvy when it comes to business dealings, and while she doesn't currently dominate the financial landscape, she is poised to make an absolute killing in upcoming markets.
+
+				*goto primer
+			#Henrik Lang.
+				*image lang.jpg
+				
+				Clan: Tremere
+				
+				A fierce Tremere traditionalist and scholar of ancient magics and esoteric texts, Henrik Lang originally set up shop in Quebec City after Prince Annabelle built a powerful chantry there in the 1980s. In the 2000s, he was sent to establish a Tremere presence in Ottawa. He crafted a chantry beneath St. Alban's Anglican Church, utilizing the historical building as cover and taking it over fully after the church fractured in 2008. 
+
+				After a coalition of Second Inquisition agencies destroyed the Prime Chantry in Vienna, the clan's hierarchy fell apart. Lang has since fought tirelessly to hold his clan together like the old days before bonds were broken. Lone wolf "mercenary maguses" have a way of disappearing not long after setting foot in Ontario or Quebec, and there is little doubt among the other elders as to who is responsible. Prince Arundel has been largely content to let the Tremere squabble among themselves and allows Lang to operate autonomously as long as he doesn't interfere in official Camarilla affairs or break the Masquerade.
+
+				With his structure and ideological framework crumbling around him, Lang is unusually sensitive to changes in local operations, and thus opposes the rise of House Carna and the admittance of the Banu Haqim into the Camarilla. When Arundel granted sanctuary to Kashif Salik, the Banu Haqim Vizier, Lang did what for him was formerly unthinkable—he rocked the boat. Under his advisement, the Tremere from his chantry left for Quebec City in protest, vocally opposing the welcome of their old enemies to Ottawa. According to official records, only Lang remains now, holding the chantry for the day that his fellows are able to return triumphant.
+
+				*goto primer
+			#Ophelia.
+				*image ophelia.jpg
+				
+				Clan: Malkavian
+				
+				Identifying herself only as "Ophelia," the Primogen's motives are largely unknown. Her mastery of the mental arts is unquestioned, but she is prone to flights of fancy and paranoia. Half a century ago, she was known for her unparalleled skills as a thespian, but in recent nights her artistic inclinations have largely diminished. In public, she remains a fierce ally to Prince Arundel and wholeheartedly supported his bid to relocate the Banu Haqim to Ottawa despite the local Tremeres' protest. 
+				
+				In the time since, she has grown close to the newcomer, Kashif Salik, although the true nature of their dealings remains a mystery. Further investigation is warranted.
+				
+				*goto primer
+			#Robert Ward.
+				*image ward.jpg
+				
+				Clan: Brujah
+				
+				During the peak of the Industrial Revolution, Robert Ward was a champion of worker's rights in England, advocating better wages and working conditions, as well as promoting robust education for the lower classes. These efforts brought him to the attention of a powerful elder in the "Learned Clan" who reached out to Robert and offered him the Embrace in 1840. In his first years as a fledgling, Ward let his newfound power go to his head and lashed out in a series of violent assaults against business owners and strike-busters. When he was rebuked for the attacks and threatened with final death, he was able to listen to reason and continue with more peaceful efforts. He left for Canada in the late 1800s along with half a dozen other Brujah to settle in the small city of Kitchener, Ontario, then known as Berlin.
+
+				When Arundel became Prince of Ottawa and opened the city's doors to the "Rabble," Robert was thrilled to gain access to such an influential group of Kindred. What he found upon arrival was a deep-seated prejudice against his clan, and while he worked tirelessly to win over minds, he was often drawn into physical confrontations when his blood got heated. This, unfortunately, only served to undermine his calls for equality.
+
+				When the majority of Clan Brujah violently broke with the Camarilla following the Conclave of Prague, Ward was forced to choose between Arundel and the Anarchs which were fighting for the principles he believed in. In the end, there was only one choice he could make—the Camarilla was dangerously broken. The only way forward was a clean split to join the Anarchs and enact change by any means necessary.
+
+				*goto primer
+			#Return to Main Menu.
+				*goto main_menu
+	*if (kindred_primer) #Other Kindred of note.
+		Corliss's files include small dossiers regarding recent arrivals, associates, and Anarchs of interest.
+		*label primer2
+		*fake_choice
+			*if (chapter > 5) #Adeline Durand
+				*image durand.jpg
+				
+				Affiliation: Camarilla
+				*line_break
+				Office: Archon
+				*line_break
+				Clan: Ventrue
+				
+				Little is known of Ms. Durand's origins or the validity of her claim to the office of Archon. Her power is great and her documents impeccable, but such things are difficult to verify in recent nights. Further investigation may be necessary.
+			
+				*goto primer2
+			#Michalis Basaras.
+				*image basaras.jpg
+				
+				Affiliation: Chicago
+				*line_break
+				Clan: Lasombra
+				
+				Michalis Basaras is an emissary from the Chicago Lasombra, negotiating the integration of his clan into eastern Canada's Camarilla domains. He faces strong opposition in Ottawa, which was once a frequent target of Sabbat raids from nearby Montreal. As clan Lasombra slowly leaves the Sabbat in favor of the security of the Camarilla, there are great gains to be made by those who broker peace. 
+				
+				Basaras has been to Ottawa once before to speak with Arundel about the slow immigration of younger generations from Clan Lasombra. Rumor has it that he presented both Arundel and Corliss with a magnificent gift upon his last arrival, further rumor suggesting that the gift was a sacrificial elder of his clan, staked, paralyzed, and at their mercy. An apology of sorts—redress for past transgressions.
+				
+				*goto primer2
+			#Javier.
+				*image javier.jpg
+				
+				Affiliation: Chicago
+				*line_break
+				Clan: Lasombra
+				
+				Little is known about Javier. He was introduced to the domain as Michalis Basaras's personal assistant, but there may be more to him than initially reported. According to early surveillance, he's kept to himself, but Corliss suggests that the Court keep a close eye on him.
+				
+				@{((ch6_met_extortionist) or (ch6_saw_lucca_at_jordans)) Addendum: Javier has shown his true colors at last by attacking Qui beneath the Shaw Centre. Did Basaras order the hit or did Javier act on his own? |}
+				
+				*goto primer2
+			#Hauberk.
+				*image hauberk.jpg
+				
+				Affiliation: Anarchs
+				*line_break
+				Clan: Gangrel
+				
+				Recently spotted in Ottawa in the company of the Anarch, Robert Ward. Sire and origin unknown. Further study may be necessary if termination is not possible.
+				
+				*goto primer2
+			*if (chapter > 4) #Sevinc
+				*image sevinc.jpg
+				
+				Affiliation: Anarchs
+				*line_break
+				Clan: Banu Haqim / Assamite
+				
+				Newly arrived to Ottawa but has been known in other North American domains. A true believer in the Anarch ways, she is a threat to the Camarilla and the Masquerade. 
+				
+				Terminate on sight.
+			
+				*goto primer2
+			#Prince Annabelle.
+				*image annabelle.jpg
+				
+				Affiliation: Quebec City
+				*line_break
+				Clan: Tremere
+				
+				Prince Annabelle has held Quebec City as her domain since the 1980s and built it up from nothing into one of the most powerful chantries in North America. When Ottawa's Tremere left in protest after Prince Arundel's welcoming of the Banu Haqim, she was more than happy to bring them into the fold. 
+				
+				Troubling reports have been surfacing regarding the migration of a new faction of rogue Warlocks to her domain. These rumors are unverified, but should be kept in mind during any future political dealings.
+				
+				*goto primer2
+			#Trevor Haidt.
+				*image haidt.jpg
+				
+				Affiliation: Prince Annabelle of Quebec City
+				*line_break
+				Clan: Tremere
+			
+				Recent arrival and envoy of Prince Annabelle, Tremere Prince of Quebec City. Mr. Haidt intends to negotiate the repatriation of his clanmates to Henrik Lang's chantry. He could be a powerful ally if leveraged effectively.
+				
+				@{(ch5_talked_to_trevor) You've recently learned that there is more to Trevor than it seemed… |}
+				@{(ch5_agreed_to_work_with_trevor) A pact made with such a vampire could yield great rewards…or devastating consequences. |}
+				
+				*goto primer2
+			*if (ch5_faced_moretti) #Father Moretti.
+				*image moretti.jpg
+				
+				Affiliation: None
+				*line_break
+				Clan: Lasombra
+				
+				Little is know about Father Moretti, and digging through records reveals nothing you haven't already seen with your own eyes. Moretti @{(ch5_moretti_destroyed) was | is } a transient vampire of clan Lasombra who took up residence in St. Anthony of Padua and converted his followers into a twisted version of their former Catholic religion.
+				
+				*goto primer2
+			#Return to Main Menu
+				*goto main_menu
+				
+	#Abilities.
+		[b]Strength:[/b] Governs activities that require raw power and brute strength. Hand-to-hand fighting, smashing down a door, restraining a victim.
+
+		[b]Dexterity:[/b] Actions requiring quick or precise movement and remaining unseen. Firing a gun, hiding in the shadows, escaping a fight without being harmed.
+
+		[b]Stamina:[/b] Your ability to take a beating without succumbing to your wounds, run long distances, and take actions that would exhaust any mortal.
+
+		[b]Charisma:[/b] How much do other Kindred and mortals like you? There are many subtle ways this can advantage you in the Kindred social world.
+
+		[b]Manipulation:[/b] The subtle art of lies and deceit. Are you good at getting people to do what you want, even if they wouldn't have wanted to? 
+
+		[b]Composure:[/b] Staying cool, calm, and collected—can be useful in any kind of situation, from lining up a shot with your gun to impressing a socialite at a midnight ballroom dance.
+
+		[b]Intelligence:[/b] Your level of education and knowledge of how the world around you works. Applies to understanding practical solutions easily and even impressing others in conversation.
+
+		[b]Wits:[/b] The ability to think quickly and react correctly without taking too long or over-analyzing. 
+
+		[b]Resolve:[/b] Focus, patience, and determination. You're harder to distract and better at zeroing in on your target.
+	
+		*goto main_menu
+			
+	#Clans.
+		[b]Banu Haqim:[/b] Far from their origins in the Middle East, the "Assamites" have recently begun an alliance with the vampire elite of the western world—the Camarilla. They are feared assassins and powerful sorcerers and have a long-running feud with Clan Tremere dating back centuries.
+		
+		[b]Brujah:[/b] Once long-standing allies of the Camarilla, the majority of the Brujah have recently split off from the elites to join the "Rabble" of the Anarch movement, embracing their historical role as rebels and philosophers. Unfortunately, this schism has left them largely fractured and without proper direction.
+						
+		[b]Gangrel:[/b] Much like the Brujah, the ferocious "Feral" vampires of Clan Gangrel were once members of the elite Camarilla society. The majority have now been cast aside or went their own way, searching for meaning through Anarch gangs or simply forging their own paths through the night. They possess animalistic gifts allowing them to speak with animals and shape-shift.
+		
+		[b]Lasombra:[/b] Terrifying vampires lurking in depths darker than mere shadow, the "Magisters" of the Lasombra clan have twisted humanity's path for centuries, manipulating churches and holy wars as they ruled the vampiric sect known as the Sabbat. In recent nights, the clan has fallen from their lofty perch, and their younger members have started buying their way into a reluctant Camarilla by making gifts of their elders—a sacrifice to prove their sincerity and renouncement of their ancestors' flagrant disregard for the Masquerade. Not all believe that they mean well, however.
+						
+		[b]Malkavian:[/b] There are few clans more feared and misunderstood than the Children of Malkav. Each Kindred reborn into Clan Malkavian is afflicted with what some unenlightened might deem to be "derangements" or "insanity," but these unique insights can be as useful as they are terrifying. They often become seers and oracles, their gifts granting them access to worlds beyond common sight. Or at least that's what they've told you…. Often derided as "Lunatics," Kindred of Clan Malkavian are able to twist minds and drift through the shadows unseen—a deadly combination that has earned them a place in the Camarilla despite what some other clans might call their obvious shortcomings.
+			
+		[b]Nosferatu:[/b] Hideous and powerful monsters, members of Clan Nosferatu are stricken by a powerful curse upon their Embrace. The majority are deformed in inhuman ways, although the curse manifests differently for each Kindred. They exude an aura of fear that makes keeping themselves a secret from the mortals quite difficult, leaving them with little choice but to survive in the sewers beneath their city domains. Despite these obvious disadvantages, the "Sewer Rats" have thrived within the Camarilla as everything from hideously powerful juggernauts to information brokers. They can disappear without a trace through the shadows and speak to whatever animals they find living in the depths.
+						
+		[b]Toreador:[/b] A clan of artists and innovators, Toreador Kindred are one of the pillars of the Camarilla. They revel in their passions, repelled by the ugliness of the mortal world around them. They are often Keepers of Elysium, the arbiters of social currency and grace. Their unnatural powers of persuasion and perception take them a step above the competition, and when such subtle tactics fail, they can fight or flee at supernatural speed.	
+			
+		[b]Tremere:[/b] "Warlocks" and sorcerers, Clan Tremere are most at home when studying arcane and ancient histories and discovering the power of the Blood that flows through their veins. Their clan has long possessed a rigid hierarchy, but something terrible has changed in recent nights that has driven their power structure into chaos. The Tremere of Ottawa have largely left the city in protest after Prince Arundel welcomed in their bitter rivals: the Banu Haqim.
+						
+		[b]Ventrue:[/b] Call them the "Blue Bloods" or the "Clan of Kings" and you won't be far from the truth. If the Toreador are the [i]face[/i] of power, Clan Ventrue are the ones behind the curtain pulling the strings. Their mental powers allow them to control the flow of money and politics from behind the veil of the Masquerade.
+		
+		*goto main_menu
+	#Disciplines.
+		The usage of Disciplines drains your Blood and increases your Hunger.
+		
+		[b]Animalism:[/b] Grants the player an animal companion and the ability to communicate with the non-human denizens of the city.
+		
+		[b]Auspex:[/b] Enhances your senses, including your ability to detect other Kindred's auras and sometimes even tell if they're lying.
+		
+		[b]Celerity:[/b] Greatly enhances your speed, dexterity, and fighting ability. Can be used to move so fast that you could be missed in the blink of an eye.
+		
+		[b]Dominate:[/b] Control the minds of those around you, give them subconscious instructions, or make your enemies simply give up and walk away. The possibilities are nearly endless! 
+		
+		[b]Fortitude:[/b] When normal stamina simply won't be enough to get the job done, Fortitude turns you into a wrecking-ball, nearly impervious to bullets and blades when used actively at the expense of increasing your Hunger.
+		
+		[b]Obfuscate:[/b] Fade into the darkness and walk among others unseen. Perfect for sneaking up to ambush unaware enemies or snooping for information. Note: You cannot simply fade from view while being watched—you must first be unseen to remain unseen.
+		
+		[b]Oblivion:[/b] Command over shadows, calling forth supernatural darkness from the Abyss! Summon shadowy tentacles to constrict your foes, cloak yourself in darkness, spy over long distances by projecting your consciousness into any shadow you can see!
+		
+		[b]Potence:[/b] Incredible strength and fighting ability. If you want to smash your opponent's head in with a single blow or leap small buildings in a single bound, Potence gets the job done.
+		
+		[b]Presence:[/b] The Swiss army knife of any socialite, Presence allows its users to influence the people around them, whether by enchanting them into desiring nothing more than your pleasure, or causing deathly fear. Unlike the Dominate Discipline, Presence does not allow you to turn your victims into mindless thralls.
+		*goto main_menu	
+	#Hunger and The Beast.
+		All vampires suffer from an undying Hunger for blood. Using your powers expends some of the Blood you've stolen and increases your Hunger. Only killing and fully draining a living human slakes your Hunger fully, and then only for a time.
+
+		If you become hungry enough, you lose the ability to activate Disciplines.
+		
+		[b]Every time you rise from your daily slumber, there is a possibility that your Hunger level will grow. Make sure to feed as often as possible! [/b]
+		*goto main_menu
+	#The Masquerade.
+		The First Tradition of the Camarilla—what passes for civilization among the undead—is to hide the existence of vampires from the mortal herd. This is the Masquerade. You can violate the Masquerade by openly using obvious supernatural powers, feeding in public, or failing to dispose of a body you drained.
+
+		Violating the Masquerade risks the wrath of elders among the Camarilla. Worse, with the Second Inquisition raging across the world, a breach of the Masquerade risks sending a Second Inquisition kill team to your doorstep. Such an attack usually comes in daylight and can destroy you if you're not careful.
+		*goto main_menu
+	#The Camarilla.
+		The Camarilla—the so-called Ivory Tower—is a secret society of vampires dedicated to hiding their existence from mortals, a guiding ideology called the Masquerade. Most Camarilla cities are ruled by a Prince (the term is gender neutral). Beneath this monarch is an elaborate hierarchy of underlings and overlords, bound together through favors, mutual enemies, the Traditions (including the Masquerade), and the overwhelming nightly drive to find more blood. Vampires of the Camarilla call each other "Kindred." They all appreciate the bitter irony of that term.
+
+		The rise of the Second Inquisition has made the Camarilla more paranoid and restrictive. Where once the Princes tolerated "Anarchs" and those living on the fringe, now they retreat into their Elysiums—hidden sanctums where they can conduct their business in peace—and try to weather the storm. These nights, the Camarilla are the vampire elite, and like any elite, they are happy to sacrifice everyone else for their own safety or convenience.
+		*goto main_menu
+	#The Anarchs.
+		Rebels, deviants, activists, or terrorists—these are the vampires who simply don't fit in with the rigid Camarilla structure and organize into their own groups. 
+		
+		While their passion often leads to violence, this is not necessarily the case. An Anarch can just as easily be an author or activist fighting for systemic change as they can be a violent terrorist. A city ruled by Anarchs is commonly known as a Barony, and rather than a ruling Prince, it is run by a Baron.
+		*goto main_menu
+	#The Sabbat.
+		Eternal enemies of the Camarilla, the Sabbat have no respect for the Masquerade and often view mortals as nothing more than chattel to be fed from, killed, or manipulated as they see fit. 
+		
+		In recent nights, the Sabbat have been fractured and largely pulled eastward into what many believe to be some form of underground holy war. Those left behind are struggling to hold on to their power or even survive. Many in the once-proud Sabbat clan, the Lasombra, are actively seeing succor with the Camarilla—a change that would have once have been unthinkable. 
+		*goto main_menu
+	#The Second Inquisition.
+		The first Inquisition taught the arrogant vampires of the Middle Ages that they were not invincible. They learned that mortals, while weak alone, were almost unstoppable when organized and when they knew their enemy.
+
+		The vampires of the Camarilla took the lessons of the Inquisition to heart, hiding their actions behind the Masquerade. But no deception is perfect. As digital technology proliferated in the twentieth century, young vampires adapted, leaving their elders in the dust. They didn't know that mortals were listening in. And even when they realized the danger, many in the Camarilla believed they could direct these hunters at their enemies.
+
+		The results of this arrogance were catastrophic: the fires of the Second Inquisition blazed across the world, destroying elders and fledglings alike, cleansing whole cities of vampires. Embedded in the security and intelligence agencies of various national governments, including the FBI and the CIA, followers of the Second Inquisition employs every weapon at its disposal to hunt down and destroy vampires.
+		*goto main_menu
+	#Codex of Kindred Terminology.
+		A vampire's vitae—the stolen Blood that flows through your veins—has a variety of supernatural powers.
+
+		[b]Disciplines:[/b] A vampire's supernatural arts are called Disciplines. Different clans manifest different arts, from mind control and shape-shifting to superhuman strength and speed. Most Disciplines require Blood to activate (increasing your Hunger) and grant a significant bonus to any relevant action you undertake.
+
+		[b]Mending:[/b] You can use the Blood you take to repair your dead flesh. In fact, this is the only way vampires can "heal," as they cannot do so naturally.
+
+		[b]Ghouls:[/b] A vampire who feeds vitae to a living mortal creates a ghoul. Sometimes called a retainer or a thrall, a ghoul does not age, manifests minor supernatural powers such as occasional bursts of great strength, and is loyal to their vampire regnant through the Blood Bond (see below). Most established vampires make use of one or more ghouls to handle their daylight business.
+
+		[b]The Embrace:[/b] Feed a mortal your vitae and you create a ghoul. Drain a mortal to death and feed that mortal your Blood, and you create a new vampire of your clan. You are now the sire to a childe. This act is called the Embrace. Most Princes of the Camarilla forbid Embracing new vampires except under special conditions, as there are always too many vampires and never enough places to hunt.
+
+		[b]The Blood Bond:[/b] Drink a vampire's blood three times on three separate nights and you are bound to that vampire, forced into service through a supernatural compulsion called the Blood Bond. If you create a ghoul, that ghoul is soon Blood Bound to you. Beware of your sire—you've already tasted your sire's Blood once, when you were Embraced and turned into a vampire!
+
+		[b]Diablerie:[/b] To drain another vampire, body and soul, is called diablerie, and the Camarilla consider it the most awful of crimes. 
+		
+		[b]Primogen Council:[/b] A collective group of a domain's most powerful and influential Camarilla Kindred.
+
+		[b]Lick:[/b] A derogatory term for a vampire.
+		
+		[b]Praxis:[/b] The right of a Prince to govern; the Prince's claim to a domain.
+		
+		[b]The Ivory Tower:[/b] Another name for the Camarilla.
+		
+		[b]Generation:[/b] According to legend, the first vampire was Caine, the first murderer. Legend further says that Caine had three childer, who had childer of their own, and that those vampires of the Third Generation founded the clans. Whether or not you believe this story, when a vampire Embraces a mortal, that childe's Blood is thinner and weaker than the sire's. Vampires of high generation are sometimes Caitiff (the Clanless), and those of very high generation are thin-bloods—barely vampires at all. Though a vampire's Disciplines develop with age, generation does not change…except through diablerie.
+		
+		[b]Fledgling:[/b] A newly Embraced vampire.
+		
+		[b]Neonate:[/b] A young vampire recently Embraced but older than a fledgling.
+		*goto main_menu	
+	#Toggle Storyteller Mode, Bookmark Mode, or Attribute Display Mode.
+		*label options_toggle
+		Make any changes you'd like below:
+		*choice
+			*if (storyteller) #Turn off Storyteller Mode.
+				*set storyteller false
+				*goto options_toggle 
+			*if (storyteller = false) #Turn on Storyteller Mode.
+				*set storyteller true
+				*goto options_toggle
+			*if (stat_dots_option) #Display my Attributes as percentages.
+				*set stat_dots_option false
+				*goto options_toggle
+			*if (stat_dots_option = false) #Display my Attributes as Vampire: the Masquerade-style dots instead of percentages.
+				*set stat_dots_option true
+				*goto options_toggle
+			*if (restore_function_toggled_on = false) #Turn on Bookmark Mode: Allows you to rewind the game to the beginning of the chapter when you reach the end, restoring all choices to their original state.
+				*set restore_function_toggled_on true
+				Bookmark mode will allow you to roll back your decisions at the end of each chapter until the end of chapter 9. Please make sure that you're ready to finish the game when you begin chapter 10, as there will be no further rollbacks!
+				
+				*goto options_toggle
+			*if (restore_function_toggled_on) #Turn off Bookmark Mode.
+				*set restore_function_toggled_on false
+				*goto options_toggle
+			#Return to Stats Screen.
+				*goto stat_screen1
+	#Return to Stats Screen.
+		*goto stat_screen1
+
+
+
+
+
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+
