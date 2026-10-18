@@ -1,0 +1,185 @@
+<html><head><title>Титры | Vampire: The Masquerade — Parliament of Knives</title>
+<meta charset="utf-8"> 
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name = "viewport" content = "width = device-width">
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="version.js"></script>
+<style>
+body {
+  background-color: white;
+}
+h2 {
+  font-size: larger;
+}
+:target {
+	display: none;
+}
+</style>
+	<script>
+		window.onload = function () {
+			var params = new URLSearchParams(window.location.search);
+			if (params.has("embedded")) {
+				var h1 = document.getElementsByTagName("h1")[0];
+				h1.parentNode.removeChild(h1);
+				
+				var h2 = document.getElementsByTagName("h2")[0];
+				h2.innerText = h2.innerText;
+				
+				var back = document.getElementById("back");
+				back.parentNode.removeChild(back);
+
+				var companyId = "cog";
+				if (document.getElementById('about-hc')) {
+					companyId = "hc";
+				} else if (document.getElementById('about-hg')) {
+					companyId = "hg";
+				}
+
+				if (params.has("embedded", "omnibus")) {
+					var cta = document.getElementById("about-cta");
+					if (companyId === "hg") {
+						cta.innerHTML = `<p>Познакомьтесь с другими авторами Hosted Games на <a href="https://forum.choiceofgames.com/">форуме Choice of Games</a>!</p>`
+					} else {
+						cta.innerHTML = `<p>Следите за Choice of Games в <a href="https://www.facebook.com/choiceofgames">Facebook</a>,
+							<a href="https://www.instagram.com/choiceofgames">Instagram</a>,
+							<a href="https://choiceofgames.tumblr.com/">Tumblr</a>,
+							или загляните на наш <a href="https://forum.choiceofgames.com/">форум</a>!</p>`
+					}
+				} else {
+					var platform =
+						window.isSteamApp ? "steam"
+						: window.isIosApp ? "ios"
+						: window.isAmazonAndroidApp ? "aaa"
+						: window.isAndroidApp ? "gps"
+						: "web";
+					var moreGamesLink = {
+						steam: {
+							cog: "https://store.steampowered.com/developer/choiceofgames",
+							hg: "https://store.steampowered.com/developer/choiceofgames",
+							hc: "https://store.steampowered.com/developer/heartschoice",
+						},
+						ios: {
+							cog: "https://apps.apple.com/us/app/choice-of-games/id1363309257",
+							hg: "https://apps.apple.com/us/app/hosted-games/id1302297731",
+							hc: "https://apps.apple.com/us/app/hearts-choice/id1487052276",
+						},
+						gps: {
+							cog: "https://play.google.com/store/apps/details?id=com.choiceofgames.omnibus",
+							hg: "https://play.google.com/store/apps/details?id=org.hostedgames.omnibus",
+							hc: "https://play.google.com/store/apps/details?id=com.heartschoice.o",
+						},
+						aaa: {
+							cog: "https://www.amazon.com/dp/B07SSNV95K",
+							hg: "https://www.amazon.com/dp/B07SQLMR9V",
+							hc: "https://www.amazon.com/dp/B081YD1M4F",
+						},
+						web: {
+							cog: "https://www.choiceofgames.com/",
+							hg: "https://www.choiceofgames.com/category/user-made-games/",
+							hc: "https://www.heartschoice.com/shop/",
+						}
+					}[platform][companyId];
+					var cta = document.getElementById("about-cta");
+					cta.innerHTML = `<p><a href="${moreGamesLink}">Играйте в другие похожие игры</p>`
+				}
+			}
+
+			if (window.version) document.getElementById('versionReport').innerHTML = "Версия игры: " + window.version;
+		}
+	</script>
+</head>
+<body id="main" class="container">
+<h1>Титры</h1><div id="credits">
+
+<h2><a href="https://www.choiceofgames.com/parliament-of-knives">Vampire: The Masquerade — Parliament of Knives</a></h2>
+
+<ul><li>Автор: Jeffrey Dean</li>
+	<li>Художник: <a href="https://www.artstation.com/amywilkinsart" target="_new">Amy Wilkins</a></li>
+	<li>Корректура: Kirsten Hipsky</li>
+	<li>Заголовки глав: Jeffrey Dean</li>
+	<li>Нарративное тестирование: Aletheia Knights</li>
+	<li>Бета-тестеры: Matthew Bluck, Alexis Brossmann, Christian Calimag, Ryan Cheng, Sabyasachi Das, Meredith Davis, Heather Dodds, Olamide Eni, Matt Griffin, Hadi Hanif, Jaden Hartfield, Eirini Karoutsos, Tom Kennedy, Gaia Lambruschi, Sebastian Rock, Hudson Schekman, David W. Snee, Lily Vang, Cortney Wilson, Andreas Wong, Shez Yameen</li>
+	<li>Выпускающий редактор: Jason Stevan Hill</li>
+	<li>Дизайн и разработка языка ChoiceScript: Dan Fabulich</li>
+</ul>
+
+<p>© Paradox Interactive AB; разработано Choice of Games LLC по лицензии. Vampire: The Masquerade&reg; — зарегистрированная торговая марка Paradox Interactive AB. Все права защищены.<p>
+
+<p><img src="https://www.choiceofgames.com/wp-content/uploads/2020/03/promo408.png"></p>
+
+<h2>Об авторе</h2>
+<p>Джеффри Дин — писатель, геймдизайнер и музыкант с далёкого белого севера Онтарио, где живёт на постоянной диете из лапши быстрого приготовления, надежды и сквозняков. Его опубликованные работы включают: <a href="https://www.choiceofgames.com/werewolves-haven-rising/redirect.php" target="_new">Werewolves: Haven Rising</a>, <a href="https://www.choiceofgames.com/werewolves-2-pack-mentality/redirect.php" target="_new">Werewolves 2: Pack Mentality</a> и трилогию игровых книг <i>Road Less Traveled</i> от Greek Winter Media. Он вырос в тихих сельских районах южного Коннектикута и с тех пор неизменно двигался на север: получил степень по информатике, а затем, перейдя границу, поселился в своём первом канадском иглу. Он чувствовал бы себя там как дома, если бы не постоянные нападения белых медведей. Запасы еды тают. Пожалуйста, пришлите помощь.</p>
+
+</div>
+
+<!--
+<div id="author">
+<h2>About the Author</h2>
+<p>INSERTINSERTINSERT</p>
+</div>
+-->
+
+<div id="about-cog" class="about-us">
+<h2>О Choice of Games LLC</h2>
+<p>Choice of Games — крупнейшее в мире издательство интерактивных романов. Наши отмеченные наградами игры полностью текстовые — сотни тысяч слов и сотни выборов, без графики и звуковых эффектов — и движимы огромной, неостановимой силой вашего воображения. Выбирайте свой путь: ваши выборы управляют историей.</p>
+
+<p>С 2009 года мы опубликовали более 150 интерактивных романов в Steam, в интернете и в нашем приложении «Choice of Games» для iPhone и Android, включая множество номинантов на премию «Небула» от SFWA. Мы выпускаем более десятка игр в год и продолжаем расширять каталог старых игр, которые делаем бесплатными для всех читателей.</p>
+
+<p>Используя ChoiceScript — язык сценариев, созданный нами для разработки интерактивных романов, — отдельный автор может написать полноценное разветвлённое повествование длиной в сотни тысяч слов, единым голосом и под единым творческим замыслом. Игрок может прочитать около 20% этих слов за одно прохождение, благодаря чему наши игры остаются свежими при каждом новом прохождении.</p>
+
+<div id="about-cta">
+<p><a href="https://www.choiceofgames.com/">Играйте в другие похожие игры</a></p>
+</div>
+
+</div>
+
+<!--
+<div id="about-hc" class="about-us">
+<h2>About Heart's Choice</h2>
+<p>Become the main character of a romance novel! Choose your path to passion and find your Happily Ever After.</p>
+
+<p>Since 2009, the team behind Choice of Games has created high-quality interactive novels in all genres. Now, our new Heart’s Choice label puts romance at the center of the story, and you at the center of the romance.</p>
+
+<p>There are no graphics or sound effects, so we can focus on the story. Every game is filled with vivid, fully-developed characters and complex narratives that respond to your choices.</p>
+
+<p>Every path is always open to you: we never charge extra for the best options or most interesting storylines. Unlike other games where you have to work your way through "failure" endings to get to the "good endings," in Heart's Choice, you'll always be able to choose a Happily Ever After with the character (or characters) you desire.</p>
+
+<p>Whatever gender or orientation you want to play, there will be a Heart’s Choice game for you in our catalog! And whether you like your romance sweet, spicy, or smoking hot, you’ll be able to find a story that you love.</p>
+
+<div id="about-cta">
+<p><a href="https://www.heartschoice.com/shop/">Play more games like this</a></p>
+</div>
+</div>
+-->
+
+<!--
+<div id="about-hg" class="about-us">
+<h2>About Hosted Games</h2>
+<p>Authors just like you have developed games using <a href="http://www.choiceofgames.com/make-your-own-games/choicescript-intro/">ChoiceScript</a>, a simple programming language for writing multiple-choice games where your decisions control the story. Writing games with ChoiceScript is easy and fun, even for authors with no programming experience.</p>
+
+<p>Write your own game and we'll <a href="https://www.choiceofgames.com/looking-for-writers/write-a-hosted-game/">host it for you online</a>, giving you a share of the revenue your game produces.</p>
+
+<div id="about-cta">
+<p><a href="https://www.choiceofgames.com/category/user-made-games/">Play more games like this</a></p>
+</div>
+</div>
+-->
+
+<h2>О Paradox Interactive</h2>
+
+<p>Группа Paradox Interactive занимается разработкой, изданием и лицензированием игр и брендов; её портфель насчитывает более 100 проектов, созданных как внутри компании, так и независимыми студиями. Paradox владеет рядом отмеченных наградами и самых продаваемых брендов, включая <i>Cities: Skylines</i>, <i>Stellaris</i>, <i>Crusader Kings</i>, <i>Age of Wonders</i> и многие другие игры для ПК и консолей. Paradox владеет интеллектуальной собственностью World of Darkness и в 2020 году издаёт Vampire: The Masquerade - Bloodlines 2 на ПК и консолях.</p>
+
+<p>С момента основания в 2004 году Paradox издаёт свои игры по всему миру, а её крупнейшие рынки включают США, Великобританию, Китай, Германию, Францию и Россию. Сегодня более четырёх миллионов игроков каждый месяц играют в игры Paradox, а глобальное сообщество насчитывает более десяти миллионов зарегистрированных пользователей Paradox.</p>
+
+<p>Акции Paradox Interactive AB (publ) котируются на Nasdaq Stockholm First North Premier под тикером PDX. Сертифицированным консультантом компании является FNCA Sweden AB. Для получения дополнительной информации посетите <a href="https://www.paradoxinteractive.com/" target="_new">www.paradoxinteractive.com</a>.</p>
+
+<h2>Локализация</h2>
+<p>Неофициальный русский перевод: Evil Dream (HaT1e)<br>
+Ссылка на оригинальный репозиторий: <a href="https://github.com/HaT1e/parliament-of-knives-ru" target="_new">github.com/HaT1e/parliament-of-knives-ru</a></p>
+
+<div id="versionReport"></div>
+<div id="otherVersion"></div>
+
+<p><a id="back" href="index.html">Вернуться к игре</a>
+</body>
+</html>
